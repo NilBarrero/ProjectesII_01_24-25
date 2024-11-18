@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static int puntuacion = 0; // Puntuación accesible globalmente
 
-    private void OnMouseDown()
-    {
-        SceneManager.LoadScene("WinScene");
-    }
-
-    private void OnMouseUp()
+    private void Update()
     {
         
     }
 
+    private void OnMouseDown()
+    {
+        SceneManager.LoadScene("WinScene");
+        puntuacion += 100;
+    }
 }
+
