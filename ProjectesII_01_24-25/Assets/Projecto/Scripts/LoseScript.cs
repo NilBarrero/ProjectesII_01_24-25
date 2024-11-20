@@ -9,6 +9,10 @@ public class LoseScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Transition.lifes > 0)
+        {
+            Transition.lifes--;
+        }
         SceneManager.LoadScene("Transition Scene");
     }
 

@@ -45,8 +45,12 @@ public class CuentaRegresiva : MonoBehaviour
         }
 
         if (tiempoRestante == 0)
-        {       
-            SceneManager.LoadScene("Transition Scene");
+        {
+            if (Transition.lifes > 0)
+            {
+                Transition.lifes--;
+                SceneManager.LoadScene("Transition Scene");
+            }
         }
     }
 

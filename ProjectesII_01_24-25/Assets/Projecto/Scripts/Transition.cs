@@ -7,7 +7,7 @@ public class Transition : MonoBehaviour
 {
     // Start is called before the first frame update
     public static int puntuacion = 0;
-    public static int lifes = 3;
+    public static int lifes = 1;
     void Start()
     {
         
