@@ -30,7 +30,21 @@ public class CuentaRegresiva : MonoBehaviour
                 ActualizarTexto(); // Actualizamos el texto
             }
         }
-        else if (tiempoRestante == 0)
+
+        if (tiempoRestante > 7)
+        {
+            textoCuentaRegresiva.color = Color.green;
+        }
+        else if (tiempoRestante <= 7 && tiempoRestante > 3)
+        {
+            textoCuentaRegresiva.color = Color.yellow;
+        }
+        else if (tiempoRestante <= 3)
+        {
+            textoCuentaRegresiva.color = Color.red;
+        } 
+       
+        if (tiempoRestante == 0)
         {
             SceneManager.LoadScene("LoseScene");
         }
