@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
-    public static int puntuacion = 0; // Puntuación accesible globalmente
+    // Puntuación accesible globalmente
 
     private void Update()
     {
@@ -15,7 +15,6 @@ public class WinScript : MonoBehaviour
     private void OnMouseDown()
     {
         SceneManager.LoadScene("WinScene");
-        puntuacion += 100;
     }
 }
 

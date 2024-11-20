@@ -27,7 +27,7 @@ public class ScoreDisplay : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Puntuation: " + WinScript.puntuacion.ToString();
+        scoreText.text = "Puntuation: " + Transition.puntuacion.ToString();
     }
 }
 
