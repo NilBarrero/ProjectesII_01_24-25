@@ -8,6 +8,9 @@ public class CuentaRegresiva : MonoBehaviour
     private int tiempoRestante;
     private float tiempoTranscurrido; // Temporizador en tiempo real
     public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrarás la cuenta regresiva
+    public GameObject life0;
+    public GameObject life1;
+    public GameObject life2;
 
     void Start()
     {
@@ -46,11 +49,26 @@ public class CuentaRegresiva : MonoBehaviour
 
         if (tiempoRestante == 0)
         {
-            if (Transition.lifes > 0)
+            if (Transition.lifes == 3)
             {
                 Transition.lifes--;
-                SceneManager.LoadScene("Transition Scene");
+                life0.SetActive(false);
             }
+            else if (Transition.lifes == 2)
+            {
+                Transition.lifes--;
+                life1.SetActive(false);
+            }
+            else if (Transition.lifes == 1)
+            {
+                Transition.lifes--;
+                life2.SetActive(false);
+            }
+            else
+            {
+                SceneManager.LoadScene("LoseScene");
+            }
+            SceneManager.LoadScene("Transition Scene");
         }
     }
 
