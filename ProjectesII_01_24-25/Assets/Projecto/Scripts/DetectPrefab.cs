@@ -15,7 +15,8 @@ public class DetectPrefab : MonoBehaviour
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
         if (collision.gameObject.name == prefabName)
         {
-            SceneManager.LoadScene("WinScene");
+            Transition.puntuacion += 100;
+            SceneManager.LoadScene("Transition Scene");
         }
         if (collision.gameObject.name == prefabIncorrectName)
         {

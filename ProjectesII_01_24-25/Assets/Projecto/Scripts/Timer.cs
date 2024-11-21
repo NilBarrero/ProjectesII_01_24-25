@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // Importa la librería para usar TextMeshPro
+using TMPro; // Importa la librerï¿½a para usar TextMeshPro
 using UnityEngine.SceneManagement;
 
 public class CuentaRegresiva : MonoBehaviour
@@ -7,7 +7,10 @@ public class CuentaRegresiva : MonoBehaviour
     public int tiempoInicial = 30; // Tiempo inicial en segundos
     private int tiempoRestante;
     private float tiempoTranscurrido; // Temporizador en tiempo real
-    public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrarás la cuenta regresiva
+    public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrarï¿½s la cuenta regresiva
+    public GameObject life0;
+    public GameObject life1;
+    public GameObject life2;
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class CuentaRegresiva : MonoBehaviour
         // Solo restamos cuando haya pasado 1 segundo real
         if (tiempoRestante > 0)
         {
-            tiempoTranscurrido += Time.deltaTime; // Aumenta el contador con el tiempo del último fotograma
+            tiempoTranscurrido += Time.deltaTime; // Aumenta el contador con el tiempo del ï¿½ltimo fotograma
 
             if (tiempoTranscurrido >= 1f) // Si ha pasado 1 segundo real
             {
@@ -48,6 +51,38 @@ public class CuentaRegresiva : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScene");
         }
+        else if (tiempoRestante <= 7 && tiempoRestante > 3)
+        {
+            textoCuentaRegresiva.color = Color.yellow;
+        }
+        else if (tiempoRestante <= 3)
+        {
+            textoCuentaRegresiva.color = Color.red;
+        }
+
+        if (tiempoRestante == 0)
+        {
+            if (Transition.lifes == 3)
+            {
+                Transition.lifes--;
+                life0.SetActive(false);
+            }
+            else if (Transition.lifes == 2)
+            {
+                Transition.lifes--;
+                life1.SetActive(false);
+            }
+            else if (Transition.lifes == 1)
+            {
+                Transition.lifes--;
+                life2.SetActive(false);
+            }
+            else
+            {
+                SceneManager.LoadScene("LoseScene");
+            }
+            SceneManager.LoadScene("Transition Scene");
+        }
     }
 
     void ActualizarTexto()
@@ -56,4 +91,3 @@ public class CuentaRegresiva : MonoBehaviour
         textoCuentaRegresiva.text = tiempoRestante.ToString() + " s";
     }
 }
-
