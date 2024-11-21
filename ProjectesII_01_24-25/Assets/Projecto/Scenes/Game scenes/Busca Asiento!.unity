@@ -671,9 +671,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 443253133}
-  - component: {fileID: 443253134}
   - component: {fileID: 443253136}
   - component: {fileID: 443253135}
+  - component: {fileID: 443253137}
   m_Layer: 0
   m_Name: Espacio vacio
   m_TagString: Untagged
@@ -696,18 +696,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.524}
---- !u!114 &443253134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443253130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67729cc4b3269f94d85b9a0d25bb7558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &443253135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -805,6 +793,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &443253137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443253130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe67a106ae1eb8f4c9587ef5d7af1bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &528127974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1415,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempoInicial: 10
   textoCuentaRegresiva: {fileID: 836966146}
+  life0: {fileID: 1962155798137204879, guid: 116d142edf35dbc4cb92b16d423f1f63, type: 3}
+  life1: {fileID: 4042319134020919342, guid: 877df281084f98144a88f1f369614283, type: 3}
+  life2: {fileID: 922819372241264455, guid: e64eaf6495e1d5f47b9fba3e38f4baf4, type: 3}
 --- !u!114 &836966146
 MonoBehaviour:
   m_ObjectHideFlags: 0
