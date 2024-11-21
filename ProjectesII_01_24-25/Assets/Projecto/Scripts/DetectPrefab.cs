@@ -7,6 +7,7 @@ public class DetectPrefab : MonoBehaviour
 {
     // Nombre del prefab a detectar
     public string prefabName = "Drag";
+    public string prefabIncorrectName = "Incorrect";
     
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,6 +16,10 @@ public class DetectPrefab : MonoBehaviour
         if (collision.gameObject.name == prefabName)
         {
             SceneManager.LoadScene("WinScene");
+        }
+        if (collision.gameObject.name == prefabIncorrectName)
+        {
+            SceneManager.LoadScene("LoseScene");
         }
     }
 }
