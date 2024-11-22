@@ -8,6 +8,8 @@ public class ChangeGame : MonoBehaviour
     public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
     public string[] GameScene;
     static int index = 0;// Lista de nombres de escenas en la carpeta.
+    [SerializeField] private GameObject FasterText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,10 @@ public class ChangeGame : MonoBehaviour
 
     IEnumerator ChangeScene()
     {
+        if (index == 3)
+        {
+            FasterText.SetActive(true);
+        }
 
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
 
@@ -39,7 +45,7 @@ public class ChangeGame : MonoBehaviour
             if (index >= GameScene.Length)
             {
                 Debug.Log("Se completó la lista de escenas. Reiniciando el ciclo.");
-                index = 0; // Reinicia para comenzar desde la primera escena.
+                index = 3; // Reinicia para comenzar desde la primera escena.
             }
         }
           
