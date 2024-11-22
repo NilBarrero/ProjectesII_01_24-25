@@ -20,7 +20,11 @@ public class DetectPrefab : MonoBehaviour
         }
         if (collision.gameObject.name == prefabIncorrectName)
         {
-            SceneManager.LoadScene("LoseScene");
+            if (Transition.lifes > 0)
+            {
+                Transition.lifes--;
+            }
+            SceneManager.LoadScene("Transition Scene");
         }
     }
 }
