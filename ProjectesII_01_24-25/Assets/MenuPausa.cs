@@ -13,6 +13,7 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject coll4;
     [SerializeField] private GameObject coll5;
     [SerializeField] private GameObject coll6;
+    [SerializeField] private GameObject coll7;
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -24,6 +25,7 @@ public class MenuPausa : MonoBehaviour
         coll4.SetActive(false);
         coll5.SetActive(false);
         coll6.SetActive(false);
+        coll7.SetActive(false);
     }
 
     public void Reanude()
@@ -37,17 +39,21 @@ public class MenuPausa : MonoBehaviour
         coll4.SetActive(true);
         coll5.SetActive(true);
         coll6.SetActive(true);
+        coll7.SetActive(true);
     }
 
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.LogError("Scene loaded: " + SceneManager.GetActiveScene().name);
     }
 
     public void Quit()
     {
         SceneManager.LoadScene("Menu Principal");
+        Transition.lifes = 3;
+        Transition.puntuacion = 0;
     }
 
 }
