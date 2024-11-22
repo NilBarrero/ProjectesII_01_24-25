@@ -22,6 +22,7 @@ public class ChangeGame : MonoBehaviour
 
     IEnumerator ChangeScene()
     {
+
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
 
         if (Transition.lifes == 0)
@@ -30,10 +31,6 @@ public class ChangeGame : MonoBehaviour
         }
         else
         {
-            if (index == 1)
-            {
-                
-            }
             string sceneToLoad = GameScene[index];
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
             index++;
