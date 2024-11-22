@@ -7,7 +7,7 @@ public class ChangeGame : MonoBehaviour
 {
     public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
     public string[] GameScene;
-    static int index = 0;// Lista de nombres de escenas en la carpeta.
+    static int index = 1;// Lista de nombres de escenas en la carpeta.
     [SerializeField] private GameObject FasterText;
     
     // Start is called before the first frame update
