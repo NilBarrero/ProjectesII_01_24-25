@@ -42,5 +42,12 @@ public class Lifes : MonoBehaviour
             life2.SetActive(false);
             life3.SetActive(false);
         }
+
+        if(Transition.lifes == 3) 
+        {
+            life1.SetActive(true);
+            life2.SetActive(true);
+            life3.SetActive(true);
+        }
     }
 }

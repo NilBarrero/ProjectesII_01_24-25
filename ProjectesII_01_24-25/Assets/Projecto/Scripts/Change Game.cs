@@ -28,6 +28,8 @@ public class ChangeGame : MonoBehaviour
         if (Transition.lifes == 0)
         {
             SceneManager.LoadScene("Menu Principal");
+            Transition.lifes = 3;
+            Transition.puntuacion = 0;
         }
         else
         {
