@@ -12,6 +12,7 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject coll3;
     [SerializeField] private GameObject coll4;
     [SerializeField] private GameObject coll5;
+    [SerializeField] private GameObject coll6;
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -22,6 +23,7 @@ public class MenuPausa : MonoBehaviour
         coll3.SetActive(false);
         coll4.SetActive(false);
         coll5.SetActive(false);
+        coll6.SetActive(false);
     }
 
     public void Reanude()
@@ -34,6 +36,7 @@ public class MenuPausa : MonoBehaviour
         coll3.SetActive(true);
         coll4.SetActive(true);
         coll5.SetActive(true);
+        coll6.SetActive(true);
     }
 
     public void Restart()
