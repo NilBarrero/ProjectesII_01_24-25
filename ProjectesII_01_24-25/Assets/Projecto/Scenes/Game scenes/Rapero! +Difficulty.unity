@@ -384,6 +384,7 @@ MonoBehaviour:
   coll4: {fileID: 1910745710}
   coll5: {fileID: 986081300}
   coll6: {fileID: 0}
+  coll7: {fileID: 0}
 --- !u!1001 &223478041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1178,13 +1179,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: velocidad
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_Name
       value: Incorrect
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_text
-      value: Amour
+      value: Su
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_fontSize
@@ -1642,13 +1651,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: velocidad
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_Name
       value: Incorrect
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_text
-      value: Jumq
+      value: Populis
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_fontSize
@@ -1992,14 +2005,18 @@ PrefabInstance:
     - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: camara
       value: 
-      objectReference: {fileID: 897943003}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: velocidad
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_Name
       value: Incorrect
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_text
-      value: "Ma\xE7e"
+      value: Mace
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_margin.x
@@ -2757,13 +2774,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: velocidad
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_Name
       value: Incorrect
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_text
-      value: Reak
+      value: Train
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_margin.w
@@ -2992,9 +3017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7639f2b7a869f48b2e4e69c1cadb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 2.5
+  velocidad: 1.5
   intervaloCambio: 0.05
-  camara: {fileID: 897943003}
+  camara: {fileID: 0}
 --- !u!50 &1937745785
 Rigidbody2D:
   serializedVersion: 4
@@ -3078,21 +3103,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6385300669172579048, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: velocidad
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598868963719566849, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.398
+      objectReference: {fileID: 0}
     - target: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_Name
       value: Incorrect
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_text
-      value: Weeq
+      value: Fopular
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_fontSize
-      value: 5.26
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      propertyPath: m_margin.z
+      value: 10.583132
       objectReference: {fileID: 0}
     - target: {fileID: 8527080341053298624, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       propertyPath: m_fontSizeBase
-      value: 5.26
+      value: 4.44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3101,6 +3138,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2027235817}
+    - targetCorrespondingSourceObject: {fileID: 8036010019471868262, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027235818}
     - targetCorrespondingSourceObject: {fileID: 7760283156768566682, guid: 3f78b3145474e3546ab5952cccf05408, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -3137,3 +3177,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2027235818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027235816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7639f2b7a869f48b2e4e69c1cadb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 1.5
+  intervaloCambio: 0.05
+  camara: {fileID: 0}
