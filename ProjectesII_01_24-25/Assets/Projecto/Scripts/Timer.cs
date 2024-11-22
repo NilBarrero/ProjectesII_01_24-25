@@ -77,10 +77,6 @@ public class CuentaRegresiva : MonoBehaviour
                 Transition.lifes--;
                 life2.SetActive(false);
             }
-            else
-            {
-                SceneManager.LoadScene("LoseScene");
-            }
             SceneManager.LoadScene("Transition Scene");
         }
     }
