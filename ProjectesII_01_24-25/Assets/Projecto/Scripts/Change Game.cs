@@ -23,11 +23,18 @@ public class ChangeGame : MonoBehaviour
     {
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
 
-        // Elegir una escena aleatoria de la lista.
-        int randomIndex = Random.Range(0, GameScene.Length);
-        string sceneToLoad = GameScene[randomIndex];
+        if (Transition.lifes == 0)
+        {
+            SceneManager.LoadScene("Menu Principal");
+        }
+        else
+        {
+            // Elegir una escena aleatoria de la lista.
+            int randomIndex = Random.Range(0, GameScene.Length);
+            string sceneToLoad = GameScene[randomIndex];
 
-        SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+            SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+        }
     }
 
 }
