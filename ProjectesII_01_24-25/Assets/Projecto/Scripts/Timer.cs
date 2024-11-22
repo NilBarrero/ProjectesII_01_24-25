@@ -49,7 +49,7 @@ public class CuentaRegresiva : MonoBehaviour
        
         if (tiempoRestante == 0)
         {
-            SceneManager.LoadScene("LoseScene");
+            SceneManager.LoadScene("Transition Scene");
         }
         else if (tiempoRestante <= 7 && tiempoRestante > 3)
         {
