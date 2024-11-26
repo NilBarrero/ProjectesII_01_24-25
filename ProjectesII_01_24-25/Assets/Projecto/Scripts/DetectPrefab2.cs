@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DetectPrefab : MonoBehaviour
+public class DetectPrefab2 : MonoBehaviour
 {
-    // Nombre del prefab a detectar
-    public string prefabName1 = "Baby";
+    public string prefabName1 = "Drag2";
     public string prefabIncorrectName = "Incorrect";
-    
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +15,7 @@ public class DetectPrefab : MonoBehaviour
         if (collision.gameObject.name == prefabName1)
         {
             Transition.puntuacion += 100;
-            SceneManager.LoadScene("Rapero!");
+            SceneManager.LoadScene("LoseScene");
         }
         if (collision.gameObject.name == prefabIncorrectName)
         {
@@ -24,7 +23,7 @@ public class DetectPrefab : MonoBehaviour
             {
                 Transition.lifes--;
             }
-            SceneManager.LoadScene("Rapero!");
+            SceneManager.LoadScene("LoseScene");
         }
     }
 }
