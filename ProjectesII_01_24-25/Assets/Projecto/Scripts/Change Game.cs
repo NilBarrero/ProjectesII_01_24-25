@@ -33,22 +33,21 @@ public class ChangeGame : MonoBehaviour
         }
 
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
-        /*
-        if 
+
+        if ()
         {
             string sceneToLoad = Ram1[index];
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
             index++;
-
-            /*
+            
             // Reiniciar el índice si llegamos al final de la lista.
             if (index >= Ram1.Length)
             {
                 index = 3; // Reinicia para comenzar desde la primera escena.
             }
-            *//*
+        
         }
-        else if
+        else if ()
         {
             string sceneToLoad = Ram2[index];
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
@@ -60,7 +59,6 @@ public class ChangeGame : MonoBehaviour
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
             index++;
         }
-        */
         
     }
 }
