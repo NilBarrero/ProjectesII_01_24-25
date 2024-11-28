@@ -8,8 +8,8 @@ public class DetectPrefab : MonoBehaviour
     // Nombre del prefab a detectar
     public string prefabName;
     public string prefabName2;
-    public static bool Mom = false;
-    public static bool Baby = false;
+    public bool mom = false;
+    public bool baby = false;
 
 
     
@@ -18,14 +18,14 @@ public class DetectPrefab : MonoBehaviour
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
         if (collision.gameObject.name == prefabName)
         {
-            if (prefabName == "Mom" && Mom == false)
+            if (prefabName == "Mom" && mom == false)
             {
-                Mom = true;
+                mom = true;
             }
             
-            if (prefabName == "Baby" && Baby == false)
+            if (prefabName == "Baby" && baby == false)
             {
-                Baby = true;
+                baby = true;
             }
         }
     }

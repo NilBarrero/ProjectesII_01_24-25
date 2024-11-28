@@ -288,7 +288,6 @@ GameObject:
   - component: {fileID: 503128301}
   - component: {fileID: 503128304}
   - component: {fileID: 503128303}
-  - component: {fileID: 503128302}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -316,22 +315,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 60.2}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &503128302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503128300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30c3227a35e26a429f166e980634e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifes: {fileID: 503128303}
-  life1: {fileID: 7517473657552120956}
-  life2: {fileID: 1199487744940512332}
-  life3: {fileID: 8390844744269719091}
 --- !u!114 &503128303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,13 +730,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  GameScene:
-  - Busca Asiento!
-  - Salva Pasajero!
+  Ram1:
+  - Bed
+  Ram2:
   - Rapero!
-  - 
-  - 
-  - 
+  - Help Grany
+  - Bed
+  Ram2_1: []
+  Ram2_2: []
+  Ram3:
+  - Help Grany
   FasterText: {fileID: 1009534148}
 --- !u!114 &1521687697
 MonoBehaviour:
@@ -974,11 +960,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 877df281084f98144a88f1f369614283, type: 3}
---- !u!1 &1199487744940512332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4042319134020919342, guid: 877df281084f98144a88f1f369614283, type: 3}
-  m_PrefabInstance: {fileID: 1199487744940512331}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7517473657552120955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1048,11 +1029,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116d142edf35dbc4cb92b16d423f1f63, type: 3}
---- !u!1 &7517473657552120956 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1962155798137204879, guid: 116d142edf35dbc4cb92b16d423f1f63, type: 3}
-  m_PrefabInstance: {fileID: 7517473657552120955}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8390844744269719090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,8 +1094,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e64eaf6495e1d5f47b9fba3e38f4baf4, type: 3}
---- !u!1 &8390844744269719091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 922819372241264455, guid: e64eaf6495e1d5f47b9fba3e38f4baf4, type: 3}
-  m_PrefabInstance: {fileID: 8390844744269719090}
-  m_PrefabAsset: {fileID: 0}

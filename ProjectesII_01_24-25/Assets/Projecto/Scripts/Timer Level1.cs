@@ -8,9 +8,9 @@ public class TimerLevel1 : MonoBehaviour
     private int tiempoRestante;
     private float tiempoTranscurrido; // Temporizador en tiempo real
     public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrar?s la cuenta regresiva
-    public GameObject life0;
-    public GameObject life1;
-    public GameObject life2;
+    //public GameObject life0;
+    //public GameObject life1;
+    //public GameObject life2;
     public string scene;
 
     void Start()
@@ -63,6 +63,7 @@ public class TimerLevel1 : MonoBehaviour
 
         if (tiempoRestante == 0)
         {
+            /*
             if (Transition.lifes == 3)
             {
                 Transition.lifes--;
@@ -78,6 +79,7 @@ public class TimerLevel1 : MonoBehaviour
                 Transition.lifes--;
                 life2.SetActive(false);
             }
+            */
             SceneManager.LoadScene(scene);
         }
     }

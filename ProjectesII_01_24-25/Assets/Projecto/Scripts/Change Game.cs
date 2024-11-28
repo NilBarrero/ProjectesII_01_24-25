@@ -9,13 +9,22 @@ public class ChangeGame : MonoBehaviour
     public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
     public string[] Ram1;
     public string[] Ram2;
+    //public string[] Ram2_1;
+    //public string[] Ram2_2;
     public string[] Ram3;
-    static int index = 1;// Lista de nombres de escenas en la carpeta.
+
+    static int index = 0;// Lista de nombres de escenas en la carpeta.
     [SerializeField] private GameObject FasterText;
+
+    DetectPrefab detectPrefab;
     
     // Start is called before the first frame update
     void Start()
     {
+        if (detectPrefab == null)
+        {
+            detectPrefab = FindAnyObjectByType <DetectPrefab>();
+        }
         StartCoroutine(ChangeScene());
     }
    
@@ -27,37 +36,28 @@ public class ChangeGame : MonoBehaviour
 
     IEnumerator ChangeScene()
     {
-        if (index == 3)
-        {
-            FasterText.SetActive(true);
-        }
-
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
 
-        if ()
+        if (index == 0)
         {
-            string sceneToLoad = Ram1[index];
-            SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-            index++;
-            
-            // Reiniciar el índice si llegamos al final de la lista.
-            if (index >= Ram1.Length)
+            if (detectPrefab.mom == true && detectPrefab.baby == false) // si la madre es atropellada
             {
-                index = 3; // Reinicia para comenzar desde la primera escena.
+                string sceneToLoad = Ram1[index];
+                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+                index++;
             }
-        
-        }
-        else if ()
-        {
-            string sceneToLoad = Ram2[index];
-            SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-            index++;
-        }
-        else
-        {
-            string sceneToLoad = Ram2[index];
-            SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-            index++;
+            else if (detectPrefab.mom == false && detectPrefab.baby == true) // si el bebe es salvado
+            {
+                string sceneToLoad = Ram2[index];
+                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+                index++;
+            }
+            else // si no haces nada
+            {
+                string sceneToLoad = Ram3[index];
+                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+                index++;
+            }
         }
         
     }
