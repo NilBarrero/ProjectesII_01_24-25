@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeGame : MonoBehaviour
 {
     public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
-    public string[] GameScene;
+    public string[] Ram1;
+    public string[] Ram2;
+    public string[] Ram3;
     static int index = 1;// Lista de nombres de escenas en la carpeta.
     [SerializeField] private GameObject FasterText;
     
@@ -30,38 +33,34 @@ public class ChangeGame : MonoBehaviour
         }
 
         yield return new WaitForSeconds(delay); // Espera por "delay" segundos.
-
-        if (Transition.lifes == 0)
+        /*
+        if 
         {
-            SceneManager.LoadScene("Menu Principal");
-            Transition.lifes = 3;
-            Transition.puntuacion = 0;
-        }
-        else
-        {
-            string sceneToLoad = GameScene[index];
+            string sceneToLoad = Ram1[index];
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
             index++;
 
+            /*
             // Reiniciar el índice si llegamos al final de la lista.
-            if (index >= GameScene.Length)
+            if (index >= Ram1.Length)
             {
-                Debug.Log("Se completó la lista de escenas. Reiniciando el ciclo.");
                 index = 3; // Reinicia para comenzar desde la primera escena.
             }
+            *//*
         }
-          
-
-        /*
+        else if
+        {
+            string sceneToLoad = Ram2[index];
+            SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+            index++;
+        }
         else
         {
-            // Elegir una escena aleatoria de la lista.
-            int randomIndex = Random.Range(0, GameScene.Length);
-            string sceneToLoad = GameScene[randomIndex];
-
+            string sceneToLoad = Ram2[index];
             SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
+            index++;
         }
         */
+        
     }
-
 }
