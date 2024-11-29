@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,12 @@ public class DetectPrefab : MonoBehaviour
             {
                 baby = true;
             }
+
+        }
+
+        if (collision.gameObject.name == prefabName2)
+        {
+            SceneManager.LoadScene("Transition Scene");
         }
     }
 }
