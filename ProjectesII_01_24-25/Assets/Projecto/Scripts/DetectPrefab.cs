@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +8,9 @@ public class DetectPrefab : MonoBehaviour
 {
     // Nombre del prefab a detectar
     public string prefabName;
-    public string prefabIncorrectName = "Incorrect";
-    public string scene;
+    public string prefabName2;
+    public bool mom = false;
+    public bool baby = false;
 
 
     
@@ -17,7 +19,21 @@ public class DetectPrefab : MonoBehaviour
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
         if (collision.gameObject.name == prefabName)
         {
-            SceneManager.LoadScene(scene);
+            if (prefabName == "Mom" && mom == false)
+            {
+                mom = true;
+            }
+            
+            if (prefabName == "Baby" && baby == false)
+            {
+                baby = true;
+            }
+
+        }
+
+        if (collision.gameObject.name == prefabName2)
+        {
+            SceneManager.LoadScene("Transition Scene");
         }
     }
 }
