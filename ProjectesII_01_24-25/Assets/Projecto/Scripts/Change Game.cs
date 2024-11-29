@@ -52,7 +52,7 @@ public class ChangeGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) && nextScene < SceneManager.sceneCountInBuildSettings)
         {
 
-            SceneManager.LoadScene(nextScenePlus);
+            SceneManager.LoadScene(nextScenePlus );
         }
     }
     /*
