@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeGame : MonoBehaviour
 {
+    Scene currentScene = SceneManager.GetActiveScene();
+    int indexCurrentScene;
     //public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
     //public string[] Ram1;
     //public string[] Ram2;
@@ -23,6 +25,7 @@ public class ChangeGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         /*
         if (detectPrefab == null)
         {
@@ -35,62 +38,16 @@ public class ChangeGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        switch(Input.inputString.ToLower()) // Detecta la tecla y convierte a minúscula
+        indexCurrentScene = currentScene.buildIndex;
+        if (Input.GetKeyDown("A")||Input.GetKeyDown("a"))
         {
-            case "1": //no kill
-                SceneManager.LoadScene("Rapero!");
-                break;
-            case "2":
-                SceneManager.LoadScene("Help Grany");
-                break;
-            case "3":
-                SceneManager.LoadScene("Bed");
-                break;
-            case "4":
-                SceneManager.LoadScene("Money");
-                break;
-            case "5":
-                SceneManager.LoadScene("Save Suicide");
-                break;
-            case "6":
-                SceneManager.LoadScene("Reanime");
-                break;
-            case "q":
-                SceneManager.LoadScene("Busca Asiento!");
-                break;
-            case "w":
-                SceneManager.LoadScene("Incendio!");
-                break;
-            case "e":
-                SceneManager.LoadScene("Recoger Niña");
-                break;
-            case "r":
-                SceneManager.LoadScene("Atropello");
-                break;
-            case "t":
-                SceneManager.LoadScene("Suicidio");
-                break;
-            case "y":
-                SceneManager.LoadScene("Moises!");
-                break;
-            case "u":
-                SceneManager.LoadScene("Glitch");
-                break;
-            case "i":
-                SceneManager.LoadScene("Elegir Puerta!");
-                break;
-            case "o":
-                SceneManager.LoadScene("Comida Familiar");
-                break;
-            case "p":
-                SceneManager.LoadScene("Psicologo");
-                break;
-            case "a":
-                SceneManager.LoadScene("Ventana");
-                break;
-            case "s":
-                SceneManager.LoadScene("Manicomio");
-                break;
+
+            SceneManager.LoadScene(indexCurrentScene +1);
+        }
+        if (Input.GetKeyDown("d") || Input.GetKeyDown("D"))
+        {
+
+            SceneManager.LoadScene(indexCurrentScene+2);
         }
     }
     /*
