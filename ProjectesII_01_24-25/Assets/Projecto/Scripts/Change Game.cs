@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class ChangeGame : MonoBehaviour
 {
-    public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
-    public string[] Ram1;
-    public string[] Ram2;
-    public string[] Ram2_1;
-    public string[] Ram2_2;
-    public string[] Ram3;
+    //public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
+    //public string[] Ram1;
+    //public string[] Ram2;
+    //public string[] Ram2_1;
+    //public string[] Ram2_2;
+    //public string[] Ram3;
 
-    public static int index1 = 0;// Lista de nombres de escenas en la carpeta.
-    public static int index2 = 0;
-    public static int index3 = 0;
+    //public static int index1 = 0;// Lista de nombres de escenas en la carpeta.
+    //public static int index2 = 0;
+    //public static int index3 = 0;
     //[SerializeField] private GameObject FasterText;
 
     // DetectPrefab detectPrefab;
@@ -35,87 +35,62 @@ public class ChangeGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyUp(KeyCode.A))
+        switch(Input.inputString.ToLower()) // Detecta la tecla y convierte a minúscula
         {
-            if (index1 == 0 && index2 == 0 && index3 == 0)
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram1[index1];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index1++;
-            }
-
-            if (index2 == 1)//dinero
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2_1[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-            if (index2 == 2)//suicida
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2_1[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            if (index1 == 0 && index2 == 0 && index3 == 0)//rapero
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-            if (index2 == 1)//anciana
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-            if (index2 == 2) //cama
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-            if(index2 == 3)
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            if (index1 == 0 && index2 == 0 && index3 == 0)
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram3[index3];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index3++;
-            }
-
-            if (index2 == 2)//reanimar
-            {
-                // si la madre es atropellada
-                string sceneToLoad = Ram2_2[index2];
-                SceneManager.LoadScene(sceneToLoad); // Cambia a la escena especificada.
-                index2++;
-            }
+            case "1": //no kill
+                SceneManager.LoadScene("Rapero!");
+                break;
+            case "2":
+                SceneManager.LoadScene("Help Grany");
+                break;
+            case "3":
+                SceneManager.LoadScene("Bed");
+                break;
+            case "4":
+                SceneManager.LoadScene("Money");
+                break;
+            case "5":
+                SceneManager.LoadScene("Save Suicide");
+                break;
+            case "6":
+                SceneManager.LoadScene("Reanime");
+                break;
+            case "q":
+                SceneManager.LoadScene("Busca Asiento!");
+                break;
+            case "w":
+                SceneManager.LoadScene("Incendio!");
+                break;
+            case "e":
+                SceneManager.LoadScene("Recoger Niña");
+                break;
+            case "r":
+                SceneManager.LoadScene("Atropello");
+                break;
+            case "t":
+                SceneManager.LoadScene("Suicidio");
+                break;
+            case "y":
+                SceneManager.LoadScene("Moises!");
+                break;
+            case "u":
+                SceneManager.LoadScene("Glitch");
+                break;
+            case "i":
+                SceneManager.LoadScene("Elegir Puerta!");
+                break;
+            case "o":
+                SceneManager.LoadScene("Comida Familiar");
+                break;
+            case "p":
+                SceneManager.LoadScene("Psicologo");
+                break;
+            case "a":
+                SceneManager.LoadScene("Ventana");
+                break;
+            case "s":
+                SceneManager.LoadScene("Manicomio");
+                break;
         }
     }
     /*
