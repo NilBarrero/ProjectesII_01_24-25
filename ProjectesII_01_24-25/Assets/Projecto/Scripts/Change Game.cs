@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeGame : MonoBehaviour
 {
-    Scene currentScene = SceneManager.GetActiveScene();
-    int indexCurrentScene;
+    int currentScene;
+    int nextScene;
+    int nextScenePlus;
+
     //public float delay = 1f; // Tiempo de espera antes de cambiar la escena.
     //public string[] Ram1;
     //public string[] Ram2;
@@ -25,29 +27,32 @@ public class ChangeGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        nextScene = currentScene + 1;        
+        nextScenePlus = currentScene + 2;
+
         /*
         if (detectPrefab == null)
         {
             detectPrefab = FindAnyObjectByType <DetectPrefab>();
         }
         */
-       // StartCoroutine(ChangeScene());
+        // StartCoroutine(ChangeScene());
     }
    
     // Update is called once per frame
     void Update()
     { 
-        indexCurrentScene = currentScene.buildIndex;
-        if (Input.GetKeyDown("A")||Input.GetKeyDown("a"))
+       
+        if (Input.GetKeyDown(KeyCode.A) && nextScene < SceneManager.sceneCountInBuildSettings)
         {
 
-            SceneManager.LoadScene(indexCurrentScene +1);
+            SceneManager.LoadScene(nextScene);
         }
-        if (Input.GetKeyDown("d") || Input.GetKeyDown("D"))
+        if (Input.GetKeyDown(KeyCode.D) && nextScene < SceneManager.sceneCountInBuildSettings)
         {
 
-            SceneManager.LoadScene(indexCurrentScene+2);
+            SceneManager.LoadScene(nextScenePlus);
         }
     }
     /*
