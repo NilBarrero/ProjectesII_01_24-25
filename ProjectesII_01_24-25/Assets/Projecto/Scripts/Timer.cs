@@ -11,6 +11,7 @@ public class CuentaRegresiva : MonoBehaviour
     public GameObject life0;
     public GameObject life1;
     public GameObject life2;
+    public string scene;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class CuentaRegresiva : MonoBehaviour
        
         if (tiempoRestante == 0)
         {
-            SceneManager.LoadScene("Transition Scene");
+            SceneManager.LoadScene(scene);
         }
         else if (tiempoRestante <= 7 && tiempoRestante > 3)
         {
@@ -77,7 +78,7 @@ public class CuentaRegresiva : MonoBehaviour
                 Transition.lifes--;
                 life2.SetActive(false);
             }
-            SceneManager.LoadScene("Transition Scene");
+            SceneManager.LoadScene(scene);
         }
     }
 
