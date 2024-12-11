@@ -19,11 +19,11 @@ public class SaveSuicide : MonoBehaviour
 
     public void Yes()
     {
-            SceneManager.LoadScene("Trancition Scene");
+            SceneManager.LoadScene("1.2.1");
     }
 
     public void No()
     {
-        SceneManager.LoadScene("Trancition Scene");
+        SceneManager.LoadScene("1.2.2");
     }
 }
