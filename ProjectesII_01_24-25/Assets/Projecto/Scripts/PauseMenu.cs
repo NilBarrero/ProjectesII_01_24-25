@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    // Start is called before the first frame update
 
     [SerializeField] private GameObject botonPausa;
-
     [SerializeField] private GameObject menuPausa;
     public void Pausa()
     {
@@ -29,9 +29,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Cerrar()
+    public void Salir()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu Principal");
+        SceneManager.LoadScene(0);
     }
 }

@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1917399690}
+      - m_Target: {fileID: 1917399695}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Reanudar
         m_Mode: 1
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1917399690}
+      - m_Target: {fileID: 1917399695}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Reiniciar
         m_Mode: 1
@@ -1234,9 +1234,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1917399690}
+      - m_Target: {fileID: 1917399695}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Cerrar
+        m_MethodName: Salir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1800,14 +1800,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1917399690}
+      addedObject: {fileID: 1917399695}
   m_SourcePrefab: {fileID: 100100000, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
 --- !u!1 &1917399689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
   m_PrefabInstance: {fileID: 1843113995}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1917399690
+--- !u!224 &1917399694 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+  m_PrefabInstance: {fileID: 1843113995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917399695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1816,16 +1821,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1917399689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b90f3e795d53504dbb6a2bd5c625060, type: 3}
+  m_Script: {fileID: 11500000, guid: 33ffc2ec1a111da4d9772560f9f30a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 2056810456}
   menuPausa: {fileID: 893182726}
---- !u!224 &1917399694 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
-  m_PrefabInstance: {fileID: 1843113995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1929961453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1917399690}
+      - m_Target: {fileID: 1917399695}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pausa
         m_Mode: 1
