@@ -5,33 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class TapearZoom : MonoBehaviour
 {
-    public int counter = 0;
-    public int max = 30; // Número máximo de clics antes de cambiar de escena
-    public string scene; // Nombre de la escena a cargar
-    public float zoomStep = 0.5f; // Cantidad de zoom a aplicar en cada iteración
+    public float zoomSpeed = 0.1f; // Velocidad a la que la cámara hace zoom
+    public float minZoom = 1f; // Mínimo tamaño del zoom permitido
+    public float zoomDuration = 10f; // Tiempo total para completar el zoom
+
+    private float zoomTimer = 0f; // Temporizador para medir el tiempo
+    private bool isZooming = true; // Controla si el zoom está activo
 
     void Update()
     {
-        if (counter >= max)
+        if (isZooming)
         {
-            SceneManager.LoadScene(scene);
-        }
-    }
+            zoomTimer += Time.deltaTime;
 
-    private void OnMouseDown()
-    {
-        counter++;
+            // Calcula el tamaño del zoom progresivamente
+            Camera.main.orthographicSize -= zoomSpeed * Time.deltaTime;
 
-        // Cada 5 clics, ajusta el zoom
-        if (counter % 5 == 0)
-        {
-            Camera.main.orthographicSize -= zoomStep;
-
-            // Asegúrate de que el zoom no sea demasiado pequeño
-            if (Camera.main.orthographicSize < 1)
+            // Limita el zoom al mínimo permitido
+            if (Camera.main.orthographicSize <= minZoom)
             {
-                Camera.main.orthographicSize = 1;
+                Camera.main.orthographicSize = minZoom;
+                isZooming = false; // Detiene el zoom cuando alcanza el mínimo
             }
         }
     }
 }
+
