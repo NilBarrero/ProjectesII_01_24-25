@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    [SerializeField] private GameObject menuPrincipal;
+    [SerializeField] private GameObject storySelector;
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        menuPrincipal.SetActive(false);
+        storySelector.SetActive(true);
     }
     
     
