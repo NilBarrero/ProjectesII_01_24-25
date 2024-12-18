@@ -12,7 +12,7 @@ public class StorySelector : MonoBehaviour
 
     public void SecondJob() 
     {
-        // Segunda entrega
+        SceneManager.LoadScene("Intro cat");
     }
 
     public void ThirdJob()
