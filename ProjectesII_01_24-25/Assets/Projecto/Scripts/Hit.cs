@@ -36,7 +36,7 @@ public class Hit : MonoBehaviour
             bloodC[next].SetActive(true);
         }
 
-        if (hits >= 14)
+        if (hits >= fhinish)
         {
             SceneManager.LoadScene(scene);
         }
