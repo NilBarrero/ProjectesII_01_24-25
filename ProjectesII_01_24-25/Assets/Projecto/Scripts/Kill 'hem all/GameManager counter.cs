@@ -15,7 +15,7 @@ public class GameManagercounter : MonoBehaviour
         if (clickCount == maxCount)
         {
             SceneManager.LoadScene(scene);
-            Transition.puntuacion += 100;
+            //Transition.puntuacion += 100;
         }
     }
     // Método para incrementar el contador
