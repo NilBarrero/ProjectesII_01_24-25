@@ -10,6 +10,7 @@ public class Clickonperson : MonoBehaviour
     public float rotationSpeed = 100f;  // Velocidad de rotación
     public float rotation = -90f;
     private bool isRotating = false;  // Para saber si el objeto está rotando
+    public bool destroy = false;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class Clickonperson : MonoBehaviour
     void OnMouseDown()
     {
         // Verificar que el GameManager y el BoxCollider2D existan
-        if (gameManager != null && boxCollider != null)
+        if (gameManager != null && boxCollider != null && !destroy)
         {
             // Incrementar el contador de clics en el GameManager
             gameManager.IncrementClickCount();
@@ -43,6 +44,14 @@ public class Clickonperson : MonoBehaviour
 
             // Desactivar el BoxCollider2D para que no pueda ser clickeado de nuevo
             boxCollider.enabled = false;
+        }
+
+        if (gameManager != null && boxCollider != null && destroy)
+        {
+            // Incrementar el contador de clics en el GameManager
+            gameManager.IncrementClickCount();
+
+            Destroy(gameObject);
         }
     }
 
