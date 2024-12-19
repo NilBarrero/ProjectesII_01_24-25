@@ -61,25 +61,7 @@ public class CuentaRegresiva : MonoBehaviour
             textoCuentaRegresiva.color = Color.red;
         }
 
-        if (tiempoRestante == 0)
-        {
-            if (Transition.lifes == 3)
-            {
-                Transition.lifes--;
-                life0.SetActive(false);
-            }
-            else if (Transition.lifes == 2)
-            {
-                Transition.lifes--;
-                life1.SetActive(false);
-            }
-            else if (Transition.lifes == 1)
-            {
-                Transition.lifes--;
-                life2.SetActive(false);
-            }
-            SceneManager.LoadScene(scene);
-        }
+       
     }
 
     void ActualizarTexto()

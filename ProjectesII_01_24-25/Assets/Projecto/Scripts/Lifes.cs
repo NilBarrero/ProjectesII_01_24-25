@@ -23,6 +23,7 @@ public class Lifes : MonoBehaviour
 
     void UpdateLifes()
     {
+        /*
         lifes.text = "Lifes: " + Transition.lifes.ToString();
         
         if (Transition.lifes == 2)
@@ -49,5 +50,6 @@ public class Lifes : MonoBehaviour
             life2.SetActive(true);
             life3.SetActive(true);
         }
+        */
     }
 }
