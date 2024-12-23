@@ -5,15 +5,21 @@ using UnityEngine;
 public class HighlightOnHover : MonoBehaviour
 {
     private Renderer objectRenderer;
+    public GameObject activateDialogue;
+    private ActivateanddeactivateSpeech dialogue;
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
+    public ParticleSystem particles;
 
     void Start()
     {
+        activateDialogue.SetActive(false);
+
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
         {
             originalColor = objectRenderer.material.color; // Guarda el color original
+            particles.Stop();
         }
     }
 
@@ -22,7 +28,10 @@ public class HighlightOnHover : MonoBehaviour
         if (objectRenderer != null)
         {
             objectRenderer.material.color = highlightColor; // Cambia al color de resaltado
+            
         }
+        StartCoroutine(Activate(2.5f, 0.3f, activateDialogue));
+        particles.Play();
     }
 
     void OnMouseExit()
@@ -30,7 +39,25 @@ public class HighlightOnHover : MonoBehaviour
         if (objectRenderer != null)
         {
             objectRenderer.material.color = originalColor; // Vuelve al color original
+
         }
+    }
+
+    private IEnumerator Activate(float timeOut, float timeIn, GameObject gameobject)
+    {
+        yield return new WaitForSeconds(timeIn);
+        // Cambiar el color al de resaltado
+        gameobject.SetActive(true);
+
+
+        // Esperar el tiempo especificado
+        yield return new WaitForSeconds(timeOut);
+
+        // Volver al color original
+        gameobject.SetActive(false);
+        particles.Play();
+
+
     }
 }
 
