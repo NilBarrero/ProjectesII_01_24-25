@@ -6,7 +6,9 @@ public class HighlightOnHover : MonoBehaviour
 {
     private Renderer objectRenderer;
     public GameObject activateDialogue;
+    public bool activeDialogueActive = false;
     private ActivateanddeactivateSpeech dialogue;
+    public GameObject dialogueinactive;
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
     public ParticleSystem particles;
@@ -14,6 +16,7 @@ public class HighlightOnHover : MonoBehaviour
     void Start()
     {
         activateDialogue.SetActive(false);
+        activeDialogueActive= false;
 
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
@@ -23,6 +26,17 @@ public class HighlightOnHover : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (activeDialogueActive)
+        {
+            dialogueinactive.SetActive(false);
+        }
+        else if (!activeDialogueActive)
+        {
+            dialogueinactive.SetActive(true);
+        }
+    }
     void OnMouseEnter()
     {
         if (objectRenderer != null)
@@ -31,6 +45,7 @@ public class HighlightOnHover : MonoBehaviour
             
         }
         StartCoroutine(Activate(2.5f, 0.3f, activateDialogue));
+        activeDialogueActive= true;
         particles.Play();
     }
 
@@ -55,6 +70,7 @@ public class HighlightOnHover : MonoBehaviour
 
         // Volver al color original
         gameobject.SetActive(false);
+        activeDialogueActive= false;
         particles.Play();
 
 

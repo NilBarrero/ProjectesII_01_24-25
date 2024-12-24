@@ -11,6 +11,7 @@ public class Clickonperson : MonoBehaviour
     public float rotation = -90f;
     private bool isRotating = false;  // Para saber si el objeto está rotando
     public bool destroy = false;
+    public ParticleSystem destroyParticles;
 
     void Start()
     {
@@ -28,7 +29,10 @@ public class Clickonperson : MonoBehaviour
         if (boxCollider == null)
         {
             Debug.LogError("Este objeto no tiene un BoxCollider2D");
+
         }
+        destroyParticles.Stop();
+
     }
 
     void OnMouseDown()
@@ -52,6 +56,7 @@ public class Clickonperson : MonoBehaviour
             gameManager.IncrementClickCount();
 
             Destroy(gameObject);
+            destroyParticles.Play();
         }
     }
 
