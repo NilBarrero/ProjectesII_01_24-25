@@ -12,6 +12,7 @@ public class HighlightOnHover : MonoBehaviour
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
     public ParticleSystem particles;
+    
 
     void Start()
     {
@@ -44,9 +45,12 @@ public class HighlightOnHover : MonoBehaviour
             objectRenderer.material.color = highlightColor; // Cambia al color de resaltado
             
         }
-        StartCoroutine(Activate(2.5f, 0.3f, activateDialogue));
-        activeDialogueActive= true;
-        particles.Play();
+        if (!activeDialogueActive)
+        {
+            StartCoroutine(Activate(2.5f, 0f, activateDialogue));
+            activeDialogueActive = true;
+            
+        }
     }
 
     void OnMouseExit()
@@ -62,6 +66,7 @@ public class HighlightOnHover : MonoBehaviour
     {
         yield return new WaitForSeconds(timeIn);
         // Cambiar el color al de resaltado
+        particles.Play();
         gameobject.SetActive(true);
 
 
@@ -69,9 +74,10 @@ public class HighlightOnHover : MonoBehaviour
         yield return new WaitForSeconds(timeOut);
 
         // Volver al color original
+        particles.Play();
         gameobject.SetActive(false);
         activeDialogueActive= false;
-        particles.Play();
+        
 
 
     }
