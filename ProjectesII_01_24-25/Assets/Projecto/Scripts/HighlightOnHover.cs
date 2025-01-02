@@ -12,12 +12,11 @@ public class HighlightOnHover : MonoBehaviour
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
     public ParticleSystem particles;
-    
 
     void Start()
     {
         activateDialogue.SetActive(false);
-        activeDialogueActive= false;
+        activeDialogueActive = false;
 
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
@@ -38,18 +37,17 @@ public class HighlightOnHover : MonoBehaviour
             dialogueinactive.SetActive(true);
         }
     }
+
     void OnMouseEnter()
     {
         if (objectRenderer != null)
         {
             objectRenderer.material.color = highlightColor; // Cambia al color de resaltado
-            
         }
         if (!activeDialogueActive)
         {
             StartCoroutine(Activate(2.5f, 0f, activateDialogue));
             activeDialogueActive = true;
-            
         }
     }
 
@@ -58,7 +56,6 @@ public class HighlightOnHover : MonoBehaviour
         if (objectRenderer != null)
         {
             objectRenderer.material.color = originalColor; // Vuelve al color original
-
         }
     }
 
@@ -69,17 +66,23 @@ public class HighlightOnHover : MonoBehaviour
         particles.Play();
         gameobject.SetActive(true);
 
-
         // Esperar el tiempo especificado
         yield return new WaitForSeconds(timeOut);
 
         // Volver al color original
         particles.Play();
         gameobject.SetActive(false);
-        activeDialogueActive= false;
-        
+        activeDialogueActive = false;
+    }
 
-
+    // Este método desactiva el diálogo cuando el GameObject que contiene este script es destruido
+    void OnDestroy()
+    {
+        // Si el objeto que contiene este script se destruye, desactivar el diálogo
+        if (activateDialogue != null)
+        {
+            activateDialogue.SetActive(false);
+            activeDialogueActive = false;  // Asegúrate de actualizar el estado
+        }
     }
 }
-
