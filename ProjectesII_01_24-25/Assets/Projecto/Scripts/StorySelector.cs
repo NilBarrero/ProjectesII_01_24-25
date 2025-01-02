@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StorySelector : MonoBehaviour
 {
+    [SerializeField] private FadeInOutMusic fadeMusic; // Referencia al script FadeInOutMusic.
     public void FirstJob()
     {
-        SceneManager.LoadScene("Transition Beginning");
+        fadeMusic.TriggerSceneChange("Transition Beginning");
     }
 
     public void SecondJob() 
