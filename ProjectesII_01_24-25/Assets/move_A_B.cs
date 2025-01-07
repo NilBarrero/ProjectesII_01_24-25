@@ -7,6 +7,7 @@ public class move_A_B : MonoBehaviour
     public float speedMov;
     public Transform[] A_B;
     public float minDistance;
+    public bool teleport = false;
     private int next = 0;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -26,6 +27,12 @@ public class move_A_B : MonoBehaviour
             next += 1;
             if (next >= A_B.Length)
             {
+                if (teleport == true)
+                {
+                    transform.position = A_B[0].position;
+                    next = 1;
+                }
+                else
                 next = 0;
             }
             Turn();
@@ -34,7 +41,7 @@ public class move_A_B : MonoBehaviour
 
     void Turn()
     {
-        if (transform.position.x < A_B[next].position.x) 
+        if (transform.position.x < A_B[next].position.x)
         {
             spriteRenderer.flipX = true;
         }
