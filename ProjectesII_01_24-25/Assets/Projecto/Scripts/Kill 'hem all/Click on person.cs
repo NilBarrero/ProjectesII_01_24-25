@@ -13,10 +13,7 @@ public class Clickonperson : MonoBehaviour
     public bool destroy = false;
     public ParticleSystem destroyParticles;
     public bool isArrow = false;
-    public GameObject ship;
-    private Vector3 destiny;
-    public float distance;
-    public float velocity = 1.5f;
+    
 
     void Start()
     {
@@ -37,11 +34,7 @@ public class Clickonperson : MonoBehaviour
 
         }
         destroyParticles.Stop();
-        if (isArrow)
-        {
-            destiny = ship.transform.position;
-        }
-
+       
     }
 
     void OnMouseDown()
@@ -68,16 +61,7 @@ public class Clickonperson : MonoBehaviour
             destroyParticles.Play();
         }
 
-        if (isArrow)
-        {
-            // Incrementar el contador de clics en el GameManager
-            gameManager.IncrementClickCount();
-            destiny = ship.transform.position + transform.right * distance;
-            ship.transform.position = Vector3.MoveTowards(ship.transform.position, destiny, velocity * Time.deltaTime);
-
-            Destroy(gameObject);
-            destroyParticles.Play();
-        }
+       
     }
 
     void RotateToTargetAngle()
