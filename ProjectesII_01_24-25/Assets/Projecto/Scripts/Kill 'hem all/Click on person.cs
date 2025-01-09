@@ -12,6 +12,11 @@ public class Clickonperson : MonoBehaviour
     private bool isRotating = false;  // Para saber si el objeto está rotando
     public bool destroy = false;
     public ParticleSystem destroyParticles;
+    public bool isArrow = false;
+    public GameObject ship;
+    private Vector3 destiny;
+    public float distance;
+    public float velocity = 1.5f;
 
     void Start()
     {
@@ -32,6 +37,10 @@ public class Clickonperson : MonoBehaviour
 
         }
         destroyParticles.Stop();
+        if (isArrow)
+        {
+            destiny = ship.transform.position;
+        }
 
     }
 
@@ -50,10 +59,21 @@ public class Clickonperson : MonoBehaviour
             boxCollider.enabled = false;
         }
 
-        if (gameManager != null && boxCollider != null && destroy)
+        if (gameManager != null && boxCollider != null && destroy && !isArrow)
         {
             // Incrementar el contador de clics en el GameManager
             gameManager.IncrementClickCount();
+
+            Destroy(gameObject);
+            destroyParticles.Play();
+        }
+
+        if (isArrow)
+        {
+            // Incrementar el contador de clics en el GameManager
+            gameManager.IncrementClickCount();
+            destiny = ship.transform.position + transform.right * distance;
+            ship.transform.position = Vector3.MoveTowards(ship.transform.position, destiny, velocity * Time.deltaTime);
 
             Destroy(gameObject);
             destroyParticles.Play();
