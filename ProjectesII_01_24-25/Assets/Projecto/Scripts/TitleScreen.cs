@@ -10,8 +10,9 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private GameObject storySelector;
     public void Play()
     {
-        menuPrincipal.SetActive(false);
-        storySelector.SetActive(true);
+        //menuPrincipal.SetActive(false);
+        //storySelector.SetActive(true);
+        SceneManager.LoadScene("Transition Beginning");
     }
     
     
