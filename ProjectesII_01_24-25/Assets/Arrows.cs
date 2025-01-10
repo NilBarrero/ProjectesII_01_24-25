@@ -12,7 +12,7 @@ public class Arrows : MonoBehaviour
     void OnMouseDown()
     {
         active = true;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
     }
 

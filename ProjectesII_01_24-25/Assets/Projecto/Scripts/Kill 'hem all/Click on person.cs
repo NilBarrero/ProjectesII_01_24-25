@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Clickonperson : MonoBehaviour
 {
+    public SpawnAndDespawn spawnAndDespawn;
     private GameManagercounter gameManager;
     private BoxCollider2D boxCollider;  // Referencia al BoxCollider2D
 
@@ -13,10 +14,13 @@ public class Clickonperson : MonoBehaviour
     public bool destroy = false;
     public ParticleSystem destroyParticles;
     public bool isArrow = false;
-    
+    public float despawnTime = .5f;
+
 
     void Start()
     {
+       
+
         // Obtener el GameManager
         gameManager = FindObjectOfType<GameManagercounter>();
 
@@ -86,6 +90,10 @@ public class Clickonperson : MonoBehaviour
             {
                 isRotating = false;  // Dejar de rotar
             }
+        }
+        if (isArrow && spawnAndDespawn.isActive)
+        {
+            Destroy(boxCollider, despawnTime);
         }
     }
 }

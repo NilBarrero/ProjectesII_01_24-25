@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnAndDespawn : MonoBehaviour
 {
     // Prefab del GameObject a spawnear
     public GameObject objectToSpawn;
-    public GameObject box;
+    public bool isActive = false;
 
     // Tiempo en segundos entre cada spawn
     public float spawnInterval = 3f;
@@ -25,7 +27,6 @@ public class SpawnAndDespawn : MonoBehaviour
 
     void Start()
     {
-        box.SetActive(false);
         timer = spawnInterval; // Inicializa el contador
     }
 
@@ -40,10 +41,9 @@ public class SpawnAndDespawn : MonoBehaviour
         if (timer <= 0f)
         {
             Spawn();
-            box.SetActive(true);
+            isActive = true;
             timer = spawnInterval; // Reinicia el contador
         }
-
     }
 
     void Spawn()
@@ -72,4 +72,5 @@ public class SpawnAndDespawn : MonoBehaviour
         Debug.Log("El objeto ha sido destruido. El script se ha detenido.");
     }
 }
+
 
