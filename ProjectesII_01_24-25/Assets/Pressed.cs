@@ -30,11 +30,13 @@ public class Pressed : MonoBehaviour
         {
             // Establecemos que ha sido pulsado
             haSidoPulsado = true;
+            
 
             // Notificamos al GameManager (Controller) que el objeto ha sido pulsado
             if (gameManager != null)
             {
                 gameManager.ObjetoPulsado(this); // Pasamos 'this' como referencia al Pressed
+                Debug.LogError("AAAAAAAAAAAAAAAAAAAAAAAAA");
             }
         }
     }
