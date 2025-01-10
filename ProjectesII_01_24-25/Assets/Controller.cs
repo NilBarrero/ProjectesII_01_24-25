@@ -27,23 +27,10 @@ public class Controller : MonoBehaviour
         {
             contador++; // Incrementamos el contador
 
-            ship.transform.position = new Vector3(speedMov * Time.deltaTime, 0f, 0f);
+            //transform.position = Vector2.MoveTowards(transform.position, A_B[next].position, speedMov * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, A_B[next].position) < minDistance)
-            {
-                next += 1;
-                if (next >= A_B.Length)
-                {
-                    if (teleport == true)
-                    {
-                        transform.position = A_B[0].position;
-                        next = 1;
-                    }
-                    else
-                        next = 0;
-                }
-                
-            }
+            transform.position = A_B[contador].position;
+
         }
         if (maxCount == contador)
         {
