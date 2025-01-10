@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Clickonperson : MonoBehaviour
 {
+    public SpawnAndDespawn spawnAndDespawn;
     private GameManagercounter gameManager;
     private BoxCollider2D boxCollider;  // Referencia al BoxCollider2D
 
@@ -12,9 +13,14 @@ public class Clickonperson : MonoBehaviour
     private bool isRotating = false;  // Para saber si el objeto está rotando
     public bool destroy = false;
     public ParticleSystem destroyParticles;
+    public bool isArrow = false;
+    public float despawnTime = .5f;
+
 
     void Start()
     {
+       
+
         // Obtener el GameManager
         gameManager = FindObjectOfType<GameManagercounter>();
 
@@ -32,7 +38,7 @@ public class Clickonperson : MonoBehaviour
 
         }
         destroyParticles.Stop();
-
+       
     }
 
     void OnMouseDown()
@@ -50,7 +56,7 @@ public class Clickonperson : MonoBehaviour
             boxCollider.enabled = false;
         }
 
-        if (gameManager != null && boxCollider != null && destroy)
+        if (gameManager != null && boxCollider != null && destroy && !isArrow)
         {
             // Incrementar el contador de clics en el GameManager
             gameManager.IncrementClickCount();
@@ -58,6 +64,8 @@ public class Clickonperson : MonoBehaviour
             Destroy(gameObject);
             destroyParticles.Play();
         }
+
+       
     }
 
     void RotateToTargetAngle()
@@ -82,6 +90,10 @@ public class Clickonperson : MonoBehaviour
             {
                 isRotating = false;  // Dejar de rotar
             }
+        }
+        if (isArrow && spawnAndDespawn.isActive)
+        {
+            Destroy(boxCollider, despawnTime);
         }
     }
 }

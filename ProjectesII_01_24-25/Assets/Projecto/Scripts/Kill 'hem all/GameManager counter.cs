@@ -10,6 +10,7 @@ public class GameManagercounter : MonoBehaviour
     public int clickCount = 0;
     public int maxCount = 4;
     public string scene;
+    int currentCount = 0;
     private void Update()
     {
         if (clickCount == maxCount)
