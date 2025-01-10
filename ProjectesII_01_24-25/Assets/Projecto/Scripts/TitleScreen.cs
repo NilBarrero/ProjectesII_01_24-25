@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject storySelector;
+    
     public void Play()
     {
         //menuPrincipal.SetActive(false);
