@@ -696,10 +696,8 @@ GameObject:
   m_Component:
   - component: {fileID: 284831774}
   - component: {fileID: 284831775}
-  - component: {fileID: 284831776}
   - component: {fileID: 284831777}
   - component: {fileID: 284831778}
-  - component: {fileID: 284831779}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -774,23 +772,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &284831776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284831773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 892153200}
-  activeDialogueActive: 0
-  dialogueinactive: {fileID: 892153200}
-  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
-  particles: {fileID: 796098365}
 --- !u!50 &284831777
 Rigidbody2D:
   serializedVersion: 4
@@ -863,19 +844,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0507972, y: 1.2312496}
   m_EdgeRadius: 0
---- !u!114 &284831779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284831773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe67a106ae1eb8f4c9587ef5d7af1bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: Negociar
 --- !u!1 &310425486
 GameObject:
   m_ObjectHideFlags: 0
@@ -22621,6 +22589,9 @@ GameObject:
   - component: {fileID: 1679382359}
   - component: {fileID: 1679382361}
   - component: {fileID: 1679382362}
+  - component: {fileID: 1679382363}
+  - component: {fileID: 1679382365}
+  - component: {fileID: 1679382364}
   m_Layer: 0
   m_Name: Vagabundo
   m_TagString: Untagged
@@ -22812,6 +22783,53 @@ MonoBehaviour:
   - {fileID: 1474028083}
   minDistance: 0.9
   teleport: 0
+--- !u!114 &1679382363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679382354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateDialogue: {fileID: 1705784332}
+  activeDialogueActive: 0
+  dialogueinactive: {fileID: 892153200}
+  highlightColor: {r: 1, g: 1, b: 1, a: 0}
+  particles: {fileID: 796098365}
+--- !u!114 &1679382364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679382354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateDialogue: {fileID: 892153200}
+  activeDialogueActive: 0
+  dialogueinactive: {fileID: 892153200}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
+  particles: {fileID: 796098365}
+--- !u!114 &1679382365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679382354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe67a106ae1eb8f4c9587ef5d7af1bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Negociar
 --- !u!1 &1705784332
 GameObject:
   m_ObjectHideFlags: 0
@@ -23399,7 +23417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Let's negociate!
+  m_text: Maybe let's negociate!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23462,7 +23480,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -0.34760576, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
