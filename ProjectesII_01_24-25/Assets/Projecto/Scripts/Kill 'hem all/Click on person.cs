@@ -91,10 +91,12 @@ public class Clickonperson : MonoBehaviour
                 isRotating = false;  // Dejar de rotar
             }
         }
+        /*
         if (isArrow && spawnAndDespawn.isActive)
         {
             Destroy(boxCollider, despawnTime);
         }
+        */
     }
 }
 

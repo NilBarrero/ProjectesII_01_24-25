@@ -17,7 +17,6 @@ public class Controller : MonoBehaviour
     public Transform[] A_B;
     public float minDistance;
     public bool teleport = false;
-    private int next = 0;
 
     void Start()
     {
@@ -35,10 +34,6 @@ public class Controller : MonoBehaviour
     // Este método es llamado cuando un GameObject ha sido pulsado
     public void ObjetoPulsado(Pressed botonPulsado)
     {
-        if (!botonPulsado.haSidoPulsado)
-        {
-            Debug.LogError("BBBBBBBBBBBBBBBBBBBBBB");
-        }
         if (botonPulsado.haSidoPulsado)
         {
             contador++; // Incrementamos el contador

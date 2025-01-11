@@ -1,76 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnAndDespawn : MonoBehaviour
 {
-    // Prefab del GameObject a spawnear
-    public GameObject objectToSpawn;
-    public bool isActive = false;
+    public Transform[] A_B;
+    public int num = 0;
+    public float spawnDelay = 0.02f;
+    private float timer = 0f;
+    private int actualPosition = 0;
 
-    // Tiempo en segundos entre cada spawn
-    public float spawnInterval = 3f;
-
-    // Tiempo en segundos para que el objeto se destruya
-    public float despawnTime = 5f;
-
-    // Posición donde spawnear los objetos
-    public Transform spawnPosition;
-
-    // Contador de tiempo
-    private float timer;
-
-    // Flag para detener el script
-    private bool isStopped = false;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        timer = spawnInterval; // Inicializa el contador
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        // Si está detenido, no ejecutar nada más
-        if (isStopped)
-            return;
-
-        timer -= Time.deltaTime; // Reduce el tiempo por cada frame
-
-        if (timer <= 0f)
+        timer += Time.deltaTime;
+        while (num == actualPosition)
         {
-            Spawn();
-            isActive = true;
-            timer = spawnInterval; // Reinicia el contador
+            num = Random.Range(0, 6);
         }
-    }
 
-    void Spawn()
-    {
-        if (objectToSpawn != null)
+        if (timer > spawnDelay)
         {
-            // Instancia el objeto en la posición deseada
-            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition.position, spawnPosition.rotation);
+            if (num < A_B.Length)
+            {
+                // Mover el objeto usando Rigidbody2D
+                rb.position = A_B[num].position;
 
-            // Destruye el objeto después de 'despawnTime' segundos
-            Destroy(spawnedObject, despawnTime);
+                // Verificar si el objeto está fuera del campo de visión de la cámara
+                Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
 
-            // Detiene el script cuando el objeto se destruye
-            StartCoroutine(StopScriptAfterDespawn(despawnTime));
+                if (viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1)
+                {
+                    Debug.LogWarning("El objeto está fuera del campo de visión de la cámara. Ajustando posición.");
+                    Vector3 newPos = transform.position;
+
+                    newPos.x = Mathf.Clamp(newPos.x, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).x,
+                                            Camera.main.ViewportToWorldPoint(new Vector3(1, 0, Camera.main.nearClipPlane)).x);
+
+                    newPos.y = Mathf.Clamp(newPos.y, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).y,
+                                            Camera.main.ViewportToWorldPoint(new Vector3(0, 1, Camera.main.nearClipPlane)).y);
+
+                    rb.position = newPos;  // Usar Rigidbody2D para actualizar la posición
+                }
+            }
+
+            // Reinicia el temporizador
+            timer = 0f;
+
+            actualPosition = num;
         }
-        else
-        {
-            Debug.LogWarning("No se ha asignado un GameObject para spawnear.");
-        }
-    }
-
-    System.Collections.IEnumerator StopScriptAfterDespawn(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        isStopped = true; // Marca el script como detenido
-        Debug.Log("El objeto ha sido destruido. El script se ha detenido.");
     }
 }
-
-
