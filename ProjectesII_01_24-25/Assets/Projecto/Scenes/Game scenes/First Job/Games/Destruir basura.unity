@@ -404,7 +404,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 1543471615}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 1319377506}
 --- !u!114 &100090284
 MonoBehaviour:
@@ -418,10 +418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 755137295}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!61 &100090285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51420,10 +51423,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 538033859}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!114 &872191229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51439,7 +51445,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 1257974343}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 523858517}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 750072158}
 --- !u!114 &872191230
 MonoBehaviour:
@@ -56764,7 +56770,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 131975355}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 1453391335}
 --- !u!114 &1070646895
 MonoBehaviour:
@@ -56778,10 +56784,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 726827694}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!61 &1070646896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82662,7 +82671,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 1092649170}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 391260353}
 --- !u!114 &1526197851
 MonoBehaviour:
@@ -82676,10 +82685,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 1382260694}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!61 &1526197852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83813,7 +83825,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 1941032530}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 763878691}
 --- !u!114 &1846172924
 MonoBehaviour:
@@ -83827,10 +83839,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 1118713992}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!61 &1846172925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88933,7 +88948,7 @@ MonoBehaviour:
   activateDialogue: {fileID: 685447089}
   activeDialogueActive: 0
   dialogueinactive: {fileID: 750072156}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 943295053}
 --- !u!114 &1904597832
 MonoBehaviour:
@@ -88947,10 +88962,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7651be7cde47a8b478834b8316703e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnAndDespawn: {fileID: 0}
   rotationSpeed: 142.1
   rotation: -90
   destroy: 1
   destroyParticles: {fileID: 1088033024}
+  isArrow: 0
+  despawnTime: 0.5
 --- !u!61 &1904597833
 BoxCollider2D:
   m_ObjectHideFlags: 0
