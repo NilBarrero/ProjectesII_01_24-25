@@ -12,9 +12,16 @@ public class MouseDrag : MonoBehaviour
     private Vector3 currentMousePosition;
     private bool moved = false;
     private float holdTime = 0f; // Tiempo que el ratón ha estado quieto
-    private float timeThreshold = 0.2f; // Umbral de tiempo para considerar que el ratón estuvo quieto
+    private float updateThreshold = 0.5f; // Tiempo para actualizar la posición inicial del ratón
+    private float moveThreshold = 0.1f; // Umbral para detectar movimiento
 
     private Rigidbody2D rb;
+
+    private Vector3 lastMousePosition;  // Última posición del ratón
+    private float speedThreshold = 0.01f; // Umbral de velocidad para considerar que el ratón se movió (ajustable)
+
+    private float additionalHoldTime = 0.5f; // Nuevo temporizador adicional
+    private float additionalTimeThreshold = 1f; // Umbral para el nuevo temporizador (por ejemplo, 1 segundo)
 
     private void Start()
     {
@@ -24,6 +31,9 @@ public class MouseDrag : MonoBehaviour
         {
             Debug.LogError("Este objeto necesita tener un Rigidbody2D para aplicar física.");
         }
+
+        // Inicializamos la última posición del ratón
+        lastMousePosition = Input.mousePosition;
     }
 
     private void Update()
@@ -41,9 +51,9 @@ public class MouseDrag : MonoBehaviour
                 particles.Play();
             }
 
-            // Comprobamos si el ratón se movió
+            // Verificar si el ratón se movió
             currentMousePosition = mousePos;
-            if (Vector3.Distance(currentMousePosition, startMousePosition) > 0.1f) // Umbral para detectar movimiento
+            if (Vector3.Distance(currentMousePosition, startMousePosition) > moveThreshold) // Umbral para detectar movimiento
             {
                 moved = true;
                 holdTime = 0f; // Reseteamos el temporizador si se mueve
@@ -54,12 +64,37 @@ public class MouseDrag : MonoBehaviour
                 holdTime += Time.deltaTime;
 
                 // Si el ratón ha estado quieto durante más del umbral, actualizamos la posición inicial
-                if (holdTime >= timeThreshold)
+                if (holdTime >= updateThreshold)
                 {
                     startMousePosition = currentMousePosition;
                     holdTime = 0f; // Reiniciamos el temporizador
                 }
             }
+
+            // Incrementamos el nuevo temporizador adicional
+            additionalHoldTime += Time.deltaTime;
+
+            // Si el temporizador adicional ha alcanzado el umbral, ejecutamos alguna acción
+            if (additionalHoldTime >= additionalTimeThreshold)
+            {
+                startMousePosition = currentMousePosition;
+
+                // Reiniciamos el temporizador adicional
+                additionalHoldTime = 0f;
+            }
+
+            // Comprobamos la velocidad del ratón
+            Vector3 mouseVelocity = (mousePos - lastMousePosition) / Time.deltaTime;
+
+            // Si la velocidad es cero o menor que el umbral, no se mueve
+            if (mouseVelocity.magnitude <= speedThreshold)
+            {
+                moved = false;  // No se movió con suficiente velocidad
+                startMousePosition = mousePos;
+            }
+
+            // Actualizamos la última posición del ratón
+            lastMousePosition = mousePos;
         }
         else
         {
@@ -109,6 +144,11 @@ public class MouseDrag : MonoBehaviour
             // Aplica la velocidad al objeto en función de la distancia arrastrada
             ApplyLaunchForce(dragDirection);
         }
+        else
+        {
+            // Si el ratón no se movió lo suficiente (o está detenido), el objeto caerá sin fuerza
+            rb.velocity = Vector2.zero;  // Detenemos cualquier velocidad previa
+        }
 
         // Detener las partículas de forma limpia
         particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -123,7 +163,4 @@ public class MouseDrag : MonoBehaviour
         rb.velocity = launchVelocity;
     }
 }
-
-
-
 
