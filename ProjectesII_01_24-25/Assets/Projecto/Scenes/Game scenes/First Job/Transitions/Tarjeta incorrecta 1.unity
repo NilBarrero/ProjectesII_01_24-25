@@ -204,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPrincipal: {fileID: 0}
   storySelector: {fileID: 0}
+  animator: {fileID: 0}
+  animationDuration: 1
 --- !u!1 &316571111
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 226713971352809452, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1362958493503343478, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -428,6 +434,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 286930940}
   m_SourcePrefab: {fileID: 100100000, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+--- !u!95 &412636806 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4423511705626662833, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+  m_PrefabInstance: {fileID: 412636805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &441579209
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +904,14 @@ PrefabInstance:
       propertyPath: scene
       value: Carcel
       objectReference: {fileID: 0}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 412636806}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1165905913}
     - target: {fileID: 7137701263056915506, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: m_SortingOrder
       value: 4
