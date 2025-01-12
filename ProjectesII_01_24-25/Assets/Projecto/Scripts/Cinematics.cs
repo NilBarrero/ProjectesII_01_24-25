@@ -4,37 +4,41 @@ using UnityEngine;
 
 public class Cinematics : MonoBehaviour
 {
-    public RectTransform[] images; // Asigna aquí las imágenes en el inspector
-    public float delayBetweenAnimations = 0.5f; // Retraso entre cada animación
-    public float animationDuration = 1f; // Duración de cada animación
+    public float endYPosition = 0f; // Posición final en el eje Y
+    public float animationDuration = 1f; // Duración de la animación
+    public float delayBeforeAnimation = 0f; // Retraso antes de comenzar la animación
+
+    private RectTransform rectTransform; // Referencia al RectTransform
 
     private void Start()
     {
-        StartCoroutine(AnimateImagesSequentially());
-    }
-
-    private IEnumerator AnimateImagesSequentially()
-    {
-        foreach (var image in images)
+        rectTransform = GetComponent<RectTransform>();
+        if (rectTransform != null)
         {
-            yield return StartCoroutine(AnimateImage(image));
-            yield return new WaitForSeconds(delayBetweenAnimations);
+            StartCoroutine(AnimateImage());
+        }
+        else
+        {
+            Debug.LogWarning("CinematicAnimator requiere un componente RectTransform en el GameObject.");
         }
     }
 
-    private IEnumerator AnimateImage(RectTransform image)
+    private IEnumerator AnimateImage()
     {
-        Vector3 startPosition = image.anchoredPosition; // Posición inicial de la imagen
-        Vector3 endPosition = Vector3.zero; // Centro (puedes cambiar esto según tu necesidad)
+        yield return new WaitForSeconds(delayBeforeAnimation); // Retraso antes de la animación
+
+        Vector2 startPosition = rectTransform.anchoredPosition; // Posición inicial de la imagen
+        Vector2 endPosition = new Vector2(startPosition.x, endYPosition); // Solo cambia el eje Y
 
         float elapsedTime = 0f;
+
         while (elapsedTime < animationDuration)
         {
-            image.anchoredPosition = Vector3.Lerp(startPosition, endPosition, elapsedTime / animationDuration);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, elapsedTime / animationDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        image.anchoredPosition = endPosition; // Asegúrate de que termine exactamente en el centro
+        rectTransform.anchoredPosition = endPosition; // Asegúrate de que termine exactamente en la posición final
     }
 }
