@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HighlightOnHover : MonoBehaviour
@@ -12,6 +11,10 @@ public class HighlightOnHover : MonoBehaviour
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
     public ParticleSystem particles;
+
+    // Añadir una referencia para el cursor personalizado
+    public Texture2D customCursor; // El cursor que quieres usar
+    public Vector2 cursorHotspot = new Vector2(16, 16); // Define el centro del cursor
 
     void Start()
     {
@@ -32,7 +35,7 @@ public class HighlightOnHover : MonoBehaviour
         {
             dialogueinactive.SetActive(false);
         }
-        else if (!activeDialogueActive)
+        else
         {
             dialogueinactive.SetActive(true);
         }
@@ -44,6 +47,13 @@ public class HighlightOnHover : MonoBehaviour
         {
             objectRenderer.material.color = highlightColor; // Cambia al color de resaltado
         }
+
+        // Cambiar el cursor cuando el mouse pasa por encima
+        if (customCursor != null)
+        {
+            UnityEngine.Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
+        }
+
         if (!activeDialogueActive)
         {
             StartCoroutine(Activate(2.5f, 0f, activateDialogue));
@@ -57,6 +67,9 @@ public class HighlightOnHover : MonoBehaviour
         {
             objectRenderer.material.color = originalColor; // Vuelve al color original
         }
+
+        // Restaurar el cursor al valor predeterminado
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private IEnumerator Activate(float timeOut, float timeIn, GameObject gameobject)
@@ -86,3 +99,4 @@ public class HighlightOnHover : MonoBehaviour
         }
     }
 }
+
