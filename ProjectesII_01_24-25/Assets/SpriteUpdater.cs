@@ -16,6 +16,14 @@ public class SpriteUpdater : MonoBehaviour
 
     public Sprite[] scoreSprites; // Array de sprites para las puntuaciones (0, 1, 2, 3)
 
+    public Material spriteMaterial; // Material con el shader que se aplicará a los sprites
+
+    void Start()
+    {
+        // Asigna el material al inicio del juego
+        AssignMaterialToImages();
+    }
+
     void Update()
     {
         if (gameLogic != null)
@@ -35,6 +43,18 @@ public class SpriteUpdater : MonoBehaviour
             // Actualizar la puntuación del jugador
             if (puntuacionPlayerImage != null)
                 puntuacionPlayerImage.sprite = scoreSprites[gameLogic.puntuacionPlayer];
+        }
+    }
+
+    // Asigna el material a las imágenes
+    void AssignMaterialToImages()
+    {
+        if (spriteMaterial != null)
+        {
+            if (playerImage != null) playerImage.material = spriteMaterial;
+            if (rivalImage != null) rivalImage.material = spriteMaterial;
+            if (puntuacionRivalImage != null) puntuacionRivalImage.material = spriteMaterial;
+            if (puntuacionPlayerImage != null) puntuacionPlayerImage.material = spriteMaterial;
         }
     }
 
