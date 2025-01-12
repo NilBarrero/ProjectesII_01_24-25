@@ -20,7 +20,7 @@ public class MouseDrag : MonoBehaviour
     private Vector3 lastMousePosition;  // Última posición del ratón
     private float speedThreshold = 0.01f; // Umbral de velocidad para considerar que el ratón se movió (ajustable)
 
-    private float additionalHoldTime = 0.5f; // Nuevo temporizador adicional
+    private float additionalHoldTime = 0f; // Nuevo temporizador adicional
     private float additionalTimeThreshold = 1f; // Umbral para el nuevo temporizador (por ejemplo, 1 segundo)
 
     private void Start()
@@ -43,6 +43,22 @@ public class MouseDrag : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            // Raycast desde el ratón para detectar si colisiona con algo
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                // Si el raycast golpea un collider, no permitimos que el objeto atraviese el collider.
+                // Aquí puedes comprobar que el collider no es el del objeto arrastrado
+                if (hit.collider.CompareTag("Blocker")) // Si el collider es el que bloquea el movimiento
+                {
+                    // Evitar que el objeto atraviese el collider
+                    return; // Simplemente salir sin mover el objeto.
+                }
+            }
+
+            // Si el raycast no golpea nada o no es un collider que bloquea el movimiento:
             this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, 0);
 
             // Solo iniciar las partículas si no están ya activas
@@ -77,7 +93,8 @@ public class MouseDrag : MonoBehaviour
             // Si el temporizador adicional ha alcanzado el umbral, ejecutamos alguna acción
             if (additionalHoldTime >= additionalTimeThreshold)
             {
-                startMousePosition = currentMousePosition;
+                // Aquí puedes hacer lo que necesites con el temporizador adicional
+                Debug.Log("Temporizador adicional alcanzado: " + additionalHoldTime);
 
                 // Reiniciamos el temporizador adicional
                 additionalHoldTime = 0f;
