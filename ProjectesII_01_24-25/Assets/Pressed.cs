@@ -30,6 +30,7 @@ public class Pressed : MonoBehaviour
         {
             // Establecemos que ha sido pulsado
             haSidoPulsado = true;
+            
 
             // Notificamos al GameManager (Controller) que el objeto ha sido pulsado
             if (gameManager != null)
