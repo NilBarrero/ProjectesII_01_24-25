@@ -44,9 +44,8 @@ public class CameraShake : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
+       
             StartShake();
-        }
+
     }
 }
