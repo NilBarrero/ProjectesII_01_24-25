@@ -6,6 +6,7 @@ public class RockPaperScissors : MonoBehaviour
     public int player; // Elección del jugador (1 = Piedra, 2 = Papel, 3 = Tijera)
     public int puntuacionRival; // Puntuación del rival
     public int puntuacionPlayer; // Puntuación del jugador
+    public float change;
 
     private float playerTimer = 0.0f; // Temporizador para alternar la elección del jugador
 
@@ -18,7 +19,7 @@ public class RockPaperScissors : MonoBehaviour
     {
         // Alterna la elección del jugador cada 0.9 segundos
         playerTimer += Time.deltaTime;
-        if (playerTimer >= 0.9f)
+        if (playerTimer >= change)
         {
             player = (player % 3) + 1; // Alterna entre 1, 2 y 3
             playerTimer = 0.0f;
@@ -63,7 +64,11 @@ public class RockPaperScissors : MonoBehaviour
     // Reinicia la elección del rival de manera aleatoria
     void ResetRival()
     {
-        rival = Random.Range(1, 4); // Genera un número entre 1 y 3
+        int num = rival;
+        while (rival == num)
+        {
+            rival = Random.Range(1, 4); // Genera un número entre 1 y 3
+        }
     }
 
     // Finaliza el juego
