@@ -10,9 +10,15 @@ public class SpriteUpdater : MonoBehaviour
     public Image puntuacionRivalImage; // Imagen para mostrar la puntuación del rival
     public Image puntuacionPlayerImage; // Imagen para mostrar la puntuación del jugador
 
-    public Sprite piedraSprite; // Sprite para "Piedra"
-    public Sprite papelSprite; // Sprite para "Papel"
-    public Sprite tijeraSprite; // Sprite para "Tijera"
+    // Sprites específicos para el jugador
+    public Sprite playerPiedraSprite;
+    public Sprite playerPapelSprite;
+    public Sprite playerTijeraSprite;
+
+    // Sprites específicos para el rival
+    public Sprite rivalPiedraSprite;
+    public Sprite rivalPapelSprite;
+    public Sprite rivalTijeraSprite;
 
     public Sprite[] scoreSprites; // Array de sprites para las puntuaciones (0, 1, 2, 3)
 
@@ -30,11 +36,11 @@ public class SpriteUpdater : MonoBehaviour
         {
             // Actualizar la elección del jugador
             if (playerImage != null)
-                playerImage.sprite = GetChoiceSprite(gameLogic.player);
+                playerImage.sprite = GetPlayerChoiceSprite(gameLogic.player);
 
             // Actualizar la elección del rival
             if (rivalImage != null)
-                rivalImage.sprite = GetChoiceSprite(gameLogic.rival);
+                rivalImage.sprite = GetRivalChoiceSprite(gameLogic.rival);
 
             // Actualizar la puntuación del rival
             if (puntuacionRivalImage != null)
@@ -52,20 +58,32 @@ public class SpriteUpdater : MonoBehaviour
         if (spriteMaterial != null)
         {
             //if (playerImage != null) playerImage.material = spriteMaterial;
-            //if (rivalImage != null) rivalImage.material = spriteMaterial;
+            if (rivalImage != null) rivalImage.material = spriteMaterial;
             if (puntuacionRivalImage != null) puntuacionRivalImage.material = spriteMaterial;
             if (puntuacionPlayerImage != null) puntuacionPlayerImage.material = spriteMaterial;
         }
     }
 
-    // Retorna el sprite correspondiente a la elección
-    Sprite GetChoiceSprite(int choice)
+    // Retorna el sprite correspondiente a la elección del jugador
+    Sprite GetPlayerChoiceSprite(int choice)
     {
         switch (choice)
         {
-            case 1: return piedraSprite;
-            case 2: return papelSprite;
-            case 3: return tijeraSprite;
+            case 1: return playerPiedraSprite;
+            case 2: return playerPapelSprite;
+            case 3: return playerTijeraSprite;
+            default: return null;
+        }
+    }
+
+    // Retorna el sprite correspondiente a la elección del rival
+    Sprite GetRivalChoiceSprite(int choice)
+    {
+        switch (choice)
+        {
+            case 1: return rivalPiedraSprite;
+            case 2: return rivalPapelSprite;
+            case 3: return rivalTijeraSprite;
             default: return null;
         }
     }
