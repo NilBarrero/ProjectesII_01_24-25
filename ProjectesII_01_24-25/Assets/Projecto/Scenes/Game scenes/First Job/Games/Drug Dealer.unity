@@ -652,7 +652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c6f1a599c7ef2f448737a01fef293c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83305d12e34766f4cae28d994c997d43, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6240,6 +6240,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!1 &596706156
 GameObject:
   m_ObjectHideFlags: 0
@@ -11138,6 +11141,7 @@ GameObject:
   - component: {fileID: 672586323}
   - component: {fileID: 672586322}
   - component: {fileID: 672586321}
+  - component: {fileID: 672586325}
   m_Layer: 5
   m_Name: BotonPausa
   m_TagString: Untagged
@@ -11259,6 +11263,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 209.5295, y: 135.2502}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &672586325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672586320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &690038197
 GameObject:
   m_ObjectHideFlags: 0
@@ -11297,6 +11315,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 1753303635}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 1639851076}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!114 &690038199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11310,6 +11330,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Huir
+  animator: {fileID: 1115560835}
+  animationDuration: 1
+  musicSource: {fileID: 1635836986}
+  fadeOutDuration: 1
+  clickSound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
 --- !u!61 &690038200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16525,6 +16550,7 @@ GameObject:
   - component: {fileID: 847977154}
   - component: {fileID: 847977153}
   - component: {fileID: 847977152}
+  - component: {fileID: 847977155}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -16647,6 +16673,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847977150}
   m_CullTransparentMesh: 1
+--- !u!114 &847977155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847977150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &892153200
 GameObject:
   m_ObjectHideFlags: 0
@@ -16743,6 +16783,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!61 &967376427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16867,6 +16910,7 @@ GameObject:
   - component: {fileID: 990151070}
   - component: {fileID: 990151069}
   - component: {fileID: 990151068}
+  - component: {fileID: 990151071}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -16989,6 +17033,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990151066}
   m_CullTransparentMesh: 1
+--- !u!114 &990151071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990151066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &1073378238
 GameObject:
   m_ObjectHideFlags: 0
@@ -17284,6 +17342,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1080815004}
+    - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080815008}
+    - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080815007}
+    - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080815006}
+    - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080815005}
   m_SourcePrefab: {fileID: 100100000, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
 --- !u!224 &1080815003 stripped
 RectTransform:
@@ -17304,6 +17374,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 672586320}
   menuPausa: {fileID: 145432936}
+--- !u!114 &1080815005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516345449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 990151068}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1080815006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516345449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 847977152}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1080815007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516345449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2113993141}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1080815008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516345449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 672586321}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!95 &1115560835 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5953563331860856804, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}
+  m_PrefabInstance: {fileID: 1751997423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1258008082
 GameObject:
   m_ObjectHideFlags: 0
@@ -17338,6 +17469,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!61 &1258008084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17587,6 +17721,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!61 &1351590311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23617,6 +23754,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Empezar reparto
+  animator: {fileID: 1115560835}
+  musicSource: {fileID: 1635836986}
+  fadeOutDuration: 1
 --- !u!61 &1679382358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23677,6 +23817,9 @@ MonoBehaviour:
   prefabName: Condon caducado
   prefabName2: 
   scene: 1.2
+  animator: {fileID: 1115560835}
+  musicSource: {fileID: 1635836986}
+  fadeOutDuration: 1
 --- !u!114 &1679382361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23694,6 +23837,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 906105862}
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   particles: {fileID: 1639851076}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1679382362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23729,6 +23874,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 892153200}
   highlightColor: {r: 1, g: 1, b: 1, a: 0}
   particles: {fileID: 796098365}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1679382364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23746,6 +23893,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 892153200}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 796098365}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1679382365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23759,6 +23908,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Negociar
+  animator: {fileID: 1115560835}
+  animationDuration: 1
+  musicSource: {fileID: 1635836986}
+  fadeOutDuration: 1
+  clickSound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
 --- !u!1 &1705784332
 GameObject:
   m_ObjectHideFlags: 0
@@ -24207,6 +24361,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!61 &1875096056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25024,6 +25181,9 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  animator: {fileID: 0}
+  musicSource: {fileID: 0}
+  fadeOutDuration: 2
 --- !u!1 &2113993139
 GameObject:
   m_ObjectHideFlags: 0
@@ -25036,6 +25196,7 @@ GameObject:
   - component: {fileID: 2113993143}
   - component: {fileID: 2113993142}
   - component: {fileID: 2113993141}
+  - component: {fileID: 2113993144}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -25158,6 +25319,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113993139}
   m_CullTransparentMesh: 1
+--- !u!114 &2113993144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113993139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &2132910312
 GameObject:
   m_ObjectHideFlags: 0
@@ -25358,6 +25533,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 1753303635}
   highlightColor: {r: 0.98039216, g: 0.6627451, b: 0.69411767, a: 1}
   particles: {fileID: 596706158}
+  customCursor: {fileID: 2800000, guid: 87ad0dd6239a4ce4e97e09e9e7601b76, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!4 &5804016456627008902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589627635595460890, guid: e7e9574009039544183445d4f559643b, type: 3}
