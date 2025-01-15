@@ -5,7 +5,6 @@ using static Cinemachine.AxisState;
 
 public class Controller : MonoBehaviour
 {
-    // Contador que se incrementa cuando un objeto es pulsado
     public int contador = 0;
     public int maxCount = 5;
     public string scene;
@@ -17,9 +16,13 @@ public class Controller : MonoBehaviour
     public bool teleport = false;
 
     // Variables para animación y música
-    public Animator transitionAnimator;  // Referencia al Animator para la animación
-    public AudioSource musicSource;      // Referencia a la fuente de música
-    public float fadeOutDuration = 1f;   // Duración del fade out de la música
+    public Animator transitionAnimator;
+    public AudioSource musicSource;
+    public float fadeOutDuration = 1f;
+
+    // Referencia al AudioSource para el sonido de movimiento
+    public AudioSource movementAudioSource;
+    public AudioClip movementSound;  // AudioClip para el sonido de movimiento
 
     void Start()
     {
@@ -32,25 +35,28 @@ public class Controller : MonoBehaviour
         {
             Debug.LogError("El ship no está asignado.");
         }
+
+        // Aseguramos que el AudioSource de movimiento esté configurado
+        if (movementAudioSource == null)
+        {
+            Debug.LogError("El AudioSource de movimiento no está asignado.");
+        }
     }
 
-    // Este método es llamado cuando un GameObject ha sido pulsado
     public void ObjetoPulsado(Pressed botonPulsado)
     {
         if (botonPulsado.haSidoPulsado)
         {
-            contador++; // Incrementamos el contador
+            contador++;
 
-            // Aseguramos que el contador no se salga del rango del array A_B
             if (contador < A_B.Length)
             {
-                transform.position = A_B[contador].position;
+                MoveToPosition(A_B[contador].position);
             }
             else
             {
-                // Si contador excede el tamaño del array, lo reseteamos o lo ajustamos a un valor válido.
                 contador = 0;
-                transform.position = A_B[contador].position;
+                MoveToPosition(A_B[contador].position);
             }
         }
 
@@ -59,15 +65,25 @@ public class Controller : MonoBehaviour
             StartCoroutine(TransitionToScene());
         }
 
-        botonPulsado.haSidoPulsado = false; // Reiniciamos el estado de pulsado
+        botonPulsado.haSidoPulsado = false;
+    }
+
+    // Método que mueve el GameObject a una nueva posición y reproduce el sonido
+    private void MoveToPosition(Vector3 targetPosition)
+    {
+        transform.position = targetPosition;
+
+        // Reproduce el sonido de movimiento cada vez que el objeto se mueve
+        if (movementAudioSource != null && movementSound != null)
+        {
+            movementAudioSource.PlayOneShot(movementSound);
+        }
     }
 
     private IEnumerator TransitionToScene()
     {
-        // Inicia la animación de transición
-        transitionAnimator.SetTrigger("StartTransition"); // Asegúrate de tener un trigger llamado "StartTransition" en tu Animator
+        transitionAnimator.SetTrigger("StartTransition");
 
-        // Fade out de la música
         float startVolume = musicSource.volume;
         float timeElapsed = 0f;
 
@@ -78,13 +94,10 @@ public class Controller : MonoBehaviour
             yield return null;
         }
 
-        // Asegura que el volumen final sea 0
         musicSource.volume = 0f;
 
-        // Espera el tiempo de la animación antes de cambiar de escena
         yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
 
-        // Cargar la nueva escena
         SceneManager.LoadScene(scene);
     }
 }

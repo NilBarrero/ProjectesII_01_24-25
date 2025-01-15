@@ -15,6 +15,12 @@ public class DetectPrefab : MonoBehaviour
     public AudioSource musicSource;
     public float fadeOutDuration = 2f; // Duración del fade out
 
+    // Referencia al AudioSource para efectos de sonido
+    public AudioSource sfxSource;
+
+    // Efecto de sonido que se reproducirá
+    public AudioClip detectionSound;
+
     private bool isTransitioning = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +28,8 @@ public class DetectPrefab : MonoBehaviour
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
         if (!isTransitioning && (collision.gameObject.name == prefabName || collision.gameObject.name == prefabName2))
         {
+            // Reproduce el efecto de sonido
+            PlayDetectionSound();
             StartCoroutine(TransitionToScene());
         }
     }
@@ -62,6 +70,14 @@ public class DetectPrefab : MonoBehaviour
 
         // Asegura que el volumen llegue a 0
         musicSource.volume = 0f;
+    }
+
+    private void PlayDetectionSound()
+    {
+        if (sfxSource != null && detectionSound != null)
+        {
+            sfxSource.PlayOneShot(detectionSound);
+        }
     }
 }
 
