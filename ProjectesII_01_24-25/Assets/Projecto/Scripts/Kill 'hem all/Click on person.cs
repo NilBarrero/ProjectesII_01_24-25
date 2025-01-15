@@ -6,21 +6,21 @@ public class Clickonperson : MonoBehaviour
 {
     public SpawnAndDespawn spawnAndDespawn;
     private GameManagercounter gameManager;
-    private BoxCollider2D boxCollider;  // Referencia al BoxCollider2D
+    private BoxCollider2D boxCollider; // Referencia al BoxCollider2D
 
-    public float rotationSpeed = 100f;  // Velocidad de rotación
+    public float rotationSpeed = 100f; // Velocidad de rotación
     public float rotation = -90f;
-    private bool isRotating = false;  // Para saber si el objeto está rotando
+    private bool isRotating = false; // Para saber si el objeto está rotando
     public bool destroy = false;
     public ParticleSystem destroyParticles;
     public bool isArrow = false;
     public float despawnTime = .5f;
 
+    public AudioClip clickSound; // Referencia al AudioClip
+    public float soundVolume = 1.0f; // Volumen del sonido
 
     void Start()
     {
-       
-
         // Obtener el GameManager
         gameManager = FindObjectOfType<GameManagercounter>();
 
@@ -35,14 +35,19 @@ public class Clickonperson : MonoBehaviour
         if (boxCollider == null)
         {
             Debug.LogError("Este objeto no tiene un BoxCollider2D");
-
         }
+
         destroyParticles.Stop();
-       
     }
 
     void OnMouseDown()
     {
+        // Reproducir el sonido en la posición del objeto
+        if (clickSound != null)
+        {
+            AudioSource.PlayClipAtPoint(clickSound, transform.position, soundVolume);
+        }
+
         // Verificar que el GameManager y el BoxCollider2D existan
         if (gameManager != null && boxCollider != null && !destroy)
         {
@@ -64,8 +69,6 @@ public class Clickonperson : MonoBehaviour
             Destroy(gameObject);
             destroyParticles.Play();
         }
-
-       
     }
 
     void RotateToTargetAngle()
@@ -88,15 +91,11 @@ public class Clickonperson : MonoBehaviour
             // Detener la rotación cuando llegue a -90 grados
             if (Mathf.Approximately(angle, rotation))
             {
-                isRotating = false;  // Dejar de rotar
+                isRotating = false; // Dejar de rotar
             }
         }
-        /*
-        if (isArrow && spawnAndDespawn.isActive)
-        {
-            Destroy(boxCollider, despawnTime);
-        }
-        */
     }
 }
+
+
 
