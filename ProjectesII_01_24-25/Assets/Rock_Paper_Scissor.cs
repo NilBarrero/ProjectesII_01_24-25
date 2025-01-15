@@ -11,6 +11,9 @@ public class RockPaperScissors : MonoBehaviour
     public float change;
     public string scene1;
     public string scene2;
+    public GameObject text1;
+    public GameObject text2;
+    public float time;
 
     private float playerTimer = 0.0f; // Temporizador para alternar la elección del jugador
 
@@ -22,6 +25,8 @@ public class RockPaperScissors : MonoBehaviour
     void Start()
     {
         ResetRival();
+        text1.SetActive(false);
+        text2.SetActive(false);
     }
 
     void Update()
@@ -48,12 +53,17 @@ public class RockPaperScissors : MonoBehaviour
             Debug.Log("Jugador gana");
             puntuacionPlayer++;
             change -= 0.1f;
+            text1.SetActive(true);
+            StartCoroutine(Desactive(time));
+
         }
         else
         {
             Debug.Log("Rival gana");
             puntuacionRival++;
             change += 0.1f;
+            text2.SetActive(true);
+            StartCoroutine(Desactive(time));
         }
 
         // Reinicia la elección del rival
@@ -69,6 +79,13 @@ public class RockPaperScissors : MonoBehaviour
         {
             Debug.Log("¡Rival gana la partida!");
             StartCoroutine(TransitionToScene(scene2));
+        }
+
+        IEnumerator Desactive(float time)
+        {
+            yield return new WaitForSeconds(time);
+            text1.SetActive(false);
+            text2.SetActive(false);
         }
     }
 
