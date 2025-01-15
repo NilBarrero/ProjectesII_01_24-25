@@ -38,11 +38,13 @@ public class RockPaperScissors : MonoBehaviour
         {
             Debug.Log("Jugador gana");
             puntuacionPlayer++;
+            change -= 0.1f;
         }
         else
         {
             Debug.Log("Rival gana");
             puntuacionRival++;
+            change += 0.1f;
         }
 
         // Reinicia la elección del rival

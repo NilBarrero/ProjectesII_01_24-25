@@ -57,7 +57,6 @@ public class SpriteUpdater : MonoBehaviour
     {
         if (spriteMaterial != null)
         {
-            //if (playerImage != null) playerImage.material = spriteMaterial;
             if (rivalImage != null) rivalImage.material = spriteMaterial;
             if (puntuacionRivalImage != null) puntuacionRivalImage.material = spriteMaterial;
             if (puntuacionPlayerImage != null) puntuacionPlayerImage.material = spriteMaterial;
