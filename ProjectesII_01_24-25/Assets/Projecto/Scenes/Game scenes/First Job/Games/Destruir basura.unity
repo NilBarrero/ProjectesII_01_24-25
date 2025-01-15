@@ -6035,10 +6035,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickCount: 0
   maxCount: 6
-  scene: Customes
+  scene1: Customes
+  scene2: DeclareProduct
+  scene3: Captura
   transitionAnimator: {fileID: 1933992647}
   musicSource: {fileID: 0}
   fadeOutDuration: 1
+  dontKillCertainNumOfEnemies: 1
+  timer: {fileID: 1012887239}
 --- !u!4 &316279700
 Transform:
   m_ObjectHideFlags: 0
@@ -21500,11 +21504,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7818100545829985999, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: m_text
-      value: -1s
+      value: 10s
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: scene
-      value: No destruida
+      value: Captura
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: counter
@@ -21516,6 +21520,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: tiempoInicial
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      propertyPath: tiempoRestante
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
@@ -51883,17 +51891,6 @@ MonoBehaviour:
   - {fileID: 31076570}
   minDistance: 0.9
   teleport: 0
---- !u!114 &879571877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
-  m_PrefabInstance: {fileID: 585246685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9893f5403aa4c2479da18ff539795fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &911331566
 GameObject:
   m_ObjectHideFlags: 0
@@ -57081,6 +57078,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012887239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+  m_PrefabInstance: {fileID: 585246685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9893f5403aa4c2479da18ff539795fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1062570429
 GameObject:
   m_ObjectHideFlags: 0
