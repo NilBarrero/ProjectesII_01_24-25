@@ -21,6 +21,9 @@ public class CountDocuments : MonoBehaviour
     public AudioSource musicSource;      // Referencia al AudioSource para la música
     public float fadeOutDuration = 1f;   // Duración del fade out de la música
 
+    // Variable para el audio del clic
+    public AudioClip clickSound;         // Asigna el sonido en el Inspector
+
     private void Start()
     {
         // Verifica que todos los documentos están asignados en el Inspector
@@ -40,6 +43,12 @@ public class CountDocuments : MonoBehaviour
             {
                 IncrementClickCount(i);
                 deactivateScript.hasBeenActivated = false;
+
+                // Reproduce el sonido al hacer clic
+                if (clickSound != null && musicSource != null)
+                {
+                    musicSource.PlayOneShot(clickSound);
+                }
             }
         }
 
