@@ -11,6 +11,9 @@ public class RockPaperScissors : MonoBehaviour
     public float change;
     public string scene1;
     public string scene2;
+    public GameObject text1;
+    public GameObject text2;
+    public float time;
 
     private float playerTimer = 0.0f; // Temporizador para alternar la elección del jugador
 
@@ -19,9 +22,24 @@ public class RockPaperScissors : MonoBehaviour
     public AudioSource musicSource;      // Referencia a la fuente de música
     public float fadeOutDuration = 1f;   // Duración del fade out de la música
 
+    // Clips de audio para cada elección del rival
+    public AudioClip piedraClip;  // Audio para piedra
+    public AudioClip papelClip;   // Audio para papel
+    public AudioClip tijeraClip;  // Audio para tijera
+
+    public AudioSource audioSource; // Fuente de audio para reproducir los clips
+
     void Start()
     {
         ResetRival();
+        text1.SetActive(false);
+        text2.SetActive(false);
+
+        // Asignar el componente AudioSource si no está ya asignado
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -35,7 +53,6 @@ public class RockPaperScissors : MonoBehaviour
         }
     }
 
-    // Detecta el clic en el objeto
     void OnMouseDown()
     {
         // Compara las elecciones y actualiza las puntuaciones
@@ -48,12 +65,17 @@ public class RockPaperScissors : MonoBehaviour
             Debug.Log("Jugador gana");
             puntuacionPlayer++;
             change -= 0.1f;
+            text1.SetActive(true);
+            StartCoroutine(Desactive(time));
+
         }
         else
         {
             Debug.Log("Rival gana");
             puntuacionRival++;
             change += 0.1f;
+            text2.SetActive(true);
+            StartCoroutine(Desactive(time));
         }
 
         // Reinicia la elección del rival
@@ -70,18 +92,22 @@ public class RockPaperScissors : MonoBehaviour
             Debug.Log("¡Rival gana la partida!");
             StartCoroutine(TransitionToScene(scene2));
         }
+
+        IEnumerator Desactive(float time)
+        {
+            yield return new WaitForSeconds(time);
+            text1.SetActive(false);
+            text2.SetActive(false);
+        }
     }
 
-    // Corutina para manejar la transición de escena
     private IEnumerator TransitionToScene(string sceneName)
     {
-        // Inicia la animación de transición
         if (transitionAnimator != null)
         {
-            transitionAnimator.SetTrigger("StartTransition"); // Asegúrate de tener un trigger llamado "StartTransition"
+            transitionAnimator.SetTrigger("StartTransition");
         }
 
-        // Fade out de la música
         if (musicSource != null)
         {
             float startVolume = musicSource.volume;
@@ -94,27 +120,36 @@ public class RockPaperScissors : MonoBehaviour
                 yield return null;
             }
 
-            // Asegura que el volumen final sea 0
             musicSource.volume = 0f;
         }
 
-        // Espera el tiempo de la animación antes de cambiar de escena
         if (transitionAnimator != null)
         {
             yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
-        // Cargar la nueva escena
         SceneManager.LoadScene(sceneName);
     }
 
-    // Reinicia la elección del rival de manera aleatoria
     void ResetRival()
     {
         int num = rival;
         while (rival == num)
         {
             rival = Random.Range(1, 4); // Genera un número entre 1 y 3
+        }
+
+        if (rival == 1)
+        {
+            audioSource.PlayOneShot(piedraClip); // Reproducir audio para piedra
+        }
+        else if (rival == 2)
+        {
+            audioSource.PlayOneShot(papelClip); // Reproducir audio para papel
+        }
+        else if (rival == 3)
+        {
+            audioSource.PlayOneShot(tijeraClip); // Reproducir audio para tijera
         }
     }
 }
