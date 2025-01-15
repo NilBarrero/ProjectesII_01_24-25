@@ -52,7 +52,7 @@ public class CountDocuments : MonoBehaviour
     {
         Debug.Log("Índice del documento: " + index);  // Agregar esta línea para depurar
 
-        if (index < 10)  // Documentos 1 a 10 (índices 0 a 9)
+        if (index < 13)  // Documentos 1 a 10 (índices 0 a 9)
         {
             clickCount++;
             Debug.Log("Clics (clickCount): " + clickCount);
