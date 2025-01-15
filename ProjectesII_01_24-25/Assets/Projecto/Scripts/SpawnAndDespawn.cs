@@ -5,55 +5,64 @@ using UnityEngine;
 public class SpawnAndDespawn : MonoBehaviour
 {
     public Transform[] A_B;
-    public int num = 0;
     public float spawnDelay = 0.02f;
     private float timer = 0f;
     private int actualPosition = 0;
+    public float newSpeed;
+    public float changeSpeed;
 
     private Rigidbody2D rb;
+    private FondoMove fondoMove; // Referencia al script del fondo
 
     void Start()
     {
+        if (A_B == null || A_B.Length == 0)
+        {
+            Debug.LogError("A_B no está asignado o está vacío.");
+            enabled = false;
+            return;
+        }
+
         rb = GetComponent<Rigidbody2D>();
+        fondoMove = FindObjectOfType<FondoMove>(); // Encontrar automáticamente el script del fondo
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        while (num == actualPosition)
-        {
-            num = Random.Range(0, 6);
-        }
 
         if (timer > spawnDelay)
         {
-            if (num < A_B.Length)
+            // Generar una posición aleatoria diferente a la actual
+            int num;
+            do
             {
-                // Mover el objeto usando Rigidbody2D
-                rb.position = A_B[num].position;
+                num = Random.Range(0, A_B.Length);
+            } while (num == actualPosition);
 
-                // Verificar si el objeto está fuera del campo de visión de la cámara
-                Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+            actualPosition = num;
 
-                if (viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1)
-                {
-                    Debug.LogWarning("El objeto está fuera del campo de visión de la cámara. Ajustando posición.");
-                    Vector3 newPos = transform.position;
-
-                    newPos.x = Mathf.Clamp(newPos.x, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).x,
-                                            Camera.main.ViewportToWorldPoint(new Vector3(1, 0, Camera.main.nearClipPlane)).x);
-
-                    newPos.y = Mathf.Clamp(newPos.y, Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane)).y,
-                                            Camera.main.ViewportToWorldPoint(new Vector3(0, 1, Camera.main.nearClipPlane)).y);
-
-                    rb.position = newPos;  // Usar Rigidbody2D para actualizar la posición
-                }
-            }
+            // Mover el objeto usando Rigidbody2D
+            rb.position = A_B[num].position;
 
             // Reinicia el temporizador
             timer = 0f;
+        }
+    }
 
-            actualPosition = num;
+    // Detectar cuando el objeto es pulsado
+    private void OnMouseDown()
+    {
+        Debug.Log("Objeto pulsado");
+
+        if (fondoMove != null)
+        {
+            // Aumentar temporalmente la velocidad del fondo
+            fondoMove.AumentarVelocidadTemporal(newSpeed, changeSpeed); // Cambiar a velocidad 5 durante 1 segundo
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró el script FondoMove.");
         }
     }
 }
