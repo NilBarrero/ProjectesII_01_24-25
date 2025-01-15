@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 376810996}
   - component: {fileID: 376810998}
   - component: {fileID: 376810997}
+  - component: {fileID: 376810999}
   m_Layer: 5
   m_Name: "Vi\xF1eta3"
   m_TagString: Untagged
@@ -226,8 +227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.625, y: 0.5}
   m_AnchorMax: {x: 0.625, y: 0.5}
-  m_AnchoredPosition: {x: -0.25, y: 769}
-  m_SizeDelta: {x: 184.1678, y: 286.1534}
+  m_AnchoredPosition: {x: 106.11211, y: 860.9387}
+  m_SizeDelta: {x: 270.6166, y: 156.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376810997
 MonoBehaviour:
@@ -267,6 +268,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376810995}
   m_CullTransparentMesh: 1
+--- !u!114 &376810999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376810995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endYPosition: 77
+  animationDuration: 1
+  delayBeforeAnimation: 2
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &447750713
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,6 +5229,7 @@ GameObject:
   - component: {fileID: 919102350}
   - component: {fileID: 919102352}
   - component: {fileID: 919102351}
+  - component: {fileID: 919102353}
   m_Layer: 5
   m_Name: "Vi\xF1eta1"
   m_TagString: Untagged
@@ -5236,8 +5254,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13625, y: 0.5}
   m_AnchorMax: {x: 0.13625, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 769}
-  m_SizeDelta: {x: 184.1678, y: 286.1534}
+  m_AnchoredPosition: {x: 62, y: 874}
+  m_SizeDelta: {x: 199.8704, y: 310.5515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919102351
 MonoBehaviour:
@@ -5259,7 +5277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ee13ec042a934849a013e01495f57b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95912655fbbddca40a73e7b615e783de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5277,6 +5295,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919102349}
   m_CullTransparentMesh: 1
+--- !u!114 &919102353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919102349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endYPosition: 0
+  animationDuration: 1
+  delayBeforeAnimation: 0
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1042689615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,6 +5499,7 @@ GameObject:
   - component: {fileID: 1563265222}
   - component: {fileID: 1563265224}
   - component: {fileID: 1563265223}
+  - component: {fileID: 1563265225}
   m_Layer: 5
   m_Name: "Vi\xF1eta2"
   m_TagString: Untagged
@@ -5489,8 +5524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37625003, y: 0.5}
   m_AnchorMax: {x: 0.37625003, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: -769}
-  m_SizeDelta: {x: 184.1678, y: 286.1534}
+  m_AnchoredPosition: {x: 69.87071, y: -795.1337}
+  m_SizeDelta: {x: 199.8704, y: 310.5515}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563265223
 MonoBehaviour:
@@ -5512,7 +5547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3b5a35666875d7e49bbaa414df6e45aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 720a4e8170193374bbe53da07dea3653, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5530,6 +5565,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563265221}
   m_CullTransparentMesh: 1
+--- !u!114 &1563265225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563265221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endYPosition: 0
+  animationDuration: 1
+  delayBeforeAnimation: 1
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1934357486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,6 +5592,7 @@ GameObject:
   - component: {fileID: 1934357487}
   - component: {fileID: 1934357489}
   - component: {fileID: 1934357488}
+  - component: {fileID: 1934357490}
   m_Layer: 5
   m_Name: "Vi\xF1eta4"
   m_TagString: Untagged
@@ -5565,8 +5617,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8725, y: 0.5}
   m_AnchorMax: {x: 0.8725, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -769}
-  m_SizeDelta: {x: 184.1678, y: 286.1534}
+  m_AnchoredPosition: {x: -91.885635, y: -795.1337}
+  m_SizeDelta: {x: 270.6211, y: 157.3739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934357488
 MonoBehaviour:
@@ -5606,6 +5658,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934357486}
   m_CullTransparentMesh: 1
+--- !u!114 &1934357490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934357486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endYPosition: -77
+  animationDuration: 1
+  delayBeforeAnimation: 3
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1962150782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,6 +6106,10 @@ PrefabInstance:
       propertyPath: fadeMusic
       value: 
       objectReference: {fileID: 2060467885}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
     - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: musicSource
       value: 

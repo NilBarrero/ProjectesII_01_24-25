@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static Cinemachine.AxisState;
@@ -12,11 +11,15 @@ public class Controller : MonoBehaviour
     public string scene;
     public GameObject ship;
 
-
     public float speedMov;
     public Transform[] A_B;
     public float minDistance;
     public bool teleport = false;
+
+    // Variables para animación y música
+    public Animator transitionAnimator;  // Referencia al Animator para la animación
+    public AudioSource musicSource;      // Referencia a la fuente de música
+    public float fadeOutDuration = 1f;   // Duración del fade out de la música
 
     void Start()
     {
@@ -53,10 +56,35 @@ public class Controller : MonoBehaviour
 
         if (maxCount == contador)
         {
-            SceneManager.LoadScene(scene);
+            StartCoroutine(TransitionToScene());
         }
 
         botonPulsado.haSidoPulsado = false; // Reiniciamos el estado de pulsado
     }
-}
 
+    private IEnumerator TransitionToScene()
+    {
+        // Inicia la animación de transición
+        transitionAnimator.SetTrigger("StartTransition"); // Asegúrate de tener un trigger llamado "StartTransition" en tu Animator
+
+        // Fade out de la música
+        float startVolume = musicSource.volume;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < fadeOutDuration)
+        {
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, timeElapsed / fadeOutDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegura que el volumen final sea 0
+        musicSource.volume = 0f;
+
+        // Espera el tiempo de la animación antes de cambiar de escena
+        yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        // Cargar la nueva escena
+        SceneManager.LoadScene(scene);
+    }
+}

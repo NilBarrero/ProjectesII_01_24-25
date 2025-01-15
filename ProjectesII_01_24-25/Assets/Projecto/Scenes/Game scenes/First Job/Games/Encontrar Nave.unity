@@ -5442,6 +5442,7 @@ GameObject:
   - component: {fileID: 156934217}
   - component: {fileID: 156934216}
   - component: {fileID: 156934215}
+  - component: {fileID: 156934219}
   m_Layer: 5
   m_Name: BotonPausa
   m_TagString: Untagged
@@ -5563,6 +5564,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 209.5295, y: 135.2502}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &156934219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156934214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &339026550
 GameObject:
   m_ObjectHideFlags: 0
@@ -5601,7 +5616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 335fb7a38b1fe79478d01983def89f07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2fb1a55a1e334748b26fe90daab5dc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6105,6 +6120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Esquive Naves
+  animator: {fileID: 0}
+  animationDuration: 1
+  musicSource: {fileID: 0}
+  fadeOutDuration: 1
+  clickSound: {fileID: 0}
 --- !u!114 &418970717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6261,6 +6281,18 @@ PrefabInstance:
       propertyPath: scene
       value: T1.2.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1160436907}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 153573774}
     - target: {fileID: 4486927400063746097, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
       propertyPath: m_Size.x
       value: 19.483225
@@ -6347,6 +6379,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 1559104023}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 23657618}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &477161342
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,6 +6393,7 @@ GameObject:
   - component: {fileID: 477161346}
   - component: {fileID: 477161345}
   - component: {fileID: 477161344}
+  - component: {fileID: 477161347}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -6481,6 +6516,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477161342}
   m_CullTransparentMesh: 1
+--- !u!114 &477161347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477161342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &537785678
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,6 +6626,7 @@ GameObject:
   - component: {fileID: 710794752}
   - component: {fileID: 710794751}
   - component: {fileID: 710794750}
+  - component: {fileID: 710794753}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -6699,6 +6749,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710794748}
   m_CullTransparentMesh: 1
+--- !u!114 &710794753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710794748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &794137883
 GameObject:
   m_ObjectHideFlags: 0
@@ -11737,6 +11801,18 @@ PrefabInstance:
       propertyPath: scene
       value: T1.2.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1160436907}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 153573774}
     - target: {fileID: 4486927400063746097, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
       propertyPath: m_Size.x
       value: 7.451872
@@ -11823,6 +11899,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 1559104023}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 879117688}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &879117686
 GameObject:
   m_ObjectHideFlags: 0
@@ -21923,6 +22001,7 @@ GameObject:
   - component: {fileID: 980561125}
   - component: {fileID: 980561124}
   - component: {fileID: 980561123}
+  - component: {fileID: 980561126}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -22045,6 +22124,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980561121}
   m_CullTransparentMesh: 1
+--- !u!114 &980561126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980561121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841629a78985a834fb1d2ba2abadbe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &999554323
 GameObject:
   m_ObjectHideFlags: 0
@@ -22297,6 +22390,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1160436907 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5953563331860856804, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}
+  m_PrefabInstance: {fileID: 1764240275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189891349
 GameObject:
   m_ObjectHideFlags: 0
@@ -22394,6 +22492,10 @@ GameObject:
   - component: {fileID: 1189931853}
   - component: {fileID: 1189931852}
   - component: {fileID: 1189931851}
+  - component: {fileID: 1189931859}
+  - component: {fileID: 1189931858}
+  - component: {fileID: 1189931857}
+  - component: {fileID: 1189931856}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -22501,6 +22603,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1189931856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189931850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 980561123}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1189931857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189931850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 710794750}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1189931858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189931850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 477161344}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+--- !u!114 &1189931859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189931850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc64742a0d65724c91b965a405b8a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 156934215}
+  sound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
 --- !u!1 &1401896843
 GameObject:
   m_ObjectHideFlags: 0
@@ -22819,6 +22977,18 @@ PrefabInstance:
       propertyPath: scene
       value: T1.2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1160436907}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+    - target: {fileID: 3895883250632770224, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 153573774}
     - target: {fileID: 4486927400063746097, guid: 468d95f5873488848b9f4178e2a84232, type: 3}
       propertyPath: m_Size.x
       value: 18.94083
@@ -22905,6 +23075,8 @@ MonoBehaviour:
   dialogueinactive: {fileID: 1559104023}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 835226346}
+  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &1721846227
 GameObject:
   m_ObjectHideFlags: 0
@@ -23340,6 +23512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Esquive Naves
+  animator: {fileID: 0}
+  animationDuration: 1
+  musicSource: {fileID: 0}
+  fadeOutDuration: 1
+  clickSound: {fileID: 0}
 --- !u!114 &1889344562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23506,6 +23683,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Esquive Naves
+  animator: {fileID: 0}
+  animationDuration: 1
+  musicSource: {fileID: 0}
+  fadeOutDuration: 1
+  clickSound: {fileID: 0}
 --- !u!114 &1944620624
 MonoBehaviour:
   m_ObjectHideFlags: 0
