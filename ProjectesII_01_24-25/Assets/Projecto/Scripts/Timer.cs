@@ -3,10 +3,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class CuentaRegresiva : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     public int tiempoInicial = 30; // Tiempo inicial en segundos
-    private int tiempoRestante;
+    public int tiempoRestante;
     private float tiempoTranscurrido; // Temporizador en tiempo real
     public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrarás la cuenta regresiva
     public GameObject life0;

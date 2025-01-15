@@ -11,8 +11,12 @@ public class GameManagercounter : MonoBehaviour
     public Animator transitionAnimator;  // Referencia al Animator para la animaci�n
     public AudioSource musicSource;      // Referencia a la fuente de m�sica
     public float fadeOutDuration = 1f;   // Duraci�n del fade out de la m�sica
+    public bool dontKillCertainNumOfEnemies = false;
+    public int numOfMinNumber;
+    public Timer timer;
 
     private void Update()
+        
     {
         if (dontKillCertainNumOfEnemies && clickCount >= numOfMinNumber && clickCount < maxCount && timer.tiempoRestante == 0)
         {
