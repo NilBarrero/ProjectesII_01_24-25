@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 public class CuentaRegresiva : MonoBehaviour
 {
     public int tiempoInicial = 30; // Tiempo inicial en segundos
-    private int tiempoRestante;
-    private float tiempoTranscurrido; // Temporizador en tiempo real
+    public int tiempoRestante;
+    public float tiempoTranscurrido; // Temporizador en tiempo real
     public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrar�s la cuenta regresiva
     public GameObject life0;
     public GameObject life1;
     public GameObject life2;
     public string scene;
+    public bool destroyTrash = false;
+    public GameManagercounter counter;
 
     void Start()
     {
@@ -48,7 +50,11 @@ public class CuentaRegresiva : MonoBehaviour
             textoCuentaRegresiva.color = Color.red;
         } 
        
-        if (tiempoRestante == 0)
+        if (tiempoRestante == 0 && !destroyTrash)
+        {
+            SceneManager.LoadScene(scene);
+        }
+        if (tiempoRestante == 0 && destroyTrash && counter.clickCount < counter.maxCount && counter.clickCount > counter.maxCount)
         {
             SceneManager.LoadScene(scene);
         }

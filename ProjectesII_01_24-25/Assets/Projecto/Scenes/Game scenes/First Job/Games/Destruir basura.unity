@@ -6013,6 +6013,10 @@ MonoBehaviour:
   clickCount: 0
   maxCount: 6
   scene: Customes
+  dontKillCertainNumOfEnemies: 1
+  numOfMinNumber: 3
+  timer: {fileID: 879571877}
+  sceneDontKillCertainNumOfEnemies: Tutorial
 --- !u!4 &316279700
 Transform:
   m_ObjectHideFlags: 0
@@ -21443,8 +21447,16 @@ PrefabInstance:
       value: No destruida
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      propertyPath: counter
+      value: 
+      objectReference: {fileID: 316279699}
+    - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      propertyPath: destroyTrash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: tiempoInicial
-      value: -1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8725975192433224992, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: coll1
@@ -51791,6 +51803,17 @@ MonoBehaviour:
   - {fileID: 31076570}
   minDistance: 0.9
   teleport: 0
+--- !u!114 &879571877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+  m_PrefabInstance: {fileID: 585246685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9893f5403aa4c2479da18ff539795fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &911331566
 GameObject:
   m_ObjectHideFlags: 0
