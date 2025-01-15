@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &71696617
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 71696618}
-  m_Layer: 0
-  m_Name: Dialoguemove2 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &71696618
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71696617}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.43, y: -5.16, z: 0.16513467}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308828579
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +283,7 @@ MonoBehaviour:
   endYPosition: 0
   animationDuration: 1
   delayBeforeAnimation: 0
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &531980919
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009499471
 GameObject:
@@ -616,7 +586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362958493503343478, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1362958493503343478, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -796,6 +766,7 @@ MonoBehaviour:
   endYPosition: 0
   animationDuration: 1
   delayBeforeAnimation: 3
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1222711219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
@@ -834,8 +805,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMov: 0.5
   A_B:
-  - {fileID: 1784700466}
-  - {fileID: 71696618}
+  - {fileID: 0}
+  - {fileID: 0}
   minDistance: 0.5
   teleport: 0
 --- !u!1 &1223845533
@@ -892,6 +863,7 @@ MonoBehaviour:
   endYPosition: 70
   animationDuration: 1
   delayBeforeAnimation: 1
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!114 &1223845536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +994,7 @@ MonoBehaviour:
   endYPosition: -70
   animationDuration: 1
   delayBeforeAnimation: 5
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1326276148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1087,7 @@ MonoBehaviour:
   endYPosition: -70
   animationDuration: 1
   delayBeforeAnimation: 2
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1538921148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1142,7 @@ MonoBehaviour:
   endYPosition: 70
   animationDuration: 1
   delayBeforeAnimation: 4
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!114 &1538921151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,38 +1263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1784700465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1784700466}
-  m_Layer: 0
-  m_Name: Dialoguemove1 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1784700466
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784700465}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.43, y: -3.71, z: 0.16513467}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828499620
 GameObject:
@@ -1493,6 +1437,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1107198238}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
     - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: musicSource
       value: 
