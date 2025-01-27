@@ -5,7 +5,6 @@ public class Cinematics : MonoBehaviour
 {
     public float endYPosition = 0f; // Posición final en el eje Y
     public float animationDuration = 1f; // Duración de la animación
-    public float delayBeforeAnimation = 0f; // Retraso antes de comenzar la animación
     public AudioClip moveAudioClip; // Archivo de audio para reproducir
 
     private RectTransform rectTransform; // Referencia al RectTransform
@@ -38,8 +37,6 @@ public class Cinematics : MonoBehaviour
 
     private IEnumerator AnimateImage()
     {
-        yield return new WaitForSeconds(delayBeforeAnimation); // Retraso antes de la animación
-
         Vector2 startPosition = rectTransform.anchoredPosition; // Posición inicial de la imagen
         Vector2 endPosition = new Vector2(startPosition.x, endYPosition); // Solo cambia el eje Y
 
@@ -60,4 +57,3 @@ public class Cinematics : MonoBehaviour
         rectTransform.anchoredPosition = endPosition; // Asegúrate de que termine exactamente en la posición final
     }
 }
-
