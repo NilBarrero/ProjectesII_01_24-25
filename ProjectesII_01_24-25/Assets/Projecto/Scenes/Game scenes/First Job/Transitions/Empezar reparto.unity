@@ -6192,9 +6192,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 492120039}
     - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: tutorial
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: clickSound
       value: 
       objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: OneTimeOnly
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: musicSource
       value: 
@@ -6209,6 +6217,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3196603714094811354}
+    - targetCorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3196603714094811360}
   m_SourcePrefab: {fileID: 100100000, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
 --- !u!1 &3196603714094811352 stripped
 GameObject:
@@ -6252,3 +6263,16 @@ MonoBehaviour:
   - {fileID: 54779406}
   minDistance: 0.5
   teleport: 0
+--- !u!114 &3196603714094811360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196603714094811352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f410cb80f204a5b419e7f67815bd81fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rutaArchivo: Assets/Projecto/TXT/EntryLog.txt

@@ -5382,6 +5382,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1955152275}
     - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       propertyPath: clickSound
       value: 
       objectReference: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
@@ -5393,7 +5397,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7107955193734870104, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5403,6 +5408,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 478479470}
+    - targetCorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 478479476}
   m_SourcePrefab: {fileID: 100100000, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
 --- !u!1 &478479468 stripped
 GameObject:
@@ -5446,6 +5454,27 @@ MonoBehaviour:
   - {fileID: 899702481}
   minDistance: 0.5
   teleport: 0
+--- !u!114 &478479476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478479468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe67a106ae1eb8f4c9587ef5d7af1bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Drug Dealer
+  tutorial: 
+  animator: {fileID: 0}
+  animationDuration: 1
+  musicSource: {fileID: 0}
+  fadeOutDuration: 1
+  clickSound: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+  rutaArchivo: Assets/Projecto/TXT/EntryLog.txt
+  OneTimeOnly: 0
 --- !u!1 &489628791
 GameObject:
   m_ObjectHideFlags: 0
@@ -27254,9 +27283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMov: 0.2
-  A_B:
-  - {fileID: 0}
-  - {fileID: 0}
+  A_B: []
   minDistance: 0.9
   teleport: 0
 --- !u!212 &1811173815
@@ -27689,8 +27716,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141416211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0323, y: 1.46, z: 0}
-  m_LocalScale: {x: 9.919615, y: 1, z: 1}
+  m_LocalPosition: {x: -0.085, y: 1.46, z: 0}
+  m_LocalScale: {x: 3.9666674, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

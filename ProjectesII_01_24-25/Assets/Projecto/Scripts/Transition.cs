@@ -1,15 +1,19 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Transition : MonoBehaviour
 {
     public string scene; // Nombre de la escena a cargar
+    public string tutorial; // Nombre de la escena a cargar
     public Animator animator; // Asigna el Animator que controla la animación de transición
     public float animationDuration = 1.0f; // Duración de la animación (ajústala según tu animación)
     public AudioSource musicSource; // Fuente de audio para la música de fondo
     public float fadeOutDuration = 1.0f; // Duración del fade out en segundos
     public AudioClip clickSound; // Clip de audio que se reproducirá al hacer clic
+    public string rutaArchivo = "Assets/Projecto/TXT/EntryLog.txt";
+    public bool OneTimeOnly = false;
 
     private AudioSource audioSource; // Fuente de audio para reproducir el efecto de clic
 
@@ -44,8 +48,14 @@ public class Transition : MonoBehaviour
         {
             audioSource.Play(); // Reproduce el sonido de clic
         }
-
-        StartCoroutine(PlayAnimationAndChangeScene());
+        if (OneTimeOnly)
+        {
+            check();
+        }
+        else if (!OneTimeOnly)
+        {
+            StartCoroutine(PlayAnimationAndChangeScene());
+        }
     }
 
     private IEnumerator PlayAnimationAndChangeScene()
@@ -69,6 +79,27 @@ public class Transition : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    private IEnumerator PlayAnimationAndChangeToTutorial()
+    {
+        // Comienza el fade out del audio
+        if (musicSource != null)
+        {
+            StartCoroutine(FadeOutMusic());
+        }
+
+        // Activa la animación de transición
+        if (animator != null)
+        {
+            animator.SetTrigger("StartTransition");
+        }
+
+        // Espera el tiempo que dura la animación
+        yield return new WaitForSeconds(animationDuration);
+
+        // Cambia a la nueva escena
+        SceneManager.LoadScene(tutorial);
+    }
+
     private IEnumerator FadeOutMusic()
     {
         float startVolume = musicSource.volume;
@@ -81,6 +112,36 @@ public class Transition : MonoBehaviour
 
         musicSource.volume = 0;
         musicSource.Stop(); // Detiene el audio completamente
+    }
+
+    private void check()
+    {
+        if (File.Exists(rutaArchivo))
+        {
+            // Leer todo el contenido del archivo
+            string contenido = File.ReadAllText(rutaArchivo);
+
+            // Si el archivo tiene un "0", significa que es la primera vez que el jugador juega
+            if (contenido.Contains("1"))
+            {
+                StartCoroutine(PlayAnimationAndChangeScene());
+            }
+            else if (contenido.Contains("0"))
+            {
+                string nuevoContenido = contenido.Replace("0", "1");
+
+                // Guardar el archivo con el nuevo contenido
+                File.WriteAllText(rutaArchivo, nuevoContenido);
+                StartCoroutine(PlayAnimationAndChangeToTutorial());
+
+            }
+        }
+        else
+        {
+            // Si el archivo no existe, lo creamos e inicializamos con "0"
+            File.WriteAllText(rutaArchivo, "0");
+            Debug.Log("Archivo creado y valor inicializado a 0.");
+        }
     }
 }
 
