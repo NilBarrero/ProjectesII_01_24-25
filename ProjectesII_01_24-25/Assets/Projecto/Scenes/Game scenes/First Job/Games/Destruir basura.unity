@@ -471,7 +471,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 1319377506}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &100090284
 MonoBehaviour:
@@ -492,8 +492,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 755137295}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!61 &100090285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51954,8 +51953,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 538033859}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!114 &872191229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51973,7 +51971,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 523858517}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 750072158}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &872191230
 MonoBehaviour:
@@ -57313,7 +57311,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 1453391335}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1070646895
 MonoBehaviour:
@@ -57334,8 +57332,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 726827694}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!61 &1070646896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83305,7 +83302,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 391260353}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1526197851
 MonoBehaviour:
@@ -83326,8 +83323,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 1382260694}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!61 &1526197852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83821,6 +83817,134 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 190, y: 0, z: 0}
+--- !u!1 &1615300454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615300456}
+  - component: {fileID: 1615300455}
+  m_Layer: 0
+  m_Name: SonidoDisparo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1615300455
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615300454}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1615300456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615300454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23894, y: 1.7937979, z: 137.59554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 60
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625300377
 GameObject:
   m_ObjectHideFlags: 0
@@ -84691,7 +84815,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 763878691}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1846172924
 MonoBehaviour:
@@ -84712,8 +84836,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 1118713992}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!61 &1846172925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89820,7 +89943,7 @@ MonoBehaviour:
   dialogueinactive: {fileID: 750072156}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 943295053}
-  customCursor: {fileID: 2800000, guid: 386d85c379661fe4fa136c7e9615cb61, type: 3}
+  customCursor: {fileID: 2800000, guid: 823cb1caaea804d4f9cea5f0138dec5a, type: 3}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1904597832
 MonoBehaviour:
@@ -89841,8 +89964,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 1088033024}
   isArrow: 0
   despawnTime: 0.5
-  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
-  soundVolume: 100
+  clickAudioSource: {fileID: 1615300455}
 --- !u!61 &1904597833
 BoxCollider2D:
   m_ObjectHideFlags: 0

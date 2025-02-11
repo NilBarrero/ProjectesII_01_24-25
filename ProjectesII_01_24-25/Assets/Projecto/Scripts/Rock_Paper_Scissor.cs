@@ -22,12 +22,12 @@ public class RockPaperScissors : MonoBehaviour
     public AudioSource musicSource;      // Referencia a la fuente de música
     public float fadeOutDuration = 1f;   // Duración del fade out de la música
 
-    // Clips de audio para cada elección del rival
-    public AudioClip piedraClip;  // Audio para piedra
-    public AudioClip papelClip;   // Audio para papel
-    public AudioClip tijeraClip;  // Audio para tijera
+    // Fuentes de audio para cada elección del rival
+    public AudioSource piedraSource;  // AudioSource para piedra
+    public AudioSource papelSource;   // AudioSource para papel
+    public AudioSource tijeraSource;  // AudioSource para tijera
 
-    public AudioSource audioSource; // Fuente de audio para reproducir los clips
+    public AudioSource audioSource; // Fuente de audio para reproducir los sonidos
 
     void Start()
     {
@@ -141,15 +141,16 @@ public class RockPaperScissors : MonoBehaviour
 
         if (rival == 1)
         {
-            audioSource.PlayOneShot(piedraClip); // Reproducir audio para piedra
+            piedraSource.Play(); // Reproducir sonido para piedra
         }
         else if (rival == 2)
         {
-            audioSource.PlayOneShot(papelClip); // Reproducir audio para papel
+            papelSource.Play(); // Reproducir sonido para papel
         }
         else if (rival == 3)
         {
-            audioSource.PlayOneShot(tijeraClip); // Reproducir audio para tijera
+            tijeraSource.Play(); // Reproducir sonido para tijera
         }
     }
 }
+

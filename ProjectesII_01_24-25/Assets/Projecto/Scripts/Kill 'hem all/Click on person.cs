@@ -16,8 +16,7 @@ public class Clickonperson : MonoBehaviour
     public bool isArrow = false;
     public float despawnTime = .5f;
 
-    public AudioClip clickSound; // Referencia al AudioClip
-    public float soundVolume = 1.0f; // Volumen del sonido
+    public AudioSource clickAudioSource; // Referencia al AudioSource
 
     void Start()
     {
@@ -37,15 +36,21 @@ public class Clickonperson : MonoBehaviour
             Debug.LogError("Este objeto no tiene un BoxCollider2D");
         }
 
+        if (clickAudioSource == null)
+        {
+            Debug.LogWarning("No se asignó un AudioSource para el clic. Asegúrate de asignarlo en el Inspector.");
+        }
+
         destroyParticles.Stop();
     }
 
     void OnMouseDown()
     {
-        // Reproducir el sonido en la posición del objeto
-        if (clickSound != null)
+        // Reproducir el sonido de clic
+        if (clickAudioSource != null)
         {
-            AudioSource.PlayClipAtPoint(clickSound, transform.position, soundVolume);
+            clickAudioSource.Stop(); // Detener cualquier sonido en reproducción
+            clickAudioSource.Play(); // Reproducir el sonido nuevamente
         }
 
         // Verificar que el GameManager y el BoxCollider2D existan
@@ -96,6 +101,3 @@ public class Clickonperson : MonoBehaviour
         }
     }
 }
-
-
-
