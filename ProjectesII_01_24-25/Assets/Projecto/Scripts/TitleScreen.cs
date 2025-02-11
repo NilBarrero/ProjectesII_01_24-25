@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private float animationDuration = 1.0f; // Duración de la animación en segundos
     [SerializeField] private AudioSource musicSource; // AudioSource para la música de fondo
     [SerializeField] private float fadeOutDuration = 1.0f; // Duración del fade out en segundos
+    public string rutaArchivo = "Assets/Projecto/SaveFileFolder/SaveFile.txt";
 
     private void Start()
     {
@@ -36,7 +38,14 @@ public class TitleScreen : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
+        if (File.Exists(rutaArchivo) && File.ReadAllText(rutaArchivo) == "")
+        {
+            StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
+        }
+        else if (File.Exists(rutaArchivo) && File.ReadAllText(rutaArchivo) != "")
+        {
+            StartCoroutine(PlayAnimationAndChangeScene(File.ReadAllText(rutaArchivo)));
+        }
     }
 
     public void Exit()
