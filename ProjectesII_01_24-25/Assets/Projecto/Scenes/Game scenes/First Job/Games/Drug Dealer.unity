@@ -11294,7 +11294,7 @@ GameObject:
   - component: {fileID: 690038203}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Clicable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11368,18 +11368,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.15005955, y: -1.9921908}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 9.375, y: 9.375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1629217, y: 0.6979356}
   m_EdgeRadius: 0
 --- !u!212 &690038201
 SpriteRenderer:
@@ -11422,8 +11422,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2627451}
+  m_Sprite: {fileID: 21300000, guid: 8672e315ea9547a4eaf995820d792aa3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11441,8 +11441,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690038197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.921, y: 2.0898283, z: -1.0832582}
-  m_LocalScale: {x: 0.49776885, y: 0.25658658, z: 0.36108604}
+  m_LocalPosition: {x: 0.938, y: 3.06, z: -1.0832582}
+  m_LocalScale: {x: 0.4911359, y: 0.49183184, z: 0.36108604}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1679382356}
@@ -16900,6 +16900,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &978884708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978884710}
+  - component: {fileID: 978884709}
+  m_Layer: 0
+  m_Name: HighlightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &978884709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978884708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176e655e793e44e41940e837d4cebe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickHighlightColor: {r: 1, g: 0.015686274, b: 0.07323559, a: 1}
+  dragHighlightColor: {r: 0.002629757, g: 1, b: 0, a: 1}
+--- !u!4 &978884710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978884708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.0634654, y: -1.7832291, z: 199.36987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990151066
 GameObject:
   m_ObjectHideFlags: 0
@@ -17263,7 +17309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3504162577989713024, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23791,7 +23837,7 @@ GameObject:
   - component: {fileID: 1679382364}
   m_Layer: 0
   m_Name: Vagabundo
-  m_TagString: Untagged
+  m_TagString: Clicable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24344,7 +24390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8755303491637191106, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25644,6 +25690,10 @@ PrefabInstance:
     - target: {fileID: 4146404555481121263, guid: e7e9574009039544183445d4f559643b, type: 3}
       propertyPath: m_Name
       value: Moneda
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146404555481121263, guid: e7e9574009039544183445d4f559643b, type: 3}
+      propertyPath: m_TagString
+      value: Arrastrable
       objectReference: {fileID: 0}
     - target: {fileID: 4589627635595460890, guid: e7e9574009039544183445d4f559643b, type: 3}
       propertyPath: m_RootOrder

@@ -282,7 +282,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endYPosition: 0
   animationDuration: 1
-  delayBeforeAnimation: 0
   moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &531980919
 GameObject:
@@ -664,6 +663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransicionPuertas
       objectReference: {fileID: 0}
+    - target: {fileID: 8317079495653227154, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -685,7 +688,6 @@ GameObject:
   - component: {fileID: 1114756989}
   - component: {fileID: 1114756991}
   - component: {fileID: 1114756990}
-  - component: {fileID: 1114756992}
   m_Layer: 5
   m_Name: "Vi\xF1eta3"
   m_TagString: Untagged
@@ -751,22 +753,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114756988}
   m_CullTransparentMesh: 1
---- !u!114 &1114756992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114756988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: 0
-  animationDuration: 1
-  delayBeforeAnimation: 3
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1222711219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1121398195828708332, guid: a8b07014f7b1b14499d1cecf654053bd, type: 3}
@@ -820,7 +806,6 @@ GameObject:
   - component: {fileID: 1223845534}
   - component: {fileID: 1223845537}
   - component: {fileID: 1223845536}
-  - component: {fileID: 1223845535}
   m_Layer: 5
   m_Name: "Vi\xF1eta2 (1)"
   m_TagString: Untagged
@@ -848,22 +833,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10.167999, y: 486.08826}
   m_SizeDelta: {x: 184.1678, y: 147.972}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1223845535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223845533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: 70
-  animationDuration: 1
-  delayBeforeAnimation: 1
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!114 &1223845536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,7 +882,6 @@ GameObject:
   - component: {fileID: 1247236296}
   - component: {fileID: 1247236298}
   - component: {fileID: 1247236297}
-  - component: {fileID: 1247236299}
   m_Layer: 5
   m_Name: "Vi\xF1eta4"
   m_TagString: Untagged
@@ -979,22 +947,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247236295}
   m_CullTransparentMesh: 1
---- !u!114 &1247236299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247236295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: -70
-  animationDuration: 1
-  delayBeforeAnimation: 5
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1326276148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +958,6 @@ GameObject:
   - component: {fileID: 1326276149}
   - component: {fileID: 1326276151}
   - component: {fileID: 1326276150}
-  - component: {fileID: 1326276152}
   m_Layer: 5
   m_Name: "Vi\xF1eta2"
   m_TagString: Untagged
@@ -1072,22 +1023,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326276148}
   m_CullTransparentMesh: 1
---- !u!114 &1326276152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326276148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: -70
-  animationDuration: 1
-  delayBeforeAnimation: 2
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1538921148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1034,6 @@ GameObject:
   - component: {fileID: 1538921149}
   - component: {fileID: 1538921152}
   - component: {fileID: 1538921151}
-  - component: {fileID: 1538921150}
   m_Layer: 5
   m_Name: "Vi\xF1eta4 (1)"
   m_TagString: Untagged
@@ -1127,22 +1061,6 @@ RectTransform:
   m_AnchoredPosition: {x: -18.495972, y: 465.33997}
   m_SizeDelta: {x: 184.1678, y: 140.88}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1538921150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538921148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: 70
-  animationDuration: 1
-  delayBeforeAnimation: 4
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!114 &1538921151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,6 +1291,64 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1955534433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1955534435}
+  - component: {fileID: 1955534434}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1955534434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955534433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c4d491b8e8bfa4d9659a3eba655599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatedObjects:
+  - {fileID: 1223845533}
+  - {fileID: 1326276148}
+  - {fileID: 1114756988}
+  - {fileID: 1538921148}
+  - {fileID: 1247236295}
+  endYPositions:
+  - 70
+  - -70
+  - 0
+  - 70
+  - -70
+  animationDuration: 1
+  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
+--- !u!4 &1955534435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955534433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0640892, y: 0.17361021, z: 1.4821181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2123448145
 PrefabInstance:
   m_ObjectHideFlags: 0
