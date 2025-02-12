@@ -12,13 +12,20 @@ public class Transition : MonoBehaviour
     public AudioSource musicSource; // Fuente de audio para la música de fondo
     public float fadeOutDuration = 1.0f; // Duración del fade out en segundos
     public AudioClip clickSound; // Clip de audio que se reproducirá al hacer clic
-    public string rutaArchivo = "Assets/Projecto/TXT/EntryLog.txt";
+    private string rutaArchivo; // Ruta del archivo de guardado
     public bool OneTimeOnly = false;
 
     private AudioSource audioSource; // Fuente de audio para reproducir el efecto de clic
 
+    private void Awake()
+    {
+        // Este es el lugar correcto para inicializar variables antes de que el juego comience.
+        rutaArchivo = Application.persistentDataPath + "/EntryLog.txt";
+    }
+
     private void Start()
     {
+        Debug.Log("Ruta del archivo EntryLog.txt: " + rutaArchivo);
         if (animator == null)
         {
             Debug.LogError("No se asignó un Animator. Por favor, asigna uno en el Inspector.");
@@ -52,7 +59,7 @@ public class Transition : MonoBehaviour
         {
             check();
         }
-        else if (!OneTimeOnly)
+        else
         {
             StartCoroutine(PlayAnimationAndChangeScene());
         }
@@ -116,34 +123,29 @@ public class Transition : MonoBehaviour
 
     private void check()
     {
-        if (File.Exists(rutaArchivo))
+        // Si el archivo no existe, lo creamos con un valor de "0"
+        if (!File.Exists(rutaArchivo))
         {
-            // Leer todo el contenido del archivo
-            string contenido = File.ReadAllText(rutaArchivo);
+            File.WriteAllText(rutaArchivo, "0");
+            Debug.Log("Archivo creado con valor 0.");
+        }
 
-            // Si el archivo tiene un "0", significa que es la primera vez que el jugador juega
-            if (contenido.Contains("1"))
-            {
-                StartCoroutine(PlayAnimationAndChangeScene());
-            }
-            else if (contenido.Contains("0"))
-            {
-                string nuevoContenido = contenido.Replace("0", "1");
+        // Leer el contenido del archivo
+        string contenido = File.ReadAllText(rutaArchivo);
+        Debug.Log("Valor actual del archivo: " + contenido); // Para depuración
 
-                // Guardar el archivo con el nuevo contenido
-                File.WriteAllText(rutaArchivo, nuevoContenido);
-                StartCoroutine(PlayAnimationAndChangeToTutorial());
-
-            }
+        if (contenido == "1")
+        {
+            StartCoroutine(PlayAnimationAndChangeScene());
+        }
+        else if (contenido == "0")
+        {
+            File.WriteAllText(rutaArchivo, "1"); // Se sobrescribe con "1"
+            StartCoroutine(PlayAnimationAndChangeToTutorial());
         }
         else
         {
-            // Si el archivo no existe, lo creamos e inicializamos con "0"
-            File.WriteAllText(rutaArchivo, "0");
-            Debug.Log("Archivo creado y valor inicializado a 0.");
+            Debug.LogError("El archivo tiene un valor inesperado: " + contenido);
         }
     }
 }
-
-
-
