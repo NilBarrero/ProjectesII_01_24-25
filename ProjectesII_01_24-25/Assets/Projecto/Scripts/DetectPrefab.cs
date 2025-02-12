@@ -18,9 +18,6 @@ public class DetectPrefab : MonoBehaviour
     // Referencia al AudioSource para efectos de sonido
     public AudioSource sfxSource;
 
-    // Efecto de sonido que se reproducirá
-    public AudioClip detectionSound;
-
     private bool isTransitioning = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,11 +71,9 @@ public class DetectPrefab : MonoBehaviour
 
     private void PlayDetectionSound()
     {
-        if (sfxSource != null && detectionSound != null)
+        if (sfxSource != null)
         {
-            sfxSource.PlayOneShot(detectionSound);
+            sfxSource.Play();
         }
     }
 }
-
-

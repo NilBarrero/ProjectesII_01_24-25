@@ -9,9 +9,7 @@ public class Transition : MonoBehaviour
     public float animationDuration = 1.0f; // Duración de la animación (ajústala según tu animación)
     public AudioSource musicSource; // Fuente de audio para la música de fondo
     public float fadeOutDuration = 1.0f; // Duración del fade out en segundos
-    public AudioClip clickSound; // Clip de audio que se reproducirá al hacer clic
-
-    private AudioSource audioSource; // Fuente de audio para reproducir el efecto de clic
+    public AudioSource clickAudioSource; // Fuente de audio para el sonido de clic
 
     private void Start()
     {
@@ -25,24 +23,17 @@ public class Transition : MonoBehaviour
             Debug.LogWarning("No se asignó una fuente de audio. No se realizará el fade out.");
         }
 
-        // Configura el AudioSource para el sonido de clic
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        if (clickSound != null)
+        if (clickAudioSource == null)
         {
-            audioSource.clip = clickSound;
-        }
-        else
-        {
-            Debug.LogWarning("No se asignó un clip de audio para el clic.");
+            Debug.LogWarning("No se asignó una fuente de audio para el clic. Asegúrate de asignarla en el Inspector.");
         }
     }
 
     private void OnMouseDown()
     {
-        if (audioSource != null && clickSound != null)
+        if (clickAudioSource != null)
         {
-            audioSource.Play(); // Reproduce el sonido de clic
+            clickAudioSource.Play(); // Reproduce el sonido de clic
         }
 
         StartCoroutine(PlayAnimationAndChangeScene());
@@ -83,6 +74,4 @@ public class Transition : MonoBehaviour
         musicSource.Stop(); // Detiene el audio completamente
     }
 }
-
-
 
