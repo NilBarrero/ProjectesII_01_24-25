@@ -18,21 +18,21 @@ public class GameManagercounter : MonoBehaviour
 
     private void Update()
     {
-        if (timer.tiempoRestante == 0 && dontKillCertainNumOfEnemies && clickCount == 4)
+        if (timer.tiempoRestante == 0 && dontKillCertainNumOfEnemies && clickCount >= 3)
         {
-            Debug.Log("Jose");
+            
             numOfScene = 0;
             StartCoroutine(TransitionToScene(scene1));
         }
         else if (clickCount == maxCount)
         {
-            Debug.Log("Armario");
+            
             numOfScene = 1;
             StartCoroutine(TransitionToScene(scene2));
         }
-        else if (timer.tiempoRestante == 0 && clickCount < 4)
+        else if (timer.tiempoRestante == 0 && clickCount < 3)
         {
-            Debug.Log("OOOOOOOOOOOOOOO");
+            
             numOfScene = 2;
             StartCoroutine(TransitionToScene(scene3));
         }
