@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8755303491637191106, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8359,11 +8359,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: VolverseVillano
+  tutorial: 
   animator: {fileID: 90734332}
   animationDuration: 1
   musicSource: {fileID: 122835286}
   fadeOutDuration: 1
-  clickAudioSource: {fileID: 361627374}
+  clickSound: {fileID: 0}
+  OneTimeOnly: 0
 --- !u!1 &1202927894
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,11 +14783,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: VolverseHeroe
+  tutorial: 
   animator: {fileID: 90734332}
   animationDuration: 1
   musicSource: {fileID: 122835286}
   fadeOutDuration: 1
-  clickAudioSource: {fileID: 361627374}
+  clickSound: {fileID: 0}
+  OneTimeOnly: 0
 --- !u!114 &1825990486
 MonoBehaviour:
   m_ObjectHideFlags: 0
