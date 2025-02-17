@@ -25,6 +25,10 @@ public class UnlockingPath : MonoBehaviour
     // Función para verificar números repetidos y escribir el ID de la escena
     void VerificarNumerosRepetidos()
     {
+        if (!File.Exists(ruta))
+        {
+            File.Create(ruta).Close();
+        }
         if (File.Exists(ruta))
         {
             // Leer todo el contenido del archivo
