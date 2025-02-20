@@ -231,6 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicksRequired: 2
   sceneToLoad: Be a hero or villan
+  transitionAnimator: {fileID: 671254471}
+  musicSource: {fileID: 869335172}
+  fadeOutDuration: 1
 --- !u!4 &93405739
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,6 +1182,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+--- !u!95 &671254471 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4423511705626662833, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+  m_PrefabInstance: {fileID: 671254470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725680169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2038,12 @@ MonoBehaviour:
   sceneName: Be a hero or villan
   button: {fileID: 1474031506}
   pauseMenu: {fileID: 0}
+  transitionAnimator: {fileID: 671254471}
+  musicSource: {fileID: 869335172}
+  buttonAudioSource: {fileID: 0}
+  buttonClip: {fileID: 0}
+  transitionTime: 1
+  musicFadeDuration: 1
 --- !u!114 &1474031506
 MonoBehaviour:
   m_ObjectHideFlags: 0

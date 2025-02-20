@@ -1,23 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MinigameSelector : MonoBehaviour
 {
-    // String público para definir el nombre de la escena desde el editor
     public string sceneName;
-
-    // Referencia al botón
     public Button button;
-
-    // Referencia al menú de pausa
     public GameObject pauseMenu;
+    public Animator transitionAnimator; // Animator para la animación de transición
+    public AudioSource musicSource; // Fuente de audio de la música
+    public AudioSource buttonAudioSource; // Fuente de audio para el sonido del botón
+    public AudioClip buttonClip; // Clip de sonido para el botón
+    public float transitionTime = 1f; // Tiempo de transición
+    public float musicFadeDuration = 1f; // Duración del fade-out de la música
 
     private void Start()
     {
-        // Asegúrate de que el botón tenga asignado el evento
         if (button != null)
         {
             button.onClick.AddListener(ChangeScene);
@@ -28,26 +27,64 @@ public class MinigameSelector : MonoBehaviour
         }
     }
 
-    // Método que cambia la escena
     public void ChangeScene()
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
-            // Reanudar el tiempo del juego
             Time.timeScale = 1f;
 
-            // Desactivar el menú de pausa si está activo
             if (pauseMenu != null && pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(false);
             }
 
-            // Cambiar a la escena especificada
-            SceneManager.LoadScene(sceneName);
+            // Reproducir sonido del botón
+            if (buttonAudioSource != null && buttonClip != null)
+            {
+                buttonAudioSource.PlayOneShot(buttonClip);
+            }
+
+            StartCoroutine(LoadSceneWithTransition());
         }
         else
         {
             Debug.LogError("El nombre de la escena no está configurado.");
         }
     }
+
+    private IEnumerator LoadSceneWithTransition()
+    {
+        if (transitionAnimator != null)
+        {
+            transitionAnimator.SetTrigger("StartTransition");
+        }
+
+        if (musicSource != null)
+        {
+            StartCoroutine(FadeOutMusic());
+        }
+
+        // Esperar el mayor tiempo entre la animación y el fade-out
+        float waitTime = Mathf.Max(transitionTime, musicFadeDuration);
+        yield return new WaitForSeconds(waitTime);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator FadeOutMusic()
+    {
+        float startVolume = musicSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < musicFadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / musicFadeDuration);
+            yield return null;
+        }
+
+        musicSource.volume = 0f;
+        musicSource.Stop();
+    }
 }
+

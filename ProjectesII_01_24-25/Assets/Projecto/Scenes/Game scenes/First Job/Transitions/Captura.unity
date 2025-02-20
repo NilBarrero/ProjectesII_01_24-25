@@ -6089,6 +6089,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clicksRequired: 4
   sceneToLoad: End
+  transitionAnimator: {fileID: 2030855575}
+  musicSource: {fileID: 1354675521}
+  fadeOutDuration: 1
 --- !u!4 &544432743
 Transform:
   m_ObjectHideFlags: 0
@@ -6981,6 +6984,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 226713971352809452, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 226713971352809452, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
@@ -7789,6 +7796,12 @@ MonoBehaviour:
   sceneName: End
   button: {fileID: 1354833532}
   pauseMenu: {fileID: 0}
+  transitionAnimator: {fileID: 2030855575}
+  musicSource: {fileID: 1354675521}
+  buttonAudioSource: {fileID: 1354675521}
+  buttonClip: {fileID: 8300000, guid: f05c10d8e2af7ac43b82e7a59dac0160, type: 3}
+  transitionTime: 1
+  musicFadeDuration: 1
 --- !u!114 &1354833536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8516,6 +8529,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!95 &2030855575 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4423511705626662833, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+  m_PrefabInstance: {fileID: 1084531570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058222441
 GameObject:
   m_ObjectHideFlags: 0
