@@ -6527,6 +6527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+--- !u!95 &1084531571 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4423511705626662833, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+  m_PrefabInstance: {fileID: 1084531570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1238237275
 GameObject:
   m_ObjectHideFlags: 0
@@ -7372,6 +7377,12 @@ MonoBehaviour:
   sceneName: End
   button: {fileID: 1566373455}
   pauseMenu: {fileID: 0}
+  transitionAnimator: {fileID: 1084531571}
+  musicSource: {fileID: 1354675521}
+  buttonAudioSource: {fileID: 0}
+  buttonClip: {fileID: 0}
+  transitionTime: 1
+  musicFadeDuration: 1
 --- !u!114 &1566373455
 MonoBehaviour:
   m_ObjectHideFlags: 0

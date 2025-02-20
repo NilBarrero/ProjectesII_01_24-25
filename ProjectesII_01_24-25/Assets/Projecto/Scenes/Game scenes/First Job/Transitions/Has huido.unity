@@ -5914,6 +5914,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+--- !u!95 &701058748 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4423511705626662833, guid: ae5394b9b46efe943a2cd224f48557a5, type: 3}
+  m_PrefabInstance: {fileID: 701058747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &820709019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,6 +6567,12 @@ MonoBehaviour:
   sceneName: Demand Help Or Not
   button: {fileID: 1345417582}
   pauseMenu: {fileID: 0}
+  transitionAnimator: {fileID: 701058748}
+  musicSource: {fileID: 1427334492}
+  buttonAudioSource: {fileID: 0}
+  buttonClip: {fileID: 0}
+  transitionTime: 1
+  musicFadeDuration: 1
 --- !u!114 &1345417582
 MonoBehaviour:
   m_ObjectHideFlags: 0
