@@ -2813,7 +2813,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1195803888}
   - component: {fileID: 1195803890}
-  - component: {fileID: 1195803889}
   m_Layer: 5
   m_Name: "Vi\xF1eta2"
   m_TagString: Untagged
@@ -2843,21 +2842,6 @@ RectTransform:
   m_AnchoredPosition: {x: -251, y: -627}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1195803889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195803887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 151dc48ed485a95499b69fe5e2012fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endYPosition: 70
-  animationDuration: 1
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!212 &1195803890
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8419,8 +8403,11 @@ MonoBehaviour:
   - -70
   - 0
   - 0
+  moveAudioClips:
+  - {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
+  - {fileID: 8300000, guid: ce271582ef9e7944ca1bd612ea2821a5, type: 3}
+  - {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
   animationDuration: 0.5
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &2047971012
 GameObject:
   m_ObjectHideFlags: 0
@@ -8616,4 +8603,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endYPosition: 70
   animationDuration: 1
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
+  moveAudioClip: {fileID: 8300000, guid: 6d878155a9624f24f8dbe8d8fe2f5988, type: 3}

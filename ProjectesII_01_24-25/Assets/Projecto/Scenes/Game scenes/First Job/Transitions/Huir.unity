@@ -1217,15 +1217,15 @@ RectTransform:
   m_GameObject: {fileID: 353653571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12796219, y: 0.07497743, z: 1}
+  m_LocalScale: {x: 0.90952075, y: 0.8838816, z: 2.354255}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 496752019}
+  m_Father: {fileID: 1509126082}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.115559325, y: -2.0589905}
+  m_AnchoredPosition: {x: -0.18259437, y: -20.83025}
   m_SizeDelta: {x: 3.695, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353653573
@@ -1747,11 +1747,11 @@ RectTransform:
   m_LocalScale: {x: 135.8595, y: 225.33188, z: 45}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 353653572}
   - {fileID: 829372471}
   - {fileID: 1922780330}
   - {fileID: 5700116}
   - {fileID: 1839159213}
+  - {fileID: 1509126082}
   m_Father: {fileID: 1463796427}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8050,13 +8050,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509126080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.86, y: 7.9, z: 0}
-  m_LocalScale: {x: 0.42476282, y: 0.42476282, z: 0.42476282}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.14124888, y: -0.29201367, z: 0}
+  m_LocalScale: {x: 0.14069188, y: 0.084827445, z: 0.42476282}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Children:
+  - {fileID: 353653572}
+  m_Father: {fileID: 496752019}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539863556
 GameObject:
@@ -8205,8 +8206,12 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  moveAudioClips:
+  - {fileID: 8300000, guid: fef47eb8c455d5040a07b63bfc9f6f6e, type: 3}
+  - {fileID: 8300000, guid: fef47eb8c455d5040a07b63bfc9f6f6e, type: 3}
+  - {fileID: 8300000, guid: 6d878155a9624f24f8dbe8d8fe2f5988, type: 3}
+  - {fileID: 8300000, guid: 6d878155a9624f24f8dbe8d8fe2f5988, type: 3}
   animationDuration: 0.5
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
 --- !u!1 &1638773909
 GameObject:
   m_ObjectHideFlags: 0
@@ -9035,7 +9040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endYPosition: 0
   animationDuration: 1
-  moveAudioClip: {fileID: 8300000, guid: d1f7fa42ec4d2904fbe2141f5cf28979, type: 3}
+  moveAudioClip: {fileID: 8300000, guid: df518c14d4838cd4383814a5b2c0ba99, type: 3}
 --- !u!212 &1969251211
 SpriteRenderer:
   m_ObjectHideFlags: 0
