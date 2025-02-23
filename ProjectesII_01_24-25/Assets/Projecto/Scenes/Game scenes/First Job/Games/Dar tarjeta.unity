@@ -7391,6 +7391,17 @@ MonoBehaviour:
   particles: {fileID: 649574927}
   customCursor: {fileID: 2800000, guid: 87ad0dd6239a4ce4e97e09e9e7601b76, type: 3}
   cursorHotspot: {x: 16, y: 16}
+--- !u!114 &1009429612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3180545746358212681, guid: 5a7f8be01742a8f4b94590336632b599, type: 3}
+  m_PrefabInstance: {fileID: 1975514345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009429610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b5ce4848485144db63b4ff37040a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024590507
 GameObject:
   m_ObjectHideFlags: 0
@@ -12831,6 +12842,17 @@ MonoBehaviour:
   particles: {fileID: 649574927}
   customCursor: {fileID: 2800000, guid: 87ad0dd6239a4ce4e97e09e9e7601b76, type: 3}
   cursorHotspot: {x: 16, y: 16}
+--- !u!114 &1180193849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3180545746358212681, guid: 5a7f8be01742a8f4b94590336632b599, type: 3}
+  m_PrefabInstance: {fileID: 68594179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180193847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b5ce4848485144db63b4ff37040a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193670071
 GameObject:
   m_ObjectHideFlags: 0
@@ -13106,7 +13128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Tarjeta XXX
   prefabName2: 
-  scene: Tarjeta incorrecta 1
+  scene: Tarjeta correcta
+  scene2: 
+  mouseDrag: {fileID: 0}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}
   fadeOutDuration: 1
@@ -18803,6 +18827,8 @@ MonoBehaviour:
   prefabName: Moneda
   prefabName2: 
   scene: Tutorial
+  scene2: 
+  mouseDrag: {fileID: 0}
   animator: {fileID: 0}
   musicSource: {fileID: 0}
   fadeOutDuration: 2
@@ -19568,6 +19594,7 @@ GameObject:
   - component: {fileID: 1679382357}
   - component: {fileID: 1679382358}
   - component: {fileID: 1679382360}
+  - component: {fileID: 1679382361}
   m_Layer: 0
   m_Name: Vagabundo
   m_TagString: Untagged
@@ -19655,8 +19682,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: Moneda
-  prefabName2: 
+  prefabName2: Tarjeta XXX
   scene: Tarjeta correcta
+  scene2: Tarjeta Incorrecta 1
+  mouseDrag: {fileID: 1180193849}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}
   fadeOutDuration: 1
@@ -19724,6 +19753,27 @@ MonoBehaviour:
   - {fileID: 1300618940}
   minDistance: 0.9
   teleport: 0
+--- !u!114 &1679382361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679382354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ffc00f14e28079408efa278630eb9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabName: Moneda
+  prefabName2: 
+  scene: Tarjeta incorrecta
+  scene2: 
+  mouseDrag: {fileID: 1009429612}
+  animator: {fileID: 1097477884}
+  musicSource: {fileID: 1581882475}
+  fadeOutDuration: 1
+  sfxSource: {fileID: 1999248396}
 --- !u!1 &1751354031
 GameObject:
   m_ObjectHideFlags: 0

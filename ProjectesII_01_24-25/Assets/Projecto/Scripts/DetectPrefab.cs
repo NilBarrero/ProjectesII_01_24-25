@@ -7,7 +7,7 @@ public class DetectPrefab : MonoBehaviour
     public string prefabName;
     public string prefabName2;
     public string scene;
-
+    public MouseDrag mouseDrag;
     // Referencia al Animator que controla la animación
     public Animator animator;
 
@@ -22,8 +22,12 @@ public class DetectPrefab : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (mouseDrag == null)
+        {
+            Debug.Log("MouseDrag isn't inicialized properly");
+        }
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
-        if (!isTransitioning && (collision.gameObject.name == prefabName || collision.gameObject.name == prefabName2))
+        if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName || collision.gameObject.name == prefabName2))
         {
             // Reproduce el efecto de sonido
             PlayDetectionSound();

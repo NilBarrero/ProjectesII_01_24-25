@@ -7,7 +7,7 @@ public class MouseDrag : MonoBehaviour
     public ParticleSystem particles;
     private float startPosX;
     private float startPosY;
-    private bool isBeingHeld = false;
+    public bool isBeingHeld = false;
     private Vector3 startMousePosition;
     private Vector3 currentMousePosition;
     private bool moved = false;
