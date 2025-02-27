@@ -6,8 +6,8 @@ public class ClickAnimationController : MonoBehaviour
 {
     public List<GameObject> animatedObjects; // Lista de GameObjects que se animarán
     public List<float> endYPositions; // Lista de posiciones finales en el eje Y para cada GameObject
+    public List<AudioClip> moveAudioClips; // Lista de efectos de sonido únicos para cada objeto
     public float animationDuration = 1f; // Duración de la animación
-    public AudioClip moveAudioClip; // Archivo de audio para reproducir
 
     private int currentObjectIndex = 0; // Índice del objeto actual en la lista
     private bool isAnimating = false; // Para evitar múltiples clics durante la animación
@@ -18,12 +18,12 @@ public class ClickAnimationController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAnimating && currentObjectIndex < animatedObjects.Count)
         {
             // Inicia la animación del objeto actual
-            StartCoroutine(AnimateObject(animatedObjects[currentObjectIndex], endYPositions[currentObjectIndex]));
+            StartCoroutine(AnimateObject(animatedObjects[currentObjectIndex], endYPositions[currentObjectIndex], moveAudioClips[currentObjectIndex]));
             currentObjectIndex++; // Incrementa al siguiente objeto en la lista
         }
     }
 
-    private IEnumerator AnimateObject(GameObject obj, float endYPosition)
+    private IEnumerator AnimateObject(GameObject obj, float endYPosition, AudioClip audioClip)
     {
         isAnimating = true; // Bloquear múltiples clics mientras la animación está en curso
 
@@ -35,21 +35,22 @@ public class ClickAnimationController : MonoBehaviour
         {
             audioSource = obj.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            audioSource.clip = moveAudioClip;
         }
 
-        // Configurar la posición inicial
-        Vector2 startPosition = rectTransform.anchoredPosition;
-        Vector2 endPosition = new Vector2(startPosition.x, endYPosition); // Solo cambiará el eje Y
+        // Asignar el sonido correspondiente
+        audioSource.clip = audioClip;
 
         // Reproducir audio si está asignado
-        if (audioSource != null && moveAudioClip != null)
+        if (audioSource.clip != null)
         {
             audioSource.Play();
         }
 
         // Animar posición
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
         float elapsedTime = 0f;
+
         while (elapsedTime < animationDuration)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, elapsedTime / animationDuration);
