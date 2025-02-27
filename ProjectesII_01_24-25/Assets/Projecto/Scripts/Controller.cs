@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
+    public bool minigameHuir;
     public int contador = 0;
     public int maxCount = 5;
     public string scene;
