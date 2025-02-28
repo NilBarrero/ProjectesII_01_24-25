@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
@@ -7,8 +7,10 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar
     private CanvasGroup canvasGroup;
-    private bool ignorarPrimerClic = false;
+    private bool entradaBloqueada = false;
+    private bool menuActivo = false;
 
     private void Start()
     {
@@ -24,13 +26,20 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         botonPausa.SetActive(false);
         menuPausa.SetActive(true);
+        menuActivo = true;
+
+        // Desactivar los objetos con lógica
+        foreach (var obj in objetosConLogica)
+        {
+            obj.SetActive(false);
+        }
 
         // Habilitar la interacción con el menú
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
-        // No ignoramos el input mientras el menú está abierto
-        ignorarPrimerClic = false;
+        // Bloquear la entrada para los objetos del juego
+        entradaBloqueada = true;
     }
 
     public void Reanudar()
@@ -46,13 +55,17 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
 
-        // Ignorar el primer clic después de cerrar el menú
-        ignorarPrimerClic = true;
-
         // Restaurar el tiempo y ocultar el menú
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
+        menuActivo = false;
+
+        // Reactivar los objetos con lógica
+        foreach (var obj in objetosConLogica)
+        {
+            obj.SetActive(true);
+        }
 
         // Bloquear la interacción con el menú
         canvasGroup.interactable = false;
@@ -61,7 +74,8 @@ public class PauseMenu : MonoBehaviour
         // Esperar un frame extra antes de reactivar la interacción
         yield return new WaitForEndOfFrame();
 
-        ignorarPrimerClic = false;
+        // Desbloquear la entrada para el juego
+        entradaBloqueada = false;
     }
 
     public void Reiniciar()
@@ -78,15 +92,17 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        // Si se debe ignorar el primer clic, lo bloqueamos
-        if (ignorarPrimerClic && Input.GetMouseButtonDown(0))
+        // Si el menú está activo, bloqueamos la entrada al juego, pero no a la UI
+        if (entradaBloqueada && !IsPointerOverUI())
         {
-            Input.ResetInputAxes();
-            ignorarPrimerClic = false; // Solo se ignora un clic
+            Input.ResetInputAxes(); // Bloqueamos la entrada solo si el puntero no está sobre la UI
         }
     }
+
+    // Verificar si el puntero está sobre un UI (como los botones del menú)
+    private bool IsPointerOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
 }
-
-
-
 
