@@ -56,8 +56,12 @@ public class HighlightOnHover : MonoBehaviour
 
         if (!activeDialogueActive)
         {
-            StartCoroutine(Activate(2.5f, 0f, activateDialogue));
-            activeDialogueActive = true;
+            if(particles != null)
+            {
+                StartCoroutine(Activate(2.5f, 0f, activateDialogue));
+                activeDialogueActive = true;
+            }
+           
         }
     }
 
