@@ -13,7 +13,16 @@ public class LeerNumeros : MonoBehaviour
     {
         // Definimos la ruta del archivo de guardado
         saveFilePath = Application.persistentDataPath + "/Path.txt";
-
+        Debug.Log("Save File Path: " + saveFilePath);
+        if (File.Exists(saveFilePath))
+        {
+            string fileContent = File.ReadAllText(saveFilePath);
+            Debug.Log("File Content: " + fileContent);  // Verifica el contenido
+        }
+        else
+        {
+            Debug.LogWarning("El archivo de guardado no existe.");
+        }
 
         // Cargamos las escenas desbloqueadas desde el archivo
         LoadUnlockedScenes();
@@ -47,10 +56,10 @@ public class LeerNumeros : MonoBehaviour
 
                         // Usamos el sceneIDInt directamente como índice
                         // Verificamos que la ID sea un índice válido para gameObjectsList
-                        if (sceneIDInt >= 0 && sceneIDInt < gameObjectsList.Count)
+                        if (sceneID != null) //Scene null
                         {
-                            gameObjectsList[sceneIDInt].SetActive(true); // Activamos el GameObject correspondiente
-                            Debug.Log("SceneID: " + sceneID);
+                        gameObjectsList[sceneIDInt].SetActive(true); // Activamos el GameObject correspondiente
+                        Debug.Log("SceneID set active: " + sceneID);
                         }
                         else
                         {
