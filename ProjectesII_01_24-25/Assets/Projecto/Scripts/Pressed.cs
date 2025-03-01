@@ -26,6 +26,7 @@ public class Pressed : MonoBehaviour
     // Este método se llama cuando el objeto es pulsado (clic)
     void OnMouseDown()
     {
+
         if (!haSidoPulsado)  // Solo procesar si no ha sido pulsado antes
         {
             // Establecemos que ha sido pulsado
@@ -38,6 +39,7 @@ public class Pressed : MonoBehaviour
                 gameManager.ObjetoPulsado(this); // Pasamos 'this' como referencia al Pressed
             }
         }
+        
     }
 }
 

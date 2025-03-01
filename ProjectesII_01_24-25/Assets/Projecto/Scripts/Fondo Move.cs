@@ -30,10 +30,12 @@ public class FondoMove : MonoBehaviour
         {
             AumentarVelocidadTemporal(velAccelerate, time);
         }
-
+        if (pressed.haSidoPulsado)
+            StartCoroutine(AumentarVelocidadCoroutine(velAccelerate, time));
         // Reiniciar la posición del fondo si sale de la vista
         if (transform.position.x <= -GetComponent<Renderer>().bounds.size.x)
         {
+           
             transform.position += new Vector3(GetComponent<Renderer>().bounds.size.x * 2, 0, 0);
         }
     }
