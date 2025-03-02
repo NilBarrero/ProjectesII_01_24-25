@@ -7,9 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
-    [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar
+    [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar/reactivar
     private CanvasGroup canvasGroup;
-    private bool entradaBloqueada = false;
     private bool menuActivo = false;
 
     private void Start()
@@ -34,12 +33,9 @@ public class PauseMenu : MonoBehaviour
             obj.SetActive(false);
         }
 
-        // Habilitar la interacción con el menú
+        // Activar interacción en el menú
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
-
-        // Bloquear la entrada para los objetos del juego
-        entradaBloqueada = true;
     }
 
     public void Reanudar()
@@ -49,33 +45,29 @@ public class PauseMenu : MonoBehaviour
 
     private IEnumerator ReanudarJuego()
     {
-        // Esperar hasta que el jugador suelte el botón del ratón
+        // Esperar hasta que se suelte el botón del ratón
         while (Input.GetMouseButton(0))
         {
             yield return null;
         }
 
-        // Restaurar el tiempo y ocultar el menú
+        // Reanudar el juego
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
         menuActivo = false;
 
-        // Reactivar los objetos con lógica
+        // Desactivar la interacción del menú
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
+        // Esperar 200 milisegundos antes de reactivar los objetos con lógica
+        yield return new WaitForSecondsRealtime(0.2f);
+
         foreach (var obj in objetosConLogica)
         {
             obj.SetActive(true);
         }
-
-        // Bloquear la interacción con el menú
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
-
-        // Esperar un frame extra antes de reactivar la interacción
-        yield return new WaitForEndOfFrame();
-
-        // Desbloquear la entrada para el juego
-        entradaBloqueada = false;
     }
 
     public void Reiniciar()
@@ -89,20 +81,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
-
-    private void Update()
-    {
-        // Si el menú está activo, bloqueamos la entrada al juego, pero no a la UI
-        if (entradaBloqueada && !IsPointerOverUI())
-        {
-            Input.ResetInputAxes(); // Bloqueamos la entrada solo si el puntero no está sobre la UI
-        }
-    }
-
-    // Verificar si el puntero está sobre un UI (como los botones del menú)
-    private bool IsPointerOverUI()
-    {
-        return EventSystem.current.IsPointerOverGameObject();
-    }
 }
+
+
+
+
 
