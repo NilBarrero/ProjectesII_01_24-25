@@ -1038,7 +1038,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1402644176}
+  m_Father: {fileID: 1080815003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12525,6 +12525,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2055795450}
+    - targetCorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 229220712}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3358974344904310408, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
@@ -12561,6 +12564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 0}
   menuPausa: {fileID: 0}
+  objetosConLogica: []
 --- !u!114 &1080815005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13228,6 +13232,7 @@ MonoBehaviour:
   prefabName2: 
   scene: Tarjeta correcta
   scene1: 
+  revertedCollisionPropeties: 0
   mouseDrag: {fileID: 1180193849}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}
@@ -13361,6 +13366,7 @@ MonoBehaviour:
   prefabName2: 
   scene: Tarjeta incorrecta 1
   scene1: 
+  revertedCollisionPropeties: 0
   mouseDrag: {fileID: 2097815851}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}
@@ -13783,6 +13789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 229220707}
   menuPausa: {fileID: 702620272}
+  objetosConLogica: []
 --- !u!114 &1402644173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13844,7 +13851,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1402644176
 RectTransform:
@@ -13859,7 +13866,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 702620275}
-  - {fileID: 229220712}
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18947,6 +18953,7 @@ MonoBehaviour:
   prefabName2: 
   scene: Tutorial
   scene1: 
+  revertedCollisionPropeties: 0
   mouseDrag: {fileID: 0}
   animator: {fileID: 0}
   musicSource: {fileID: 0}
@@ -19804,6 +19811,7 @@ MonoBehaviour:
   prefabName2: Tarjeta XXX
   scene: Tarjeta correcta
   scene1: Tarjeta incorrecta 1
+  revertedCollisionPropeties: 0
   mouseDrag: {fileID: 1180193849}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}
@@ -19888,6 +19896,7 @@ MonoBehaviour:
   prefabName2: 
   scene: Tarjeta incorrecta
   scene1: 
+  revertedCollisionPropeties: 0
   mouseDrag: {fileID: 0}
   animator: {fileID: 1097477884}
   musicSource: {fileID: 1581882475}

@@ -2305,6 +2305,7 @@ GameObject:
   - component: {fileID: 717144566}
   - component: {fileID: 717144565}
   - component: {fileID: 717144564}
+  - component: {fileID: 717144567}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -2371,6 +2372,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &717144567
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717144563}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &776202444
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5135,7 @@ RectTransform:
   - {fileID: 651477429}
   - {fileID: 810471087}
   - {fileID: 1363699950}
+  - {fileID: 1858222319}
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6169,6 +6183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 1858222314}
   menuPausa: {fileID: 717144563}
+  objetosConLogica: []
 --- !u!114 &1855252589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6230,7 +6245,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1855252592
 RectTransform:
@@ -6245,7 +6260,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 717144566}
-  - {fileID: 1858222319}
   - {fileID: 477771926}
   m_Father: {fileID: 0}
   m_RootOrder: 30
@@ -6395,7 +6409,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1855252592}
+  m_Father: {fileID: 1454936338}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7048,7 +7062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8755303491637191106, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5177181068570558623, guid: 697a60bdfd00c96459b4a4a0108c6127, type: 3}

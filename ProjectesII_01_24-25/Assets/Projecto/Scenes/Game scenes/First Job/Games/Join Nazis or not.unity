@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2981060}
   - component: {fileID: 2981059}
   - component: {fileID: 2981058}
+  - component: {fileID: 2981061}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -200,6 +201,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &2981061
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981057}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &31617720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3700022513554301271, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.07
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 3700022513554301271, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -288,6 +301,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+--- !u!1 &31617721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5733794587550867757, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+  m_PrefabInstance: {fileID: 31617720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &73234537
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,7 +5524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3700022513554301271, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.95
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 3700022513554301271, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5584,6 +5602,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+--- !u!1 &209074688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5733794587550867757, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+  m_PrefabInstance: {fileID: 209074687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &323128775
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,6 +6444,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 1539218517}
   menuPausa: {fileID: 2981057}
+  objetosConLogica:
+  - {fileID: 31617721}
+  - {fileID: 209074688}
 --- !u!114 &686052324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6482,7 +6508,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &686052327
 RectTransform:
@@ -6497,7 +6523,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2981060}
-  - {fileID: 1539218522}
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11966,6 +11991,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2142506203}
+  - {fileID: 1539218522}
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17369,7 +17395,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 686052327}
+  m_Father: {fileID: 1183841751}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
