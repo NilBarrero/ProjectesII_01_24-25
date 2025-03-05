@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
@@ -7,8 +7,9 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar/reactivar
     private CanvasGroup canvasGroup;
-    private bool ignorarPrimerClic = false;
+    private bool menuActivo = false;
 
     private void Start()
     {
@@ -24,13 +25,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         botonPausa.SetActive(false);
         menuPausa.SetActive(true);
+        menuActivo = true;
 
-        // Habilitar la interacción con el menú
+        // Desactivar los objetos con lógica
+        foreach (var obj in objetosConLogica)
+        {
+            obj.SetActive(false);
+        }
+
+        // Activar interacción en el menú
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
-
-        // No ignoramos el input mientras el menú está abierto
-        ignorarPrimerClic = false;
     }
 
     public void Reanudar()
@@ -40,28 +45,29 @@ public class PauseMenu : MonoBehaviour
 
     private IEnumerator ReanudarJuego()
     {
-        // Esperar hasta que el jugador suelte el botón del ratón
+        // Esperar hasta que se suelte el botón del ratón
         while (Input.GetMouseButton(0))
         {
             yield return null;
         }
 
-        // Ignorar el primer clic después de cerrar el menú
-        ignorarPrimerClic = true;
-
-        // Restaurar el tiempo y ocultar el menú
+        // Reanudar el juego
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
+        menuActivo = false;
 
-        // Bloquear la interacción con el menú
+        // Desactivar la interacción del menú
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
-        // Esperar un frame extra antes de reactivar la interacción
-        yield return new WaitForEndOfFrame();
+        // Esperar 200 milisegundos antes de reactivar los objetos con lógica
+        yield return new WaitForSecondsRealtime(0.2f);
 
-        ignorarPrimerClic = false;
+        foreach (var obj in objetosConLogica)
+        {
+            obj.SetActive(true);
+        }
     }
 
     public void Reiniciar()
@@ -75,17 +81,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
-
-    private void Update()
-    {
-        // Si se debe ignorar el primer clic, lo bloqueamos
-        if (ignorarPrimerClic && Input.GetMouseButtonDown(0))
-        {
-            Input.ResetInputAxes();
-            ignorarPrimerClic = false; // Solo se ignora un clic
-        }
-    }
 }
+
 
 
 

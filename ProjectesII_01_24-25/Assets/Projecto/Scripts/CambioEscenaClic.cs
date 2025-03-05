@@ -4,20 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class CambioEscenaClic : MonoBehaviour
 {
-    public int clicksRequired = 5; // Número de clics necesarios para cambiar la escena
+    public int clicksRequired = 1; // Número inicial de clics necesarios (1)
     public string sceneToLoad;
     public Animator transitionAnimator; // Animador para la transición
     public AudioSource musicSource; // AudioSource de la música
-    public float fadeOutDuration = 0f; // Tiempo del fade out de la música
+    public float fadeOutDuration = 0f; // Duración del fade out de la música
+    public PauseMenu pauseMenu; // Referencia al script del menú de pausa
 
     private int clickCount = 0; // Contador de clics
     private bool isTransitioning = false;
+    private bool menuAbiertoAlMenosUnaVez = false; // Indica si el menú se abrió en algún momento
 
     void OnMouseDown()
     {
         if (isTransitioning) return; // Evita múltiples activaciones
 
-        clickCount++; // Aumenta el contador al hacer clic
+
+        clickCount++;
 
         if (clickCount >= clicksRequired)
         {
@@ -35,7 +38,7 @@ public class CambioEscenaClic : MonoBehaviour
             transitionAnimator.SetTrigger("StartTransition");
         }
 
-        // Fade out de la música
+        // Realiza el fade out de la música, si se ha asignado un AudioSource
         if (musicSource != null)
         {
             float startVolume = musicSource.volume;
@@ -59,3 +62,4 @@ public class CambioEscenaClic : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 }
+
