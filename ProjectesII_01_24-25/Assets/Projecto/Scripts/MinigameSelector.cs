@@ -44,7 +44,7 @@ public class MinigameSelector : MonoBehaviour
                 buttonAudioSource.PlayOneShot(buttonClip);
             }
 
-            StartCoroutine(LoadSceneWithTransition());
+            SceneManager.LoadScene(sceneName);
         }
         else
         {

@@ -8,7 +8,7 @@ public class CambioEscenaClic : MonoBehaviour
     public string sceneToLoad;
     public Animator transitionAnimator; // Animador para la transición
     public AudioSource musicSource; // AudioSource de la música
-    public float fadeOutDuration = 1.0f; // Tiempo del fade out de la música
+    public float fadeOutDuration = 0f; // Tiempo del fade out de la música
 
     private int clickCount = 0; // Contador de clics
     private bool isTransitioning = false;
