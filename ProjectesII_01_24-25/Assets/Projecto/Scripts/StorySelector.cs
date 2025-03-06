@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class StorySelector : MonoBehaviour
 {
     [SerializeField] private FadeInOutMusic fadeMusic; // Referencia al script FadeInOutMusic.
+
+    public void Prolog()
+    {
+        fadeMusic.TriggerSceneChange("Intro");
+    }
     public void FirstJob()
     {
         fadeMusic.TriggerSceneChange("Transition Beginning");
@@ -25,4 +30,7 @@ public class StorySelector : MonoBehaviour
     {
         // Cuarta entrega
     }
+
 }
+
+

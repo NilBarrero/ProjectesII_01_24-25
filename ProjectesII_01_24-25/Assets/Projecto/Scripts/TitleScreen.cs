@@ -36,7 +36,16 @@ public class TitleScreen : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
+        // Activa el storySelector y desactiva el menuPrincipal
+        if (storySelector != null)
+        {
+            storySelector.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un storySelector. No se puede activar.");
+        }
+       // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
     }
 
     public void Exit()
@@ -45,6 +54,7 @@ public class TitleScreen : MonoBehaviour
         Application.Quit();
     }
 
+    
     private IEnumerator PlayAnimationAndChangeScene(string sceneName)
     {
         // Comienza el fade out de la música
@@ -83,5 +93,6 @@ public class TitleScreen : MonoBehaviour
         musicSource.volume = 0;
         musicSource.Stop(); // Detiene el audio completamente
     }
+    
 }
 
