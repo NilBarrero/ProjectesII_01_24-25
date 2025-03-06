@@ -40,6 +40,7 @@ public class TitleScreen : MonoBehaviour
         if (storySelector != null)
         {
             storySelector.SetActive(true);
+            menuPrincipal.SetActive(false);
         }
         else
         {

@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class StorySelector : MonoBehaviour
 {
     [SerializeField] private FadeInOutMusic fadeMusic; // Referencia al script FadeInOutMusic.
+    [SerializeField] private GameObject menuPrincipal;
+    [SerializeField] private GameObject storySelector;
 
+    public void Exit()
+    {
+        if (menuPrincipal != null)
+        {
+            menuPrincipal.SetActive(true);
+            storySelector.SetActive(false);
+        }
+    }
     public void Prolog()
     {
         fadeMusic.TriggerSceneChange("Intro");
