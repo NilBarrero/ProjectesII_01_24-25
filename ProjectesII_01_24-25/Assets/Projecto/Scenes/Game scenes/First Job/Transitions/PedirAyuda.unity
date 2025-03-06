@@ -216,6 +216,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &206027611
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 937358478}
+    m_Modifications:
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06196085
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08981
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.167
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.27413192
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7056491
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70856154
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90.236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058610929115907557, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_Name
+      value: FuegitoFuego
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+--- !u!4 &206027612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+  m_PrefabInstance: {fileID: 206027611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &308707872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,6 +6004,7 @@ RectTransform:
   m_Children:
   - {fileID: 1498192149}
   - {fileID: 2026716737}
+  - {fileID: 206027612}
   m_Father: {fileID: 447750714}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6586,6 +6661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406378223}
   - component: {fileID: 1406378224}
+  - component: {fileID: 1406378225}
   m_Layer: 0
   m_Name: Cono copia
   m_TagString: Untagged
@@ -6660,6 +6736,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1406378225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406378222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1433854012
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,6 +8251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136967172}
   - component: {fileID: 2136967173}
+  - component: {fileID: 2136967174}
   m_Layer: 0
   m_Name: Cono copia
   m_TagString: Untagged
@@ -8235,3 +8326,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2136967174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136967171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
