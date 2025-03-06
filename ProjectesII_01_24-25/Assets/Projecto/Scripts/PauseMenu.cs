@@ -1,6 +1,5 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PauseMenu : MonoBehaviour
@@ -30,7 +29,15 @@ public class PauseMenu : MonoBehaviour
         // Desactivar los objetos con lógica
         foreach (var obj in objetosConLogica)
         {
-            obj.SetActive(false);
+            if (obj != null)
+            {
+                Debug.Log("Desactivando: " + obj.name);
+                obj.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica.");
+            }
         }
 
         // Activar interacción en el menú
@@ -66,7 +73,31 @@ public class PauseMenu : MonoBehaviour
 
         foreach (var obj in objetosConLogica)
         {
-            obj.SetActive(true);
+            if (obj != null)
+            {
+                Debug.Log("Reactivando: " + obj.name);
+                obj.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica al reactivar.");
+            }
+        }
+
+        // Comprobación adicional tras un segundo
+        StartCoroutine(ForzarActivacion());
+    }
+
+    private IEnumerator ForzarActivacion()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        foreach (var obj in objetosConLogica)
+        {
+            if (obj != null && !obj.activeSelf)
+            {
+                Debug.Log("Forzando activación de: " + obj.name);
+                obj.SetActive(true);
+            }
         }
     }
 
