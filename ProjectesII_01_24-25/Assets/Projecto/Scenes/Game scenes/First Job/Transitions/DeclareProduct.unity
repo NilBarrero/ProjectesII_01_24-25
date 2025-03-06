@@ -123,6 +123,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &24420231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2132058153}
+    m_Modifications:
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13809149
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.097788714
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.27413192
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70802706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70618534
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058610929115907557, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_Name
+      value: FuegitoFuego
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+--- !u!4 &24420232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+  m_PrefabInstance: {fileID: 24420231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32638139
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106741158}
   - component: {fileID: 106741159}
+  - component: {fileID: 106741160}
   m_Layer: 5
   m_Name: Cono copia
   m_TagString: Untagged
@@ -322,6 +397,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &106741160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106741157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &167480691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489646052}
   - component: {fileID: 489646053}
+  - component: {fileID: 489646054}
   m_Layer: 5
   m_Name: robobasura copia (2)
   m_TagString: Untagged
@@ -1079,6 +1169,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &489646054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489646051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &552649913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,6 +2164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883752789}
   - component: {fileID: 883752790}
+  - component: {fileID: 883752791}
   m_Layer: 5
   m_Name: Cono copia
   m_TagString: Untagged
@@ -2134,6 +2239,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &883752791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883752788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &916896106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,6 +3024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391793975}
   - component: {fileID: 1391793976}
+  - component: {fileID: 1391793977}
   m_Layer: 5
   m_Name: robobasura copia
   m_TagString: Untagged
@@ -2920,7 +3040,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391793974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2218647, y: -0.20889103, z: 0}
+  m_LocalPosition: {x: -0.2218647, y: -0.205, z: 0}
   m_LocalScale: {x: 0.14126194, y: 0.18911156, z: 0.5794}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2979,6 +3099,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1391793977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391793974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1505459508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505459509}
   - component: {fileID: 1505459510}
+  - component: {fileID: 1505459511}
   m_Layer: 5
   m_Name: robobasura copia (1)
   m_TagString: Untagged
@@ -3063,6 +3198,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1505459511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505459508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1581243725
 GameObject:
   m_ObjectHideFlags: 0
@@ -8210,6 +8359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1848082958}
   - component: {fileID: 1848082959}
+  - component: {fileID: 1848082960}
   m_Layer: 5
   m_Name: robobasura copia (3)
   m_TagString: Untagged
@@ -8284,6 +8434,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1848082960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848082957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1856741855
 GameObject:
   m_ObjectHideFlags: 0
@@ -8577,6 +8741,7 @@ RectTransform:
   m_Children:
   - {fileID: 734698236}
   - {fileID: 2047971014}
+  - {fileID: 24420232}
   - {fileID: 1391793975}
   - {fileID: 1505459509}
   - {fileID: 489646052}
