@@ -399,6 +399,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &206304304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2119319463}
+    m_Modifications:
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11070275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.17317142
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.27412376
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058610929115907557, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+      propertyPath: m_Name
+      value: FuegitoFuego
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+--- !u!4 &206304305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3890558367747304821, guid: b4fe8f2332068b847b9fd83731bdf9d6, type: 3}
+  m_PrefabInstance: {fileID: 206304304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207433221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,6 +6562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 999357890}
   - component: {fileID: 999357891}
+  - component: {fileID: 999357892}
   m_Layer: 0
   m_Name: robobasura copia (3)
   m_TagString: Untagged
@@ -6562,6 +6637,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &999357892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999357889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1089099448
 GameObject:
   m_ObjectHideFlags: 0
@@ -6656,6 +6745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1100313114}
   - component: {fileID: 1100313115}
+  - component: {fileID: 1100313116}
   m_Layer: 0
   m_Name: robobasura copia (1)
   m_TagString: Untagged
@@ -6730,6 +6820,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1100313116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100313113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1283233573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7229,6 +7333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1355528254}
   - component: {fileID: 1355528255}
+  - component: {fileID: 1355528256}
   m_Layer: 5
   m_Name: Alien camello copia
   m_TagString: Untagged
@@ -7303,6 +7408,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1355528256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355528253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1370013110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7344,6 +7463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406706438}
   - component: {fileID: 1406706439}
+  - component: {fileID: 1406706440}
   m_Layer: 0
   m_Name: robobasura copia
   m_TagString: Untagged
@@ -7418,6 +7538,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1406706440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406706437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1427493503
 GameObject:
   m_ObjectHideFlags: 0
@@ -7428,6 +7562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427493504}
   - component: {fileID: 1427493505}
+  - component: {fileID: 1427493506}
   m_Layer: 0
   m_Name: robobasura copia (2)
   m_TagString: Untagged
@@ -7502,6 +7637,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1427493506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427493503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1427533075
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,6 +8078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759612736}
   - component: {fileID: 1759612737}
+  - component: {fileID: 1759612738}
   m_Layer: 5
   m_Name: Alien camello copia
   m_TagString: Untagged
@@ -8003,6 +8153,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1759612738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759612735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dc642bd415d14dba4aee9b0b6d060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.01
 --- !u!1 &1765430994
 GameObject:
   m_ObjectHideFlags: 0
@@ -8954,6 +9118,7 @@ RectTransform:
   m_Children:
   - {fileID: 1765430995}
   - {fileID: 386913348}
+  - {fileID: 206304305}
   m_Father: {fileID: 2121634616}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
