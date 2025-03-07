@@ -993,9 +993,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 427538058}
-    - targetCorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 527713812}
     - targetCorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
@@ -1097,7 +1094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 427538053}
   menuPausa: {fileID: 527713811}
-  objetosConLogica: []
+  objetosConLogica:
+  - {fileID: 1364677648}
 --- !u!1 &427538053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,14 +1199,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.98967814, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e96fbb3559e7af4896a8f46fa1b01fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58c2348d2f149a049aabf9224cf71695, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1235,15 +1233,15 @@ RectTransform:
   m_GameObject: {fileID: 427538053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.41666663, y: 0.41666663, z: 0.41666663}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 335133368}
+  m_Father: {fileID: 1805484383}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 199.1509, y: 135.2502}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &435887978
@@ -1657,6 +1655,7 @@ GameObject:
   - component: {fileID: 527713812}
   - component: {fileID: 527713814}
   - component: {fileID: 527713813}
+  - component: {fileID: 527713815}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -1730,6 +1729,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527713811}
   m_CullTransparentMesh: 1
+--- !u!225 &527713815
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527713811}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &554826410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruta: 
   currentSceneID: 0
+  startOfJob: 0
 --- !u!4 &914328724
 Transform:
   m_ObjectHideFlags: 0
@@ -2629,6 +2641,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  tutorialFinal: 0
 --- !u!4 &1191744354
 Transform:
   m_ObjectHideFlags: 0
@@ -4272,6 +4285,7 @@ RectTransform:
   - {fileID: 737318250}
   - {fileID: 151085839}
   - {fileID: 8503277}
+  - {fileID: 427538058}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
