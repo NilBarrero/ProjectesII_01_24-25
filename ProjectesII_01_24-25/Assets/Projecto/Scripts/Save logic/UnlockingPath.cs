@@ -8,7 +8,7 @@ public class UnlockingPath : MonoBehaviour
 {
     public string ruta;
     public int currentSceneID;
-
+    public bool startOfJob = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,10 @@ public class UnlockingPath : MonoBehaviour
         currentSceneID = SceneManager.GetActiveScene().buildIndex;
 
         // Llamar a la función para manejar la escritura y verificar duplicados
+        if (startOfJob)
+        {
+            File.WriteAllText(ruta, string.Empty);
+        }
         VerificarNumerosRepetidos();
     }
 
