@@ -6,7 +6,7 @@ public class DecisionInteraction : MonoBehaviour
 {
     private Vector2 startPos;
     private Vector2 targetPos;
-    public float distanciaMov = 0.2f; // Ajusta la distancia del movimiento
+    public float distanciaMov = 0.2f; 
     public float moveSpeed = 0.1f;
     private bool isMoving = false;
 
