@@ -6,6 +6,7 @@ public class TitleScreen : MonoBehaviour
 {
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject storySelector;
+    [SerializeField] private GameObject options;
     [SerializeField] private Animator animator; // Animator para la animación de transición
     [SerializeField] private float animationDuration = 1.0f; // Duración de la animación en segundos
     [SerializeField] private AudioSource musicSource; // AudioSource para la música de fondo
@@ -47,6 +48,21 @@ public class TitleScreen : MonoBehaviour
             Debug.LogWarning("No se asignó un storySelector. No se puede activar.");
         }
        // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
+    }
+
+    public void Options()
+    {
+        // Activa el storySelector y desactiva el menuPrincipal
+        if (options != null)
+        {
+            options.SetActive(true);
+            menuPrincipal.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un storySelector. No se puede activar.");
+        }
+        // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
     }
 
     public void Exit()
