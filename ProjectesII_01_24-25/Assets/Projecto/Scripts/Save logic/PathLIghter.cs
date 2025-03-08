@@ -5,9 +5,11 @@ using System.IO;
 
 public class LeerNumeros : MonoBehaviour
 {
+    public int numberOfElements = 75;
     private string saveFilePath; // Ruta del archivo de guardado
     public List<int> unlockedScenes = new List<int>(); // Lista para almacenar las IDs de las escenas desbloqueadas
     public List<GameObject> gameObjectsList;
+    public bool tutorialFinal = false;
 
     void Start()
     {
@@ -34,6 +36,13 @@ public class LeerNumeros : MonoBehaviour
     {
         if (File.Exists(saveFilePath)) // Verificamos si el archivo existe
         {
+            if (tutorialFinal)
+            {
+                gameObjectsList[69].SetActive(true);
+                gameObjectsList[70].SetActive(true);
+                gameObjectsList[71].SetActive(true);
+            }
+
             // Leemos todo el contenido del archivo de texto
             string fileContent = File.ReadAllText(saveFilePath);
 
@@ -49,7 +58,7 @@ public class LeerNumeros : MonoBehaviour
                     int sceneIDInt = int.Parse(sceneID); // Convertimos la ID a número entero
 
                     // Verificamos si la escena está dentro del rango permitido (de 5 a 59)
-                    if (sceneIDInt >= 0 && sceneIDInt <= 60)
+                    if (sceneIDInt >= 0 && sceneIDInt <= numberOfElements)
                     {
                         unlockedScenes.Add(sceneIDInt); // Añadimos la ID a la lista
                         Debug.Log("Scene: " + sceneIDInt);

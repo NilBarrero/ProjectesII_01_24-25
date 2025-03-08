@@ -10,8 +10,11 @@ public class DetectPrefab : MonoBehaviour
     public string scene1;
     public bool revertedCollisionPropeties;
     public MouseDrag mouseDrag;
+    public GameObject object1;
+    public GameObject object2;
     // Referencia al Animator que controla la animación
     public Animator animator;
+    public bool isBox = false;
 
     // Referencia al AudioSource de la música
     public AudioSource musicSource;
@@ -37,14 +40,17 @@ public class DetectPrefab : MonoBehaviour
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene));
+                
+                StartCoroutine(TransitionToScene(scene, object1));
             }
             if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName2))
             {
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene1));
+                if (!isBox)
+                    Destroy(object2);
+                StartCoroutine(TransitionToScene(scene1, object2));
             }
         }
         else
@@ -54,14 +60,19 @@ public class DetectPrefab : MonoBehaviour
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene));
+                if(!isBox)
+                Destroy(object1);
+                StartCoroutine(TransitionToScene(scene, object1));
+                
             }
             if (!isTransitioning && (collision.gameObject.name == prefabName2))
             {
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene1));
+                if (!isBox)
+                    Destroy(object2);
+                StartCoroutine(TransitionToScene(scene1, object2));
             }
         }
     }
@@ -82,14 +93,14 @@ public class DetectPrefab : MonoBehaviour
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene));
+                StartCoroutine(TransitionToScene(scene, object1));
             }
             if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName2))
             {
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene1));
+                StartCoroutine(TransitionToScene(scene1, object2));
             }
         }
         else
@@ -99,20 +110,22 @@ public class DetectPrefab : MonoBehaviour
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene));
+                StartCoroutine(TransitionToScene(scene, object1));
             }
             if (!isTransitioning && (collision.gameObject.name == prefabName2))
             {
                 Debug.Log(collision.gameObject.name);
                 // Reproduce el efecto de sonido
                 PlayDetectionSound();
-                StartCoroutine(TransitionToScene(scene1));
+                StartCoroutine(TransitionToScene(scene1, object2));
             }
         }
     }
 
-    private IEnumerator TransitionToScene(string scene)
+    private IEnumerator TransitionToScene(string scene, GameObject object1)
     {
+        if (!isBox)
+            Destroy(object1);
         isTransitioning = true; // Evita llamadas múltiples
 
         // Fade out de la música
