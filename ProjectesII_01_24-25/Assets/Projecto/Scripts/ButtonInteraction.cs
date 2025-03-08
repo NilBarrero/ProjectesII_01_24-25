@@ -1,54 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using static UnityEngine.ParticleSystem;
 
-public class ButtonInteraction : MonoBehaviour
+public class ButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Vector2 startPos;
-    private Renderer objectRenderer;
-    public Texture2D customCursor; // El cursor que quieres usar
-    public Vector2 cursorHotspot = new Vector2(16, 16); // Define el centro del cursor
-    // Start is called before the first frame update
+    private Vector2 targetPos;
+    public float distanciaMov = 10f;
+    public float moveSpeed = 0.2f;
+    private bool isMoving = false;
+
     void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
-        if (objectRenderer != null)
-        {
-            
-        }
+        startPos = GetComponent<RectTransform>().anchoredPosition;
+        targetPos = startPos + new Vector2(distanciaMov, distanciaMov);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        startPos.y += 2.0f;
-        startPos.x += 2.0f;
-        transform.localPosition = new Vector2(startPos.x, startPos.y);
+        if (!isMoving)
+            StartCoroutine(MoveButton(targetPos));
     }
 
-    void OnMouseEnter()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        if (objectRenderer != null)
-        {
-            transform.position = new Vector2(startPos.x, startPos.y);   
-        }
-
-        // Cambiar el cursor cuando el mouse pasa por encima
-        if (customCursor != null)
-        {
-            UnityEngine.Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
-        }
+        if (!isMoving)
+            StartCoroutine(MoveButton(startPos));
     }
 
-    void OnMouseExit()
+    IEnumerator MoveButton(Vector2 newPosition)
     {
-        if (objectRenderer != null)
+        isMoving = true;
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        float elapsedTime = 0f;
+        Vector2 initialPosition = rectTransform.anchoredPosition;
+
+        while (elapsedTime < moveSpeed)
         {
-            objectRenderer.material.color = originalColor; // Vuelve al color original
+            rectTransform.anchoredPosition = Vector2.Lerp(initialPosition, newPosition, elapsedTime / moveSpeed);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
-        // Restaurar el cursor al valor predeterminado
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        rectTransform.anchoredPosition = newPosition;
+        isMoving = false;
     }
 }
