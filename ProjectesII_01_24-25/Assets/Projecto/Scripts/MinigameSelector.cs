@@ -29,26 +29,30 @@ public class MinigameSelector : MonoBehaviour
 
     public void ChangeScene()
     {
-        if (!string.IsNullOrEmpty(sceneName))
+        // Comprobar si el color del botón es negro
+        if (button != null && button.image.color != Color.black)
         {
-            Time.timeScale = 1f;
-
-            if (pauseMenu != null && pauseMenu.activeSelf)
+            if (!string.IsNullOrEmpty(sceneName))
             {
-                pauseMenu.SetActive(false);
-            }
+                Time.timeScale = 1f;
 
-            // Reproducir sonido del botón
-            if (buttonAudioSource != null && buttonClip != null)
+                if (pauseMenu != null && pauseMenu.activeSelf)
+                {
+                    pauseMenu.SetActive(false);
+                }
+
+                // Reproducir sonido del botón
+                if (buttonAudioSource != null && buttonClip != null)
+                {
+                    buttonAudioSource.PlayOneShot(buttonClip);
+                }
+
+                SceneManager.LoadScene(sceneName);
+            }
+            else
             {
-                buttonAudioSource.PlayOneShot(buttonClip);
+                Debug.LogError("El nombre de la escena no está configurado.");
             }
-
-            SceneManager.LoadScene(sceneName);
-        }
-        else
-        {
-            Debug.LogError("El nombre de la escena no está configurado.");
         }
     }
 
@@ -87,4 +91,3 @@ public class MinigameSelector : MonoBehaviour
         musicSource.Stop();
     }
 }
-
