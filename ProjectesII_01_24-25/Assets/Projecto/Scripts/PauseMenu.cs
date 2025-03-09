@@ -110,7 +110,7 @@ public class PauseMenu : MonoBehaviour
     public void Salir()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
 
