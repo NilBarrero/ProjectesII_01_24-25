@@ -12,9 +12,14 @@ public class StorySelector : MonoBehaviour
     public GameObject deliver1;
     public void Start()
     {
-        int finished = PlayerPrefs.GetInt("finished", 0);
-        if (finished == 1)
+
+
+        int finished = PlayerPrefs.GetInt("finished");
+        if (finished == 0)
+        {
+            Debug.LogError("finished = " + finished);
             deliver1.SetActive(true);
+        }
     }
     public void Exit()
     {

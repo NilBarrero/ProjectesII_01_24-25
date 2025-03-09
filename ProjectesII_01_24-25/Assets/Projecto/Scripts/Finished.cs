@@ -11,13 +11,16 @@ public class Finished : MonoBehaviour
     {
         
         
-        PlayerPrefs.SetInt("finished", finished ? 1 : 0); // Convierte el bool a int (1 o 0)
-        PlayerPrefs.Save(); // Guarda los cambios
+        PlayerPrefs.SetInt("finished", 0);
+        
         if (deleteOnlyForDebug)
         {
-            PlayerPrefs.DeleteKey("finished");
+            PlayerPrefs.SetInt("finished", 1);
+
 
         }
+        PlayerPrefs.Save();
+
     }
 
     // Update is called once per frame
