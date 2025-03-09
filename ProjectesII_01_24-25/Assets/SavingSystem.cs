@@ -27,16 +27,5 @@ public class SavingSystem : MonoBehaviour
         }
     }
 
-    public void LoadScene()
-    {
-        if (visited)
-        {
-            // Cargar la escena solo si ha sido visitada
-            SceneManager.LoadScene(sceneNumber);
-        }
-        else
-        {
-            Debug.LogWarning("La escena no ha sido visitada aún.");
-        }
-    }
+
 }
