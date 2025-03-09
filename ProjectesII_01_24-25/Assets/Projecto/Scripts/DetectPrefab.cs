@@ -36,11 +36,7 @@ public class DetectPrefab : MonoBehaviour
 
         // Si el objeto tiene MouseDrag, bloqueamos su movimiento
         MouseDrag mouseDrag = collision.gameObject.GetComponent<MouseDrag>();
-        if (mouseDrag != null)
-        {
-            mouseDrag.isCollisionLocked = true;
-            mouseDrag.isBeingHeld = false; // Detener arrastre si está en curso.
-        }
+        
 
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
         if (!revertedCollisionPropeties)
