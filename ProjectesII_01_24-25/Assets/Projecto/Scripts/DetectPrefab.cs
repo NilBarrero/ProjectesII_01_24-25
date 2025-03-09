@@ -29,23 +29,17 @@ public class DetectPrefab : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (mouseDrag == null)
-        {
-            Debug.Log("MouseDrag isn't inicialized properly");
-        }
 
-        if (collision.gameObject.name == prefabName || collision.gameObject.name == prefabName2)
-        {
-            Debug.Log("¡Colisión detectada con " + collision.gameObject.name + "! Bloqueando movimiento.");
-            isCollisioning = true;
+        Debug.Log("¡Colisión detectada con " + collision.gameObject.name + "!");
 
-            // Bloquear el movimiento en MouseDrag
-            MouseDrag mouseDrag = collision.gameObject.GetComponent<MouseDrag>();
-            if (mouseDrag != null)
-            {
-                mouseDrag.isCollisionLocked = true;
-                mouseDrag.isBeingHeld = false; // Detener arrastre si está en curso.
-            }
+        isCollisioning = true; // Se activa para cualquier colisión
+
+        // Si el objeto tiene MouseDrag, bloqueamos su movimiento
+        MouseDrag mouseDrag = collision.gameObject.GetComponent<MouseDrag>();
+        if (mouseDrag != null)
+        {
+            mouseDrag.isCollisionLocked = true;
+            mouseDrag.isBeingHeld = false; // Detener arrastre si está en curso.
         }
 
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado

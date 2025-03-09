@@ -320,6 +320,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -593,6 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPrincipal: {fileID: 0}
   storySelector: {fileID: 0}
+  options: {fileID: 0}
   animator: {fileID: 0}
   animationDuration: 1
   musicSource: {fileID: 0}
@@ -1979,6 +1981,7 @@ MonoBehaviour:
   scene: T1.2
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -2508,6 +2511,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -3174,6 +3178,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -3431,6 +3436,9 @@ GameObject:
   - component: {fileID: 1271023872}
   - component: {fileID: 1271023871}
   - component: {fileID: 1271023876}
+  - component: {fileID: 1271023878}
+  - component: {fileID: 1271023877}
+  - component: {fileID: 1271023879}
   m_Layer: 0
   m_Name: gramma
   m_TagString: Untagged
@@ -3524,6 +3532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 0}
   isBeingHeld: 0
+  detectPrefab: {fileID: 0}
+  isCollisionLocked: 0
 --- !u!212 &1271023874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3564,7 +3574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: eb51418318d91d949a48012ac047b15a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3584,7 +3594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271023869}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071206, w: -0.707093}
-  m_LocalPosition: {x: 0.07, y: -2.43, z: -4.53}
+  m_LocalPosition: {x: 2.58, y: -2.54, z: -4.53}
   m_LocalScale: {x: 0.14145231, y: 0.14145231, z: 0.14145231}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3611,6 +3621,65 @@ MonoBehaviour:
   particles: {fileID: 2071494660}
   customCursor: {fileID: 2800000, guid: 87ad0dd6239a4ce4e97e09e9e7601b76, type: 3}
   cursorHotspot: {x: 16, y: 16}
+--- !u!95 &1271023877
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271023869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6ccee02c5947d449a0aced125be6f28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &1271023878
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271023869}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0f5b204c935aafa4a9ad943cf6b445a6, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1271023879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271023869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80f6a6401b508b42867bef14021e2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectPrefab: {fileID: 1172915756}
+  detectPrefab1: {fileID: 43540068}
+  detectPrefab2: {fileID: 796210843}
+  detectPrefab3: {fileID: 2011953986}
+  detectPrefab4: {fileID: 1787602642}
+  detectPrefab5: {fileID: 1471224411}
+  detectPrefab6: {fileID: 1580504116}
+  detectPrefab7: {fileID: 1971687337}
+  detectPrefab8: {fileID: 523412162}
+  multSize: 3
+  animator: {fileID: 0}
 --- !u!1001 &1281853262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4323,6 +4392,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -4463,6 +4533,7 @@ MonoBehaviour:
   scene: T1.2
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -4881,6 +4952,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -5262,6 +5334,7 @@ MonoBehaviour:
   scene: T1.2
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
@@ -5328,6 +5401,7 @@ MonoBehaviour:
   scene: T1.3
   scene1: 
   revertedCollisionPropeties: 1
+  isCollisioning: 0
   mouseDrag: {fileID: 0}
   object1: {fileID: 0}
   object2: {fileID: 0}
