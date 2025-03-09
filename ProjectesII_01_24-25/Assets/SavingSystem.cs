@@ -6,29 +6,24 @@ using UnityEngine.UI;
 
 public class SavingSystem : MonoBehaviour
 {
-    SceneVisitor visitor;
     public int sceneNumber;  // Número de la escena
     bool visited;  // Indicador si la escena fue visitada
     public Image image;  // Imagen que muestra el estado de la escena
 
     private void OnEnable()
     {
-        // Mostrar los valores de 'visitor.sceneNumber' y 'sceneNumber' para depuración
-        Debug.Log("visitor.sceneNumber: " + visitor.sceneNumber);
-        Debug.Log("sceneNumber: " + sceneNumber);
+        // Obtener si la escena fue visitada previamente desde PlayerPrefs
+        int visitedNumber = PlayerPrefs.GetInt("Scene" + sceneNumber, 0);
+        visited = visitedNumber > 0;
 
-        // Comprobar si el número de escena del visitante coincide con el número de la escena
-        if (visitor.sceneNumber == sceneNumber)
+        // Cambiar el color de la imagen según si la escena fue visitada o no
+        if (image != null)  // Verificar si 'image' no es nulo
         {
-            // Si el visitante está en esta escena y ya fue visitada, pinta de rojo, si no, de negro
-            image.color = visited ? Color.red : Color.black;
-            Debug.Log("Pintando de rojo");  // Depuración: Ver si está entrando en esta condición
+            image.color = visited ? Color.green : Color.black;
         }
         else
         {
-            // Si no está en esta escena, y fue visitada, pinta de verde, si no, de negro
-            image.color = visited ? Color.green : Color.black;
-            Debug.Log("Pintando de verde");  // Depuración: Ver si está entrando en esta condición
+            Debug.LogWarning("La imagen no está asignada en el Inspector.");
         }
     }
 
