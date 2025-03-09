@@ -9,7 +9,6 @@ public class SavingSystem : MonoBehaviour
     public int sceneNumber;  // Número de la escena
     bool visited;  // Indicador si la escena fue visitada
     public Image image;  // Imagen que muestra el estado de la escena
-    public SceneVisitor visitor;
 
     private void OnEnable()
     {
@@ -19,11 +18,8 @@ public class SavingSystem : MonoBehaviour
 
         // Cambiar el color de la imagen según si la escena fue visitada o no
         if (image != null)  // Verificar si 'image' no es nulo
-        {if (sceneNumber != visitor.sceneNumber)
+        {
             image.color = visited ? Color.green : Color.black;
-        else
-                image.color = visited ? Color.red : Color.black;
-
         }
         else
         {
