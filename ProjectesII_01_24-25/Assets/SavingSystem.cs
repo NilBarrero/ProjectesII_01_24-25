@@ -16,14 +16,33 @@ public class SavingSystem : MonoBehaviour
         int visitedNumber = PlayerPrefs.GetInt("Scene" + sceneNumber, 0);
         visited = visitedNumber > 0;
 
-        // Cambiar el color de la imagen según si la escena fue visitada o no
-        if (image != null)  // Verificar si 'image' no es nulo
+        // Obtener el índice de la escena actual
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Verificar si este nodo representa la escena actual
+        if (sceneNumber == currentSceneIndex)
         {
-            image.color = visited ? Color.green : Color.black;
+            // Marcar la escena actual en rojo
+            if (image != null)
+            {
+                image.color = Color.red;
+            }
+            else
+            {
+                Debug.LogWarning("La imagen no está asignada en el Inspector.");
+            }
         }
         else
         {
-            Debug.LogWarning("La imagen no está asignada en el Inspector.");
+            // Cambiar el color de la imagen según si la escena fue visitada o no
+            if (image != null)  // Verificar si 'image' no es nulo
+            {
+                image.color = visited ? Color.green : Color.black;
+            }
+            else
+            {
+                Debug.LogWarning("La imagen no está asignada en el Inspector.");
+            }
         }
     }
 
