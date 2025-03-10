@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Cinemachine.AxisState;
 
 public class Controller : MonoBehaviour
 {
@@ -21,8 +20,7 @@ public class Controller : MonoBehaviour
     public float fadeOutDuration = 1f;
 
     // Referencia al AudioSource para el sonido de movimiento
-    public AudioSource movementAudioSource;
-    public AudioClip movementSound;  // AudioClip para el sonido de movimiento
+    public AudioSource movementAudioSource; // Ahora es solo un AudioSource, no un AudioClip
 
     void Start()
     {
@@ -74,9 +72,9 @@ public class Controller : MonoBehaviour
         transform.position = targetPosition;
 
         // Reproduce el sonido de movimiento cada vez que el objeto se mueve
-        if (movementAudioSource != null && movementSound != null)
+        if (movementAudioSource != null)
         {
-            movementAudioSource.PlayOneShot(movementSound);
+            movementAudioSource.Play();
         }
     }
 
@@ -101,3 +99,4 @@ public class Controller : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 }
+

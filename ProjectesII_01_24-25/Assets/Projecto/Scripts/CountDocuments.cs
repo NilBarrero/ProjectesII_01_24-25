@@ -21,8 +21,8 @@ public class CountDocuments : MonoBehaviour
     public AudioSource musicSource;      // Referencia al AudioSource para la música
     public float fadeOutDuration = 1f;   // Duración del fade out de la música
 
-    // Variable para el audio del clic
-    public AudioClip clickSound;         // Asigna el sonido en el Inspector
+    // Variable para el AudioSource de clic
+    public AudioSource clickAudioSource; // Referencia al AudioSource que reproducirá el sonido de clic
 
     private void Start()
     {
@@ -30,6 +30,12 @@ public class CountDocuments : MonoBehaviour
         if (documents == null || documents.Length == 0)
         {
             Debug.LogError("El array de documentos no está asignado o está vacío.");
+        }
+
+        // Verifica que el AudioSource de clic esté asignado
+        if (clickAudioSource == null)
+        {
+            Debug.LogError("El AudioSource de clic no está asignado.");
         }
     }
 
@@ -45,9 +51,9 @@ public class CountDocuments : MonoBehaviour
                 deactivateScript.hasBeenActivated = false;
 
                 // Reproduce el sonido al hacer clic
-                if (clickSound != null && musicSource != null)
+                if (clickAudioSource != null)
                 {
-                    musicSource.PlayOneShot(clickSound);
+                    clickAudioSource.Play(); // Reproduce el sonido del AudioSource directamente
                 }
             }
         }
@@ -124,3 +130,4 @@ public class CountDocuments : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 }
+

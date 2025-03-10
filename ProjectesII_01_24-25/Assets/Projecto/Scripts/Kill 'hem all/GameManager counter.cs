@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManagercounter : MonoBehaviour
 {
     public int clickCount = 0;
-    public int maxCount = 3;
+    public int maxCount = 6;
     public string scene1;
     public string scene2;
     public string scene3;
@@ -18,21 +18,21 @@ public class GameManagercounter : MonoBehaviour
 
     private void Update()
     {
-        if (timer.tiempoRestante == 0 && dontKillCertainNumOfEnemies && clickCount == 4)
+        if (timer.tiempoRestante == 0 && dontKillCertainNumOfEnemies && clickCount > 0)
         {
-            Debug.Log("Jose");
+            
             numOfScene = 0;
             StartCoroutine(TransitionToScene(scene1));
         }
         else if (clickCount == maxCount)
         {
-            Debug.Log("Armario");
+            
             numOfScene = 1;
             StartCoroutine(TransitionToScene(scene2));
         }
-        else if (timer.tiempoRestante == 0 && clickCount < 4)
+        else if (timer.tiempoRestante == 0 && clickCount == 0)
         {
-            Debug.Log("OOOOOOOOOOOOOOO");
+            
             numOfScene = 2;
             StartCoroutine(TransitionToScene(scene3));
         }

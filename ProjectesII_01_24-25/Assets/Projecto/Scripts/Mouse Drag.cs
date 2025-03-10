@@ -7,7 +7,7 @@ public class MouseDrag : MonoBehaviour
     public ParticleSystem particles;
     private float startPosX;
     private float startPosY;
-    private bool isBeingHeld = false;
+    public bool isBeingHeld = false;
     private Vector3 startMousePosition;
     private Vector3 currentMousePosition;
     private bool moved = false;
@@ -22,6 +22,9 @@ public class MouseDrag : MonoBehaviour
 
     private float additionalHoldTime = 0f; // Nuevo temporizador adicional
     private float additionalTimeThreshold = 1f; // Umbral para el nuevo temporizador (por ejemplo, 1 segundo)
+
+    public DetectPrefab detectPrefab;
+    public bool isCollisionLocked = false;
 
     private void Start()
     {
@@ -38,6 +41,7 @@ public class MouseDrag : MonoBehaviour
 
     private void Update()
     {
+        if (isCollisionLocked) return;
         // Si el objeto está siendo arrastrado
         if (isBeingHeld)
         {
@@ -122,6 +126,8 @@ public class MouseDrag : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (isCollisionLocked) return;
+
         // Detecta si el ratón ha sido presionado
         if (Input.GetMouseButtonDown(0))
         {

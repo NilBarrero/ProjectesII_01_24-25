@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,15 @@ public class DetectPrefab : MonoBehaviour
     public string prefabName;
     public string prefabName2;
     public string scene;
-
+    public string scene1;
+    public bool revertedCollisionPropeties;
+    public bool isCollisioning = false;
+    public MouseDrag mouseDrag;
+    public GameObject object1;
+    public GameObject object2;
     // Referencia al Animator que controla la animación
     public Animator animator;
+    public bool isBox = false;
 
     // Referencia al AudioSource de la música
     public AudioSource musicSource;
@@ -18,24 +25,117 @@ public class DetectPrefab : MonoBehaviour
     // Referencia al AudioSource para efectos de sonido
     public AudioSource sfxSource;
 
-    // Efecto de sonido que se reproducirá
-    public AudioClip detectionSound;
-
     private bool isTransitioning = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        Debug.Log("¡Colisión detectada con " + collision.gameObject.name + "!");
+
+        isCollisioning = true; // Se activa para cualquier colisión
+
+        // Si el objeto tiene MouseDrag, bloqueamos su movimiento
+        MouseDrag mouseDrag = collision.gameObject.GetComponent<MouseDrag>();
+        
+
         // Verifica si el objeto detectado tiene el mismo nombre que el prefab esperado
-        if (!isTransitioning && (collision.gameObject.name == prefabName || collision.gameObject.name == prefabName2))
+        if (!revertedCollisionPropeties)
         {
-            // Reproduce el efecto de sonido
-            PlayDetectionSound();
-            StartCoroutine(TransitionToScene());
+            if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                
+                StartCoroutine(TransitionToScene(scene, object1));
+            
+            }
+            if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName2))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                if (!isBox)
+                    Destroy(object2);
+                StartCoroutine(TransitionToScene(scene1, object2));
+               
+            }
+        }
+        else
+        {
+            if (!isTransitioning && (collision.gameObject.name == prefabName))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                isCollisioning = true;
+                PlayDetectionSound();
+                if(!isBox)
+                Destroy(object1);
+                StartCoroutine(TransitionToScene(scene, object1));
+            
+            }
+            if (!isTransitioning && (collision.gameObject.name == prefabName2))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                isCollisioning = true;
+                PlayDetectionSound();
+                if (!isBox)
+                    Destroy(object2);
+                StartCoroutine(TransitionToScene(scene1, object2));
+            }
         }
     }
 
-    private IEnumerator TransitionToScene()
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        // Aquí verificamos si el objeto sigue dentro del área del trigger
+        if (mouseDrag == null)
+        {
+            Debug.Log("MouseDrag isn't inicialized properly");
+        }
+
+        // Verifica si el objeto sigue dentro del área
+        if (!revertedCollisionPropeties)
+        {
+            if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                StartCoroutine(TransitionToScene(scene, object1));
+            }
+            if (!mouseDrag.isBeingHeld && !isTransitioning && (collision.gameObject.name == prefabName2))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                StartCoroutine(TransitionToScene(scene1, object2));
+            }
+        }
+        else
+        {
+            if (!isTransitioning && (collision.gameObject.name == prefabName))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                StartCoroutine(TransitionToScene(scene, object1));
+            }
+            if (!isTransitioning && (collision.gameObject.name == prefabName2))
+            {
+                Debug.Log(collision.gameObject.name);
+                // Reproduce el efecto de sonido
+                PlayDetectionSound();
+                StartCoroutine(TransitionToScene(scene1, object2));
+            }
+        }
+    }
+
+    private IEnumerator TransitionToScene(string scene, GameObject object1)
+    {
+        if (!isBox)
+            Destroy(object1);
         isTransitioning = true; // Evita llamadas múltiples
 
         // Fade out de la música
@@ -74,11 +174,10 @@ public class DetectPrefab : MonoBehaviour
 
     private void PlayDetectionSound()
     {
-        if (sfxSource != null && detectionSound != null)
+        if (sfxSource != null)
         {
-            sfxSource.PlayOneShot(detectionSound);
+            sfxSource.Play();
         }
     }
 }
-
 
