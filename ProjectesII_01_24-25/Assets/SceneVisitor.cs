@@ -9,6 +9,7 @@ public class SceneVisitor : MonoBehaviour
     private void OnEnable()
     {
         PlayerPrefs.SetInt("Scene" + sceneNumber, 1);
+        PlayerPrefs.Save(); // Guarda los cambios inmediatamente
     }
 
 }
