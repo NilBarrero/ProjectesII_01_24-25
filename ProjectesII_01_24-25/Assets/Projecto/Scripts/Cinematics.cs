@@ -37,13 +37,8 @@ public class Cinematics : MonoBehaviour
 
     private IEnumerator AnimateImage()
     {
-        Vector2 startPosition = rectTransform.anchoredPosition; // Posición inicial de la imagen
-        Vector2 endPosition = new Vector2(startPosition.x, endYPosition); // Solo cambia el eje Y
-
-        if (audioSource != null && moveAudioClip != null)
-        {
-            audioSource.Play(); // Reproduce el audio al inicio de la animación
-        }
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
 
         float elapsedTime = 0f;
 
@@ -55,5 +50,11 @@ public class Cinematics : MonoBehaviour
         }
 
         rectTransform.anchoredPosition = endPosition; // Asegúrate de que termine exactamente en la posición final
+
+        // Reproduce el sonido cuando la animación haya terminado
+        if (audioSource != null && moveAudioClip != null)
+        {
+            audioSource.Play();
+        }
     }
 }
