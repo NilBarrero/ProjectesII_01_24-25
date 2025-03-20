@@ -37,6 +37,7 @@ public class TitleScreen : MonoBehaviour
 
     public void Play()
     {
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
         // Activa el storySelector y desactiva el menuPrincipal
         if (storySelector != null)
         {

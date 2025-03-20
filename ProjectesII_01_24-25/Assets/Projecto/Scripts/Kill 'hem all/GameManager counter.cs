@@ -75,6 +75,9 @@ public class GameManagercounter : MonoBehaviour
             yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
+        // **Restablecer el cursor antes de cambiar de escena**
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
         // Cargar la nueva escena
         SceneManager.LoadScene(sceneName);
     }
