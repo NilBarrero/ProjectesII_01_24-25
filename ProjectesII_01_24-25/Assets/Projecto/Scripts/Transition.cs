@@ -55,6 +55,10 @@ public class Transition : MonoBehaviour
         {
             audioSource.Play(); // Reproduce el sonido de clic
         }
+
+        // Restaurar el cursor antes de cambiar de escena
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
         if (OneTimeOnly)
         {
             check();
@@ -67,22 +71,20 @@ public class Transition : MonoBehaviour
 
     private IEnumerator PlayAnimationAndChangeScene()
     {
-        // Comienza el fade out del audio
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes del cambio
+
         if (musicSource != null)
         {
             StartCoroutine(FadeOutMusic());
         }
 
-        // Activa la animación de transición
         if (animator != null)
         {
             animator.SetTrigger("StartTransition");
         }
 
-        // Espera el tiempo que dura la animación
         yield return new WaitForSeconds(animationDuration);
 
-        // Cambia a la nueva escena
         SceneManager.LoadScene(scene);
     }
 
