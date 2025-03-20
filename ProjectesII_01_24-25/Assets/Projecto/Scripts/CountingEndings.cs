@@ -7,16 +7,18 @@ public class CountingEndings : MonoBehaviour
     public int maxNumber;
     public TextMeshProUGUI text;
     private int activeEndings;
+    public int startingNumber;
+    public int numberOfEndings;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < (maxNumber+1); i++)
+        for (; startingNumber < (maxNumber+1); startingNumber++)
         {
-           if ( PlayerPrefs.GetInt(i.ToString(), 0) != 0)
+           if ( PlayerPrefs.GetInt(startingNumber.ToString(), 0) != 0)
                 activeEndings++;
         }
 
-        text.text = activeEndings + "/17";
+        text.text = activeEndings + "/" + numberOfEndings;
     }
 
     // Update is called once per frame
