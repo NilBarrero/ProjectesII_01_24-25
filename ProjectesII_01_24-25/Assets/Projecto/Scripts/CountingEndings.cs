@@ -9,6 +9,7 @@ public class CountingEndings : MonoBehaviour
     private int activeEndings;
     public int startingNumber;
     public int numberOfEndings;
+    public int endings;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,17 @@ public class CountingEndings : MonoBehaviour
         {
            if ( PlayerPrefs.GetInt(startingNumber.ToString(), 0) != 0)
                 activeEndings++;
+           endings++;
+
         }
 
         text.text = activeEndings + "/" + numberOfEndings;
+        Debug.Log(endings + " Endings\n" + activeEndings + " activeEndings");
+        if ((endings -1) == activeEndings)
+        {
+            text.color = Color.green;
+        }
+
     }
 
     // Update is called once per frame
