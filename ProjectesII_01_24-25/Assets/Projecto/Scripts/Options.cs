@@ -60,7 +60,7 @@ public class Options : MonoBehaviour
 
     public void Sound(float sound)
     {
-        audioMixer.SetFloat("Sound", sound);
+        audioMixer.SetFloat("MusicVol", Mathf.Log10(sound)*20);
         PlayerPrefs.SetFloat("Volume", sound); // Guardar el volumen.
         PlayerPrefs.Save();
     }
@@ -71,7 +71,7 @@ public class Options : MonoBehaviour
         if (PlayerPrefs.HasKey("Volume"))
         {
             float savedVolume = PlayerPrefs.GetFloat("Volume");
-            audioMixer.SetFloat("Sound", savedVolume);
+            audioMixer.SetFloat("MusicVol", savedVolume);
         }
     }
 }
