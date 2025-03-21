@@ -38,13 +38,13 @@ public class StorySelector : MonoBehaviour
     public void Prolog()
     {
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
-        fadeMusic.TriggerSceneChange("Intro");
+        fadeMusic.TriggerSceneChange("Tutorial Menu");
     }
 
     public void FirstJob()
     {
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
-        fadeMusic.TriggerSceneChange("Transition Beginning");
+        fadeMusic.TriggerSceneChange("First Menu");
     }
 
     public void SecondJob() 
