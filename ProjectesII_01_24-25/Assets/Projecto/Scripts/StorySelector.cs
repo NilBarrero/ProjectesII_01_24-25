@@ -10,15 +10,18 @@ public class StorySelector : MonoBehaviour
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject storySelector;
     public GameObject deliver1;
+    public GameObject deliver1locked;
     public void Start()
     {
 
-
+        deliver1locked.SetActive(true);
         int finished = PlayerPrefs.GetInt("finished");
         if (finished == 0)
         {
             Debug.LogError("finished = " + finished);
             deliver1.SetActive(true);
+            deliver1locked.SetActive(false);
+
         }
     }
     public void Exit()
