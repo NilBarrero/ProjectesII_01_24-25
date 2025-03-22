@@ -1309,6 +1309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 0}
+  isBeingHeld: 0
+  detectPrefab: {fileID: 0}
+  isCollisionLocked: 0
 --- !u!61 &970595377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2462,6 +2465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 0}
   menuPausa: {fileID: 0}
+  objetosConLogica: []
 --- !u!224 &1880561600 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1149167899273611043, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
