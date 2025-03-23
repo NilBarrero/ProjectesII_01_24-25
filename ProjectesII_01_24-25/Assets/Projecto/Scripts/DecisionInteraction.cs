@@ -4,44 +4,25 @@ using UnityEngine;
 
 public class DecisionInteraction : MonoBehaviour
 {
-    private Vector2 startPos;
-    private Vector2 targetPos;
-    public float distanciaMov = 0.2f; 
-    public float moveSpeed = 0.1f;
-    private bool isMoving = false;
+    private Vector3 startScale;
+    private float newScale = 1.25f;
+    private Transform transformText;
 
     void Start()
     {
-        startPos = transform.position;
-        targetPos = startPos + new Vector2(distanciaMov, distanciaMov);
+        transformText = GetComponentInChildren<SpriteRenderer>().transform;
+        startScale = transform.localScale;
+
     }
 
     void OnMouseEnter()
     {
-        if (!isMoving)
-            StartCoroutine(MoveSprite(targetPos));
+        transform.localScale = startScale * newScale;
     }
 
     void OnMouseExit()
     {
-        if (!isMoving)
-            StartCoroutine(MoveSprite(startPos));
+        transform.localScale = startScale;
     }
 
-    IEnumerator MoveSprite(Vector2 newPosition)
-    {
-        isMoving = true;
-        float elapsedTime = 0f;
-        Vector2 initialPosition = transform.position;
-
-        while (elapsedTime < moveSpeed)
-        {
-            transform.position = Vector2.Lerp(initialPosition, newPosition, elapsedTime / moveSpeed);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = newPosition;
-        isMoving = false;
-    }
 }
