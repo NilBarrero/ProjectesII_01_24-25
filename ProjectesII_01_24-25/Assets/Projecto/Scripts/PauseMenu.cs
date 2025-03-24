@@ -50,6 +50,10 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(ReanudarJuego());
     }
 
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Menu Principal");
+    }
     private IEnumerator ReanudarJuego()
     {
         // Esperar hasta que se suelte el botón del ratón
