@@ -9,6 +9,20 @@ public class SavingSystem : MonoBehaviour
     public int sceneNumber;  // Número de la escena
     bool visited;  // Indicador si la escena fue visitada
     public Image image;  // Imagen que muestra el estado de la escena
+    public GameObject text;
+
+    void Start()
+    {
+        // Asegurarse de que el TextMeshPro esté desactivado al principio
+        
+            text.SetActive(false);
+
+        if (sceneNumber == SceneManager.GetActiveScene().buildIndex || visited)
+        {
+            text.SetActive(true);
+        }
+        
+    }
 
     private void OnEnable()
     {
@@ -26,6 +40,7 @@ public class SavingSystem : MonoBehaviour
             if (image != null)
             {
                 image.color = Color.red;
+                
             }
             else
             {
@@ -34,6 +49,8 @@ public class SavingSystem : MonoBehaviour
         }
         else
         {
+           
+
             // Cambiar el color de la imagen según si la escena fue visitada o no
             if (image != null)  // Verificar si 'image' no es nulo
             {
