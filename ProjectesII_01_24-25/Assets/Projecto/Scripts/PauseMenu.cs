@@ -45,6 +45,15 @@ public class PauseMenu : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
     }
 
+    public void StartFirstJob()
+    {
+        SceneManager.LoadScene("Transition Beginning");
+    }
+
+    public void StartTutorialJob()
+    {
+        SceneManager.LoadScene("Intro");
+    }
     public void Reanudar()
     {
         StartCoroutine(ReanudarJuego());
