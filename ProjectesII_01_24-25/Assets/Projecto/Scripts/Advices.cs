@@ -69,7 +69,7 @@ public class Advices : MonoBehaviour
                 texto.text = "Tip 44: “UNGAUNGA U-U-U-U-U UNGA!” which, in teenager-speak, means “BOOOOOOBS!”";
                 break;
             case 14:
-                texto.text = "Tip 8: Poop goes in the toilet.";
+                texto.text = "Tip 8: Poop, a solid waste material, goes in a primitive device called toilet, instead of the common goth alien.";
                 break;
             case 15:
                 texto.text = "Tip 0.2: Mobile gamers are less “gamer” than console/PC players… and also less virgin.";

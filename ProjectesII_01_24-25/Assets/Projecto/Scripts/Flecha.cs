@@ -1,23 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 public class Flecha : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int numberOfArrow;
-    public GameObject arrow;
+    public int numberOfArrow;  // El número de la flecha actual
+    public GameObject arrow;   // El GameObject de la flecha
+
     void OnEnable()
     {
-        arrow.SetActive(false);
-        Debug.Log("Last Scene: " + PlayerPrefs.GetInt("LastScene"));
+        // Primero, desactivamos la flecha al inicio
 
-        if (numberOfArrow == PlayerPrefs.GetInt("LastScene"))
+
+        // Leemos el número de la última escena guardada
+        int lastScene = PlayerPrefs.GetInt("LastScene", -1); // Si no existe, devuelve -1
+
+        Debug.Log("Última escena guardada: " + lastScene);
+
+        // Comprobamos si el número de la flecha coincide con la última escena jugada
+        if (numberOfArrow == lastScene)
         {
-            
-            arrow.SetActive(true);
+            Debug.Log("La flecha debe ser activada.");
+            arrow.SetActive(true);  // Activamos la flecha si el número de la flecha coincide
+        }
+        else
+        {
+            Debug.Log("La flecha no se activa.");
         }
     }
-
-    // Update is called once per frame
-
 }
