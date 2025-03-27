@@ -381,6 +381,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4921936722648835166, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1165735475}
+    - targetCorrespondingSourceObject: {fileID: 4610754607618735927, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415867682}
   m_SourcePrefab: {fileID: 100100000, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
 --- !u!224 &361683062 stripped
 RectTransform:
@@ -587,6 +590,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402388513}
   m_CullTransparentMesh: 1
+--- !u!1 &415867680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4610754607618735927, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+  m_PrefabInstance: {fileID: 361683061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &415867682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415867680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3d50309a74df44eaccae0b5b2af9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 74
+  image: {fileID: 415867686}
+  text: {fileID: 777404087}
+--- !u!114 &415867686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5615203704665490977, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+  m_PrefabInstance: {fileID: 361683061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415867680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603842596
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +773,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657093780}
   m_CullTransparentMesh: 1
+--- !u!1 &777404087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6041269190106111240, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+  m_PrefabInstance: {fileID: 361683061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &843500038
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,9 +991,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.3137255, g: 0.6039216, b: 0.56078434, a: 1}
+    m_SelectedColor: {r: 0.23921569, g: 0.49019608, b: 0.45490196, a: 1}
+    m_DisabledColor: {r: 0.3137255, g: 0.6039216, b: 0.56078434, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -998,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.27058825, g: 0.83137256, b: 0.7882353, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1663,7 +1702,7 @@ GameObject:
   - component: {fileID: 1712803887}
   - component: {fileID: 1712803886}
   m_Layer: 5
-  m_Name: Quit (1)
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1727,9 +1766,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.3137255, g: 0.6039216, b: 0.56078434, a: 1}
+    m_SelectedColor: {r: 0.23921569, g: 0.49019608, b: 0.45490196, a: 1}
+    m_DisabledColor: {r: 0.3137255, g: 0.6039216, b: 0.56078434, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1773,7 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.27058825, g: 0.83137256, b: 0.7882353, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
