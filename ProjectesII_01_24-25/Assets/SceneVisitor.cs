@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SceneVisitor : MonoBehaviour
 {
-    public int sceneNumber;
+    public int sceneNumber;  // Este valor se debe establecer dependiendo de la escena en la que estés.
 
     private void OnEnable()
     {
-        PlayerPrefs.SetInt("Scene" + sceneNumber, 1);
-        PlayerPrefs.Save(); // Guarda los cambios inmediatamente
+        Debug.Log("Guardando escena: " + sceneNumber);
+        PlayerPrefs.SetInt("Scene" + sceneNumber, 1);  // Guarda una marca para la escena
+        PlayerPrefs.SetInt("LastScene", sceneNumber);  // Guarda el número de la última escena
+        PlayerPrefs.Save();  // Guarda los cambios inmediatamente
     }
-
 }
 

@@ -21,6 +21,8 @@ public class Deletealldata : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("finished", 1);
+        PlayerPrefs.SetInt("LastScene", 0);
+        PlayerPrefs.Save();
         Debug.Log("Todos los PlayerPrefs han sido borrados.");
         SceneManager.LoadScene(MainMenuScene);
     }
