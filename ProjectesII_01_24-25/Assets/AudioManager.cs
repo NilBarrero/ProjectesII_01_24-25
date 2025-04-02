@@ -3,7 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public AudioSource sfxSource; // AudioSource para efectos de sonido
+    public AudioSource sfxSource; // AudioSource para los efectos de sonido
+    private float sfxVolume = 1.0f; // Volumen de los efectos de sonido
 
     private void Awake()
     {
@@ -15,13 +16,27 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
-            return;
+            Destroy(gameObject); // Evitar duplicados
         }
     }
 
+    // Reproduce un efecto de sonido
     public void PlaySFX(AudioClip clip)
     {
-        sfxSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip, sfxVolume);
+    }
+
+    // Establece el volumen de los SFX
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+        sfxSource.volume = sfxVolume;
+    }
+
+    // Método para obtener el volumen actual de los SFX
+    public float GetSFXVolume()
+    {
+        return sfxVolume;
     }
 }
+
