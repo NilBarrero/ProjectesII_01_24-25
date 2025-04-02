@@ -14,36 +14,23 @@ public class ClickAnimationController : MonoBehaviour
 
     private void Update()
     {
-        // Detectar clic en cualquier parte de la pantalla
         if (Input.GetMouseButtonDown(0) && !isAnimating && currentObjectIndex < animatedObjects.Count)
         {
-            // Inicia la animación del objeto actual
             StartCoroutine(AnimateObject(animatedObjects[currentObjectIndex], endYPositions[currentObjectIndex], moveAudioClips[currentObjectIndex]));
-            currentObjectIndex++; // Incrementa al siguiente objeto en la lista
+            currentObjectIndex++;
         }
     }
 
     private IEnumerator AnimateObject(GameObject obj, float endYPosition, AudioClip audioClip)
     {
-        isAnimating = true; // Bloquear múltiples clics mientras la animación está en curso
+        isAnimating = true;
 
         RectTransform rectTransform = obj.GetComponent<RectTransform>();
-        AudioSource audioSource = obj.GetComponent<AudioSource>();
 
-        // Si el objeto no tiene AudioSource, agregarlo
-        if (audioSource == null)
+        // Reproduce el sonido usando AudioManager
+        if (audioClip != null)
         {
-            audioSource = obj.AddComponent<AudioSource>();
-            audioSource.playOnAwake = false;
-        }
-
-        // Asignar el sonido correspondiente
-        audioSource.clip = audioClip;
-
-        // Reproducir audio si está asignado
-        if (audioSource.clip != null)
-        {
-            audioSource.Play();
+            AudioManager.instance.PlaySFX(audioClip);
         }
 
         // Animar posición
@@ -58,8 +45,9 @@ public class ClickAnimationController : MonoBehaviour
             yield return null;
         }
 
-        rectTransform.anchoredPosition = endPosition; // Asegurar que termine exactamente en la posición final
+        rectTransform.anchoredPosition = endPosition;
 
-        isAnimating = false; // Permitir nuevos clics
+        isAnimating = false;
     }
 }
+

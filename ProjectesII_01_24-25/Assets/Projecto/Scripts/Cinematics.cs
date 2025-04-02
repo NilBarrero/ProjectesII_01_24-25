@@ -5,25 +5,13 @@ public class Cinematics : MonoBehaviour
 {
     public float endYPosition = 0f; // Posición final en el eje Y
     public float animationDuration = 1f; // Duración de la animación
-    public AudioClip moveAudioClip; // Archivo de audio para reproducir
+    public AudioClip moveAudioClip; // Clip de audio
 
     private RectTransform rectTransform; // Referencia al RectTransform
-    private AudioSource audioSource; // Referencia al AudioSource
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        audioSource = gameObject.AddComponent<AudioSource>(); // Agrega un AudioSource si no existe
-        audioSource.playOnAwake = false;
-
-        if (moveAudioClip != null)
-        {
-            audioSource.clip = moveAudioClip;
-        }
-        else
-        {
-            Debug.LogWarning("No se asignó ningún clip de audio.");
-        }
 
         if (rectTransform != null)
         {
@@ -37,12 +25,13 @@ public class Cinematics : MonoBehaviour
 
     private IEnumerator AnimateImage()
     {
-        Vector2 startPosition = rectTransform.anchoredPosition; // Posición inicial de la imagen
-        Vector2 endPosition = new Vector2(startPosition.x, endYPosition); // Solo cambia el eje Y
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
 
-        if (audioSource != null && moveAudioClip != null)
+        // Reproduce el sonido desde AudioManager si hay un clip asignado
+        if (moveAudioClip != null)
         {
-            audioSource.Play(); // Reproduce el audio al inicio de la animación
+            AudioManager.instance.PlaySFX(moveAudioClip);
         }
 
         float elapsedTime = 0f;
@@ -54,6 +43,7 @@ public class Cinematics : MonoBehaviour
             yield return null;
         }
 
-        rectTransform.anchoredPosition = endPosition; // Asegúrate de que termine exactamente en la posición final
+        rectTransform.anchoredPosition = endPosition; // Asegurar la posición final exacta
     }
 }
+
