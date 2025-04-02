@@ -5289,7 +5289,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 1419953331}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &54408775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5711,8 +5711,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Watch out for the \r\nspaceship, guys. It could be dangerous."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5801,7 +5801,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11168,6 +11168,148 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 190, y: 0, z: 0}
+--- !u!1 &373047273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373047276}
+  - component: {fileID: 373047275}
+  - component: {fileID: 373047274}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &373047274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373047273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6228e0ae56922438f82a99fd0ae1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxSource: {fileID: 373047275}
+--- !u!82 &373047275
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373047273}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &373047276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373047273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.112317, y: 5.782203, z: 28.73932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 67
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396948460
 GameObject:
   m_ObjectHideFlags: 0
@@ -11418,8 +11560,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Every man for himself.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11508,7 +11650,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11775,7 +11917,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 689345614}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &476049875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11999,8 +12141,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: At least one of us has to survive.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12089,7 +12231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17732,8 +17874,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: If someone attacks us, they'll face the consequences.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17822,7 +17964,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28771,8 +28913,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BEEP BOOP BEEP BOOP!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 913f47a2929a0c5408342baa8f34dadb, type: 2}
+  m_sharedMaterial: {fileID: 125925127093403363, guid: 913f47a2929a0c5408342baa8f34dadb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28861,7 +29003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 125925127093403363, guid: 913f47a2929a0c5408342baa8f34dadb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29079,7 +29221,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 53324473}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &1233886881
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29353,7 +29495,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 1957434494}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &1252754654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29543,7 +29685,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 953046579}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &1265642389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39972,7 +40114,7 @@ MonoBehaviour:
   destroyParticles: {fileID: 984922436}
   isArrow: 0
   despawnTime: 0.5
-  clickAudioSource: {fileID: 809834834}
+  clickSound: {fileID: 8300000, guid: b7a62dfd246ab364b9a82ba99e1c448e, type: 3}
 --- !u!61 &1578772925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50385,8 +50527,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Click on Nazis!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -50698,8 +50840,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: We've been waiting for this moment for a long time.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -50788,7 +50930,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56125,11 +56267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: tiempoInicial
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: tiempoRestante
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8471721030974312202, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       propertyPath: transitionAnimator

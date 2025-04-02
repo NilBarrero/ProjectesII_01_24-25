@@ -8,18 +8,16 @@ public class Transition : MonoBehaviour
     public string scene; // Nombre de la escena a cargar
     public string tutorial; // Nombre de la escena a cargar
     public Animator animator; // Asigna el Animator que controla la animación de transición
-    public float animationDuration = 1.0f; // Duración de la animación (ajústala según tu animación)
+    public float animationDuration = 1.0f; // Duración de la animación
     public AudioSource musicSource; // Fuente de audio para la música de fondo
-    public float fadeOutDuration = 1.0f; // Duración del fade out en segundos
-    public AudioClip clickSound; // Clip de audio que se reproducirá al hacer clic
+    public float fadeOutDuration = 1.0f; // Duración del fade out
+    public AudioClip clickSound; // Clip de sonido para el clic
     private string rutaArchivo; // Ruta del archivo de guardado
     public bool OneTimeOnly = false;
 
-    private AudioSource audioSource; // Fuente de audio para reproducir el efecto de clic
-
     private void Awake()
     {
-        // Este es el lugar correcto para inicializar variables antes de que el juego comience.
+        // Inicializa la ruta del archivo
         rutaArchivo = Application.persistentDataPath + "/EntryLog.txt";
     }
 
@@ -36,14 +34,7 @@ public class Transition : MonoBehaviour
             Debug.LogWarning("No se asignó una fuente de audio. No se realizará el fade out.");
         }
 
-        // Configura el AudioSource para el sonido de clic
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        if (clickSound != null)
-        {
-            audioSource.clip = clickSound;
-        }
-        else
+        if (clickSound == null)
         {
             Debug.LogWarning("No se asignó un clip de audio para el clic.");
         }
@@ -51,9 +42,9 @@ public class Transition : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (audioSource != null && clickSound != null)
+        if (clickSound != null)
         {
-            audioSource.Play(); // Reproduce el sonido de clic
+            AudioManager.instance.PlaySFX(clickSound); // Usa el AudioManager para reproducir el sonido
         }
 
         // Restaurar el cursor antes de cambiar de escena
@@ -90,22 +81,18 @@ public class Transition : MonoBehaviour
 
     private IEnumerator PlayAnimationAndChangeToTutorial()
     {
-        // Comienza el fade out del audio
         if (musicSource != null)
         {
             StartCoroutine(FadeOutMusic());
         }
 
-        // Activa la animación de transición
         if (animator != null)
         {
             animator.SetTrigger("StartTransition");
         }
 
-        // Espera el tiempo que dura la animación
         yield return new WaitForSeconds(animationDuration);
 
-        // Cambia a la nueva escena
         SceneManager.LoadScene(tutorial);
     }
 
@@ -120,21 +107,19 @@ public class Transition : MonoBehaviour
         }
 
         musicSource.volume = 0;
-        musicSource.Stop(); // Detiene el audio completamente
+        musicSource.Stop();
     }
 
     private void check()
     {
-        // Si el archivo no existe, lo creamos con un valor de "0"
         if (!File.Exists(rutaArchivo))
         {
             File.WriteAllText(rutaArchivo, "0");
             Debug.Log("Archivo creado con valor 0.");
         }
 
-        // Leer el contenido del archivo
         string contenido = File.ReadAllText(rutaArchivo);
-        Debug.Log("Valor actual del archivo: " + contenido); // Para depuración
+        Debug.Log("Valor actual del archivo: " + contenido);
 
         if (contenido == "1")
         {
@@ -142,7 +127,7 @@ public class Transition : MonoBehaviour
         }
         else if (contenido == "0")
         {
-            File.WriteAllText(rutaArchivo, "1"); // Se sobrescribe con "1"
+            File.WriteAllText(rutaArchivo, "1");
             StartCoroutine(PlayAnimationAndChangeToTutorial());
         }
         else

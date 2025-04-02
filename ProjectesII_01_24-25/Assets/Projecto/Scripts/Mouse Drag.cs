@@ -175,6 +175,8 @@ public class MouseDrag : MonoBehaviour
 
         // Detener las partículas de forma limpia
         particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private void ApplyLaunchForce(Vector3 dragDirection)

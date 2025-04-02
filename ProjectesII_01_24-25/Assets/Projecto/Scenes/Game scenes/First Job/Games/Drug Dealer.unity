@@ -10203,7 +10203,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!61 &591248114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20480,7 +20480,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!61 &967376427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20904,6 +20904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1422814305821545425, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
     - target: {fileID: 2874705492413800670, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: particles
       value: 
@@ -20975,6 +20979,18 @@ PrefabInstance:
     - target: {fileID: 7031707711332089960, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: m_text
       value: Negotiate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031707711332089960, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+    - target: {fileID: 7031707711332089960, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+    - target: {fileID: 7031707711332089960, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7809942061520098215, guid: 5945ac2cfc6a23d48ade5f7e1713efc2, type: 3}
       propertyPath: scene
@@ -21199,7 +21215,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!61 &1258008084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21459,7 +21475,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!61 &1351590311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21964,6 +21980,148 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1513530218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513530221}
+  - component: {fileID: 1513530220}
+  - component: {fileID: 1513530219}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1513530219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513530218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6228e0ae56922438f82a99fd0ae1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxSource: {fileID: 1513530220}
+--- !u!82 &1513530220
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513530218}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1513530221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513530218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.112317, y: 5.782203, z: 28.73932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1536387465
 GameObject:
   m_ObjectHideFlags: 0
@@ -22333,8 +22491,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How will you get the drug?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
+  m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27851,7 +28009,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 0.2
-  sfxSource: {fileID: 1673204500}
+  detectionSound: {fileID: 8300000, guid: 5470cb25eefaf5d408f96d77d7a7460f, type: 3}
 --- !u!61 &1679382358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28448,7 +28606,7 @@ MonoBehaviour:
   isBox: 1
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 1673204500}
+  detectionSound: {fileID: 8300000, guid: 1b986d9feca36c74b8103c2483a006ac, type: 3}
 --- !u!1 &1875096054
 GameObject:
   m_ObjectHideFlags: 0
@@ -28493,7 +28651,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!61 &1875096056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28932,7 +29090,7 @@ MonoBehaviour:
   isBox: 0
   musicSource: {fileID: 1635836986}
   fadeOutDuration: 1
-  sfxSource: {fileID: 0}
+  detectionSound: {fileID: 0}
 --- !u!1 &2132910312
 GameObject:
   m_ObjectHideFlags: 0
