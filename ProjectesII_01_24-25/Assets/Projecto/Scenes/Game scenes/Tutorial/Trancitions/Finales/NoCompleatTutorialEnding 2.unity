@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30668710}
   - component: {fileID: 30668709}
+  - component: {fileID: 30668711}
   m_Layer: 0
   m_Name: UI_nyknck_21 (1)
   m_TagString: Untagged
@@ -207,6 +208,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &30668711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30668708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebb63be3885bff418dce9825e74422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashInterval: 0.5
 --- !u!1 &39501651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290567487}
   - component: {fileID: 1290567486}
+  - component: {fileID: 1290567488}
   m_Layer: 0
   m_Name: UI_nyknck_21
   m_TagString: Untagged
@@ -1161,6 +1176,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290567488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290567485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebb63be3885bff418dce9825e74422a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashInterval: 0.5
 --- !u!1 &1396232527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on the map and select the previous mini-game or decision.
+  m_text: Click on the button and select the previous mini-game or decision.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
   m_sharedMaterial: {fileID: -1719882729970222069, guid: 2fb482f1ec0e5a1458ec5a5e1dc44b0c, type: 2}
