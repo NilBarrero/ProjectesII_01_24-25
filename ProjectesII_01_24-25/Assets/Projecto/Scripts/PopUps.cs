@@ -1,83 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PopUps : MonoBehaviour
 {
-    public GameObject popupPanel;  
-    public string sceneName = "Mapa"; 
-    public float inactivityTime = 5f;  
-    public float popupInterval = 10f;  
+    [Header("Configuración")]
+    public List<GameObject> objetosParaSpawnear;
+    public float intervaloDeSpawn = 2f;
+    public float delayInicial = 1f;
 
-    private float inactivityTimer = 0f;  
-    private float popupTimer = 0f; 
-    private bool isPopupActive = false; 
-    
-    private bool isPlayerInteracting = false;
+    [Header("Canvas")]
+    public RectTransform canvasRect; // Asegúrate de asignar el Canvas aquí en el inspector
+    public Vector2 padding = new Vector2(100f, 100f); // Margen para evitar que salgan fuera de la vista
 
-    private void Update()
+    void Start()
     {
-        // Verifica si estamos en la escena correcta (el mapa)
-        if (SceneManager.GetActiveScene().name == sceneName)
+        StartCoroutine(SpawnearConDelay());
+    }
+
+    IEnumerator SpawnearConDelay()
+    {
+        yield return new WaitForSeconds(delayInicial);
+
+        while (true)
         {
-            // Monitoreamos la inactividad del jugador (aquí lo estamos haciendo con el movimiento del ratón)
-            MonitorPlayerInactivity();
-
-            // Si el jugador está inactivo por demasiado tiempo, mostramos un pop-up
-            if (!isPlayerInteracting)
-            {
-                inactivityTimer += Time.deltaTime; // Aumenta el temporizador de inactividad
-
-                if (inactivityTimer >= inactivityTime && !isPopupActive)
-                {
-                    ShowPopup();  // Muestra el pop-up
-                    inactivityTimer = 0f;  // Reinicia el temporizador de inactividad
-                }
-            }
-
-            // Si el pop-up está activo, gestionamos el tiempo de espera entre pop-ups
-            if (isPopupActive)
-            {
-                popupTimer += Time.deltaTime;
-
-                // Después de un intervalo de tiempo, oculta el pop-up y reinicia el temporizador
-                if (popupTimer >= popupInterval)
-                {
-                    HidePopup();
-                    popupTimer = 0f;
-                    isPopupActive = false;  // Reajusta el estado
-                }
-            }
+            SpawnearObjeto();
+            yield return new WaitForSeconds(intervaloDeSpawn);
         }
     }
 
-    // Método para monitorear la inactividad del jugador
-    private void MonitorPlayerInactivity()
+    void SpawnearObjeto()
     {
+        if (objetosParaSpawnear.Count == 0 || canvasRect == null) return;
 
-        if (Input.anyKey || Input.GetMouseButtonDown(0))
-        {
-            isPlayerInteracting = true;
-            inactivityTimer = 0f;
-        }
-        else
-        {
-            isPlayerInteracting = false;
-        }
-    }
+        int indice = Random.Range(0, objetosParaSpawnear.Count);
+        GameObject prefab = objetosParaSpawnear[indice];
 
-    // Método para mostrar el pop-up
-    private void ShowPopup()
-    {
-        popupPanel.SetActive(true);  
-        isPopupActive = true;  
-    }
+        // Instanciar como hijo del Canvas
+        GameObject instancia = Instantiate(prefab, canvasRect);
+        RectTransform rt = instancia.GetComponent<RectTransform>();
 
-    // Método para ocultar el pop-up
-    private void HidePopup()
-    {
-        popupPanel.SetActive(false);  
+        // Calcular área del canvas con padding
+        float ancho = canvasRect.rect.width;
+        float alto = canvasRect.rect.height;
+
+        float x = Random.Range(-ancho / 2f + padding.x, ancho / 2f - padding.x);
+        float y = Random.Range(-alto / 2f + padding.y, alto / 2f - padding.y);
+
+        rt.anchoredPosition = new Vector2(x, y); // Posición relativa al canvas
     }
 }
