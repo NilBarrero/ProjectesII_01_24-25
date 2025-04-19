@@ -33,6 +33,13 @@ public class TitleScreen : MonoBehaviour
         {
             Debug.LogError("No se asignó un Animator. Por favor, asigna uno en el Inspector.");
         }
+
+        if (PauseMenu.storySelectorActive)
+        {
+            storySelector.SetActive(true);
+            menuPrincipal.SetActive(false);
+            PauseMenu.storySelectorActive = false; // Resetear la bandera
+        }
     }
 
     public void Play()
