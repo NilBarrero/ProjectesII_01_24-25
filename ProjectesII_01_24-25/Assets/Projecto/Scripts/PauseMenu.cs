@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar/reactivar
     private CanvasGroup canvasGroup;
     private bool menuActivo = false;
+    public static bool storySelectorActive = false;
 
     private void Start()
     {
@@ -61,6 +62,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        Time.timeScale = 1f;
+        storySelectorActive = true;
         SceneManager.LoadScene("Menu Principal");
     }
     private IEnumerator ReanudarJuego()
@@ -123,6 +126,7 @@ public class PauseMenu : MonoBehaviour
     public void Salir()
     {
         Time.timeScale = 1f;
+        storySelectorActive = true;
         SceneManager.LoadScene(1);
     }
 }
