@@ -123,11 +123,16 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Salir()
+    public void Salir_Tutorial()
     {
         Time.timeScale = 1f;
-        storySelectorActive = true;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MenuTutorial");
+    }
+    
+    public void Salir_First()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MenuFirstJob");
     }
 }
 
