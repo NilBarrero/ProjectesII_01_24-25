@@ -36,7 +36,7 @@ public class RainImage : MonoBehaviour
         rectTransform.localScale = Vector3.one * scale;
 
         // Transparencia aleatoria
-        float alpha = Random.Range(0.4f, 1f);
+        float alpha = 0.33f;
         image.color = new Color(1f, 1f, 1f, alpha);
 
         // Velocidad
@@ -74,7 +74,7 @@ public class RainImage : MonoBehaviour
             float scale = Random.Range(0.5f, 1.2f);
             rectTransform.localScale = Vector3.one * scale;
 
-            float alpha = Random.Range(0.4f, 1f);
+            float alpha = 0.33f;
             image.color = new Color(1f, 1f, 1f, alpha);
 
             speed = Random.Range(minSpeed, maxSpeed);
