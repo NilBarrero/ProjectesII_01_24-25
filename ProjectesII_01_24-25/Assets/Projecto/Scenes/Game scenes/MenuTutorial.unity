@@ -308,6 +308,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.0087730065
       objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 457369185}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TMPro.TMP_Text, Unity.TextMeshPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950105848213400559, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2197658186168947716, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
       propertyPath: button
       value: 
@@ -435,6 +463,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2141429508540047546, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
     - {fileID: 5909437151019375309, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+    - {fileID: 3986854648372511259, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5426090358689066150, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
     - {fileID: 2251104583004412408, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
@@ -846,6 +875,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457048804}
   m_CullTransparentMesh: 1
+--- !u!114 &457369185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6362425871204438931, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+  m_PrefabInstance: {fileID: 361683061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603842596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2643,19 @@ MonoBehaviour:
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2076848150}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   references:
     version: 2
     RefIds: []
