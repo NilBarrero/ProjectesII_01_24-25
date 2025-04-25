@@ -17,8 +17,21 @@ public class Advices : MonoBehaviour
     {
         yield return LocalizationSettings.InitializationOperation;
 
-        string idiomaActual = LocalizationSettings.SelectedLocale.Identifier.Code;
+        int anterior = PlayerPrefs.GetInt("anteriorAdvice", -1);
         int randomValue = Random.Range(0, maxNumber);
+        
+        while (randomValue == anterior)
+        {
+            randomValue = Random.Range(0, maxNumber);
+        }
+
+        PlayerPrefs.SetInt("anteriorAdvice", randomValue);
+        PlayerPrefs.Save();
+
+        //Debug.Log($"Anterior: {anterior}, Nuevo: {randomValue}");
+
+        string idiomaActual = LocalizationSettings.SelectedLocale.Identifier.Code;
+
 
         if (idiomaActual == "en")
         {
