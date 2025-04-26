@@ -8,6 +8,6 @@ public class Retry : MonoBehaviour
     // Start is called before the first frame update
     public void Reinicio()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
