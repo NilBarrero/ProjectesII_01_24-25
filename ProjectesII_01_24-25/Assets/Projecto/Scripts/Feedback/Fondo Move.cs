@@ -51,7 +51,6 @@ public class FondoMove : MonoBehaviour
         if (isSpeedingUp) return; // Evitar cambiar la velocidad si ya está en proceso de aceleración
 
         isSpeedingUp = true; // Indica que estamos acelerando
-        StopAllCoroutines(); // Detener cualquier coroutine previa
         StartCoroutine(AumentarVelocidadCoroutine(nuevaVelocidad, duracion)); // Iniciar la coroutine para aumentar la velocidad
     }
 
@@ -60,7 +59,9 @@ public class FondoMove : MonoBehaviour
         velocidad = nuevaVelocidad; // Cambiar a la nueva velocidad de aceleración
         yield return new WaitForSeconds(duracion); // Esperar el tiempo de aceleración
         velocidad = velocidadOriginal; // Restaurar la velocidad original
+        isSpeedingUp = false; // Restaurar el flag
         haAcelerado = false; // Permitir que se acelere de nuevo la próxima vez
     }
 }
+
 

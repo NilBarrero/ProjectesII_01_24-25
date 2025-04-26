@@ -5,8 +5,6 @@ public class HighlightOnHover : MonoBehaviour
 {
     private Renderer objectRenderer;
     public GameObject activateDialogue;
-    public bool activeDialogueActive = false;
-    private ActivateanddeactivateSpeech dialogue;
     public GameObject dialogueinactive;
     private Color originalColor;
     public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
@@ -18,20 +16,26 @@ public class HighlightOnHover : MonoBehaviour
 
     void Start()
     {
-        activateDialogue.SetActive(false);
-        activeDialogueActive = false;
-
+        // Inicializa los objetos y detiene las partículas al inicio
+        if (activateDialogue != null)
+        {
+            activateDialogue.SetActive(false);
+        }
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
         {
             originalColor = objectRenderer.material.color; // Guarda el color original
+        }
+        if (particles != null)
+        {
             particles.Stop();
         }
     }
 
     private void Update()
     {
-        if (activeDialogueActive)
+        // Actualiza el estado del diálogo
+        if (activateDialogue.activeSelf)
         {
             dialogueinactive.SetActive(false);
         }
@@ -51,20 +55,14 @@ public class HighlightOnHover : MonoBehaviour
         // Cambiar el cursor cuando el mouse pasa por encima
         if (customCursor != null)
         {
-            UnityEngine.Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
+            UnityEngine.Cursor.SetCursor(customCursor, new Vector2(customCursor.width / 2, customCursor.height / 2), CursorMode.Auto);
         }
 
-        if (!activeDialogueActive)
+        // Activar partículas y diálogo si no está activo
+        if (!activateDialogue.activeSelf && particles != null)
         {
-            if(particles != null)
-            {
-                StartCoroutine(Activate(2.5f, 0f, activateDialogue));
-                activeDialogueActive = true;
-            }
-           
+            StartCoroutine(Activate(2.5f, 0f, activateDialogue));
         }
-
-
     }
 
     void OnMouseExit()
@@ -80,18 +78,25 @@ public class HighlightOnHover : MonoBehaviour
 
     private IEnumerator Activate(float timeOut, float timeIn, GameObject gameobject)
     {
+        // Espera el tiempo de entrada (si aplica)
         yield return new WaitForSeconds(timeIn);
-        // Cambiar el color al de resaltado
-        particles.Play();
+
+        // Activa partículas y el diálogo
+        if (particles != null)
+        {
+            particles.Play();
+        }
         gameobject.SetActive(true);
 
-        // Esperar el tiempo especificado
+        // Espera el tiempo de salida
         yield return new WaitForSeconds(timeOut);
 
-        // Volver al color original
-        particles.Play();
+        // Detiene las partículas y desactiva el diálogo
+        if (particles != null)
+        {
+            particles.Stop();
+        }
         gameobject.SetActive(false);
-        activeDialogueActive = false;
     }
 
     // Este método desactiva el diálogo cuando el GameObject que contiene este script es destruido
@@ -101,8 +106,8 @@ public class HighlightOnHover : MonoBehaviour
         if (activateDialogue != null)
         {
             activateDialogue.SetActive(false);
-            activeDialogueActive = false;  // Asegúrate de actualizar el estado
         }
     }
 }
+
 

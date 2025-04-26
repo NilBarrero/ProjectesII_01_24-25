@@ -3,29 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+public class CursorController : MonoBehaviour
 {
-    // Aquí asigna tu textura de cursor personalizada en el inspector de Unity.
-    public Texture2D cursorNuevo;
-    public Texture2D cursorOriginal;
-    
+    // Assign your custom cursor texture in the Unity inspector.
+    public Texture2D newCursor;
+    public Texture2D originalCursor;
 
-    // Este método se llama cuando el cursor entra en el área del GameObject.
+    // This method is called when the cursor enters the area of the GameObject.
     private void OnMouseEnter()
     {
-        // Cambiar el cursor cuando el ratón entra en el GameObject
-        Cursor.SetCursor(cursorNuevo, CursorMode.Auto);
+        // Change the cursor when the mouse enters the GameObject
+        Cursor.SetCursor(newCursor, Vector2.zero, CursorMode.Auto);
     }
 
-    // Este método se llama cuando el cursor sale del área del GameObject.
+    // This method is called when the cursor exits the area of the GameObject.
     private void OnMouseExit()
     {
-        // Restaurar el cursor original cuando sale del GameObject
-        Cursor.SetCursor(cursorOriginal, CursorMode.Auto);
-    }
-
-    private static void SetCursor(Texture2D cursorOriginal, CursorMode auto)
-    {
-        throw new NotImplementedException();
+        // Restore the original cursor when exiting the GameObject
+        Cursor.SetCursor(originalCursor, Vector2.zero, CursorMode.Auto);
     }
 }
+

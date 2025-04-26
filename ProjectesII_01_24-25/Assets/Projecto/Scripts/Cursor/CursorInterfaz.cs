@@ -4,34 +4,34 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CursorInterfaz : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InterfaceCursor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    // Añadir una referencia para el cursor personalizado
-    public Texture2D customCursor; // El cursor que quieres usar
-    public Vector2 cursorHotspot = new Vector2(16, 16); // Define el centro del cursor
+    // Add a reference for the custom cursor
+    public Texture2D customCursor; // The cursor you want to use
+    public Vector2 cursorHotspot = new Vector2(16, 16); // Defines the center of the cursor
 
     private void Start()
     {
-        // Comprobar que el componente Button existe en el GameObject
+        // Check if the Button component exists on the GameObject
         if (GetComponent<Button>() == null)
         {
-            Debug.LogError("Este script debe estar adjunto a un GameObject que tenga un componente Button.");
+            Debug.LogError("This script must be attached to a GameObject with a Button component.");
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Cambiar el cursor al pasar sobre el botón
+        // Change the cursor when hovering over the button
         if (customCursor != null)
         {
-            // Asegúrate de usar UnityEngine.Cursor para evitar conflictos
+            // Ensure you're using UnityEngine.Cursor to avoid conflicts
             UnityEngine.Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Restaurar el cursor al valor predeterminado
+        // Restore the cursor to the default value
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }

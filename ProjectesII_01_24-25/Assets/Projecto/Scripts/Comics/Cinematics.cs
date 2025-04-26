@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Cinematics : MonoBehaviour
 {
-    public float endYPosition = 0f; // Posición final en el eje Y
-    public float animationDuration = 1f; // Duración de la animación
-    public AudioClip moveAudioClip; // Clip de audio
+    public float endYPosition = 0f; // Final position on the Y axis
+    public float animationDuration = 1f; // Duration of the animation
+    public AudioClip moveAudioClip; // Audio clip
 
-    private RectTransform rectTransform; // Referencia al RectTransform
+    private RectTransform rectTransform; // Reference to the RectTransform
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Cinematics : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("CinematicAnimator requiere un componente RectTransform en el GameObject.");
+            Debug.LogWarning("CinematicAnimator requires a RectTransform component on the GameObject.");
         }
     }
 
@@ -28,7 +28,7 @@ public class Cinematics : MonoBehaviour
         Vector2 startPosition = rectTransform.anchoredPosition;
         Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
 
-        // Reproduce el sonido desde AudioManager si hay un clip asignado
+        // Play the sound from AudioManager if a clip is assigned
         if (moveAudioClip != null)
         {
             AudioManager.instance.PlaySFX(moveAudioClip);
@@ -43,7 +43,6 @@ public class Cinematics : MonoBehaviour
             yield return null;
         }
 
-        rectTransform.anchoredPosition = endPosition; // Asegurar la posición final exacta
+        rectTransform.anchoredPosition = endPosition; // Ensure the exact final position
     }
 }
-

@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HighlightManager : MonoBehaviour
 {
-    private GameObject[] clickables; // Lista de objetos clicables
-    private GameObject[] draggables; // Lista de objetos arrastrables
+    private List<GameObject> clickables = new List<GameObject>(); // Lista de objetos clicables
+    private List<GameObject> draggables = new List<GameObject>(); // Lista de objetos arrastrables
     public Color clickHighlightColor = Color.yellow; // Color de resaltado para clicables
     public Color dragHighlightColor = Color.cyan; // Color de resaltado para arrastrables
-    private Color[] originalClickableColors; // Colores originales de clicables
-    private Color[] originalDraggableColors; // Colores originales de arrastrables
+    private List<Color> originalClickableColors = new List<Color>(); // Colores originales de clicables
+    private List<Color> originalDraggableColors = new List<Color>(); // Colores originales de arrastrables
     private bool highlightActive = false; // Indica si el resaltado está activo
     private float highlightDuration = 1f; // Duración del resaltado en segundos
     private float highlightTimer = 0f; // Temporizador para la duración del resaltado
@@ -19,20 +20,21 @@ public class HighlightManager : MonoBehaviour
     void Start()
     {
         // Encuentra los objetos según su etiqueta
-        clickables = GameObject.FindGameObjectsWithTag("Clicable");
-        draggables = GameObject.FindGameObjectsWithTag("Arrastrable");
+        clickables.AddRange(GameObject.FindGameObjectsWithTag("Clicable"));
+        draggables.AddRange(GameObject.FindGameObjectsWithTag("Arrastrable"));
 
         // Guarda sus colores originales
-        originalClickableColors = new Color[clickables.Length];
-        originalDraggableColors = new Color[draggables.Length];
-
-        for (int i = 0; i < clickables.Length; i++)
+        foreach (var obj in clickables)
         {
-            originalClickableColors[i] = clickables[i].GetComponent<SpriteRenderer>().color;
+            var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null) originalClickableColors.Add(spriteRenderer.color);
+            else originalClickableColors.Add(Color.white); // Asignar un valor por defecto si no tiene SpriteRenderer
         }
-        for (int i = 0; i < draggables.Length; i++)
+        foreach (var obj in draggables)
         {
-            originalDraggableColors[i] = draggables[i].GetComponent<SpriteRenderer>().color;
+            var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null) originalDraggableColors.Add(spriteRenderer.color);
+            else originalDraggableColors.Add(Color.white); // Asignar un valor por defecto si no tiene SpriteRenderer
         }
     }
 
@@ -47,13 +49,15 @@ public class HighlightManager : MonoBehaviour
             // Resalta los objetos clicables
             foreach (GameObject obj in clickables)
             {
-                obj.GetComponent<SpriteRenderer>().color = clickHighlightColor;
+                var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null) spriteRenderer.color = clickHighlightColor;
             }
 
             // Resalta los objetos arrastrables
             foreach (GameObject obj in draggables)
             {
-                obj.GetComponent<SpriteRenderer>().color = dragHighlightColor;
+                var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null) spriteRenderer.color = dragHighlightColor;
             }
         }
 
@@ -77,16 +81,22 @@ public class HighlightManager : MonoBehaviour
         {
             float lerpFactor = elapsedTime / fadeDuration;
 
-            for (int i = 0; i < clickables.Length; i++)
+            for (int i = 0; i < clickables.Count; i++)
             {
-                SpriteRenderer spriteRenderer = clickables[i].GetComponent<SpriteRenderer>();
-                spriteRenderer.color = Color.Lerp(clickHighlightColor, originalClickableColors[i], lerpFactor);
+                var spriteRenderer = clickables[i].GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.color = Color.Lerp(clickHighlightColor, originalClickableColors[i], lerpFactor);
+                }
             }
 
-            for (int i = 0; i < draggables.Length; i++)
+            for (int i = 0; i < draggables.Count; i++)
             {
-                SpriteRenderer spriteRenderer = draggables[i].GetComponent<SpriteRenderer>();
-                spriteRenderer.color = Color.Lerp(dragHighlightColor, originalDraggableColors[i], lerpFactor);
+                var spriteRenderer = draggables[i].GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.color = Color.Lerp(dragHighlightColor, originalDraggableColors[i], lerpFactor);
+                }
             }
 
             elapsedTime += Time.deltaTime;
@@ -94,17 +104,22 @@ public class HighlightManager : MonoBehaviour
         }
 
         // Asegura que el color final sea exactamente el original
-        for (int i = 0; i < clickables.Length; i++)
+        for (int i = 0; i < clickables.Count; i++)
         {
-            clickables[i].GetComponent<SpriteRenderer>().color = originalClickableColors[i];
+            var spriteRenderer = clickables[i].GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+                spriteRenderer.color = originalClickableColors[i];
         }
 
-        for (int i = 0; i < draggables.Length; i++)
+        for (int i = 0; i < draggables.Count; i++)
         {
-            draggables[i].GetComponent<SpriteRenderer>().color = originalDraggableColors[i];
+            var spriteRenderer = draggables[i].GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+                spriteRenderer.color = originalDraggableColors[i];
         }
     }
 }
+
 
 
 

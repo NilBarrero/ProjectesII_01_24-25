@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject activateDialogue;  // Referencia al GameObject de TextMeshPro
+    [SerializeField] private GameObject activateDialogue;  // Private reference to the GameObject to activate
 
     void Start()
     {
@@ -36,4 +36,5 @@ public class highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
     }
 }
+
 
