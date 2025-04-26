@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PressedChanged : MonoBehaviour
-{    // Este booleano indicará si el objeto ha sido pulsado
-
-    // Este booleano indicará si el objeto ha sido pulsado
+{
+    // This boolean will indicate if the object has been clicked
     public bool haSidoPulsado = false;
 
-    // Referencia al Controller (GameManager)
-
-
-    // Este método se llama cuando el objeto es pulsado (clic)
+    // This method is called when the object is clicked
     void OnMouseDown()
     {
-        // Establecemos que ha sido pulsado
+        // Set that it has been clicked
         haSidoPulsado = true;
 
-        // Notificamos al GameManager (Controller) que el objeto ha sido pulsado
-
+        // Notify the GameManager (Controller) that the object has been clicked (optional - currently no code here)
     }
 
-    // Este método se llama cada frame
+    // This method is called every frame
     void Update()
     {
-        // Si no hay clic, se asegura de que haSidoPulsado sea false
-        if (!Input.GetMouseButton(0)) // Si no se mantiene presionado el botón izquierdo del ratón
+        // If there is no click, ensure haSidoPulsado is false
+        if (!Input.GetMouseButton(0)) // If the left mouse button is not being held
         {
             haSidoPulsado = false;
         }

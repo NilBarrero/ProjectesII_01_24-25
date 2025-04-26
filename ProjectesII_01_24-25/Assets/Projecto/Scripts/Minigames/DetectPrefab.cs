@@ -19,13 +19,13 @@ public class DetectPrefab : MonoBehaviour
     public AudioSource musicSource;
     public float fadeOutDuration = 2f;
 
-    public AudioClip detectionSound; // Efecto de sonido al detectar el prefab
+    public AudioClip detectionSound; // Sound effect when the prefab is detected
 
     private bool isTransitioning = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("¡Colisión detectada con " + collision.gameObject.name + "!");
+        Debug.Log("Collision detected with " + collision.gameObject.name + "!");
         isCollisioning = true;
 
         MouseDrag mouseDrag = collision.gameObject.GetComponent<MouseDrag>();

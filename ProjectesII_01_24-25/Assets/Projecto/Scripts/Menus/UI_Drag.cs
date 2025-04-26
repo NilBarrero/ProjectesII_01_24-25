@@ -17,7 +17,7 @@ public class UIDrag : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Calcula el offset entre el punto del clic y la posición del objeto
+        // Calculates the offset between the click point and the object's position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             rectTransform,
             eventData.position,

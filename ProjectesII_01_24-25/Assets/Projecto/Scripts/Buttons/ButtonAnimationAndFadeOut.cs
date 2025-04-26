@@ -5,40 +5,41 @@ using System.Collections;
 
 public class ButtonAnimationAndFadeOut : MonoBehaviour
 {
-    public Button button; // El botón al que le haremos click
-    public Animator animator; // El Animator que controla la animación
-    public AudioSource musicSource; // El AudioSource de la música
-    public float fadeOutDuration = 2f; // Duración del fade out de la música
+    public Button button; // The button to be clicked
+    public Animator animator; // The Animator controlling the animation
+    public AudioSource musicSource; // The AudioSource for the music
+    public float fadeOutDuration = 2f; // Duration of the music fade-out
 
     void Start()
     {
-        // Añadir el listener para el botón
+        // Add the listener to the button
         button.onClick.AddListener(OnButtonClick);
     }
 
-    // Este método se llama cuando se hace click en el botón
+    // This method is called when the button is clicked
     void OnButtonClick()
     {
-        // Ejecutar la animación
+        // Play the animation
         animator.SetTrigger("StartTransition");
 
-        // Iniciar el fade out de la música
+        // Start fading out the music
         StartCoroutine(FadeOutMusic());
     }
 
-    // Coroutine para hacer fade out de la música
+    // Coroutine to fade out the music
     IEnumerator FadeOutMusic()
     {
         float startVolume = musicSource.volume;
 
-        // Desaparecer la música poco a poco
+        // Gradually decrease the music volume
         while (musicSource.volume > 0)
         {
             musicSource.volume -= startVolume * Time.deltaTime / fadeOutDuration;
             yield return null;
         }
 
-        musicSource.Stop(); // Detener la música completamente al final
-        musicSource.volume = startVolume; // Restaurar el volumen original para futuras reproducciones
+        musicSource.Stop(); // Completely stop the music at the end
+        musicSource.volume = startVolume; // Restore the original volume for future plays
     }
 }
+

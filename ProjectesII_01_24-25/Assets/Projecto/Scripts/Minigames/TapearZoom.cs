@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TapearZoom : MonoBehaviour
 {
-    public float zoomSpeed = 0.1f; // Velocidad a la que la cámara hace zoom
-    public float minZoom = 1f; // Mínimo tamaño del zoom permitido
-    public float zoomDuration = 10f; // Tiempo total para completar el zoom
+    public float zoomSpeed = 0.1f; // Speed at which the camera zooms
+    public float minZoom = 1f; // Minimum allowed zoom size
+    public float zoomDuration = 10f; // Total time to complete the zoom
 
-    private float zoomTimer = 0f; // Temporizador para medir el tiempo
-    private bool isZooming = true; // Controla si el zoom está activo
+    private float zoomTimer = 0f; // Timer to track the time
+    private bool isZooming = true; // Controls if the zoom is active
 
     void Update()
     {
@@ -18,16 +18,15 @@ public class TapearZoom : MonoBehaviour
         {
             zoomTimer += Time.deltaTime;
 
-            // Calcula el tamaño del zoom progresivamente
+            // Gradually decreases the camera's orthographic size to zoom out
             Camera.main.orthographicSize -= zoomSpeed * Time.deltaTime;
 
-            // Limita el zoom al mínimo permitido
+            // Limits the zoom to the minimum allowed size
             if (Camera.main.orthographicSize <= minZoom)
             {
                 Camera.main.orthographicSize = minZoom;
-                isZooming = false; // Detiene el zoom cuando alcanza el mínimo
+                isZooming = false; // Stops zooming when the minimum size is reached
             }
         }
     }
 }
-

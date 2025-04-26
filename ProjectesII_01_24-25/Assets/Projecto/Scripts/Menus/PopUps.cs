@@ -10,8 +10,8 @@ public class PopUps : MonoBehaviour
     public float delayInicial = 1f;
 
     [Header("Canvas")]
-    public RectTransform canvasRect; // Asegúrate de asignar el Canvas aquí en el inspector
-    public Vector2 padding = new Vector2(100f, 100f); // Margen para evitar que salgan fuera de la vista
+    public RectTransform canvasRect; // Make sure to assign the Canvas here in the inspector
+    public Vector2 padding = new Vector2(100f, 100f); // Margin to avoid objects going outside the view
 
     void Start()
     {
@@ -36,17 +36,17 @@ public class PopUps : MonoBehaviour
         int indice = Random.Range(0, objetosParaSpawnear.Count);
         GameObject prefab = objetosParaSpawnear[indice];
 
-        // Instanciar como hijo del Canvas
+        // Instantiate as a child of the Canvas
         GameObject instancia = Instantiate(prefab, canvasRect);
         RectTransform rt = instancia.GetComponent<RectTransform>();
 
-        // Calcular área del canvas con padding
+        // Calculate canvas area with padding
         float ancho = canvasRect.rect.width;
         float alto = canvasRect.rect.height;
 
         float x = Random.Range(-ancho / 2f + padding.x, ancho / 2f - padding.x);
         float y = Random.Range(-alto / 2f + padding.y, alto / 2f - padding.y);
 
-        rt.anchoredPosition = new Vector2(x, y); // Posición relativa al canvas
+        rt.anchoredPosition = new Vector2(x, y); // Position relative to the canvas
     }
 }

@@ -5,33 +5,37 @@ public class HighlightOnHover : MonoBehaviour
 {
     private Renderer objectRenderer;
     public GameObject activateDialogue;
-    public bool activeDialogueActive = false;
-    private ActivateanddeactivateSpeech dialogue;
     public GameObject dialogueinactive;
     private Color originalColor;
-    public Color highlightColor = Color.yellow; // Cambia este color según tu necesidad
+    public Color highlightColor = Color.yellow; // Change this color as needed
     public ParticleSystem particles;
 
-    // Añadir una referencia para el cursor personalizado
-    public Texture2D customCursor; // El cursor que quieres usar
-    public Vector2 cursorHotspot = new Vector2(16, 16); // Define el centro del cursor
+    // Add a reference for the custom cursor
+    public Texture2D customCursor; // The cursor you want to use
+    public Vector2 cursorHotspot = new Vector2(16, 16); // Define the cursor's center
 
     void Start()
     {
-        activateDialogue.SetActive(false);
-        activeDialogueActive = false;
-
+        // Initialize objects and stop particles at the start
+        if (activateDialogue != null)
+        {
+            activateDialogue.SetActive(false);
+        }
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
         {
-            originalColor = objectRenderer.material.color; // Guarda el color original
+            originalColor = objectRenderer.material.color; // Save the original color
+        }
+        if (particles != null)
+        {
             particles.Stop();
         }
     }
 
     private void Update()
     {
-        if (activeDialogueActive)
+        // Update the dialogue state
+        if (activateDialogue.activeSelf)
         {
             dialogueinactive.SetActive(false);
         }
@@ -45,63 +49,63 @@ public class HighlightOnHover : MonoBehaviour
     {
         if (objectRenderer != null)
         {
-            objectRenderer.material.color = highlightColor; // Cambia al color de resaltado
+            objectRenderer.material.color = highlightColor; // Change to the highlight color
         }
 
-        // Cambiar el cursor cuando el mouse pasa por encima
+        // Change the cursor when the mouse hovers over
         if (customCursor != null)
         {
-            UnityEngine.Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
+            UnityEngine.Cursor.SetCursor(customCursor, new Vector2(customCursor.width / 2, customCursor.height / 2), CursorMode.Auto);
         }
 
-        if (!activeDialogueActive)
+        // Activate particles and dialogue if not already active
+        if (!activateDialogue.activeSelf && particles != null)
         {
-            if(particles != null)
-            {
-                StartCoroutine(Activate(2.5f, 0f, activateDialogue));
-                activeDialogueActive = true;
-            }
-           
+            StartCoroutine(Activate(2.5f, 0f, activateDialogue));
         }
-
-
     }
 
     void OnMouseExit()
     {
         if (objectRenderer != null)
         {
-            objectRenderer.material.color = originalColor; // Vuelve al color original
+            objectRenderer.material.color = originalColor; // Revert to the original color
         }
 
-        // Restaurar el cursor al valor predeterminado
+        // Restore the cursor to the default value
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private IEnumerator Activate(float timeOut, float timeIn, GameObject gameobject)
     {
+        // Wait for the entry time (if applicable)
         yield return new WaitForSeconds(timeIn);
-        // Cambiar el color al de resaltado
-        particles.Play();
+
+        // Activate particles and dialogue
+        if (particles != null)
+        {
+            particles.Play();
+        }
         gameobject.SetActive(true);
 
-        // Esperar el tiempo especificado
+        // Wait for the exit time
         yield return new WaitForSeconds(timeOut);
 
-        // Volver al color original
-        particles.Play();
+        // Stop particles and deactivate dialogue
+        if (particles != null)
+        {
+            particles.Stop();
+        }
         gameobject.SetActive(false);
-        activeDialogueActive = false;
     }
 
-    // Este método desactiva el diálogo cuando el GameObject que contiene este script es destruido
+    // This method deactivates the dialogue when the GameObject containing this script is destroyed
     void OnDestroy()
     {
-        // Si el objeto que contiene este script se destruye, desactivar el diálogo
+        // If the object containing this script is destroyed, deactivate the dialogue
         if (activateDialogue != null)
         {
             activateDialogue.SetActive(false);
-            activeDialogueActive = false;  // Asegúrate de actualizar el estado
         }
     }
 }

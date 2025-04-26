@@ -5,30 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class FadeInOutMusic : MonoBehaviour
 {
-    [SerializeField] private AudioSource musicSource; // El AudioSource que contiene la música.
-    [SerializeField] private float fadeDuration = 5f; // Duración del fade-in y fade-out en segundos.
-    private float targetVolume; // El volumen final al que llegará.
+    [SerializeField] private AudioSource musicSource; // The AudioSource that holds the music.
+    [SerializeField] private float fadeDuration = 5f; // Duration of the fade-in and fade-out in seconds.
+    private float targetVolume; // The final volume to reach.
 
     private void Start()
     {
-        // Asegurarse de que hay un AudioSource asignado.
+        // Make sure an AudioSource is assigned.
         if (musicSource == null)
         {
-            Debug.LogError("No se ha asignado un AudioSource al script FadeInOutMusic.");
+            Debug.LogError("No AudioSource assigned to the FadeInOutMusic script.");
             return;
         }
 
-        // Guardar el volumen inicial del AudioSource y configurarlo a 0.
+        // Save the initial volume of the AudioSource and set it to 0.
         targetVolume = musicSource.volume;
         musicSource.volume = 0f;
 
-        // Iniciar la música si no está ya reproduciéndose.
+        // Start the music if it’s not already playing.
         if (!musicSource.isPlaying)
         {
             musicSource.Play();
         }
 
-        // Iniciar el proceso de fade-in.
+        // Start the fade-in process.
         StartCoroutine(FadeIn());
     }
 
@@ -38,21 +38,21 @@ public class FadeInOutMusic : MonoBehaviour
 
         while (elapsedTime < fadeDuration)
         {
-            // Incrementar el volumen gradualmente.
+            // Gradually increase the volume.
             musicSource.volume = Mathf.Lerp(0f, targetVolume, elapsedTime / fadeDuration);
             elapsedTime += Time.deltaTime;
 
-            // Esperar hasta el próximo frame.
+            // Wait until the next frame.
             yield return null;
         }
 
-        // Asegurarse de que el volumen final sea exactamente el objetivo.
+        // Make sure the final volume is exactly the target volume.
         musicSource.volume = targetVolume;
     }
 
     public void TriggerSceneChange(string sceneName)
     {
-        // Iniciar el fade-out antes de cambiar de escena.
+        // Start the fade-out before changing scenes.
         StartCoroutine(FadeOutAndChangeScene(sceneName));
     }
 
@@ -63,18 +63,19 @@ public class FadeInOutMusic : MonoBehaviour
 
         while (elapsedTime < fadeDuration)
         {
-            // Reducir el volumen gradualmente.
+            // Gradually decrease the volume.
             musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / fadeDuration);
             elapsedTime += Time.deltaTime;
 
-            // Esperar hasta el próximo frame.
+            // Wait until the next frame.
             yield return null;
         }
 
-        // Asegurarse de que el volumen sea exactamente 0.
+        // Make sure the volume is exactly 0.
         musicSource.volume = 0f;
 
-        // Cambiar a la nueva escena.
+        // Switch to the new scene.
         SceneManager.LoadScene(sceneName);
     }
 }
+

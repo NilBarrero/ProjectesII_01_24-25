@@ -3,37 +3,37 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public AudioSource sfxSource; // AudioSource para los efectos de sonido
-    private float sfxVolume = 1.0f; // Volumen de los efectos de sonido
+    public AudioSource sfxSource; // AudioSource for sound effects
+    private float sfxVolume = 1.0f; // Volume of sound effects
 
     private void Awake()
     {
-        // Asegurar que solo haya un AudioManager en la escena
+        // Ensure there is only one AudioManager in the scene
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Mantener al cambiar de escena
+            DontDestroyOnLoad(gameObject); // Persist across scenes
         }
         else
         {
-            Destroy(gameObject); // Evitar duplicados
+            Destroy(gameObject); // Prevent duplicates
         }
     }
 
-    // Reproduce un efecto de sonido
+    // Plays a sound effect
     public void PlaySFX(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip, sfxVolume);
     }
 
-    // Establece el volumen de los SFX
+    // Sets the SFX volume
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
         sfxSource.volume = sfxVolume;
     }
 
-    // Método para obtener el volumen actual de los SFX
+    // Method to get the current SFX volume
     public float GetSFXVolume()
     {
         return sfxVolume;

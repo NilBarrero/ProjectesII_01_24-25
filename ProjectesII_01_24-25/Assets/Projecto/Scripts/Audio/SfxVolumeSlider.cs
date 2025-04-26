@@ -1,23 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI; // Asegúrate de tener la referencia al UI
+using UnityEngine.UI; // Make sure you have a reference to the UI
 
 public class SfxVolumeSlider : MonoBehaviour
 {
-    public Slider sfxSlider; // El slider para ajustar el volumen de SFX
+    public Slider sfxSlider; // The slider to adjust the SFX volume
 
     private void Start()
     {
-        // Configura el slider al valor actual del volumen
+        // Set the slider to the current volume value
         sfxSlider.value = AudioManager.instance.GetSFXVolume();
 
-        // Conecta el evento On Value Changed con la función SetSFXVolume
+        // Connect the On Value Changed event to the SetSFXVolume function
         sfxSlider.onValueChanged.AddListener(OnSliderValueChanged);
     }
 
-    // Este método se llama cuando el valor del slider cambia
+    // This method is called when the slider value changes
     private void OnSliderValueChanged(float value)
     {
-        // Cambiar el volumen de los efectos de sonido
+        // Change the sound effects volume
         AudioManager.instance.SetSFXVolume(value);
     }
 }
+

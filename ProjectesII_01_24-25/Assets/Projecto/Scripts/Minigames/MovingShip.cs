@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class MovingShip : MonoBehaviour
 {
-    public GameObject targetObject; // El objeto que se moverá
-    public float moveDistance = 1.0f; // Distancia que se moverá a la derecha
+    public GameObject targetObject; // The object that will be moved
+    public float moveDistance = 1.0f; // The distance it will move to the right
 
     private void OnMouseDown()
     {
         if (targetObject != null)
         {
-            // Mueve el objeto objetivo una distancia hacia la derecha
+            // Move the target object a certain distance to the right
             Vector3 newPosition = targetObject.transform.position + new Vector3(moveDistance, 0, 0);
             targetObject.transform.position = newPosition;
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el objeto objetivo.");
+            Debug.LogWarning("Target object is not assigned.");
         }
     }
 }

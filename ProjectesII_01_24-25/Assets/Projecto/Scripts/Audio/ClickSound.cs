@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class ClickSound : MonoBehaviour
 {
-    public AudioClip clickSound; // El sonido que se reproducirá al hacer clic
+    public AudioClip clickSound; // The sound that will play on click
     private AudioSource audioSource;
 
     void Start()
     {
-        // Obtiene el AudioSource del objeto (asegúrate de que el objeto tenga un AudioSource)
+        // Get the AudioSource component from the object (make sure the object has an AudioSource)
         audioSource = GetComponent<AudioSource>();
     }
 
     void OnMouseDown()
     {
-        // Reproduce el clip de audio cuando el objeto es clickeado
+        // Play the audio clip when the object is clicked
         if (audioSource && clickSound)
         {
             audioSource.PlayOneShot(clickSound);

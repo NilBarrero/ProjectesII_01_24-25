@@ -3,72 +3,78 @@ using UnityEngine;
 
 public class MovingIntroductionText : MonoBehaviour
 {
-    public GameObject text; // El GameObject de texto (UI)
-    public GameObject background; // El GameObject de fondo (en el mundo 2D)
-    public float endYPositions = 1000f; // Posición final en el eje Y (fuera de la pantalla)
+    public GameObject text; // The text GameObject (UI)
+    public GameObject background; // The background GameObject (in the 2D world)
+    public float endYPosition = 1000f; // Final Y position (off-screen)
+    public float animationDuration = 1f; // Duration of the animation
+    public float stayingTime = 2f; // Wait time before starting the animation
 
-    public float animationDuration = 1f; // Duración de la animación
-    public float stayingTime = 2; // Tiempo de espera antes de iniciar la animación
-    private bool isAnimating = false; // Para evitar múltiples clics durante la animación
-    public bool timeIsUp = false; // Controla si ha pasado el tiempo de espera
+    private bool isAnimating = false; // To avoid multiple clicks during the animation
+    private bool timeIsUp = false; // Controls whether the wait time has passed
+
+    private void Start()
+    {
+        // Call the timer only once at the beginning
+        StartCoroutine(TimerCoroutine());
+    }
 
     private void Update()
     {
-        if (!timeIsUp)
+        if (timeIsUp && !isAnimating)
         {
-            StartCoroutine(TimerCoroutine()); // Llama al temporizador
-        }
-        else if (!isAnimating)
-        {
-            // Inicia la animación si no está en curso
+            // Start the animation if it's not already running
             StartCoroutine(AnimateObjects());
         }
     }
 
     private IEnumerator AnimateObjects()
     {
-        isAnimating = true; // Bloquear múltiples clics mientras la animación está en curso
+        isAnimating = true; // Block multiple clicks while the animation is running
 
-        // Obtener los RectTransform de los objetos UI (texto)
+        // Check if references are not null
+        if (text == null || background == null) yield break;
+
+        // Get the RectTransform of the UI objects (text)
         RectTransform textRectTransform = text.GetComponent<RectTransform>();
-        // Obtener el Transform del fondo (GameObject en el mundo 2D)
+        // Get the Transform of the background (2D world GameObject)
         Transform backgroundTransform = background.GetComponent<Transform>();
 
-        // Guardar las posiciones iniciales
+        // Save the initial positions
         Vector2 textStartPosition = textRectTransform.anchoredPosition;
         Vector3 backgroundStartPosition = backgroundTransform.position;
 
-        // La animación comienza
+        // The animation begins
         float elapsedTime = 0f;
 
         while (elapsedTime < animationDuration)
         {
-            // Animar ambos objetos simultáneamente usando Lerp
+            // Animate both objects simultaneously using Lerp
             float t = elapsedTime / animationDuration;
 
-            // Mover el texto (UI) en el eje Y
-            textRectTransform.anchoredPosition = Vector2.Lerp(textStartPosition, new Vector2(textStartPosition.x, endYPositions), t);
+            // Move the text (UI) on the Y-axis
+            textRectTransform.anchoredPosition = Vector2.Lerp(textStartPosition, new Vector2(textStartPosition.x, endYPosition), t);
 
-            // Mover el fondo (GameObject 2D) en el eje Y
-            backgroundTransform.position = Vector3.Lerp(backgroundStartPosition, new Vector3(backgroundStartPosition.x, endYPositions, backgroundStartPosition.z), t);
+            // Move the background (2D GameObject) on the Y-axis
+            backgroundTransform.position = Vector3.Lerp(backgroundStartPosition, new Vector3(backgroundStartPosition.x, endYPosition, backgroundStartPosition.z), t);
 
-            elapsedTime += Time.deltaTime; // Incrementar el tiempo transcurrido
-            yield return null; // Esperar un frame
+            elapsedTime += Time.deltaTime; // Increase the elapsed time
+            yield return null; // Wait for one frame
         }
 
-        // Asegurar que ambos objetos terminen en la posición final
-        textRectTransform.anchoredPosition = new Vector2(textRectTransform.anchoredPosition.x, endYPositions);
-        backgroundTransform.position = new Vector3(backgroundTransform.position.x, endYPositions, backgroundTransform.position.z);
+        // Ensure both objects reach the final position
+        textRectTransform.anchoredPosition = new Vector2(textRectTransform.anchoredPosition.x, endYPosition);
+        backgroundTransform.position = new Vector3(backgroundTransform.position.x, endYPosition, backgroundTransform.position.z);
 
-        isAnimating = false; // Permitir nuevos clics y animaciones
+        isAnimating = false; // Allow new clicks and animations
     }
 
     private IEnumerator TimerCoroutine()
     {
-        // Esperar el tiempo especificado antes de iniciar la animación
+        // Wait for the specified time before starting the animation
         yield return new WaitForSeconds(stayingTime);
 
-        // Esto se ejecutará después de que pase el tiempo
+        // This will run after the time has passed
         timeIsUp = true;
     }
 }
+

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arrows : MonoBehaviour
 {
 
-    public GameObject movingObject;  // Referencia al objeto que se mueve
+    public GameObject movingObject;  // Reference to the object
     public bool active;
 
 

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class ButtonScriptInMap : MonoBehaviour
 {
-    public GameObject[] gameObjectsAActivar; // Array para almacenar los gameobjects a activar/desactivar
+    public GameObject[] gameObjectsToActivate; // Array to store the game objects to activate/deactivate
 
-    // Función que se llama al hacer clic en el botón
-    public void Activar()
+    // Function that is called when the button is clicked
+    public void Activate()
     {
-        Debug.Log("¡Activar() fue llamada!");
+        Debug.Log("Activate() was called!");
 
-        foreach (GameObject obj in gameObjectsAActivar)
+        foreach (GameObject obj in gameObjectsToActivate)
         {
             if (obj != null)
             {
-                Debug.Log("Activando: " + obj.name); // Verifica qué objeto estás activando
-                obj.SetActive(true); // Activa el gameobject
+                Debug.Log("Activating: " + obj.name); // Check which object you are activating
+                obj.SetActive(true); // Activate the game object
             }
         }
     }
 }
+
 

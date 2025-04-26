@@ -4,24 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-
 public class NewHuirDeNarcosLogic : MonoBehaviour
 {
-    // Referencia al Animator que controla la animación
+    // Reference to the Animator that controls the animation
     public UnityEngine.UI.Slider progressBar;
     public Animator animator;
     public string scene;
-    // Referencia al AudioSource de la música
+    // Reference to the AudioSource for music
     public AudioSource musicSource;
-    // Referencia al AudioSource para efectos de sonido
+    // Reference to the AudioSource for sound effects
     public AudioSource sfxSource;
     private bool isTransitioning = false;
-    public float fadeOutDuration = 2f; // Duración del fade out
+    public float fadeOutDuration = 2f; // Fade out duration
     public Pressed pressed;
     public int initcounter = 0;
     public int maxCounter = 60;
     private bool isClickReleased = true;
-
 
     public float progress = 0;
 
@@ -31,7 +29,7 @@ public class NewHuirDeNarcosLogic : MonoBehaviour
 
     void Update()
     {
-        // Verificar si se ha alcanzado el contador máximo y hacer la transición
+        // Check if the max counter has been reached and start the transition
         if (initcounter == maxCounter)
         {
             Debug.Log("Init counter == Max Counter");
@@ -39,46 +37,46 @@ public class NewHuirDeNarcosLogic : MonoBehaviour
         }
         else
         {
-            // Detectar si se presionó el botón
+            // Detect if the button has been pressed
             if (Input.GetMouseButtonDown(0) && isClickReleased)
             {
-                // Si el clic fue levantado previamente, aumentamos el contador
+                // If the click was released before, increase the counter
                 initcounter++;
-                isClickReleased = false; // Marcamos que el clic está siendo mantenido
+                isClickReleased = false; // Mark that the click is being held
             }
 
-            // Detectamos si el clic fue liberado
+            // Detect if the click has been released
             if (Input.GetMouseButtonUp(0))
             {
-                isClickReleased = true; // El clic fue liberado, se puede contar nuevamente
+                isClickReleased = true; // The click was released, we can count again
             }
             if (progressBar != null)
             {
-                // Calcula el progreso como un porcentaje
+                // Calculate progress as a percentage
                 progress = (float)initcounter / (float)maxCounter;
-                progressBar.value = progress; // Actualiza el valor de la barra
+                progressBar.value = progress; // Update the progress bar
             }
         }
     }
 
     private IEnumerator TransitionToScene(string scene)
     {
-        isTransitioning = true; // Evita llamadas múltiples
+        isTransitioning = true; // Prevent multiple calls
 
-        // Fade out de la música
+        // Fade out the music
         if (musicSource != null)
         {
             yield return StartCoroutine(FadeOutMusic());
         }
 
-        // Animación de transición
+        // Transition animation
         if (animator != null)
         {
-            animator.SetTrigger("StartTransition"); // Activa la animación
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // Espera el tiempo de la animación
+            animator.SetTrigger("StartTransition"); // Trigger the animation
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length); // Wait for the animation to finish
         }
 
-        // Cambia de escena
+        // Change scene
         SceneManager.LoadScene(scene);
     }
 
@@ -86,7 +84,7 @@ public class NewHuirDeNarcosLogic : MonoBehaviour
     {
         float startVolume = musicSource.volume;
 
-        // Reduce el volumen de la música durante un tiempo
+        // Gradually reduce the volume of the music
         float timeElapsed = 0f;
         while (timeElapsed < fadeOutDuration)
         {
@@ -95,7 +93,7 @@ public class NewHuirDeNarcosLogic : MonoBehaviour
             yield return null;
         }
 
-        // Asegura que el volumen llegue a 0
+        // Ensure the volume reaches 0
         musicSource.volume = 0f;
     }
 

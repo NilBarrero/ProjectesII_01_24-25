@@ -2,35 +2,35 @@ using UnityEngine;
 
 public class ControlDeColisiones : MonoBehaviour
 {
-    // La capa "NoColision" que contiene los objetos con los que no queremos colisionar
+    // The "NoColision" layer that contains the objects we don't want to collide with
     public string capaNoColision = "NoColision";
 
     void Start()
     {
-        // Obtener el número de capa de "NoColision"
+        // Get the layer number of "NoColision"
         int layerNoColision = LayerMask.NameToLayer(capaNoColision);
 
-        // Obtener el Collider 2D del GameObject que tiene este script
+        // Get the 2D Collider of the GameObject that has this script
         Collider2D colliderDeEsteObjeto = GetComponent<Collider2D>();
 
-        // Asegurarnos de que el Collider de este GameObject interactúe con los demás objetos del escenario
+        // Ensure that the Collider of this GameObject interacts with other objects in the scene
         if (colliderDeEsteObjeto != null)
         {
-            // Obtener todos los objetos de la capa "NoColision" en la escena
+            // Get all objects with the "NoColision" tag in the scene
             GameObject[] objetosNoColision = GameObject.FindGameObjectsWithTag(capaNoColision);
 
-            // Iterar sobre todos los objetos de la capa "NoColision" y desactivar la colisión con este GameObject
+            // Iterate over all objects with the "NoColision" tag and disable collisions with this GameObject
             foreach (GameObject objeto in objetosNoColision)
             {
-                // Asegurarnos de que solo ignoramos colisiones con los objetos de la capa "NoColision"
+                // Ensure we are only ignoring collisions with objects in the "NoColision" layer
                 if (objeto.layer == layerNoColision)
                 {
                     Collider2D colliderDelObjeto = objeto.GetComponent<Collider2D>();
 
-                    // Verificar que el objeto tiene un Collider2D antes de intentar ignorar la colisión
+                    // Check if the object has a Collider2D before attempting to ignore the collision
                     if (colliderDelObjeto != null)
                     {
-                        // Ignorar la colisión entre este GameObject y los objetos de la capa "NoColision"
+                        // Ignore the collision between this GameObject and the objects in the "NoColision" layer
                         Physics2D.IgnoreCollision(colliderDeEsteObjeto, colliderDelObjeto, true);
                     }
                 }
@@ -38,6 +38,4 @@ public class ControlDeColisiones : MonoBehaviour
         }
     }
 }
-
-
 

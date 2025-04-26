@@ -3,37 +3,37 @@ using UnityEngine.UI;
 
 public class ClicMenus : MonoBehaviour
 {
-    public Button button; // Referencia al botón UI
-    public AudioClip sound; // Sonido que se reproducirá
+    public Button button; // Reference to the UI button
+    public AudioClip sound; // Sound to be played
     private AudioSource audioSource;
 
     void Start()
     {
-        // Obtener el componente AudioSource o agregar uno si no existe
+        // Get the AudioSource component or add one if it doesn't exist
         audioSource = gameObject.GetComponent<AudioSource>();
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // Configurar el AudioSource
+        // Configure the AudioSource
         audioSource.playOnAwake = false;
 
-        // Asignar el sonido
+        // Assign the sound
         audioSource.clip = sound;
 
-        // Vincular el evento de clic del botón
+        // Link the button's click event
         if (button != null)
         {
             button.onClick.AddListener(PlaySound);
         }
         else
         {
-            Debug.LogError("Botón no asignado en el inspector.");
+            Debug.LogError("Button not assigned in the inspector.");
         }
     }
 
-    // Método para reproducir el sonido
+    // Method to play the sound
     void PlaySound()
     {
         if (sound != null)
@@ -42,7 +42,7 @@ public class ClicMenus : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Sonido no asignado en el inspector.");
+            Debug.LogError("Sound not assigned in the inspector.");
         }
     }
 }

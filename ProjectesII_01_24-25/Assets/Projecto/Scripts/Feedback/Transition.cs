@@ -5,38 +5,38 @@ using System.IO;
 
 public class Transition : MonoBehaviour
 {
-    public string scene; // Nombre de la escena a cargar
-    public string tutorial; // Nombre de la escena a cargar
-    public Animator animator; // Asigna el Animator que controla la animación de transición
-    public float animationDuration = 1.0f; // Duración de la animación
-    public AudioSource musicSource; // Fuente de audio para la música de fondo
-    public float fadeOutDuration = 1.0f; // Duración del fade out
-    public AudioClip clickSound; // Clip de sonido para el clic
-    private string rutaArchivo; // Ruta del archivo de guardado
+    public string scene; // Name of the scene to load
+    public string tutorial; // Name of the tutorial scene to load
+    public Animator animator; // Animator that controls the transition animation
+    public float animationDuration = 1.0f; // Duration of the animation
+    public AudioSource musicSource; // Audio source for background music
+    public float fadeOutDuration = 1.0f; // Duration of the fade-out
+    public AudioClip clickSound; // Audio clip for the click
+    private string rutaArchivo; // Path to the save file
     public bool OneTimeOnly = false;
 
     private void Awake()
     {
-        // Inicializa la ruta del archivo
+        // Initialize the path to the save file
         rutaArchivo = Application.persistentDataPath + "/EntryLog.txt";
     }
 
     private void Start()
     {
-        Debug.Log("Ruta del archivo EntryLog.txt: " + rutaArchivo);
+        Debug.Log("Path to EntryLog.txt file: " + rutaArchivo);
         if (animator == null)
         {
-            Debug.LogError("No se asignó un Animator. Por favor, asigna uno en el Inspector.");
+            Debug.LogError("Animator was not assigned. Please assign one in the Inspector.");
         }
 
         if (musicSource == null)
         {
-            Debug.LogWarning("No se asignó una fuente de audio. No se realizará el fade out.");
+            Debug.LogWarning("No audio source assigned. Fade-out will not be performed.");
         }
 
         if (clickSound == null)
         {
-            Debug.LogWarning("No se asignó un clip de audio para el clic.");
+            Debug.LogWarning("No click audio clip assigned.");
         }
     }
 
@@ -44,10 +44,10 @@ public class Transition : MonoBehaviour
     {
         if (clickSound != null)
         {
-            AudioManager.instance.PlaySFX(clickSound); // Usa el AudioManager para reproducir el sonido
+            AudioManager.instance.PlaySFX(clickSound); // Use AudioManager to play the sound
         }
 
-        // Restaurar el cursor antes de cambiar de escena
+        // Reset the cursor before changing the scene
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
         if (OneTimeOnly)
@@ -62,7 +62,7 @@ public class Transition : MonoBehaviour
 
     private IEnumerator PlayAnimationAndChangeScene()
     {
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes del cambio
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Reset cursor before changing
 
         if (musicSource != null)
         {
@@ -115,11 +115,11 @@ public class Transition : MonoBehaviour
         if (!File.Exists(rutaArchivo))
         {
             File.WriteAllText(rutaArchivo, "0");
-            Debug.Log("Archivo creado con valor 0.");
+            Debug.Log("File created with value 0.");
         }
 
         string contenido = File.ReadAllText(rutaArchivo);
-        Debug.Log("Valor actual del archivo: " + contenido);
+        Debug.Log("Current file value: " + contenido);
 
         if (contenido == "1")
         {
@@ -132,8 +132,7 @@ public class Transition : MonoBehaviour
         }
         else
         {
-            Debug.LogError("El archivo tiene un valor inesperado: " + contenido);
+            Debug.LogError("The file has an unexpected value: " + contenido);
         }
     }
 }
-

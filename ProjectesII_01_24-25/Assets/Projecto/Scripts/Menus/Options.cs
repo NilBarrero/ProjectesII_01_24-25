@@ -6,32 +6,32 @@ using UnityEngine.Audio;
 
 public class Options : MonoBehaviour
 {
-    [SerializeField] private FadeInOutMusic fadeMusic; // Referencia al script FadeInOutMusic.
-    [SerializeField] private GameObject menuPrincipal;
-    [SerializeField] private GameObject options;
+    [SerializeField] private FadeInOutMusic fadeMusic; // Reference to the FadeInOutMusic script.
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject optionsMenu;
     [SerializeField] private AudioMixer audioMixer;
 
-    private static Options instance; // Patrón Singleton para evitar duplicados.
+    private static Options instance; // Singleton pattern to avoid duplicates.
 
     void Awake()
     {
-        // Implementar el patrón Singleton.
+        // Implement the Singleton pattern.
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // No destruir este objeto al cambiar de escena.
+            DontDestroyOnLoad(gameObject); // Do not destroy this object when changing scenes.
         }
         else
         {
-            Destroy(gameObject); // Evitar duplicados.
+            Destroy(gameObject); // Prevent duplicates.
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reasignar las referencias al cambiar de escena.
-        menuPrincipal = GameObject.Find("MenuPrincipal"); // Ajusta el nombre según tu escena.
-        options = GameObject.Find("Options"); // Ajusta el nombre según tu escena.
+        // Reassign references when changing scenes.
+        mainMenu = GameObject.Find("MenuPrincipal"); // Adjust the name according to your scene.
+        optionsMenu = GameObject.Find("Options"); // Adjust the name according to your scene.
     }
 
     void OnEnable()
@@ -46,28 +46,28 @@ public class Options : MonoBehaviour
 
     public void Exit()
     {
-        if (menuPrincipal != null)
+        if (mainMenu != null)
         {
-            menuPrincipal.SetActive(true);
-            options.SetActive(false);
+            mainMenu.SetActive(true);
+            optionsMenu.SetActive(false);
         }
     }
 
-    public void FullScren(bool pantallaCompleta)
+    public void FullScreen(bool fullScreen)
     {
-        Screen.fullScreen = pantallaCompleta;
+        Screen.fullScreen = fullScreen;
     }
 
-    public void Sound(float sound)
+    public void Sound(float volume)
     {
-        audioMixer.SetFloat("MusicVol", Mathf.Log10(sound)*20);
-        PlayerPrefs.SetFloat("Volume", sound); // Guardar el volumen.
+        audioMixer.SetFloat("MusicVol", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("Volume", volume); // Save the volume.
         PlayerPrefs.Save();
     }
 
     void Start()
     {
-        // Cargar el volumen guardado al iniciar.
+        // Load saved volume at startup.
         if (PlayerPrefs.HasKey("Volume"))
         {
             float savedVolume = PlayerPrefs.GetFloat("Volume");

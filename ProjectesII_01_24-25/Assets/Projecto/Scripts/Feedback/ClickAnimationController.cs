@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ClickAnimationController : MonoBehaviour
 {
-    public List<GameObject> animatedObjects; // Lista de GameObjects que se animarán
-    public List<float> endYPositions; // Lista de posiciones finales en el eje Y para cada GameObject
-    public List<AudioClip> moveAudioClips; // Lista de efectos de sonido únicos para cada objeto
-    public float animationDuration = 1f; // Duración de la animación
+    public List<GameObject> animatedObjects; // List of GameObjects to animate
+    public List<float> endYPositions; // List of final Y positions for each GameObject
+    public List<AudioClip> moveAudioClips; // List of unique sound effects for each object
+    public float animationDuration = 1f; // Duration of the animation
 
-    private int currentObjectIndex = 0; // Índice del objeto actual en la lista
-    private bool isAnimating = false; // Para evitar múltiples clics durante la animación
+    private int currentObjectIndex = 0; // Index of the current object in the list
+    private bool isAnimating = false; // To prevent multiple clicks during animation
 
     private void Update()
     {
@@ -27,13 +27,13 @@ public class ClickAnimationController : MonoBehaviour
 
         RectTransform rectTransform = obj.GetComponent<RectTransform>();
 
-        // Reproduce el sonido usando AudioManager
+        // Play the sound using AudioManager
         if (audioClip != null)
         {
             AudioManager.instance.PlaySFX(audioClip);
         }
 
-        // Animar posición
+        // Animate position
         Vector2 startPosition = rectTransform.anchoredPosition;
         Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
         float elapsedTime = 0f;
@@ -50,4 +50,5 @@ public class ClickAnimationController : MonoBehaviour
         isAnimating = false;
     }
 }
+
 

@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Highlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject activateDialogue;  // Referencia al GameObject de TextMeshPro
+    [SerializeField] private GameObject activateDialogue;  // Private reference to the GameObject to activate
 
     void Start()
     {
-        // Asegurarse de que el TextMeshPro esté desactivado al principio
+        // Ensure that the TextMeshPro is deactivated at the start
         if (activateDialogue != null)
         {
             activateDialogue.SetActive(false);
         }
     }
 
-    // Este método se llama cuando el ratón entra en el botón
+    // This method is called when the mouse enters the button
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Activar el TextMeshPro cuando el ratón pasa por encima del botón
+        // Activate the TextMeshPro when the mouse hovers over the button
         if (activateDialogue != null)
         {
             activateDialogue.SetActive(true);
         }
     }
 
-    // Este método se llama cuando el ratón sale del botón
+    // This method is called when the mouse exits the button
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Desactivar el TextMeshPro cuando el ratón sale
+        // Deactivate the TextMeshPro when the mouse exits
         if (activateDialogue != null)
         {
             activateDialogue.SetActive(false);
         }
     }
 }
+
 
