@@ -1,44 +1,44 @@
 using UnityEngine;
-using TMPro; // Importa la librería para usar TextMeshPro
+using TMPro; // Import the library for using TextMeshPro
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TimerLevel1 : MonoBehaviour
 {
-    public int tiempoInicial = 30; // Tiempo inicial en segundos
-    private int tiempoRestante;
-    private float tiempoTranscurrido; // Temporizador en tiempo real
-    public TextMeshProUGUI textoCuentaRegresiva; // Referencia al texto TextMeshPro donde mostrarás la cuenta regresiva
-    public string scene;
+    public int tiempoInicial = 30; // Initial time in seconds
+    private int tiempoRestante; // Remaining time
+    private float tiempoTranscurrido; // Real-time timer
+    public TextMeshProUGUI textoCuentaRegresiva; // Reference to the TextMeshPro text where you will display the countdown
+    public string scene; // Scene to transition to when the timer reaches 0
 
-    // Variables para animación y música
-    public Animator transitionAnimator;  // Referencia al Animator para la animación
-    public AudioSource musicSource;      // Referencia a la fuente de música
-    public float fadeOutDuration = 1f;   // Duración del fade out de la música
+    // Variables for animation and music
+    public Animator transitionAnimator;  // Reference to the Animator for the transition animation
+    public AudioSource musicSource;      // Reference to the music source
+    public float fadeOutDuration = 1f;   // Duration for fading out the music
 
     void Start()
     {
-        tiempoRestante = tiempoInicial; // Establecemos el tiempo restante al valor inicial
-        tiempoTranscurrido = 0f; // Inicializamos el temporizador
-        ActualizarTexto(); // Actualizamos el texto al inicio
+        tiempoRestante = tiempoInicial; // Set the remaining time to the initial value
+        tiempoTranscurrido = 0f; // Initialize the timer
+        ActualizarTexto(); // Update the countdown text at the start
     }
 
     void Update()
     {
-        // Solo restamos cuando haya pasado 1 segundo real
+        // Only subtract when 1 real second has passed
         if (tiempoRestante > 0)
         {
-            tiempoTranscurrido += Time.deltaTime; // Aumenta el contador con el tiempo del último fotograma
+            tiempoTranscurrido += Time.deltaTime; // Increase the counter with the time from the last frame
 
-            if (tiempoTranscurrido >= 1f) // Si ha pasado 1 segundo real
+            if (tiempoTranscurrido >= 1f) // If 1 real second has passed
             {
-                tiempoRestante--; // Restamos un segundo
-                tiempoTranscurrido = 0f; // Reseteamos el temporizador
-                ActualizarTexto(); // Actualizamos el texto
+                tiempoRestante--; // Subtract 1 second
+                tiempoTranscurrido = 0f; // Reset the timer
+                ActualizarTexto(); // Update the text
             }
         }
 
-        // Cambiar color del texto basado en el tiempo restante
+        // Change the text color based on the remaining time
         if (tiempoRestante > 7)
         {
             textoCuentaRegresiva.color = Color.green;
@@ -52,7 +52,7 @@ public class TimerLevel1 : MonoBehaviour
             textoCuentaRegresiva.color = Color.red;
         }
 
-        // Iniciar la transición cuando el tiempo llega a 0
+        // Start the transition when the time reaches 0
         if (tiempoRestante == 0)
         {
             StartCoroutine(TransitionToScene());
@@ -61,10 +61,10 @@ public class TimerLevel1 : MonoBehaviour
 
     private IEnumerator TransitionToScene()
     {
-        // Inicia la animación de transición
-        transitionAnimator.SetTrigger("StartTransition"); // Asegúrate de tener un trigger llamado "StartTransition" en tu Animator
+        // Start the transition animation
+        transitionAnimator.SetTrigger("StartTransition"); // Make sure you have a trigger called "StartTransition" in your Animator
 
-        // Fade out de la música
+        // Fade out the music
         float startVolume = musicSource.volume;
         float timeElapsed = 0f;
 
@@ -75,20 +75,19 @@ public class TimerLevel1 : MonoBehaviour
             yield return null;
         }
 
-        // Asegura que el volumen final sea 0
+        // Ensure the final volume is 0
         musicSource.volume = 0f;
 
-        // Espera el tiempo de la animación antes de cambiar de escena
+        // Wait for the animation time before changing the scene
         yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
 
-        // Cargar la nueva escena
+        // Load the new scene
         SceneManager.LoadScene(scene);
     }
 
     void ActualizarTexto()
     {
-        // Actualiza el texto de la cuenta regresiva en la UI usando TextMeshPro
+        // Update the countdown text on the UI using TextMeshPro
         textoCuentaRegresiva.text = tiempoRestante.ToString() + " s";
     }
 }
-

@@ -9,30 +9,27 @@ public class GameManagercounter : MonoBehaviour
     public string scene1;
     public string scene2;
     public string scene3;
-    public Animator transitionAnimator;  // Referencia al Animator para la animación
-    public AudioSource musicSource;      // Referencia a la fuente de música
-    public float fadeOutDuration = 1f;   // Duración del fade out de la música
+    public Animator transitionAnimator;  // Reference to the Animator for the transition animation
+    public AudioSource musicSource;      // Reference to the music source
+    public float fadeOutDuration = 1f;   // Duration of the fade-out for the music
     public bool dontKillCertainNumOfEnemies = false;
-    public Timer timer;                  // Referencia al script Timer
+    public Timer timer;                  // Reference to the Timer script
     private int numOfScene;
 
     private void Update()
     {
         if (timer.tiempoRestante == 0 && dontKillCertainNumOfEnemies && clickCount > 0)
         {
-            
             numOfScene = 0;
             StartCoroutine(TransitionToScene(scene1));
         }
         else if (clickCount == maxCount)
         {
-            
             numOfScene = 1;
             StartCoroutine(TransitionToScene(scene2));
         }
         else if (timer.tiempoRestante == 0 && clickCount == 0)
         {
-            
             numOfScene = 2;
             StartCoroutine(TransitionToScene(scene3));
         }
@@ -41,18 +38,18 @@ public class GameManagercounter : MonoBehaviour
     public void IncrementClickCount()
     {
         clickCount++;
-        Debug.Log("Clics: " + clickCount); // Muestra el conteo en la consola
+        Debug.Log("Clicks: " + clickCount); // Logs the click count to the console
     }
 
     private IEnumerator TransitionToScene(string sceneName)
     {
-        // Inicia la animación de transición
+        // Start the transition animation
         if (transitionAnimator != null)
         {
             transitionAnimator.SetTrigger("StartTransition");
         }
 
-        // Fade out de la música
+        // Fade out the music
         if (musicSource != null)
         {
             float startVolume = musicSource.volume;
@@ -65,20 +62,20 @@ public class GameManagercounter : MonoBehaviour
                 yield return null;
             }
 
-            // Asegura que el volumen final sea 0
+            // Ensure the final volume is 0
             musicSource.volume = 0f;
         }
 
-        // Espera el tiempo de la animación antes de cambiar de escena
+        // Wait for the animation time before changing the scene
         if (transitionAnimator != null)
         {
             yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
-        // **Restablecer el cursor antes de cambiar de escena**
+        // **Reset the cursor before changing the scene**
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
-        // Cargar la nueva escena
+        // Load the new scene
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -4,56 +4,56 @@ using System.Collections.Generic;
 
 public class HighlightManager : MonoBehaviour
 {
-    private List<GameObject> clickables = new List<GameObject>(); // Lista de objetos clicables
-    private List<GameObject> draggables = new List<GameObject>(); // Lista de objetos arrastrables
-    public Color clickHighlightColor = Color.yellow; // Color de resaltado para clicables
-    public Color dragHighlightColor = Color.cyan; // Color de resaltado para arrastrables
-    private List<Color> originalClickableColors = new List<Color>(); // Colores originales de clicables
-    private List<Color> originalDraggableColors = new List<Color>(); // Colores originales de arrastrables
-    private bool highlightActive = false; // Indica si el resaltado está activo
-    private float highlightDuration = 1f; // Duración del resaltado en segundos
-    private float highlightTimer = 0f; // Temporizador para la duración del resaltado
-    private float fadeDuration = 0.5f; // Duración del fade out
-    private float cooldownTime = 5f; // Tiempo de cooldown entre activaciones
-    private float lastHighlightTime = -5f; // Momento en que se activó por última vez
+    private List<GameObject> clickables = new List<GameObject>(); // List of clickable objects
+    private List<GameObject> draggables = new List<GameObject>(); // List of draggable objects
+    public Color clickHighlightColor = Color.yellow; // Highlight color for clickables
+    public Color dragHighlightColor = Color.cyan; // Highlight color for draggables
+    private List<Color> originalClickableColors = new List<Color>(); // Original colors of clickables
+    private List<Color> originalDraggableColors = new List<Color>(); // Original colors of draggables
+    private bool highlightActive = false; // Indicates if highlight is active
+    private float highlightDuration = 1f; // Highlight duration in seconds
+    private float highlightTimer = 0f; // Timer for the highlight duration
+    private float fadeDuration = 0.5f; // Fade out duration
+    private float cooldownTime = 5f; // Cooldown time between activations
+    private float lastHighlightTime = -5f; // The last time highlighting was activated
 
     void Start()
     {
-        // Encuentra los objetos según su etiqueta
+        // Find objects by their tag
         clickables.AddRange(GameObject.FindGameObjectsWithTag("Clicable"));
         draggables.AddRange(GameObject.FindGameObjectsWithTag("Arrastrable"));
 
-        // Guarda sus colores originales
+        // Save their original colors
         foreach (var obj in clickables)
         {
             var spriteRenderer = obj.GetComponent<SpriteRenderer>();
             if (spriteRenderer != null) originalClickableColors.Add(spriteRenderer.color);
-            else originalClickableColors.Add(Color.white); // Asignar un valor por defecto si no tiene SpriteRenderer
+            else originalClickableColors.Add(Color.white); // Assign a default value if no SpriteRenderer
         }
         foreach (var obj in draggables)
         {
             var spriteRenderer = obj.GetComponent<SpriteRenderer>();
             if (spriteRenderer != null) originalDraggableColors.Add(spriteRenderer.color);
-            else originalDraggableColors.Add(Color.white); // Asignar un valor por defecto si no tiene SpriteRenderer
+            else originalDraggableColors.Add(Color.white); // Assign a default value if no SpriteRenderer
         }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && Time.time >= lastHighlightTime + cooldownTime) // Si se presiona el clic derecho y el cooldown terminó
+        if (Input.GetMouseButtonDown(1) && Time.time >= lastHighlightTime + cooldownTime) // If right-click is pressed and cooldown has passed
         {
-            lastHighlightTime = Time.time; // Registra el momento de activación
+            lastHighlightTime = Time.time; // Record the activation time
             highlightActive = true;
-            highlightTimer = highlightDuration; // Inicia el temporizador
+            highlightTimer = highlightDuration; // Start the highlight timer
 
-            // Resalta los objetos clicables
+            // Highlight clickable objects
             foreach (GameObject obj in clickables)
             {
                 var spriteRenderer = obj.GetComponent<SpriteRenderer>();
                 if (spriteRenderer != null) spriteRenderer.color = clickHighlightColor;
             }
 
-            // Resalta los objetos arrastrables
+            // Highlight draggable objects
             foreach (GameObject obj in draggables)
             {
                 var spriteRenderer = obj.GetComponent<SpriteRenderer>();
@@ -61,12 +61,12 @@ public class HighlightManager : MonoBehaviour
             }
         }
 
-        if (highlightActive) // Si el resaltado está activo
+        if (highlightActive) // If highlighting is active
         {
-            highlightTimer -= Time.deltaTime; // Reduce el temporizador con el tiempo
-            if (highlightTimer <= 0f) // Si el temporizador llega a cero
+            highlightTimer -= Time.deltaTime; // Reduce the timer over time
+            if (highlightTimer <= 0f) // If the timer reaches zero
             {
-                highlightActive = false; // Desactiva el resaltado
+                highlightActive = false; // Deactivate highlighting
                 StartCoroutine(FadeOutColors());
             }
         }
@@ -76,7 +76,7 @@ public class HighlightManager : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        // Realiza el fade out para cada objeto
+        // Perform fade out for each object
         while (elapsedTime < fadeDuration)
         {
             float lerpFactor = elapsedTime / fadeDuration;
@@ -103,7 +103,7 @@ public class HighlightManager : MonoBehaviour
             yield return null;
         }
 
-        // Asegura que el color final sea exactamente el original
+        // Ensure the final color matches the original exactly
         for (int i = 0; i < clickables.Count; i++)
         {
             var spriteRenderer = clickables[i].GetComponent<SpriteRenderer>();
@@ -119,7 +119,6 @@ public class HighlightManager : MonoBehaviour
         }
     }
 }
-
 
 
 

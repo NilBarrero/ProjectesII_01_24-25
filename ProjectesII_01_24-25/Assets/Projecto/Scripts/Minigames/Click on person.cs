@@ -15,7 +15,7 @@ public class Clickonperson : MonoBehaviour
     public bool isArrow = false;
     public float despawnTime = .5f;
 
-    public AudioClip clickSound; // AudioClip en lugar de AudioSource
+    public AudioClip clickSound; // AudioClip instead of AudioSource
 
     void Start()
     {
@@ -24,12 +24,12 @@ public class Clickonperson : MonoBehaviour
 
         if (gameManager == null)
         {
-            Debug.LogError("GameManager no encontrado en la escena");
+            Debug.LogError("GameManager not found in the scene");
         }
 
         if (boxCollider == null)
         {
-            Debug.LogError("Este objeto no tiene un BoxCollider2D");
+            Debug.LogError("This object does not have a BoxCollider2D");
         }
 
         destroyParticles.Stop();
@@ -37,7 +37,7 @@ public class Clickonperson : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Reproducir el sonido de clic usando AudioManager
+        // Play click sound using AudioManager
         if (clickSound != null)
         {
             AudioManager.instance.PlaySFX(clickSound);
@@ -77,4 +77,3 @@ public class Clickonperson : MonoBehaviour
         }
     }
 }
-

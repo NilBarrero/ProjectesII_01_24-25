@@ -12,13 +12,13 @@ public class UnlockingPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Establecer la ruta al archivo
+        // Set the file path
         ruta = Application.persistentDataPath + "/Path.txt";
 
-        // Obtener el ID de la escena actual
+        // Get the ID of the current scene
         currentSceneID = SceneManager.GetActiveScene().buildIndex;
 
-        // Llamar a la función para manejar la escritura y verificar duplicados
+        // Call the function to handle writing and check for duplicates
         if (startOfJob)
         {
             File.WriteAllText(ruta, string.Empty);
@@ -26,7 +26,7 @@ public class UnlockingPath : MonoBehaviour
         VerificarNumerosRepetidos();
     }
 
-    // Función para verificar números repetidos y escribir el ID de la escena
+    // Function to check for duplicate numbers and write the scene ID
     void VerificarNumerosRepetidos()
     {
         if (!File.Exists(ruta))
@@ -35,46 +35,45 @@ public class UnlockingPath : MonoBehaviour
         }
         if (File.Exists(ruta))
         {
-            // Leer todo el contenido del archivo
+            // Read all content from the file
             string contenido = File.ReadAllText(ruta);
 
-            // Dividir el contenido en números usando espacio como delimitador
+            // Split the content into numbers using space as a delimiter
             string[] numerosComoString = contenido.Split(' ');
 
-            // Crear un HashSet para verificar duplicados
+            // Create a HashSet to check for duplicates
             HashSet<int> numerosVistos = new HashSet<int>();
 
-            // Recorrer los números del archivo
+            // Loop through the numbers from the file
             foreach (string numeroStr in numerosComoString)
             {
-                // Ignorar vacíos que puedan surgir de espacios extra al final
+                // Ignore any empty entries that may arise from extra spaces at the end
                 if (string.IsNullOrWhiteSpace(numeroStr)) continue;
 
-                // Convertir el número a entero
+                // Convert the string to an integer
                 int numero = int.Parse(numeroStr);
 
-                // Verificar si ya vimos este número
+                // Check if we have already seen this number
                 numerosVistos.Add(numero);
             }
 
-            // Verificar si el número de la escena actual ya está en el HashSet
+            // Check if the current scene number is already in the HashSet
             if (!numerosVistos.Contains(currentSceneID))
             {
-                // Si no está, lo agregamos al archivo
+                // If it's not, add it to the file
                 File.AppendAllText(ruta, currentSceneID + " ");
-                Debug.Log("Número de la escena añadido: " + currentSceneID);
+                Debug.Log("Scene number added: " + currentSceneID);
             }
             else
             {
-                Debug.Log("La escena ya está registrada en el archivo.");
+                Debug.Log("The scene is already registered in the file.");
             }
         }
         else
         {
-            // Si el archivo no existe, crearlo y agregar el número de la escena
+            // If the file does not exist, create it and add the scene number
             File.AppendAllText(ruta, currentSceneID + " ");
-            Debug.Log("El archivo no existía, se ha creado y se ha añadido el número de la escena: " + currentSceneID);
+            Debug.Log("The file did not exist, it has been created and the scene number has been added: " + currentSceneID);
         }
     }
 }
-

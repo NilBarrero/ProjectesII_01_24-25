@@ -11,115 +11,115 @@ public class MouseDrag : MonoBehaviour
     private Vector3 startMousePosition;
     private Vector3 currentMousePosition;
     private bool moved = false;
-    private float holdTime = 0f; // Tiempo que el ratón ha estado quieto
-    private float updateThreshold = 0.5f; // Tiempo para actualizar la posición inicial del ratón
-    private float moveThreshold = 0.1f; // Umbral para detectar movimiento
+    private float holdTime = 0f; // Time the mouse has been stationary
+    private float updateThreshold = 0.5f; // Time to update the mouse's initial position
+    private float moveThreshold = 0.1f; // Threshold to detect movement
 
     private Rigidbody2D rb;
 
-    private Vector3 lastMousePosition;  // Última posición del ratón
-    private float speedThreshold = 0.01f; // Umbral de velocidad para considerar que el ratón se movió (ajustable)
+    private Vector3 lastMousePosition;  // Last mouse position
+    private float speedThreshold = 0.01f; // Speed threshold to consider if the mouse has moved (adjustable)
 
-    private float additionalHoldTime = 0f; // Nuevo temporizador adicional
-    private float additionalTimeThreshold = 1f; // Umbral para el nuevo temporizador (por ejemplo, 1 segundo)
+    private float additionalHoldTime = 0f; // New additional timer
+    private float additionalTimeThreshold = 1f; // Threshold for the new timer (e.g., 1 second)
 
     public DetectPrefab detectPrefab;
     public bool isCollisionLocked = false;
 
     private void Start()
     {
-        // Aseguramos que el objeto tenga un Rigidbody2D para aplicar la física
+        // Ensure the object has a Rigidbody2D to apply physics
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
-            Debug.LogError("Este objeto necesita tener un Rigidbody2D para aplicar física.");
+            Debug.LogError("This object needs to have a Rigidbody2D to apply physics.");
         }
 
-        // Inicializamos la última posición del ratón
+        // Initialize the last mouse position
         lastMousePosition = Input.mousePosition;
     }
 
     private void Update()
     {
         if (isCollisionLocked) return;
-        // Si el objeto está siendo arrastrado
+        // If the object is being dragged
         if (isBeingHeld)
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            // Raycast desde el ratón para detectar si colisiona con algo
+            // Raycast from the mouse to detect if it collides with something
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
             if (hit.collider != null)
             {
-                // Si el raycast golpea un collider, no permitimos que el objeto atraviese el collider.
-                // Aquí puedes comprobar que el collider no es el del objeto arrastrado
-                if (hit.collider.CompareTag("Blocker")) // Si el collider es el que bloquea el movimiento
+                // If the raycast hits a collider, prevent the object from going through the collider.
+                // Here you can check that the collider is not the dragged object
+                if (hit.collider.CompareTag("Blocker")) // If the collider is the one blocking movement
                 {
-                    // Evitar que el objeto atraviese el collider
-                    return; // Simplemente salir sin mover el objeto.
+                    // Prevent the object from passing through the collider
+                    return; // Simply exit without moving the object.
                 }
             }
 
-            // Si el raycast no golpea nada o no es un collider que bloquea el movimiento:
+            // If the raycast doesn't hit anything or isn't a collider that blocks movement:
             this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, 0);
 
-            // Solo iniciar las partículas si no están ya activas
+            // Only start particles if they are not already active
             if (!particles.isPlaying)
             {
                 particles.Play();
             }
 
-            // Verificar si el ratón se movió
+            // Check if the mouse has moved
             currentMousePosition = mousePos;
-            if (Vector3.Distance(currentMousePosition, startMousePosition) > moveThreshold) // Umbral para detectar movimiento
+            if (Vector3.Distance(currentMousePosition, startMousePosition) > moveThreshold) // Threshold to detect movement
             {
                 moved = true;
-                holdTime = 0f; // Reseteamos el temporizador si se mueve
+                holdTime = 0f; // Reset the timer if it moves
             }
             else
             {
-                // Si el ratón no se mueve, aumentamos el temporizador
+                // If the mouse isn't moving, increase the timer
                 holdTime += Time.deltaTime;
 
-                // Si el ratón ha estado quieto durante más del umbral, actualizamos la posición inicial
+                // If the mouse has been stationary for longer than the threshold, update the initial position
                 if (holdTime >= updateThreshold)
                 {
                     startMousePosition = currentMousePosition;
-                    holdTime = 0f; // Reiniciamos el temporizador
+                    holdTime = 0f; // Reset the timer
                 }
             }
 
-            // Incrementamos el nuevo temporizador adicional
+            // Increment the new additional timer
             additionalHoldTime += Time.deltaTime;
 
-            // Si el temporizador adicional ha alcanzado el umbral, ejecutamos alguna acción
+            // If the additional timer has reached the threshold, perform some action
             if (additionalHoldTime >= additionalTimeThreshold)
             {
-                // Aquí puedes hacer lo que necesites con el temporizador adicional
-                Debug.Log("Temporizador adicional alcanzado: " + additionalHoldTime);
+                // Here you can do whatever is needed with the additional timer
+                Debug.Log("Additional timer reached: " + additionalHoldTime);
 
-                // Reiniciamos el temporizador adicional
+                // Reset the additional timer
                 additionalHoldTime = 0f;
             }
 
-            // Comprobamos la velocidad del ratón
+            // Check the mouse speed
             Vector3 mouseVelocity = (mousePos - lastMousePosition) / Time.deltaTime;
 
-            // Si la velocidad es cero o menor que el umbral, no se mueve
+            // If the speed is zero or below the threshold, it hasn't moved
             if (mouseVelocity.magnitude <= speedThreshold)
             {
-                moved = false;  // No se movió con suficiente velocidad
+                moved = false;  // It hasn't moved with enough speed
                 startMousePosition = mousePos;
             }
 
-            // Actualizamos la última posición del ratón
+            // Update the last mouse position
             lastMousePosition = mousePos;
         }
         else
         {
-            // Detener las partículas si no se está arrastrando
+            // Stop the particles if not being dragged
             particles.Stop();
         }
     }
@@ -128,7 +128,7 @@ public class MouseDrag : MonoBehaviour
     {
         if (isCollisionLocked) return;
 
-        // Detecta si el ratón ha sido presionado
+        // Detect if the mouse has been pressed
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Input.mousePosition;
@@ -140,40 +140,40 @@ public class MouseDrag : MonoBehaviour
 
             isBeingHeld = true;
 
-            // Inicia las partículas directamente al presionar el ratón
+            // Start the particles immediately when the mouse is pressed
             particles.Play();
 
-            // Reiniciamos el estado de "moved"
+            // Reset the "moved" state
             moved = false;
-            holdTime = 0f; // Reiniciamos el temporizador
+            holdTime = 0f; // Reset the timer
         }
     }
 
     private void OnMouseUp()
     {
-        // Cuando el ratón se suelta, detenemos el arrastre
+        // When the mouse is released, stop the drag
         isBeingHeld = false;
 
-        // Solo aplicar la fuerza si el ratón se movió
+        // Only apply force if the mouse moved
         if (moved)
         {
-            // Calcula la dirección y la magnitud del lanzamiento
+            // Calculate the direction and magnitude of the launch
             Vector3 mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            // Calcula la dirección entre la posición de inicio y la posición de liberación
+            // Calculate the direction between the start position and release position
             Vector3 dragDirection = mousePos - startMousePosition;
 
-            // Aplica la velocidad al objeto en función de la distancia arrastrada
+            // Apply the velocity to the object based on the dragged distance
             ApplyLaunchForce(dragDirection);
         }
         else
         {
-            // Si el ratón no se movió lo suficiente (o está detenido), el objeto caerá sin fuerza
-            rb.velocity = Vector2.zero;  // Detenemos cualquier velocidad previa
+            // If the mouse didn't move enough (or is stationary), the object will fall without force
+            rb.velocity = Vector2.zero;  // Stop any previous velocity
         }
 
-        // Detener las partículas de forma limpia
+        // Stop the particles cleanly
         particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -181,11 +181,10 @@ public class MouseDrag : MonoBehaviour
 
     private void ApplyLaunchForce(Vector3 dragDirection)
     {
-        // Normalizamos la dirección para que la magnitud de la fuerza no dependa de la dirección
-        Vector3 launchVelocity = dragDirection.normalized * 10f; // "10f" controla la fuerza del lanzamiento
+        // Normalize the direction so the force magnitude doesn't depend on the direction
+        Vector3 launchVelocity = dragDirection.normalized * 10f; // "10f" controls the launch force
 
-        // Aplicamos la velocidad al Rigidbody2D
+        // Apply the velocity to the Rigidbody2D
         rb.velocity = launchVelocity;
     }
 }
-

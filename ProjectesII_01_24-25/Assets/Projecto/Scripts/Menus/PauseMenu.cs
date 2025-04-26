@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
-    [SerializeField] private GameObject[] objetosConLogica;  // Lista de objetos que quieres desactivar/reactivar
+    [SerializeField] private GameObject[] objetosConLogica;  // List of objects you want to deactivate/reactivate
     private CanvasGroup canvasGroup;
     private bool menuActivo = false;
     public static bool storySelectorActive = false;
@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
         menuPausa.SetActive(true);
         menuActivo = true;
 
-        // Desactivar los objetos con lógica
+        // Deactivate objects with logic
         foreach (var obj in objetosConLogica)
         {
             if (obj != null)
@@ -41,7 +41,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        // Activar interacción en el menú
+        // Activate interaction in the menu
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
     }
@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Intro");
     }
+
     public void Reanudar()
     {
         StartCoroutine(ReanudarJuego());
@@ -66,25 +67,26 @@ public class PauseMenu : MonoBehaviour
         storySelectorActive = true;
         SceneManager.LoadScene("Menu Principal");
     }
+
     private IEnumerator ReanudarJuego()
     {
-        // Esperar hasta que se suelte el botón del ratón
+        // Wait until the mouse button is released
         while (Input.GetMouseButton(0))
         {
             yield return null;
         }
 
-        // Reanudar el juego
+        // Resume the game
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
         menuActivo = false;
 
-        // Desactivar la interacción del menú
+        // Deactivate menu interaction
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
-        // Esperar 200 milisegundos antes de reactivar los objetos con lógica
+        // Wait 200 milliseconds before reactivating objects with logic
         yield return new WaitForSecondsRealtime(0.2f);
 
         foreach (var obj in objetosConLogica)
@@ -100,7 +102,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        // Comprobación adicional tras un segundo
+        // Additional check after one second
         StartCoroutine(ForzarActivacion());
     }
 
@@ -128,15 +130,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuTutorial");
     }
-    
+
     public void Salir_First()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuFirstJob");
     }
 }
-
-
-
-
-

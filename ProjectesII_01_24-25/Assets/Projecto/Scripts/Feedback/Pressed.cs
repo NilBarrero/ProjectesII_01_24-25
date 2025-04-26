@@ -4,41 +4,38 @@ using UnityEngine;
 
 public class Pressed : MonoBehaviour
 {
-    // Este booleano indicará si el objeto ha sido pulsado
+    // This boolean will indicate if the object has been clicked
     public bool haSidoPulsado = false;
 
-    // Referencia al Controller (GameManager)
+    // Reference to the Controller (GameManager)
     private Controller gameManager;
 
-    // Este método se llama cada vez que el prefab es habilitado
+    // This method is called every time the prefab is enabled
     void OnEnable()
     {
-        // Buscar el GameManager (Controller) en la escena
+        // Find the GameManager (Controller) in the scene
         gameManager = FindObjectOfType<Controller>();
 
-        // Verificar si se ha encontrado el Controller
+        // Check if the Controller was found
         if (gameManager == null)
         {
-            Debug.LogError("¡No se encontró el GameManager en la escena!");
+            Debug.LogError("GameManager not found in the scene!");
         }
     }
 
-    // Este método se llama cuando el objeto es pulsado (clic)
+    // This method is called when the object is clicked
     void OnMouseDown()
     {
-        if (!haSidoPulsado)  // Solo procesar si no ha sido pulsado antes
+        if (!haSidoPulsado)  // Only process if it has not been clicked before
         {
-            // Establecemos que ha sido pulsado
+            // Set that it has been clicked
             haSidoPulsado = true;
-            
 
-            // Notificamos al GameManager (Controller) que el objeto ha sido pulsado
+            // Notify the GameManager (Controller) that the object has been clicked
             if (gameManager != null)
             {
-                gameManager.ObjetoPulsado(this); // Pasamos 'this' como referencia al Pressed
+                gameManager.ObjetoPulsado(this); // Pass 'this' as a reference to Pressed
             }
         }
     }
 }
-
-

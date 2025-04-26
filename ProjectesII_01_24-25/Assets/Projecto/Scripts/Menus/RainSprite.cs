@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class RainImage : MonoBehaviour
 {
-    public float minSpeed = 100f; // En píxeles por segundo
+    public float minSpeed = 100f; // In pixels per second
     public float maxSpeed = 300f;
     public Sprite[] sprites;
 
-    public float zigzagAmplitude = 50f;   // En píxeles
+    public float zigzagAmplitude = 50f;   // In pixels
     public float zigzagFrequency = 2f;
 
     private float speed;
@@ -27,26 +27,26 @@ public class RainImage : MonoBehaviour
         image = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
 
-        // Sprite aleatorio
+        // Random sprite
         if (sprites.Length > 0)
             image.sprite = sprites[Random.Range(0, sprites.Length)];
 
-        // Escala aleatoria
+        // Random scale
         float scale = Random.Range(0.5f, 1.2f);
         rectTransform.localScale = Vector3.one * scale;
 
-        // Transparencia aleatoria
+        // Random transparency
         float alpha = 0.33f;
         image.color = new Color(1f, 1f, 1f, alpha);
 
-        // Velocidad
+        // Speed
         speed = Random.Range(minSpeed, maxSpeed);
 
-        // Tamaño de pantalla (Canvas en modo Screen Space)
+        // Screen size (Canvas in Screen Space mode)
         screenHeight = ((RectTransform)rectTransform.parent).rect.height;
         screenWidth = ((RectTransform)rectTransform.parent).rect.width;
 
-        // Posición inicial
+        // Initial position
         startPosition = rectTransform.anchoredPosition;
         timeOffset = Random.Range(0f, 2f * Mathf.PI);
     }
@@ -60,14 +60,14 @@ public class RainImage : MonoBehaviour
 
         if (newY < -screenHeight / 2f - 100f)
         {
-            // Reiniciar arriba
+            // Reset to top
             float randomX = Random.Range(-screenWidth / 2f, screenWidth / 2f);
             float randomY = screenHeight / 2f + Random.Range(50f, 150f);
             rectTransform.anchoredPosition = new Vector2(randomX, randomY);
             startPosition = rectTransform.anchoredPosition;
             timeOffset = Random.Range(0f, 2f * Mathf.PI);
 
-            // Nuevas propiedades visuales
+            // New visual properties
             if (sprites.Length > 0)
                 image.sprite = sprites[Random.Range(0, sprites.Length)];
 

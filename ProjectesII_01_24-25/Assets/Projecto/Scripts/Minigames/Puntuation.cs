@@ -1,33 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro; // Importa el paquete TextMeshPro
+using TMPro; // Imports the TextMeshPro package
 using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; // Referencia al componente TextMeshPro
+    public TextMeshProUGUI scoreText; // Reference to the TextMeshPro component
 
     void Start()
     {
         if (scoreText == null)
         {
-            Debug.LogError("TextMeshPro no está asignado. Arrastra el TextMeshProUGUI al campo en el Inspector.");
+            Debug.LogError("TextMeshPro is not assigned. Please drag the TextMeshProUGUI component to the field in the Inspector.");
             return;
         }
 
-        // Mostrar la puntuación inicial
+        // Display the initial score
         UpdateScoreText();
     }
 
     void Update()
     {
-        // Actualizar el texto si cambia la puntuación
+        // Update the text if the score changes
         UpdateScoreText();
     }
 
     void UpdateScoreText()
     {
-       // scoreText.text = "Puntuation: " + Transition.puntuacion.ToString();
+        // scoreText.text = "Score: " + Transition.score.ToString();
     }
 }
-

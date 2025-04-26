@@ -7,17 +7,17 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject storySelector;
     [SerializeField] private GameObject options;
-    [SerializeField] private Animator animator; // Animator para la animación de transición
-    [SerializeField] private float animationDuration = 1.0f; // Duración de la animación en segundos
-    [SerializeField] private AudioSource musicSource; // AudioSource para la música de fondo
-    [SerializeField] private float fadeOutDuration = 1.0f; // Duración del fade out en segundos
+    [SerializeField] private Animator animator; // Animator for the transition animation
+    [SerializeField] private float animationDuration = 1.0f; // Duration of the animation in seconds
+    [SerializeField] private AudioSource musicSource; // AudioSource for the background music
+    [SerializeField] private float fadeOutDuration = 1.0f; // Duration of the fade-out in seconds
 
     private void Start()
     {
-        // Busca el AudioSource en la MainCamera si no está asignado manualmente
+        // Looks for the AudioSource on the MainCamera if it's not manually assigned
         if (musicSource == null)
         {
-            Camera mainCamera = Camera.main; // Obtiene la cámara principal
+            Camera mainCamera = Camera.main; // Get the main camera
             if (mainCamera != null)
             {
                 musicSource = mainCamera.GetComponent<AudioSource>();
@@ -25,27 +25,27 @@ public class TitleScreen : MonoBehaviour
 
             if (musicSource == null)
             {
-                Debug.LogWarning("No se encontró un AudioSource en la MainCamera. No se realizará el fade out.");
+                Debug.LogWarning("No AudioSource found on the MainCamera. Fade out will not be performed.");
             }
         }
 
         if (animator == null)
         {
-            Debug.LogError("No se asignó un Animator. Por favor, asigna uno en el Inspector.");
+            Debug.LogError("No Animator assigned. Please assign one in the Inspector.");
         }
 
         if (PauseMenu.storySelectorActive)
         {
             storySelector.SetActive(true);
             menuPrincipal.SetActive(false);
-            PauseMenu.storySelectorActive = false; // Resetear la bandera
+            PauseMenu.storySelectorActive = false; // Reset the flag
         }
     }
 
     public void Play()
     {
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
-        // Activa el storySelector y desactiva el menuPrincipal
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Reset cursor before changing scene
+        // Activates the storySelector and deactivates the menuPrincipal
         if (storySelector != null)
         {
             storySelector.SetActive(true);
@@ -53,14 +53,14 @@ public class TitleScreen : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se asignó un storySelector. No se puede activar.");
+            Debug.LogWarning("No storySelector assigned. Cannot activate.");
         }
-       // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
+        // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
     }
 
     public void Options()
     {
-        // Activa el storySelector y desactiva el menuPrincipal
+        // Activates the options and deactivates the menuPrincipal
         if (options != null)
         {
             options.SetActive(true);
@@ -68,40 +68,40 @@ public class TitleScreen : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se asignó un storySelector. No se puede activar.");
+            Debug.LogWarning("No options assigned. Cannot activate.");
         }
         // StartCoroutine(PlayAnimationAndChangeScene("Transition Beginning"));
     }
 
     public void Exit()
     {
-        Debug.Log("Saliendo...");
+        Debug.Log("Exiting...");
         Application.Quit();
     }
 
-    
+
     private IEnumerator PlayAnimationAndChangeScene(string sceneName)
     {
-        // Comienza el fade out de la música
+        // Starts the fade-out of the music
         if (musicSource != null)
         {
             StartCoroutine(FadeOutMusic());
         }
 
-        // Activa la animación de transición
+        // Activates the transition animation
         if (animator != null)
         {
             animator.SetTrigger("StartTransition");
         }
         else
         {
-            Debug.LogWarning("No se asignó un Animator. Continuando sin transición visual.");
+            Debug.LogWarning("No Animator assigned. Continuing without visual transition.");
         }
 
-        // Espera el tiempo que dura la animación antes de cargar la escena
+        // Waits for the animation duration before loading the scene
         yield return new WaitForSeconds(animationDuration);
 
-        // Carga la nueva escena
+        // Loads the new scene
         SceneManager.LoadScene(sceneName);
     }
 
@@ -116,8 +116,6 @@ public class TitleScreen : MonoBehaviour
         }
 
         musicSource.volume = 0;
-        musicSource.Stop(); // Detiene el audio completamente
+        musicSource.Stop(); // Completely stops the audio
     }
-    
 }
-

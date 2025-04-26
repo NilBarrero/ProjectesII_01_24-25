@@ -14,30 +14,30 @@ public class Controller : MonoBehaviour
     public float minDistance;
     public bool teleport = false;
 
-    // Variables para animación y música
+    // Variables for animation and music
     public Animator transitionAnimator;
     public AudioSource musicSource;
     public float fadeOutDuration = 1f;
 
-    // Referencia al AudioSource para el sonido de movimiento
-    public AudioSource movementAudioSource; // Ahora es solo un AudioSource, no un AudioClip
+    // Reference to the AudioSource for the movement sound
+    public AudioSource movementAudioSource; // Now it's just an AudioSource, not an AudioClip
 
     void Start()
     {
         if (A_B == null || A_B.Length == 0)
         {
-            Debug.LogError("A_B no está asignado o está vacío.");
+            Debug.LogError("A_B is not assigned or is empty.");
         }
 
         if (ship == null)
         {
-            Debug.LogError("El ship no está asignado.");
+            Debug.LogError("The ship is not assigned.");
         }
 
-        // Aseguramos que el AudioSource de movimiento esté configurado
+        // Make sure the movement AudioSource is set up
         if (movementAudioSource == null)
         {
-            Debug.LogError("El AudioSource de movimiento no está asignado.");
+            Debug.LogError("The movement AudioSource is not assigned.");
         }
     }
 
@@ -66,12 +66,12 @@ public class Controller : MonoBehaviour
         botonPulsado.haSidoPulsado = false;
     }
 
-    // Método que mueve el GameObject a una nueva posición y reproduce el sonido
+    // Method to move the GameObject to a new position and play the sound
     private void MoveToPosition(Vector3 targetPosition)
     {
         transform.position = targetPosition;
 
-        // Reproduce el sonido de movimiento cada vez que el objeto se mueve
+        // Play the movement sound every time the object moves
         if (movementAudioSource != null)
         {
             movementAudioSource.Play();

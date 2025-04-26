@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SplashScreen : MonoBehaviour
 {
-    public Animator animator; // Asigna el Animator en el Inspector
-    public float displayTime = 3f; // Tiempo en pantalla antes de la animación
+    public Animator animator; // Assign the Animator in the Inspector
+    public float displayTime = 3f; // Time on screen before the animation
 
     void Start()
     {
@@ -18,14 +18,14 @@ public class SplashScreen : MonoBehaviour
         yield return new WaitForSeconds(displayTime);
         animator.SetTrigger("StartTransition");
 
-        // Espera un poco más para ver si cambia de escena
+        // Wait a bit more to see if the scene changes
         yield return new WaitForSeconds(2f);
         LoadNextScene();
     }
 
-    // Este método se llamará al final de la animación
+    // This method will be called at the end of the animation
     public void LoadNextScene()
     {
-        SceneManager.LoadScene("Menu Principal"); // Cambia de escena
+        SceneManager.LoadScene("Menu Principal"); // Change scene
     }
 }

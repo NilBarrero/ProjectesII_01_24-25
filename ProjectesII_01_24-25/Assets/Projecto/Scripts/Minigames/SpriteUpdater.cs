@@ -3,30 +3,30 @@ using UnityEngine.UI;
 
 public class SpriteUpdater : MonoBehaviour
 {
-    public RockPaperScissors gameLogic; // Referencia al script principal
+    public RockPaperScissors gameLogic; // Reference to the main game logic script
 
-    public Image playerImage; // Imagen para mostrar la elección del jugador
-    public Image rivalImage; // Imagen para mostrar la elección del rival
-    public Image puntuacionRivalImage; // Imagen para mostrar la puntuación del rival
-    public Image puntuacionPlayerImage; // Imagen para mostrar la puntuación del jugador
+    public Image playerImage; // Image to display the player's choice
+    public Image rivalImage; // Image to display the rival's choice
+    public Image puntuacionRivalImage; // Image to display the rival's score
+    public Image puntuacionPlayerImage; // Image to display the player's score
 
-    // Sprites específicos para el jugador
-    public Sprite playerPiedraSprite;
-    public Sprite playerPapelSprite;
-    public Sprite playerTijeraSprite;
+    // Specific sprites for the player
+    public Sprite playerPiedraSprite; // Sprite for rock
+    public Sprite playerPapelSprite;  // Sprite for paper
+    public Sprite playerTijeraSprite; // Sprite for scissors
 
-    // Sprites específicos para el rival
-    public Sprite rivalPiedraSprite;
-    public Sprite rivalPapelSprite;
-    public Sprite rivalTijeraSprite;
+    // Specific sprites for the rival
+    public Sprite rivalPiedraSprite;  // Sprite for rival's rock
+    public Sprite rivalPapelSprite;   // Sprite for rival's paper
+    public Sprite rivalTijeraSprite;  // Sprite for rival's scissors
 
-    public Sprite[] scoreSprites; // Array de sprites para las puntuaciones (0, 1, 2, 3)
+    public Sprite[] scoreSprites; // Array of sprites for the scores (0, 1, 2, 3)
 
-    public Material spriteMaterial; // Material con el shader que se aplicará a los sprites
+    public Material spriteMaterial; // Material with the shader that will be applied to the sprites
 
     void Start()
     {
-        // Asigna el material al inicio del juego
+        // Assign the material to the images at the start of the game
         AssignMaterialToImages();
     }
 
@@ -34,25 +34,25 @@ public class SpriteUpdater : MonoBehaviour
     {
         if (gameLogic != null)
         {
-            // Actualizar la elección del jugador
+            // Update the player's choice image
             if (playerImage != null)
                 playerImage.sprite = GetPlayerChoiceSprite(gameLogic.player);
 
-            // Actualizar la elección del rival
+            // Update the rival's choice image
             if (rivalImage != null)
                 rivalImage.sprite = GetRivalChoiceSprite(gameLogic.rival);
 
-            // Actualizar la puntuación del rival
+            // Update the rival's score image
             if (puntuacionRivalImage != null)
                 puntuacionRivalImage.sprite = scoreSprites[gameLogic.puntuacionRival];
 
-            // Actualizar la puntuación del jugador
+            // Update the player's score image
             if (puntuacionPlayerImage != null)
                 puntuacionPlayerImage.sprite = scoreSprites[gameLogic.puntuacionPlayer];
         }
     }
 
-    // Asigna el material a las imágenes
+    // Assign the material to the images
     void AssignMaterialToImages()
     {
         if (spriteMaterial != null)
@@ -63,26 +63,26 @@ public class SpriteUpdater : MonoBehaviour
         }
     }
 
-    // Retorna el sprite correspondiente a la elección del jugador
+    // Returns the sprite corresponding to the player's choice
     Sprite GetPlayerChoiceSprite(int choice)
     {
         switch (choice)
         {
-            case 1: return playerPiedraSprite;
-            case 2: return playerPapelSprite;
-            case 3: return playerTijeraSprite;
+            case 1: return playerPiedraSprite;  // Rock
+            case 2: return playerPapelSprite;   // Paper
+            case 3: return playerTijeraSprite; // Scissors
             default: return null;
         }
     }
 
-    // Retorna el sprite correspondiente a la elección del rival
+    // Returns the sprite corresponding to the rival's choice
     Sprite GetRivalChoiceSprite(int choice)
     {
         switch (choice)
         {
-            case 1: return rivalPiedraSprite;
-            case 2: return rivalPapelSprite;
-            case 3: return rivalTijeraSprite;
+            case 1: return rivalPiedraSprite;  // Rival's rock
+            case 2: return rivalPapelSprite;   // Rival's paper
+            case 3: return rivalTijeraSprite;  // Rival's scissors
             default: return null;
         }
     }

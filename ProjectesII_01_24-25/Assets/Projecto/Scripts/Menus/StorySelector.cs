@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class StorySelector : MonoBehaviour
 {
-    [SerializeField] private FadeInOutMusic fadeMusic; // Referencia al script FadeInOutMusic.
+    [SerializeField] private FadeInOutMusic fadeMusic; // Reference to the FadeInOutMusic script.
     [SerializeField] private GameObject menuPrincipal;
     [SerializeField] private GameObject storySelector;
     public GameObject deliver1;
     public GameObject deliver1locked;
+
     public void Start()
     {
 
@@ -24,6 +25,7 @@ public class StorySelector : MonoBehaviour
 
         }
     }
+
     public void Exit()
     {
         if (menuPrincipal != null)
@@ -31,37 +33,33 @@ public class StorySelector : MonoBehaviour
 
             menuPrincipal.SetActive(true);
             storySelector.SetActive(false);
-           
-
         }
     }
+
     public void Prolog()
     {
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Reset cursor before changing scene
         fadeMusic.TriggerSceneChange("MenuTutorial");
     }
 
     public void FirstJob()
     {
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Resetear cursor antes de cambiar de escena
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Reset cursor before changing scene
         fadeMusic.TriggerSceneChange("MenuFirstJob");
     }
 
-    public void SecondJob() 
+    public void SecondJob()
     {
-        // Segunda entrega
+        // Second delivery
     }
 
     public void ThirdJob()
     {
-        // Tercera entrega
+        // Third delivery
     }
 
     public void ForthJob()
     {
-        // Cuarta entrega
+        // Fourth delivery
     }
-
 }
-
-

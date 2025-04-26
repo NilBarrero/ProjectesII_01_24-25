@@ -8,12 +8,12 @@ public class MinigameSelector : MonoBehaviour
     public string sceneName;
     public Button button;
     public GameObject pauseMenu;
-    public Animator transitionAnimator; // Animator para la animación de transición
-    public AudioSource musicSource; // Fuente de audio de la música
-    public AudioSource buttonAudioSource; // Fuente de audio para el sonido del botón
-    public AudioClip buttonClip; // Clip de sonido para el botón
-    public float transitionTime = 1f; // Tiempo de transición
-    public float musicFadeDuration = 1f; // Duración del fade-out de la música
+    public Animator transitionAnimator; // Animator for the transition animation
+    public AudioSource musicSource; // Audio source for background music
+    public AudioSource buttonAudioSource; // Audio source for button sound
+    public AudioClip buttonClip; // Sound clip for the button
+    public float transitionTime = 1f; // Transition duration
+    public float musicFadeDuration = 1f; // Music fade-out duration
 
     private void Start()
     {
@@ -23,13 +23,13 @@ public class MinigameSelector : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se asignó un botón en el inspector.");
+            Debug.LogWarning("Button not assigned in the inspector.");
         }
     }
 
     public void ChangeScene()
     {
-        // Comprobar si el color del botón es negro
+        // Check if the button color is not black
         if (button != null && button.image.color != Color.black)
         {
             if (!string.IsNullOrEmpty(sceneName))
@@ -41,7 +41,7 @@ public class MinigameSelector : MonoBehaviour
                     pauseMenu.SetActive(false);
                 }
 
-                // Reproducir sonido del botón
+                // Play button sound
                 if (buttonAudioSource != null && buttonClip != null)
                 {
                     buttonAudioSource.PlayOneShot(buttonClip);
@@ -51,7 +51,7 @@ public class MinigameSelector : MonoBehaviour
             }
             else
             {
-                Debug.LogError("El nombre de la escena no está configurado.");
+                Debug.LogError("Scene name is not set.");
             }
         }
     }
@@ -68,7 +68,7 @@ public class MinigameSelector : MonoBehaviour
             StartCoroutine(FadeOutMusic());
         }
 
-        // Esperar el mayor tiempo entre la animación y el fade-out
+        // Wait for the longer of the transition or fade-out times
         float waitTime = Mathf.Max(transitionTime, musicFadeDuration);
         yield return new WaitForSeconds(waitTime);
 
