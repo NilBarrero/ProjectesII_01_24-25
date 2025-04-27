@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class LeerNumeros : MonoBehaviour
+public class ReadNumbers : MonoBehaviour
 {
     public int numberOfElements = 75;
-    private string saveFilePath; // Ruta del archivo de guardado
-    public List<int> unlockedScenes = new List<int>(); // Lista para almacenar las IDs de las escenas desbloqueadas
+    private string saveFilePath; // Path to the save file
+    public List<int> unlockedScenes = new List<int>(); // List to store the unlocked scene IDs
     public List<GameObject> gameObjectsList;
     public bool tutorialFinal = false;
 
     void Start()
     {
-        // Definimos la ruta del archivo de guardado
+        // Define the save file path
         saveFilePath = Application.persistentDataPath + "/Path.txt";
         Debug.Log("Save File Path: " + saveFilePath);
         if (File.Exists(saveFilePath))
         {
             string fileContent = File.ReadAllText(saveFilePath);
-            Debug.Log("File Content: " + fileContent);  // Verifica el contenido
+            Debug.Log("File Content: " + fileContent);  // Verify the content
         }
         else
         {
-            Debug.LogWarning("El archivo de guardado no existe.");
+            Debug.LogWarning("The save file does not exist.");
         }
 
-        // Cargamos las escenas desbloqueadas desde el archivo
+        // Load the unlocked scenes from the file
         LoadUnlockedScenes();
-
     }
 
-    // Método para cargar las escenas desbloqueadas desde el archivo
+    // Method to load unlocked scenes from the file
     void LoadUnlockedScenes()
     {
-        if (File.Exists(saveFilePath)) // Verificamos si el archivo existe
+        if (File.Exists(saveFilePath)) // Check if the file exists
         {
             if (tutorialFinal)
             {
@@ -43,36 +42,36 @@ public class LeerNumeros : MonoBehaviour
                 gameObjectsList[71].SetActive(true);
             }
 
-            // Leemos todo el contenido del archivo de texto
+            // Read all content from the text file
             string fileContent = File.ReadAllText(saveFilePath);
 
-            // Separamos el contenido usando el espacio como delimitador
+            // Split the content using space as a delimiter
             string[] sceneIDs = fileContent.Split(' ');
 
-            // Convertimos cada fragmento (que es una ID de escena) a un número entero y lo añadimos a la lista si está dentro del rango
+            // Convert each fragment (which is a scene ID) to an integer and add it to the list if it's within range
             foreach (string sceneID in sceneIDs)
             {
-                // Aseguramos que no haya entradas vacías (por si hay espacios al final)
+                // Ensure there are no empty entries (in case there are trailing spaces)
                 if (!string.IsNullOrWhiteSpace(sceneID))
                 {
-                    int sceneIDInt = int.Parse(sceneID); // Convertimos la ID a número entero
+                    int sceneIDInt = int.Parse(sceneID); // Convert the ID to an integer
 
-                    // Verificamos si la escena está dentro del rango permitido (de 5 a 59)
+                    // Check if the scene ID is within the allowed range (from 0 to numberOfElements)
                     if (sceneIDInt >= 0 && sceneIDInt <= numberOfElements)
                     {
-                        unlockedScenes.Add(sceneIDInt); // Añadimos la ID a la lista
+                        unlockedScenes.Add(sceneIDInt); // Add the ID to the list
                         Debug.Log("Scene: " + sceneIDInt);
 
-                        // Usamos el sceneIDInt directamente como índice
-                        // Verificamos que la ID sea un índice válido para gameObjectsList
-                        if (sceneID != null) //Scene null
+                        // Use the sceneIDInt directly as an index
+                        // Verify that the ID is a valid index for gameObjectsList
+                        if (sceneID != null) // Scene null check
                         {
-                        gameObjectsList[sceneIDInt].SetActive(true); // Activamos el GameObject correspondiente
-                        Debug.Log("SceneID set active: " + sceneID);
+                            gameObjectsList[sceneIDInt].SetActive(true); // Activate the corresponding GameObject
+                            Debug.Log("SceneID set active: " + sceneID);
                         }
                         else
                         {
-                            Debug.LogWarning("No hay un GameObject en la posición correspondiente a la escena ID: " + sceneIDInt);
+                            Debug.LogWarning("There is no GameObject at the position corresponding to Scene ID: " + sceneIDInt);
                         }
                     }
                 }
@@ -80,23 +79,23 @@ public class LeerNumeros : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("El archivo de guardado no existe. (Check file path in PathLighter Script!)");
+            Debug.LogWarning("The save file does not exist. (Check file path in PathLighter Script!)");
         }
     }
 
-    void AsociateEveryGameObjectToSceneID()
+    void AssociateEveryGameObjectToSceneID()
     {
         foreach (var obj in gameObjectsList)
         {
-            // Ejemplo: Activar/desactivar cada objeto en la lista
-            obj.SetActive(false); // Por ejemplo, desactivamos todos los objetos
+            // Example: Activate/deactivate each object in the list
+            obj.SetActive(false); // For example, deactivate all objects
         }
     }
-    
 
-    // Método para verificar si una escena está desbloqueada
+
+    // Method to check if a scene is unlocked
     public bool IsSceneUnlocked(int sceneID)
     {
-        return unlockedScenes.Contains(sceneID); // Verificamos si la ID está en la lista
+        return unlockedScenes.Contains(sceneID); // Check if the ID is in the list
     }
 }
