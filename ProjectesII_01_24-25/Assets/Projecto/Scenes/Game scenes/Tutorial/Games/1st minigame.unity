@@ -312,7 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateDialogue: {fileID: 0}
-  activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 0}
@@ -648,10 +647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2069431251}
   background: {fileID: 2069431251}
-  endYPositions: 7
+  endYPosition: 1000
   animationDuration: 0.4
   stayingTime: 1.5
-  timeIsUp: 0
 --- !u!1001 &775310655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,7 +660,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 77367481875723281, guid: 03da214c878d11d4f9432219ecbc7242, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 77367481875723281, guid: 03da214c878d11d4f9432219ecbc7242, type: 3}
       propertyPath: m_LocalPosition.x
@@ -713,6 +711,86 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03da214c878d11d4f9432219ecbc7242, type: 3}
+--- !u!1001 &865057293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4921936722648835166, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_Name
+      value: Pause Menu Tutorial (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: botonPausa
+      value: 
+      objectReference: {fileID: 945901302}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750600670696976903, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+      propertyPath: sceneNumber
+      value: 71
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+--- !u!114 &865057294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
+  m_PrefabInstance: {fileID: 865057293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ffc2ec1a111da4d9772560f9f30a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &945901302
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +889,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006822974}
+      - m_Target: {fileID: 865057294}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pausa
         m_Mode: 1
@@ -861,118 +939,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945901302}
   m_CullTransparentMesh: 1
---- !u!1001 &1006822973
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 876645556573503182, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.90588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 876645556573503182, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_Color.r
-      value: 0.19215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 2798986853134021859, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.17254902
-      objectReference: {fileID: 0}
-    - target: {fileID: 2798986853134021859, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_Color.r
-      value: 0.90588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 4921936722648835166, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_Name
-      value: Pause Menu Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: botonPausa
-      value: 
-      objectReference: {fileID: 945901302}
-    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: objetosConLogica.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: objetosConLogica.Array.data[0]
-      value: 
-      objectReference: {fileID: 1923806446}
-    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: objetosConLogica.Array.data[1]
-      value: 
-      objectReference: {fileID: 107784835}
-    - target: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: objetosConLogica.Array.data[2]
-      value: 
-      objectReference: {fileID: 1226254819}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840128604579143912, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8750600670696976903, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-      propertyPath: sceneNumber
-      value: 75
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
---- !u!114 &1006822974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6020146723429071227, guid: 852e4ec3f395e4641b934234dd38e91a, type: 3}
-  m_PrefabInstance: {fileID: 1006822973}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ffc2ec1a111da4d9772560f9f30a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1098660191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,7 +1268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateDialogue: {fileID: 0}
-  activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 0}
@@ -1921,7 +1886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateDialogue: {fileID: 0}
-  activeDialogueActive: 0
   dialogueinactive: {fileID: 0}
   highlightColor: {r: 0.6627451, g: 0.9843137, b: 0.9019608, a: 1}
   particles: {fileID: 0}
