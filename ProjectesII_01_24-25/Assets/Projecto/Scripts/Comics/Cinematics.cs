@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Cinematics : MonoBehaviour
 {
-    public float endYPosition = 0f; // Final position on the Y axis
-    public float animationDuration = 1f; // Duration of the animation
-    public AudioClip moveAudioClip; // Audio clip
+    public float endYPosition = 0f; 
+    public float animationDuration = 1f; 
+    public AudioClip moveAudioClip;
 
-    private RectTransform rectTransform; // Reference to the RectTransform
+    private RectTransform rectTransform; 
 
     private void Start()
     {
@@ -28,7 +28,6 @@ public class Cinematics : MonoBehaviour
         Vector2 startPosition = rectTransform.anchoredPosition;
         Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
 
-        // Play the sound from AudioManager if a clip is assigned
         if (moveAudioClip != null)
         {
             AudioManager.instance.PlaySFX(moveAudioClip);
@@ -43,6 +42,6 @@ public class Cinematics : MonoBehaviour
             yield return null;
         }
 
-        rectTransform.anchoredPosition = endPosition; // Ensure the exact final position
+        rectTransform.anchoredPosition = endPosition; 
     }
 }

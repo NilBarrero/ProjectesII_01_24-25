@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ButtonScriptInMap : MonoBehaviour
 {
-    public GameObject[] gameObjectsToActivate; // Array to store the game objects to activate/deactivate
+    public GameObject[] gameObjectsToActivate; 
 
-    // Function that is called when the button is clicked
     public void Activate()
     {
         Debug.Log("Activate() was called!");
@@ -15,8 +14,8 @@ public class ButtonScriptInMap : MonoBehaviour
         {
             if (obj != null)
             {
-                Debug.Log("Activating: " + obj.name); // Check which object you are activating
-                obj.SetActive(true); // Activate the game object
+                Debug.Log("Activating: " + obj.name); 
+                obj.SetActive(true); 
             }
         }
     }
