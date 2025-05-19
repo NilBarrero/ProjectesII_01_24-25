@@ -1,47 +1,33 @@
-using System.Collections;
 using UnityEngine;
 
 public class Cinematics : MonoBehaviour
 {
-    public float endYPosition = 0f; 
-    public float animationDuration = 1f; 
+    public float endYPosition = 0f;
+    public float animationDuration = 1f;
     public AudioClip moveAudioClip;
-
-    private RectTransform rectTransform; 
 
     private void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-
-        if (rectTransform != null)
-        {
-            StartCoroutine(AnimateImage());
-        }
+        if (TryGetComponent(out RectTransform rectTransform))
+            StartCoroutine(Animate(rectTransform));
         else
-        {
-            Debug.LogWarning("CinematicAnimator requires a RectTransform component on the GameObject.");
-        }
+            Debug.LogWarning("CinematicAnimator requires a RectTransform component.");
     }
 
-    private IEnumerator AnimateImage()
+    private System.Collections.IEnumerator Animate(RectTransform rectTransform)
     {
-        Vector2 startPosition = rectTransform.anchoredPosition;
-        Vector2 endPosition = new Vector2(startPosition.x, endYPosition);
+        Vector2 start = rectTransform.anchoredPosition;
+        Vector2 end = new(start.x, endYPosition);
 
-        if (moveAudioClip != null)
+        if (moveAudioClip) AudioManager.instance.PlaySFX(moveAudioClip);
+
+        for (float t = 0; t < animationDuration; t += Time.deltaTime)
         {
-            AudioManager.instance.PlaySFX(moveAudioClip);
-        }
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < animationDuration)
-        {
-            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, elapsedTime / animationDuration);
-            elapsedTime += Time.deltaTime;
+            rectTransform.anchoredPosition = Vector2.Lerp(start, end, t / animationDuration);
             yield return null;
         }
 
-        rectTransform.anchoredPosition = endPosition; 
+        rectTransform.anchoredPosition = end;
     }
 }
+

@@ -1,61 +1,45 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChangeOnClick : MonoBehaviour
 {
-    public int clicksRequired = 1; 
+    public int clicksRequired = 1;
     public string sceneToLoad;
-    public Animator transitionAnimator; 
-    public AudioSource musicSource; 
-    public float fadeOutDuration = 0f; 
-    public PauseMenu pauseMenu; 
+    public Animator transitionAnimator;
+    public AudioSource musicSource;
+    public float fadeOutDuration = 0f;
 
-    private int clickCount = 0; 
+    private int clickCount = 0;
     private bool isTransitioning = false;
-    private bool menuOpenedAtLeastOnce = false; 
 
     void OnMouseDown()
     {
-        if (isTransitioning) return; 
-
-        clickCount++;
-
-        if (clickCount >= clicksRequired)
-        {
-            StartCoroutine(ChangeScene());
-        }
+        if (isTransitioning || ++clickCount < clicksRequired) return;
+        StartCoroutine(ChangeScene());
     }
 
-    IEnumerator ChangeScene()
+    private System.Collections.IEnumerator ChangeScene()
     {
         isTransitioning = true;
 
-        if (transitionAnimator != null)
-        {
-            transitionAnimator.SetTrigger("StartTransition");
-        }
+        transitionAnimator?.SetTrigger("StartTransition");
 
-        if (musicSource != null)
+        if (musicSource)
         {
             float startVolume = musicSource.volume;
-            float t = 0;
-
-            while (t < fadeOutDuration)
+            for (float t = 0; t < fadeOutDuration; t += Time.deltaTime)
             {
-                t += Time.deltaTime;
                 musicSource.volume = Mathf.Lerp(startVolume, 0, t / fadeOutDuration);
                 yield return null;
             }
-
             musicSource.volume = 0;
             musicSource.Stop();
         }
-    
-        yield return new WaitForSeconds(1.5f);
 
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneToLoad);
     }
 }
+
 
 

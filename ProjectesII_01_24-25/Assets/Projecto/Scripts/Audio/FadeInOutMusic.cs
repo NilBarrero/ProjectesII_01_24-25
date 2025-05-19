@@ -1,69 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FadeInOutMusic : MonoBehaviour
 {
-    [SerializeField] private AudioSource musicSource; 
-    [SerializeField] private float fadeDuration = 5f; 
-    private float targetVolume; 
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private float fadeDuration = 5f;
+    private float targetVolume;
 
     private void Start()
     {
-        if (musicSource == null)
+        if (!musicSource)
         {
-            Debug.LogError("No AudioSource assigned to the FadeInOutMusic script.");
+            Debug.LogError("No AudioSource assigned.");
             return;
         }
 
         targetVolume = musicSource.volume;
         musicSource.volume = 0f;
-
-        if (!musicSource.isPlaying)
-        {
-            musicSource.Play();
-        }
-
-        StartCoroutine(FadeIn());
+        if (!musicSource.isPlaying) musicSource.Play();
+        StartCoroutine(FadeVolume(0f, targetVolume));
     }
 
-    private System.Collections.IEnumerator FadeIn()
+    public void TriggerSceneChange(string sceneName) =>
+        StartCoroutine(FadeOutAndLoad(sceneName));
+
+    private System.Collections.IEnumerator FadeOutAndLoad(string sceneName)
     {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < fadeDuration)
-        {
-            musicSource.volume = Mathf.Lerp(0f, targetVolume, elapsedTime / fadeDuration);
-            elapsedTime += Time.deltaTime;
-
-            yield return null;
-        }
-
-        musicSource.volume = targetVolume;
-    }
-
-    public void TriggerSceneChange(string sceneName)
-    {
-        StartCoroutine(FadeOutAndChangeScene(sceneName));
-    }
-
-    private System.Collections.IEnumerator FadeOutAndChangeScene(string sceneName)
-    {
-        float elapsedTime = 0f;
-        float startVolume = musicSource.volume;
-
-        while (elapsedTime < fadeDuration)
-        {
-            musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / fadeDuration);
-            elapsedTime += Time.deltaTime;
-
-            yield return null;
-        }
-
-        musicSource.volume = 0f;
-
+        yield return StartCoroutine(FadeVolume(musicSource.volume, 0f));
         SceneManager.LoadScene(sceneName);
     }
+
+    private System.Collections.IEnumerator FadeVolume(float from, float to)
+    {
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(from, to, t / fadeDuration);
+            yield return null;
+        }
+        musicSource.volume = to;
+    }
 }
+
 
