@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class FondoMove : MonoBehaviour
 {
-    public float velocidad = 1f; // Base velocity
+    public float velocity = 1f; // Base velocity
     public float velAccelerate = 3f; // Acceleration speed
     public float time = 0.5f; // Acceleration time
-    private float velocidadOriginal; // Original speed
-    public bool huirMinigame = false; // Whether the minigame is active
+    private float originalVel; // Original speed
+    public bool fleeMinigame = false; // Whether the minigame is active
     public PressedChanged pressed;
 
     private bool isSpeedingUp = false; // Ensures that only one speed change occurs at a time
-    private bool haAcelerado = false; // To verify if it has already accelerated
+    private bool hasAccelerated = false; // To verify if it has already accelerated
 
     void Start()
     {
-        velocidadOriginal = velocidad; // Save the initial speed
+        originalVel = velocity; // Save the initial speed
     }
 
     void Update()
     {
         // Move the background to the left using the current speed
-        Vector2 movimiento = Vector2.left * velocidad * Time.deltaTime;
+        Vector2 movimiento = Vector2.left * velocity * Time.deltaTime;
         transform.position = (Vector2)transform.position + movimiento;
 
         // If the minigame is active and acceleration hasn't started, accelerate
-        if (huirMinigame && !isSpeedingUp)
+        if (fleeMinigame && !isSpeedingUp)
         {
             AumentarVelocidadTemporal(velAccelerate, time);
         }
 
         // If the button has been pressed and hasn't accelerated yet, start acceleration
-        if (pressed.haSidoPulsado && !haAcelerado)
+        if (pressed.haSidoPulsado && !hasAccelerated)
         {
             StartCoroutine(AumentarVelocidadCoroutine(velAccelerate, time));
-            haAcelerado = true; // Mark that it has already accelerated
+            hasAccelerated = true; // Mark that it has already accelerated
         }
 
         // Reset the background's position if it goes off-screen
@@ -56,10 +56,10 @@ public class FondoMove : MonoBehaviour
 
     private IEnumerator AumentarVelocidadCoroutine(float nuevaVelocidad, float duracion)
     {
-        velocidad = nuevaVelocidad; // Switch to the new acceleration speed
+        velocity = nuevaVelocidad; // Switch to the new acceleration speed
         yield return new WaitForSeconds(duracion); // Wait for the acceleration duration
-        velocidad = velocidadOriginal; // Restore the original speed
+        velocity = originalVel; // Restore the original speed
         isSpeedingUp = false; // Reset the flag
-        haAcelerado = false; // Allow acceleration again next time
+        hasAccelerated = false; // Allow acceleration again next time
     }
 }

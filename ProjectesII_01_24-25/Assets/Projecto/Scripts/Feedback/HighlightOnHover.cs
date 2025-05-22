@@ -30,12 +30,16 @@ public class HighlightOnHover : MonoBehaviour
         {
             particles.Stop();
         }
+        else
+        {
+
+        }
     }
 
     private void Update()
     {
         // Update the dialogue state
-        if (activateDialogue.activeSelf)
+        if (activateDialogue.activeSelf && dialogueinactive != null)
         {
             dialogueinactive.SetActive(false);
         }
