@@ -10,14 +10,14 @@ public class move_A_B : MonoBehaviour
     public bool teleport = false;
     private int next = 0;
     private SpriteRenderer spriteRenderer;
-    // Start is called before the first frame update
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         Turn();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, A_B[next].position, speedMov * Time.deltaTime);
