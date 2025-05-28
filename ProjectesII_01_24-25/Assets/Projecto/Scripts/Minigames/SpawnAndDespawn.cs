@@ -5,59 +5,55 @@ using UnityEngine;
 public class SpawnAndDespawn : MonoBehaviour
 {
     public Transform[] A_B; // Positions A and B where the object can spawn
-    public float spawnDelay = 0.02f; // Delay between spawns
-    private float timer = 0f; // Timer to control spawn time
-    private int actualPosition = 0; // Stores the last spawned position
-    public float newSpeed; // New speed for the background
-    public float changeSpeed; // Duration for the speed change
+    public float spawnDelay = 0.02f; 
+    private float timer = 0f; 
+    private int actualPosition = 0; 
+    public float newSpeed; 
+    public float changeSpeed; 
 
-    private Rigidbody2D rb; // Rigidbody2D component of the object
-    private FondoMove fondoMove; // Reference to the FondoMove script
+    private Rigidbody2D rb; 
+    private FondoMove fondoMove; 
 
     void Start()
     {
         if (A_B == null || A_B.Length == 0)
         {
             Debug.LogError("A_B is not assigned or is empty.");
-            enabled = false; // Disables the script if A_B is not set properly
+            enabled = false; 
             return;
         }
 
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component of the object
-        fondoMove = FindObjectOfType<FondoMove>(); // Automatically finds the FondoMove script
+        rb = GetComponent<Rigidbody2D>(); 
+        fondoMove = FindObjectOfType<FondoMove>(); 
     }
 
     void Update()
     {
-        timer += Time.deltaTime; // Increment timer with elapsed time
+        timer += Time.deltaTime; 
 
         if (timer > spawnDelay)
         {
-            // Generate a new random position different from the current one
             int num;
             do
             {
-                num = Random.Range(0, A_B.Length); // Generate a random number between 0 and the length of A_B
-            } while (num == actualPosition); // Ensure the new position is different from the previous one
+                num = Random.Range(0, A_B.Length); 
+            } while (num == actualPosition); 
 
-            actualPosition = num; // Update the current position
-
-            // Move the object to the new position using Rigidbody2D
+            actualPosition = num; 
+         
             rb.position = A_B[num].position;
 
-            timer = 0f; // Reset the timer
+            timer = 0f; 
         }
     }
 
-    // Detect when the object is clicked
     private void OnMouseDown()
     {
         Debug.Log("Object clicked");
 
         if (fondoMove != null)
         {
-            // Temporarily increase the background speed
-            fondoMove.AumentarVelocidadTemporal(newSpeed, changeSpeed); // Change to speed 5 for 1 second
+            fondoMove.AumentarVelocidadTemporal(newSpeed, changeSpeed); 
         }
         else
         {

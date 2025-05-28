@@ -19,7 +19,7 @@ public class DetectPrefab : MonoBehaviour
     public AudioSource musicSource;
     public float fadeOutDuration = 2f;
 
-    public AudioClip detectionSound; // Sound effect when the prefab is detected
+    public AudioClip detectionSound; 
 
     private bool isTransitioning = false;
 
