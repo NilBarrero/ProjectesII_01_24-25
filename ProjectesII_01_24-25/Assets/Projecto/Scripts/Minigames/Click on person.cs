@@ -15,7 +15,7 @@ public class Clickonperson : MonoBehaviour
     public bool isArrow = false;
     public float despawnTime = .5f;
 
-    public AudioClip clickSound; // AudioClip instead of AudioSource
+    public AudioClip clickSound; 
 
     void Start()
     {

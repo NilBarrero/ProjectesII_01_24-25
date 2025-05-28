@@ -6,8 +6,8 @@ public class RockPaperScissors : MonoBehaviour
 {
     public int rival; // Rival's choice (1 = Rock, 2 = Paper, 3 = Scissors)
     public int player; // Player's choice (1 = Rock, 2 = Paper, 3 = Scissors)
-    public int puntuacionRival; // Rival's score
-    public int puntuacionPlayer; // Player's score
+    public int puntuacionRival; 
+    public int puntuacionPlayer; 
     public float change;
     public string scene1;
     public string scene2;
@@ -18,14 +18,14 @@ public class RockPaperScissors : MonoBehaviour
     private float playerTimer = 0.0f; // Timer to alternate player's choice
 
     // Animation and music variables
-    public Animator transitionAnimator;  // Reference to the Animator for animation
-    public AudioSource musicSource;      // Reference to the music source
-    public float fadeOutDuration = 1f;   // Music fade-out duration
+    public Animator transitionAnimator;  
+    public AudioSource musicSource;      
+    public float fadeOutDuration = 1f;   
 
     // Audio sources for each rival's choice
-    public AudioSource piedraSource;  // AudioSource for rock
-    public AudioSource papelSource;   // AudioSource for paper
-    public AudioSource tijeraSource;  // AudioSource for scissors
+    public AudioSource piedraSource;  // rock sound
+    public AudioSource papelSource;   // paper sound
+    public AudioSource tijeraSource;  // scissors sound
 
     public AudioSource audioSource; // AudioSource for playing sounds
 
@@ -35,7 +35,6 @@ public class RockPaperScissors : MonoBehaviour
         text1.SetActive(false);
         text2.SetActive(false);
 
-        // Assign AudioSource component if it's not already assigned
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -44,7 +43,7 @@ public class RockPaperScissors : MonoBehaviour
 
     void Update()
     {
-        // Alternate the player's choice every 0.9 seconds
+        // Alternate the player's choice 
         playerTimer += Time.deltaTime;
         if (playerTimer >= change)
         {
@@ -78,10 +77,8 @@ public class RockPaperScissors : MonoBehaviour
             StartCoroutine(Desactive(time));
         }
 
-        // Reset the rival's choice
         ResetRival();
 
-        // Check if someone has won
         if (puntuacionPlayer > 2)
         {
             Debug.Log("Player wins the game!");
@@ -136,20 +133,23 @@ public class RockPaperScissors : MonoBehaviour
         int num = rival;
         while (rival == num)
         {
-            rival = Random.Range(1, 4); // Generate a random number between 1 and 3
+            rival = Random.Range(1, 4); 
         }
 
-        if (rival == 1)
+        //Play sound
+        switch (rival)
         {
-            piedraSource.Play(); // Play sound for rock
-        }
-        else if (rival == 2)
-        {
-            papelSource.Play(); // Play sound for paper
-        }
-        else if (rival == 3)
-        {
-            tijeraSource.Play(); // Play sound for scissors
+            case 1:
+                piedraSource.Play(); 
+                break;
+
+            case 2:
+                papelSource.Play(); 
+                break;
+
+            case 3:
+                tijeraSource.Play();
+                break;
         }
     }
 }
