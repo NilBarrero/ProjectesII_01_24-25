@@ -22,7 +22,7 @@ public class Deletealldata : MonoBehaviour
         PlayerPrefs.SetInt("finished", 1);
         PlayerPrefs.SetInt("LastScene", 0);
         PlayerPrefs.Save();
-        Debug.Log("Todos los PlayerPrefs han sido borrados.");
+        Debug.Log("All prefabs has been eliminated.");
         SceneManager.LoadScene(MainMenuScene);
     }
 }

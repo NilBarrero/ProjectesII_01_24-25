@@ -16,12 +16,8 @@ public class Flecha : MonoBehaviour
 
         if (numberOfArrow == lastScene)
         {
-            Debug.Log("La flecha debe ser activada.");
+            Debug.Log("Arrow activated");
             arrow.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("La flecha no se activa.");
         }
     }
 }

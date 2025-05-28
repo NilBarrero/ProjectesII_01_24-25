@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CerrarPopup : MonoBehaviour
 {
-    [Tooltip("Objeto a destruir al hacer clic (normalmente el padre)")]
+    [Tooltip("Destroy object when clicking (Normally the Parent)")]
     public GameObject objetoADestruir;
 
     public void Destruir()
@@ -15,7 +15,7 @@ public class CerrarPopup : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el objeto a destruir.");
+            Debug.LogWarning("Object not asigned when destroying object");
         }
     }
 
