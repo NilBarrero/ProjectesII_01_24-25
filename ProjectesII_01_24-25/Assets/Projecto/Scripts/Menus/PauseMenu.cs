@@ -13,10 +13,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        canvasGroup = menuPausa.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
+        if (menuPausa != null)
         {
-            Debug.LogError("No se encontró un CanvasGroup en el menú de pausa.");
+
+            canvasGroup = menuPausa.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                Debug.LogError("No se encontró un CanvasGroup en el menú de pausa.");
+            }
         }
     }
 

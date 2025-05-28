@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-define const pos = 2;
+
 
 public class FondoMove : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class FondoMove : MonoBehaviour
     public bool fleeMinigame = false;
     public PressedChanged pressed;
 
-    private bool isSpeedingUp = false
+    private bool isSpeedingUp = false;
     private bool hasAccelerated = false;
 
     void Start()
@@ -41,7 +41,7 @@ public class FondoMove : MonoBehaviour
 
         if (transform.position.x <= -GetComponent<Renderer>().bounds.size.x)
         {
-            transform.position += new Vector3(GetComponent<Renderer>().bounds.size.x * pos, 0, 0);
+            transform.position += new Vector3(GetComponent<Renderer>().bounds.size.x * 2, 0, 0);
         }
     }
 

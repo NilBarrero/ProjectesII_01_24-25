@@ -4,11 +4,9 @@ using UnityEngine;
 public class HighlightOnHover : MonoBehaviour
 {
     private Renderer objectRenderer;
-    public GameObject activateDialogue;
-    public GameObject dialogueinactive;
     private Color originalColor;
     public Color highlightColor = Color.yellow;
-    public ParticleSystem particles;
+
 
     
     public Texture2D customCursor;
@@ -17,36 +15,18 @@ public class HighlightOnHover : MonoBehaviour
     void Start()
     {
         
-        if (activateDialogue != null)
-        {
-            activateDialogue.SetActive(false);
-        }
+
         objectRenderer = GetComponent<Renderer>();
         if (objectRenderer != null)
         {
             originalColor = objectRenderer.material.color;
-        }
-        if (particles != null)
-        {
-            particles.Stop();
-        }
-        else
-        {
-
         }
     }
 
     private void Update()
     {
         
-        if (activateDialogue.activeSelf && dialogueinactive != null)
-        {
-            dialogueinactive.SetActive(false);
-        }
-        else
-        {
-            dialogueinactive.SetActive(true);
-        }
+ 
     }
 
     void OnMouseEnter()
@@ -62,11 +42,6 @@ public class HighlightOnHover : MonoBehaviour
             UnityEngine.Cursor.SetCursor(customCursor, new Vector2(customCursor.width / 2, customCursor.height / 2), CursorMode.Auto);
         }
 
-        
-        if (!activateDialogue.activeSelf && particles != null)
-        {
-            StartCoroutine(Activate(2.5f, 0f, activateDialogue));
-        }
     }
 
     void OnMouseExit()
@@ -80,37 +55,10 @@ public class HighlightOnHover : MonoBehaviour
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
-    private IEnumerator Activate(float timeOut, float timeIn, GameObject gameobject)
-    {
-        
-        yield return new WaitForSeconds(timeIn);
-
-        
-        if (particles != null)
-        {
-            particles.Play();
-        }
-        gameobject.SetActive(true);
-
-        
-        yield return new WaitForSeconds(timeOut);
-
-        
-        if (particles != null)
-        {
-            particles.Stop();
-        }
-        gameobject.SetActive(false);
-    }
-
     
     void OnDestroy()
     {
-        
-        if (activateDialogue != null)
-        {
-            activateDialogue.SetActive(false);
-        }
+  
     }
 }
 

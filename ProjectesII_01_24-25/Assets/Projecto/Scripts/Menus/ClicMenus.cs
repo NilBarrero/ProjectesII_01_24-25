@@ -26,7 +26,7 @@ public class ClicMenus : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Button not assigned in the inspector.");
+           // Debug.LogError("Button not assigned in the inspector.");
         }
     }
 
