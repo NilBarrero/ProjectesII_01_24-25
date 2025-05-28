@@ -23,11 +23,11 @@ public class RockPaperScissors : MonoBehaviour
     public float fadeOutDuration = 1f;   
 
     // Audio sources for each rival's choice
-    public AudioSource piedraSource;  // rock sound
-    public AudioSource papelSource;   // paper sound
-    public AudioSource tijeraSource;  // scissors sound
+    public AudioSource piedraSource;  
+    public AudioSource papelSource;   
+    public AudioSource tijeraSource;  
 
-    public AudioSource audioSource; // AudioSource for playing sounds
+    public AudioSource audioSource; 
 
     void Start()
     {
@@ -54,7 +54,6 @@ public class RockPaperScissors : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Compare the choices and update scores
         if (player == rival)
         {
             Debug.Log("Draw");
@@ -136,7 +135,6 @@ public class RockPaperScissors : MonoBehaviour
             rival = Random.Range(1, 4); 
         }
 
-        //Play sound
         switch (rival)
         {
             case 1:
