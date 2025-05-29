@@ -18,7 +18,7 @@ public class ActivateanddeactivateSpeech : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isdeactivated)  // Añadir una comprobación null para evitar errores
+        if (!isdeactivated)
         {
             dialogue.SetActive(true);
         }

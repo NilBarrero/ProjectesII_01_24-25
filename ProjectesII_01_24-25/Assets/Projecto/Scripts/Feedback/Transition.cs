@@ -5,19 +5,18 @@ using System.IO;
 
 public class Transition : MonoBehaviour
 {
-    public string scene; // Name of the scene to load
-    public string tutorial; // Name of the tutorial scene to load
-    public Animator animator; // Animator that controls the transition animation
-    public float animationDuration = 1.0f; // Duration of the animation
-    public AudioSource musicSource; // Audio source for background music
-    public float fadeOutDuration = 1.0f; // Duration of the fade-out
-    public AudioClip clickSound; // Audio clip for the click
-    private string rutaArchivo; // Path to the save file
+    public string scene;
+    public string tutorial;
+    public Animator animator;
+    public float animationDuration = 1.0f;
+    public AudioSource musicSource;
+    public float fadeOutDuration = 1.0f;
+    public AudioClip clickSound;
+    private string rutaArchivo;
     public bool OneTimeOnly = false;
 
     private void Awake()
     {
-        // Initialize the path to the save file
         rutaArchivo = Application.persistentDataPath + "/EntryLog.txt";
     }
 
@@ -44,10 +43,9 @@ public class Transition : MonoBehaviour
     {
         if (clickSound != null)
         {
-            AudioManager.instance.PlaySFX(clickSound); // Use AudioManager to play the sound
+            AudioManager.instance.PlaySFX(clickSound);
         }
 
-        // Reset the cursor before changing the scene
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
         if (OneTimeOnly)
@@ -62,7 +60,7 @@ public class Transition : MonoBehaviour
 
     private IEnumerator PlayAnimationAndChangeScene()
     {
-        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Reset cursor before changing
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
         if (musicSource != null)
         {
@@ -75,7 +73,6 @@ public class Transition : MonoBehaviour
         }
 
         yield return new WaitForSeconds(animationDuration);
-
         SceneManager.LoadScene(scene);
     }
 
@@ -92,7 +89,6 @@ public class Transition : MonoBehaviour
         }
 
         yield return new WaitForSeconds(animationDuration);
-
         SceneManager.LoadScene(tutorial);
     }
 
@@ -105,7 +101,6 @@ public class Transition : MonoBehaviour
             musicSource.volume = Mathf.Lerp(startVolume, 0, t / fadeOutDuration);
             yield return null;
         }
-
         musicSource.volume = 0;
         musicSource.Stop();
     }

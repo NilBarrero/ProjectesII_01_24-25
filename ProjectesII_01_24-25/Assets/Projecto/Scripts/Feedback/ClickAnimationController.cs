@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ClickAnimationController : MonoBehaviour
 {
-    public List<GameObject> animatedObjects; // List of GameObjects to animate
+    public List<GameObject> animatedObjects;
     public List<float> endYPositions; // List of final Y positions for each GameObject
     public List<AudioClip> moveAudioClips; // List of unique sound effects for each object
     public float animationDuration = 1f; // Duration of the animation
 
-    private int currentObjectIndex = 0; // Index of the current object in the list
+    private int currentObjectIndex = 0;
     private bool isAnimating = false; // To prevent multiple clicks during animation
 
     private void Update()
@@ -27,7 +27,7 @@ public class ClickAnimationController : MonoBehaviour
 
         RectTransform rectTransform = obj.GetComponent<RectTransform>();
 
-        // Play the sound using AudioManager
+
         if (audioClip != null)
         {
             AudioManager.instance.PlaySFX(audioClip);

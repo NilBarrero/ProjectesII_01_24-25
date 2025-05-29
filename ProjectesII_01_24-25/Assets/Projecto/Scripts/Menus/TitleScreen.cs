@@ -31,7 +31,7 @@ public class TitleScreen : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.LogError("No Animator assigned. Please assign one in the Inspector.");
+            //Debug.LogError("No Animator assigned. Please assign one in the Inspector.");
         }
 
         if (PauseMenu.storySelectorActive)

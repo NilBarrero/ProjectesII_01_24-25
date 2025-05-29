@@ -6,32 +6,31 @@ using UnityEngine.Audio;
 
 public class Options : MonoBehaviour
 {
-    [SerializeField] private FadeInOutMusic fadeMusic; // Reference to the FadeInOutMusic script.
+    [SerializeField] private FadeInOutMusic fadeMusic;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private AudioMixer audioMixer;
 
-    private static Options instance; // Singleton pattern to avoid duplicates.
+    private static Options instance;
 
     void Awake()
     {
-        // Implement the Singleton pattern.
+        
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Do not destroy this object when changing scenes.
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Prevent duplicates.
+            Destroy(gameObject);
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reassign references when changing scenes.
-        mainMenu = GameObject.Find("MenuPrincipal"); // Adjust the name according to your scene.
-        optionsMenu = GameObject.Find("Options"); // Adjust the name according to your scene.
+        mainMenu = GameObject.Find("MenuPrincipal"); 
+        optionsMenu = GameObject.Find("Options");
     }
 
     void OnEnable()
@@ -61,13 +60,12 @@ public class Options : MonoBehaviour
     public void Sound(float volume)
     {
         audioMixer.SetFloat("MusicVol", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("Volume", volume); // Save the volume.
+        PlayerPrefs.SetFloat("Volume", volume);
         PlayerPrefs.Save();
     }
 
     void Start()
     {
-        // Load saved volume at startup.
         if (PlayerPrefs.HasKey("Volume"))
         {
             float savedVolume = PlayerPrefs.GetFloat("Volume");

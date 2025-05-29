@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DetectingPlayerPref : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject firstDedliver;
     void Start()
     {
@@ -17,7 +16,6 @@ public class DetectingPlayerPref : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
