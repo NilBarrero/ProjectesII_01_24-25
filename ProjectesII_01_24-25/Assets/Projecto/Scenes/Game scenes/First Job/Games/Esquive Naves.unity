@@ -5789,7 +5789,7 @@ GameObject:
   - component: {fileID: 976964625}
   - component: {fileID: 976964628}
   - component: {fileID: 976964627}
-  - component: {fileID: 976964626}
+  - component: {fileID: 976964629}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -5817,24 +5817,6 @@ RectTransform:
   m_AnchoredPosition: {x: 576, y: 514}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &976964626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976964624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e91db1180f82c48bed5770183500db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiempoInicial: 15
-  textoCuentaRegresiva: {fileID: 976964627}
-  scene: EsquivasTodo
-  transitionAnimator: {fileID: 142209110}
-  musicSource: {fileID: 280916547}
-  fadeOutDuration: 1
 --- !u!114 &976964627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5932,6 +5914,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976964624}
   m_CullTransparentMesh: 1
+--- !u!114 &976964629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976964624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9893f5403aa4c2479da18ff539795fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoInicial: 15
+  tiempoRestante: 0
+  textoCuentaRegresiva: {fileID: 976964627}
+  life0: {fileID: 0}
+  life1: {fileID: 0}
+  life2: {fileID: 0}
+  scene: EsquivasTodo
+  destroyTrash: 0
+  counter: {fileID: 0}
+  transitionAnimator: {fileID: 142209110}
+  musicSource: {fileID: 280916547}
+  fadeOutDuration: 1
 --- !u!1 &979512544
 GameObject:
   m_ObjectHideFlags: 0

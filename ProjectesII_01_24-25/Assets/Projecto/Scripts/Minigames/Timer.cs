@@ -9,9 +9,7 @@ public class Timer : MonoBehaviour
     public int tiempoRestante; 
     private float tiempoTranscurrido; 
     public TextMeshProUGUI textoCuentaRegresiva;
-    public GameObject life0; 
-    public GameObject life1;
-    public GameObject life2;
+  
     public string scene; 
     public bool destroyTrash = false; 
     public GameManagercounter counter; 
