@@ -27,9 +27,6 @@ public class Advices : MonoBehaviour
 
         PlayerPrefs.SetInt("anteriorAdvice", randomValue);
         PlayerPrefs.Save();
-
-        //Debug.Log($"Anterior: {anterior}, Nuevo: {randomValue}");
-
         string idiomaActual = LocalizationSettings.SelectedLocale.Identifier.Code;
 
 

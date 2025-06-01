@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 public class Deletealldata : MonoBehaviour
 {
     public int MainMenuScene = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -23,7 +22,7 @@ public class Deletealldata : MonoBehaviour
         PlayerPrefs.SetInt("finished", 1);
         PlayerPrefs.SetInt("LastScene", 0);
         PlayerPrefs.Save();
-        Debug.Log("Todos los PlayerPrefs han sido borrados.");
+        Debug.Log("All prefabs has been eliminated.");
         SceneManager.LoadScene(MainMenuScene);
     }
 }

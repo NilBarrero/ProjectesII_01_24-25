@@ -6,17 +6,21 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
-    [SerializeField] private GameObject[] objetosConLogica;  // List of objects you want to deactivate/reactivate
+    [SerializeField] private GameObject[] objetosConLogica;
     private CanvasGroup canvasGroup;
     private bool menuActivo = false;
     public static bool storySelectorActive = false;
 
     private void Start()
     {
-        canvasGroup = menuPausa.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
+        if (menuPausa != null)
         {
-            Debug.LogError("No se encontró un CanvasGroup en el menú de pausa.");
+
+            canvasGroup = menuPausa.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+            {
+                Debug.LogError("Couldn't find a CanvasGroup in the pause menu");
+            }
         }
     }
 
@@ -27,21 +31,19 @@ public class PauseMenu : MonoBehaviour
         menuPausa.SetActive(true);
         menuActivo = true;
 
-        // Deactivate objects with logic
         foreach (var obj in objetosConLogica)
         {
             if (obj != null)
             {
-                Debug.Log("Desactivando: " + obj.name);
+                Debug.Log("Deactivating: " + obj.name);
                 obj.SetActive(false);
             }
             else
             {
-                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica.");
+                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica. Found null object in ObjectsWithLogic");
             }
         }
 
-        // Activate interaction in the menu
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
     }
@@ -70,39 +72,34 @@ public class PauseMenu : MonoBehaviour
 
     private IEnumerator ReanudarJuego()
     {
-        // Wait until the mouse button is released
         while (Input.GetMouseButton(0))
         {
             yield return null;
         }
 
-        // Resume the game
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
         menuActivo = false;
 
-        // Deactivate menu interaction
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
 
-        // Wait 200 milliseconds before reactivating objects with logic
         yield return new WaitForSecondsRealtime(0.2f);
 
         foreach (var obj in objetosConLogica)
         {
             if (obj != null)
             {
-                Debug.Log("Reactivando: " + obj.name);
+                Debug.Log("Reactivating: " + obj.name);
                 obj.SetActive(true);
             }
             else
             {
-                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica al reactivar.");
+                Debug.LogWarning("Se encontró un objeto nulo en objetosConLogica al reactivar. Found a null object in objectsWithLogic when reactivating");
             }
         }
 
-        // Additional check after one second
         StartCoroutine(ForzarActivacion());
     }
 
@@ -113,7 +110,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (obj != null && !obj.activeSelf)
             {
-                Debug.Log("Forzando activación de: " + obj.name);
+                Debug.Log("Forcing activation of: " + obj.name);
                 obj.SetActive(true);
             }
         }

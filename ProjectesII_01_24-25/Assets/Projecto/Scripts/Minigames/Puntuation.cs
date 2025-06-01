@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; // Reference to the TextMeshPro component
+    public TextMeshProUGUI scoreText; 
 
     void Start()
     {
@@ -15,13 +15,11 @@ public class ScoreDisplay : MonoBehaviour
             return;
         }
 
-        // Display the initial score
         UpdateScoreText();
     }
 
     void Update()
     {
-        // Update the text if the score changes
         UpdateScoreText();
     }
 

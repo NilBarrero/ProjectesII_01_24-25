@@ -8,12 +8,12 @@ public class MinigameSelector : MonoBehaviour
     public string sceneName;
     public Button button;
     public GameObject pauseMenu;
-    public Animator transitionAnimator; // Animator for the transition animation
-    public AudioSource musicSource; // Audio source for background music
-    public AudioSource buttonAudioSource; // Audio source for button sound
-    public AudioClip buttonClip; // Sound clip for the button
-    public float transitionTime = 1f; // Transition duration
-    public float musicFadeDuration = 1f; // Music fade-out duration
+    public Animator transitionAnimator;
+    public AudioSource musicSource;
+    public AudioSource buttonAudioSource;
+    public AudioClip buttonClip;
+    public float transitionTime = 1f;
+    public float musicFadeDuration = 1f;
 
     private void Start()
     {
@@ -29,7 +29,6 @@ public class MinigameSelector : MonoBehaviour
 
     public void ChangeScene()
     {
-        // Check if the button color is not black
         if (button != null && button.image.color != Color.black)
         {
             if (!string.IsNullOrEmpty(sceneName))
@@ -41,7 +40,6 @@ public class MinigameSelector : MonoBehaviour
                     pauseMenu.SetActive(false);
                 }
 
-                // Play button sound
                 if (buttonAudioSource != null && buttonClip != null)
                 {
                     buttonAudioSource.PlayOneShot(buttonClip);
@@ -68,7 +66,6 @@ public class MinigameSelector : MonoBehaviour
             StartCoroutine(FadeOutMusic());
         }
 
-        // Wait for the longer of the transition or fade-out times
         float waitTime = Mathf.Max(transitionTime, musicFadeDuration);
         yield return new WaitForSeconds(waitTime);
 

@@ -9,11 +9,11 @@ public class GameManagercounter : MonoBehaviour
     public string scene1;
     public string scene2;
     public string scene3;
-    public Animator transitionAnimator;  // Reference to the Animator for the transition animation
-    public AudioSource musicSource;      // Reference to the music source
-    public float fadeOutDuration = 1f;   // Duration of the fade-out for the music
+    public Animator transitionAnimator;  
+    public AudioSource musicSource;      
+    public float fadeOutDuration = 1f;   
     public bool dontKillCertainNumOfEnemies = false;
-    public Timer timer;                  // Reference to the Timer script
+    public Timer timer;                  
     private int numOfScene;
 
     private void Update()
@@ -38,12 +38,11 @@ public class GameManagercounter : MonoBehaviour
     public void IncrementClickCount()
     {
         clickCount++;
-        Debug.Log("Clicks: " + clickCount); // Logs the click count to the console
+        Debug.Log("Clicks: " + clickCount); 
     }
 
     private IEnumerator TransitionToScene(string sceneName)
     {
-        // Start the transition animation
         if (transitionAnimator != null)
         {
             transitionAnimator.SetTrigger("StartTransition");
@@ -62,7 +61,6 @@ public class GameManagercounter : MonoBehaviour
                 yield return null;
             }
 
-            // Ensure the final volume is 0
             musicSource.volume = 0f;
         }
 
@@ -72,10 +70,8 @@ public class GameManagercounter : MonoBehaviour
             yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
 
-        // **Reset the cursor before changing the scene**
         UnityEngine.Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
-        // Load the new scene
         SceneManager.LoadScene(sceneName);
     }
 }

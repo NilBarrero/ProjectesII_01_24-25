@@ -10,7 +10,6 @@ public class CountingEndings : MonoBehaviour
     public int startingNumber;
     public int numberOfEndings;
     public int endings;
-    // Start is called before the first frame update
     void Start()
     {
         for (; startingNumber < (maxNumber+1); startingNumber++)
@@ -30,7 +29,7 @@ public class CountingEndings : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

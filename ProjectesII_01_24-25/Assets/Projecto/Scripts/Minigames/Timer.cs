@@ -5,45 +5,41 @@ using System.Collections;
 
 public class Timer : MonoBehaviour
 {
-    public int tiempoInicial = 30; // Initial time in seconds
-    public int tiempoRestante; // Remaining time
-    private float tiempoTranscurrido; // Real-time timer
-    public TextMeshProUGUI textoCuentaRegresiva; // Reference to the TextMeshPro text to display the countdown
-    public GameObject life0; // Reference to the life objects
-    public GameObject life1;
-    public GameObject life2;
-    public string scene; // Scene to transition to when the timer reaches 0
-    public bool destroyTrash = false; // Flag for destroying trash (possibly some game object)
-    public GameManagercounter counter; // Reference to a game manager counter script
+    public int tiempoInicial = 30; //secons
+    public int tiempoRestante; 
+    private float tiempoTranscurrido; 
+    public TextMeshProUGUI textoCuentaRegresiva;
+  
+    public string scene; 
+    public bool destroyTrash = false; 
+    public GameManagercounter counter; 
 
     // Variables for animation and music
-    public Animator transitionAnimator;  // Reference to the Animator for the transition animation
-    public AudioSource musicSource;      // Reference to the music source
-    public float fadeOutDuration = 1f;   // Duration for fading out the music
+    public Animator transitionAnimator;  
+    public AudioSource musicSource;      
+    public float fadeOutDuration = 1f;   
 
     void Start()
     {
-        tiempoRestante = tiempoInicial; // Set the remaining time to the initial value
-        tiempoTranscurrido = 0f; // Initialize the timer
-        ActualizarTexto(); // Update the countdown text at the start
+        tiempoRestante = tiempoInicial; 
+        tiempoTranscurrido = 0f; 
+        ActualizarTexto(); 
     }
 
     void Update()
     {
-        // Only subtract when 1 second has passed
         if (tiempoRestante > 0)
         {
-            tiempoTranscurrido += Time.deltaTime; // Increase the counter with the time of the last frame
+            tiempoTranscurrido += Time.deltaTime; 
 
-            if (tiempoTranscurrido >= 1f) // If 1 real second has passed
+            if (tiempoTranscurrido >= 1f) 
             {
-                tiempoRestante--; // Subtract 1 second
-                tiempoTranscurrido = 0f; // Reset the timer
-                ActualizarTexto(); // Update the text
+                tiempoRestante--; 
+                tiempoTranscurrido = 0f; 
+                ActualizarTexto(); 
             }
         }
 
-        // Change the text color based on the remaining time
         if (tiempoRestante > 7)
         {
             textoCuentaRegresiva.color = Color.green;
@@ -59,16 +55,14 @@ public class Timer : MonoBehaviour
 
         if (tiempoRestante == 0)
         {
-            StartCoroutine(TransitionToScene()); // Start the scene transition when the timer reaches 0
+            StartCoroutine(TransitionToScene()); 
         }
     }
 
     private IEnumerator TransitionToScene()
     {
-        // Start the transition animation
-        transitionAnimator.SetTrigger("StartTransition"); // Make sure you have a trigger named "StartTransition" in your Animator
+        transitionAnimator.SetTrigger("StartTransition"); 
 
-        // Fade out the music
         float startVolume = musicSource.volume;
         float timeElapsed = 0f;
 
@@ -79,19 +73,15 @@ public class Timer : MonoBehaviour
             yield return null;
         }
 
-        // Ensure the final volume is 0
         musicSource.volume = 0f;
 
-        // Wait for the animation time before changing scenes
         yield return new WaitForSeconds(transitionAnimator.GetCurrentAnimatorStateInfo(0).length);
 
-        // Load the new scene
         SceneManager.LoadScene(scene);
     }
 
     void ActualizarTexto()
     {
-        // Update the countdown text on the UI using TextMeshPro
         textoCuentaRegresiva.text = tiempoRestante.ToString() + " s";
     }
 }

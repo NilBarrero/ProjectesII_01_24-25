@@ -1203,10 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &256101439
@@ -1472,10 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &305023046
@@ -2273,10 +2267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &641877971
@@ -7461,7 +7452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &733736511
+--- !u!114 &733736512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7470,12 +7461,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 733736509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e91db1180f82c48bed5770183500db, type: 3}
+  m_Script: {fileID: 11500000, guid: c9893f5403aa4c2479da18ff539795fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoInicial: 15
+  tiempoRestante: 0
   textoCuentaRegresiva: {fileID: 733736510}
   scene: No has huido 1
+  destroyTrash: 0
+  counter: {fileID: 0}
   transitionAnimator: {fileID: 1480385518}
   musicSource: {fileID: 208198507}
   fadeOutDuration: 1
@@ -8035,10 +8029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &786990279
@@ -8275,10 +8266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &817551217
@@ -8742,10 +8730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &895119198
@@ -8941,10 +8926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &903208839
@@ -9290,7 +9272,7 @@ PrefabInstance:
       addedObject: {fileID: 933888144}
     - targetCorrespondingSourceObject: {fileID: 5498487891245028653, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 733736511}
+      addedObject: {fileID: 733736512}
   m_SourcePrefab: {fileID: 100100000, guid: 0cc51a633c2cf7b45a6b69bfbb59695c, type: 3}
 --- !u!1 &933888142 stripped
 GameObject:
@@ -9854,10 +9836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &990617127
@@ -10277,10 +10256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1175752661
@@ -10491,10 +10467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1192758708
@@ -10896,10 +10869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1240539383
@@ -11244,10 +11214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1251265438
@@ -11809,10 +11776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1406292571
@@ -12177,10 +12141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1431959871
@@ -12876,10 +12837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1470601475
@@ -13314,10 +13272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1545476853
@@ -13750,10 +13705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5849028f81362c64c92057845a4e745f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateDialogue: {fileID: 0}
-  dialogueinactive: {fileID: 0}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  particles: {fileID: 0}
   customCursor: {fileID: 0}
   cursorHotspot: {x: 16, y: 16}
 --- !u!114 &1657102890
@@ -15245,10 +15197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef424137c5847c45ac1a15decb87338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 0.11
+  velocity: 1
   velAccelerate: 5.5
   time: 1
-  huirMinigame: 0
+  fleeMinigame: 0
   pressed: {fileID: 162882503}
 --- !u!212 &2117763463
 SpriteRenderer:

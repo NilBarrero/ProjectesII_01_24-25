@@ -19,8 +19,7 @@ public class Controller : MonoBehaviour
     public AudioSource musicSource;
     public float fadeOutDuration = 1f;
 
-    // Reference to the AudioSource for the movement sound
-    public AudioSource movementAudioSource; // Now it's just an AudioSource, not an AudioClip
+    public AudioSource movementAudioSource; 
 
     void Start()
     {
@@ -34,7 +33,6 @@ public class Controller : MonoBehaviour
             Debug.LogError("The ship is not assigned.");
         }
 
-        // Make sure the movement AudioSource is set up
         if (movementAudioSource == null)
         {
             Debug.LogError("The movement AudioSource is not assigned.");
@@ -71,7 +69,6 @@ public class Controller : MonoBehaviour
     {
         transform.position = targetPosition;
 
-        // Play the movement sound every time the object moves
         if (movementAudioSource != null)
         {
             movementAudioSource.Play();
